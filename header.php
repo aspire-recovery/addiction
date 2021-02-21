@@ -39,30 +39,16 @@
                     <li class="nav-item @@causes__active">
                         <a class="nav-link" href="causes.php">Causes</a>
                     </li>
-                    <li class="nav-item active">
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.php">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.php">Register</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="contact.php">Contact</a>
                     </li>
                     <li class="ml-lg-auto mr-lg-0 m-auto">
-                        <!--/search-right-->
-                        <div class="search-right">
-                            <a href="#search" title="search"><span class="fa fa-search" aria-hidden="true"></span></a>
-                            <!-- search popup -->
-                            <div id="search" class="pop-overlay">
-                                <div class="popup">
-                                    <h4 class="mb-3">Search here</h4>
-                                    <form action="error.html" method="GET" class="search-box">
-                                        <input type="search" placeholder="Enter Keyword" name="search"
-                                               required="required"
-                                               autofocus="">
-                                        <button type="submit" class="btn btn-style btn-primary">Search</button>
-                                    </form>
-
-                                </div>
-                                <a class="close" href="#close">×</a>
-                            </div>
-                            <!-- /search popup -->
-                        </div>
-                        <!--//search-right-->
                     </li>
                     <li class="align-self">
                         <a href="donate.html" class="btn btn-style btn-primary ml-lg-3 mr-lg-2"><span

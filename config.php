@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "aspire";
+$dbname = "addiction";
 
 //session_start ();
 // Create connection
