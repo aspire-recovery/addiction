@@ -13,7 +13,7 @@ $mail->Host = 'smtp.gmail.com';  //Sets the SMTP hosts of your Email hosting, th
 $mail->Port = '587';        //Sets the default SMTP server port
 $mail->SMTPAuth = true;       //Sets SMTP authentication. Utilizes the Username and Password variables
 $mail->Username = 'aspirerecovery173@gmail.com';     //Sets SMTP username
-$mail->Password = '@S3770k3g';     //Sets SMTP password
+$mail->Password = 'H79psGH7';     //Sets SMTP password
 $mail->SMTPSecure = 'STARTTLS';       //Sets connection prefix. Options are "", "ssl" or "tls"
 
 $mail->From = 'aspirerecovery173@gmail.com';   //Sets the From email address for the message
