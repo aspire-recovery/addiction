@@ -23,7 +23,7 @@ $result = $conn->query($insert_sql);
 
 if ($result) {
     echo 'Data Inserted';
-    echo '<script>window.location.href="login.php"</script>';
+    echo '<script>window.location.href="index.php"</script>';
 } else {
     echo 'Error Occured';
     echo '<script>window.location.href="register.php"</script>';

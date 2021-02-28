@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
         header('Location:index.php');
     } else {
         echo '<script>alert("Invalid Email and Password");</script>';
-        echo '<script>window.location.href="login.php";</script>';
+        echo '<script>window.location.href="index.php";</script>';
     }
 }
 ?>
