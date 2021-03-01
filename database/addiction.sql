@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 5.0.4
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 19, 2021 at 06:37 PM
--- Server version: 10.1.9-MariaDB
--- PHP Version: 5.6.15
+-- Generation Time: Mar 01, 2021 at 06:03 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 7.4.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -65,7 +66,7 @@ CREATE TABLE `cart` (
 
 CREATE TABLE `forum` (
   `fu_id` int(5) NOT NULL,
-  `fu_title` varchar(100) NOT NULL,
+  `fu_caption` varchar(100) NOT NULL,
   `post_path` varchar(200) NOT NULL,
   `psy_id` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -93,7 +94,7 @@ CREATE TABLE `order` (
   `order_id` int(5) NOT NULL,
   `u_id` int(5) NOT NULL,
   `total` int(7) NOT NULL,
-  `order_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `order_time` datetime NOT NULL DEFAULT current_timestamp(),
   `cart_id` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -124,11 +125,10 @@ CREATE TABLE `product` (
   `p_id` int(5) NOT NULL,
   `p_name` varchar(30) NOT NULL,
   `p_price` int(10) NOT NULL,
-  `p_category` int(5) NOT NULL,
+  `pdt_category` int(5) NOT NULL,
   `p_quantity` int(5) NOT NULL,
   `p_description` varchar(200) NOT NULL,
-  `p_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `p_updated` varchar(10) NOT NULL,
+  `p_created` datetime NOT NULL DEFAULT current_timestamp(),
   `p_image` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -169,11 +169,18 @@ CREATE TABLE `user` (
   `u_name` varchar(30) NOT NULL,
   `u_contact` varchar(10) NOT NULL,
   `u_email` varchar(50) NOT NULL,
-  `u_status` tinyint(1) DEFAULT NULL,
-  `u_gender` tinyint(1) NOT NULL,
-  `r_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `u_password` int(100) NOT NULL
+  `u_status` int(2) DEFAULT NULL,
+  `u_gender` varchar(10) NOT NULL,
+  `r_date` datetime NOT NULL DEFAULT current_timestamp(),
+  `u_password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`u_id`, `addiction_id`, `u_name`, `u_contact`, `u_email`, `u_status`, `u_gender`, `r_date`, `u_password`) VALUES
+(1, 0, 'Alok Rathava', '9512334819', 'alokrathava@gmail.com', 0, 'male', '2021-03-01 22:17:30', '21232f297a57a5a743894a0e4a801fc3');
 
 --
 -- Indexes for dumped tables
@@ -254,56 +261,68 @@ ALTER TABLE `user`
 --
 ALTER TABLE `addiction_types`
   MODIFY `add_id` int(5) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
   MODIFY `a_id` int(5) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
   MODIFY `cart_id` int(5) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `forum`
 --
 ALTER TABLE `forum`
   MODIFY `fu_id` int(5) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `forum_reply`
 --
 ALTER TABLE `forum_reply`
   MODIFY `reply_id` int(5) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
   MODIFY `order_id` int(5) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `physcho`
 --
 ALTER TABLE `physcho`
   MODIFY `psy_id` int(5) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
   MODIFY `p_id` int(5) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `product_categories`
 --
 ALTER TABLE `product_categories`
   MODIFY `pdt_id` int(5) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
   MODIFY `t_id` int(5) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `u_id` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `u_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
