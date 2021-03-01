@@ -88,7 +88,7 @@ include "header.php";
                         <br>
                         <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
                             <select name="addiction" class="form-control" style="margin-top: 10px">
-                                <option style="width: 40%" value="">Select Addiction...</option>
+                                <option style="width: 40%" value="dummy">Select Addiction...</option>
                                 <?php
                                 $addiction_sql = "SELECT add_id,add_name FROM `addiction_types`";
                                 $result = $conn->query($addiction_sql);
