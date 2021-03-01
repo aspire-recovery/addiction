@@ -13,11 +13,14 @@ $gender = $_SESSION["gender"];
 $addiction = $_SESSION["addiction"];
 $status = 0;
 
-echo $otp, $name, $email, $password, $phone, $gender, $addiction;
+
+$encrypted_pass = md5($password);
 
 //Query
 $insert_sql = "INSERT INTO `user`(`addiction_id`, `u_name`, `u_contact`, `u_email`, `u_status`, `u_gender`,`u_password`) VALUES 
-                ('$addiction','$name','$phone','$email','$status','$gender','$password')";
+                ('$addiction','$name','$phone','$email','$status','$gender','$encrypted_pass')";
+
+echo $insert_sql;
 
 $result = $conn->query($insert_sql);
 

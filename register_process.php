@@ -15,13 +15,13 @@ echo $name, $email, $password, $phone, $gender, $addiction;
 
 // OTP Generation
 $otp = rand(000000, 999999);
-$_SESSION["OTP"] = $otp;
-$_SESSION["name"] = $name;
-$_SESSION["email"] = $email;
-$_SESSION["password"] = $password;
-$_SESSION["phone"] = $phone;
-$_SESSION["gender"] = $gender;
-$_SESSION["addiction"] = $addiction;
+echo $_SESSION["OTP"] = $otp;
+echo $_SESSION["name"] = $name;
+echo $_SESSION["email"] = $email;
+echo $_SESSION["password"] = $password;
+echo $_SESSION["phone"] = $phone;
+echo $_SESSION["gender"] = $gender;
+echo $_SESSION["addiction"] = $addiction;
 
 
 // Sending Otp Through Mail

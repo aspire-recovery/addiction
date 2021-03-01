@@ -7,11 +7,10 @@ if (isset($_POST['submit'])) {
 //Data Fetch
     $email = $_POST['email'];
     $password = $_POST['password'];
-
-    echo $email, $password;
+    $encrypted_pass = md5($password);
 
 //Query
-    $login_sql = "SELECT * FROM `user` WHERE u_email='$email' AND u_password'$password'";
+    $login_sql = "SELECT * FROM `user` WHERE u_email='$email' AND u_password = '$encrypted_pass'";
     echo $login_sql;
 
     $result = $conn->query($login_sql);
@@ -27,7 +26,7 @@ if (isset($_POST['submit'])) {
         $_SESSION['u_email'] = $u_email;
         $_SESSION['u_name'] = $u_name;
 
-        header('Location:login.php');
+        header('Location:index.php');
     } else {
         echo '<script>alert("Invalid Email and Password");</script>';
         echo '<script>window.location.href="login.php";</script>';
