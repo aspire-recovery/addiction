@@ -95,6 +95,8 @@
         </svg>
     </div>
 </div>
+
+
 <!-- //banner image bottom shape -->
 <!-- home page block1 -->
 <section class="homeblock1">
@@ -107,30 +109,39 @@
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12 mt-md-0 mt-sm-4 mt-3">
                 <div class="box-wrap">
-                    <h4><a href="#team">Top Founders</a></h4>
+                    <h4><a href="#team">Top Phychatris</a></h4>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12 mt-lg-0 mt-sm-4 mt-3">
                 <div class="box-wrap">
-                    <h4><a href="contact.php">Requst a Quote</a></h4>
+                    <h4><a href="contact.php">Motivate YourSelf</a></h4>
                 </div>
             </div>
         </div>
     </div>
 </section>
 <!-- //home page block1 -->
-<!-- middle -->
-	<div class="middle py-5" id="facts">
-		<div class="container pt-lg-3">
-			<div class="welcome-left text-center py-md-5 py-3">
-                <h3 class="title-big">Over 93% of all Donations go directly to Projects.</h3>
-                <p class="my-3">Under 7% for admin, fundraising, and salaries.</p>
-                <h4>Thank you for your continued Support </h4>
-				<a href="#donate" class="btn btn-style btn-primary mt-sm-5 mt-4"><span class="fa fa-heart mr-1"></span> Donate Now</a>
-			</div>
-		</div>
-	</div>
-	<!-- //middle -->
+<!-- what we do -->
+
+<!-- //what we do -->
+<!-- /content-6-main-->
+<div class="content-6-mian py-5 ">
+    <div class="container py-lg-5">
+        <div class="title-content text-left mb-4 ">
+            <h3 style="text-align: center" class="vc_custom_heading white-text vc_custom_1579949523563">Find and Engage New People Actively Searching for an<br>
+                Addiction Treatment Center in Your Area</h3>
+        </div>
+        <p> When people are faced with the decision to enter an addiction treatment center, they usually find a
+            rehab in one of three places: a recommendation from their lawyer or court, friends or family, or
+            the internet. And since the internet has become a central hub of information, when people have an
+            issue that they need to solve then they tend to bypass those first two options and go straight to
+            their computer to find the answer. That’s why your addiction treatment facility needs to have a
+            strong presence to connect you to the people who need you the most. But if you don’t know where
+            to start, then that’s where our addiction treatment web design experts can step in and build you
+            an engaging, eye-catching website that easily converts web users into patients. </p>
+    </div>
+    </section>
+    <!-- //content-6-->
 
 <!-- /bottom-grids-->
 <section class="w3l-bottom-grids-6 py-5">
@@ -167,8 +178,8 @@
 <!-- stats -->
 <section class="w3_stats py-5" id="stats">
     <div class="container py-lg-5 py-md-4 py-2">
-        <div class="title-content text-center">
-            <h3 class="title-big">Our mission is to help people by distributing Money and Service globally.</h3>
+        <div class=" text-center">
+            <h3 class="title-big">Through patient-centered care, community partnerships, and advocacy for effective public policy,&nbsp <span> <u>ASPIRE </u>  </span> &nbsp is dedicated to treating people whose health and quality of life are compromised by different kind of addiction's</h3>
         </div>
         <div class="w3-stats text-center">
             <div class="row">
@@ -176,21 +187,21 @@
                     <div class="counter">
                         <span class="fa fa-users"></span>
                         <div class="timer count-title count-number mt-3" data-to="1500" data-speed="1500"></div>
-                        <p class="count-text ">Total Volunteers</p>
+                        <p class="count-text ">Total Patient Recover</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-6">
                     <div class="counter">
                         <span class="fa fa-cutlery"></span>
                         <div class="timer count-title count-number mt-3" data-to="2256" data-speed="1500"></div>
-                        <p class="count-text ">Meals Served</p>
+                        <p class="count-text ">Active User</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-6">
                     <div class="counter">
                         <span class="fa fa-home"></span>
                         <div class="timer count-title count-number mt-3" data-to="1000" data-speed="1500"></div>
-                        <p class="count-text ">Got Shelter</p>
+                        <p class="count-text ">Addiction Types</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-6">
@@ -204,6 +215,40 @@
         </div>
     </div>
 </section>
+
+    <section class="page-builder-section two-col-text mx-auto">
+        <div class="container">
+            <div class="row">
+
+
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-md-6 text-padding generic-wrapper">
+                            <h2 style="color: orangered">What we do</h2> <br>
+                            <p>ASPIRE, a treatment provider for different kind's of addict', is the Newest opioid addiction treatment program in Internet. We help people start and sustain their journey to recovery. We offer hope and healing.</p><br>
+                            <h3 style="color: orangered">We believe in quality care that may include medicine</h3> <br>
+                            <p>We know that patients are most likely to succeed in recovery when they receive multidisciplinary care. That includes a supportive community as well as behavioral health and medication. We believe in a medical approach that includes the use of medications such as methadone and buprenorphine/naloxone (often called Suboxone®), in combination with case management, individual, and group therapy.</p><br>
+                             </div>
+                        <div class="col-md-6 text-padding generic-wrapper">
+                            <h2 style="color: orangered">Who we treat</h2> <br>
+                            <h3>We accept patients who:</h3><br>
+                            <ul>
+                                <li>Are new to recovery</li>
+                                <li>Have tried recovery before and relapsed</li>
+                                <li>Are struggling with multiple substances</li>
+                                <li>Want to explore using medications, such as buprenorphine/naloxone, often called Suboxone®</li>
+                                <li>Are struggling to maintain their jobs, relationships, and housing</li>
+                                <li>Need our help in establishing a safe, stable support network</li>
+                                <li>Are fighting with multiple addictions</li>
+                            </ul>
+                            <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 <!-- //stats -->
 <!-- bg -->
 <div class="w3l-bg py-5">
@@ -346,35 +391,6 @@
     </div>
 </section>
 
-<section class="w3l-clients py-5" id="clients">
-    <div class="call-w3 py-lg-5 py-md-4">
-        <div class="container">
-            <h3 class="title-big text-center">Whom we work with</h3>
-            <div class="company-logos text-center mt-5">
-                <div class="row logos">
-                    <div class="col-lg-2 col-md-3 col-4">
-                        <img src="assets/images/brand1.png" alt="" class="img-fluid">
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-4">
-                        <img src="assets/images/brand2.png" alt="" class="img-fluid">
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-4">
-                        <img src="assets/images/brand3.png" alt="" class="img-fluid">
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-4 mt-md-0 mt-4">
-                        <img src="assets/images/brand4.png" alt="" class="img-fluid">
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-4 mt-lg-0 mt-4">
-                        <img src="assets/images/brand5.png" alt="" class="img-fluid">
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-4 mt-lg-0 mt-4">
-                        <img src="assets/images/brand6.png" alt="" class="img-fluid">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 <!-- footer 14 -->
 <div class="w3l-footer-main">
   <div class="w3l-sub-footer-content">

@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
     echo $email, $password;
 
 //Query
-    $login_sql = "SELECT * FROM `user` WHERE u_email='$email' AND u_password'$password'";
+    $login_sql = "SELECT * FROM `physcho` WHERE psy_email='$email' AND psy_password'$password'";
     echo $login_sql;
 
     $result = $conn->query($login_sql);

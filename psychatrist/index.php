@@ -93,7 +93,7 @@ include "header.php";
 	<!-- //banner-slider-->
 	<!-- /content-6-->
 	<section class="w3l-content-6">
-		<!-- /content-6-main-->
+	<!-- /content-6-main-->
 		<div class="content-6-mian py-5 ">
 			<div class="container py-lg-5">
 				<div class="title-content text-left mb-4 ">

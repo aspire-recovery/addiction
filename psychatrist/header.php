@@ -53,10 +53,10 @@
                         <a class="nav-link" href="contact.html">Contact</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Login.php">Login</a>
+                        <a class="nav-link" href="login.php">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="Sigup.php">Sign-in</a>
+                        <a class="nav-link" href="registration.php">Sign-in</a>
                     </li>
                 </ul>
                 <!--/search-right-->
