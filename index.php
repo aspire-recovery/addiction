@@ -10,6 +10,7 @@
     <link href="//fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
     
     <!-- Template CSS -->
+      <link rel="stylesheet" href="psychatrist/assets/css/style-starter.css">
     <link rel="stylesheet" href="assets/css/style-starter.css">
   </head>
   <body>
@@ -17,6 +18,7 @@
 <?php
     include "header.php";
 ?>
+
 <!-- //header -->
 <!-- main-slider -->
 <section class="w3l-main-slider" id="home">
@@ -28,9 +30,9 @@
                         <div class="banner-info">
                             <div class="container">
                                 <div class="banner-info-bg text-left">
-                                    <p>Charity Life</p>
-                                    <h5>Charity, Faith and Hope. Help the Homeless. Charity life.</h5>
-                                    <a href="about.php" class="btn btn-primary btn-style">Read More</a>
+                                    <p>Being Sober</p>
+                                    <h5>Start Where you are.<br>Use What  You Have.<br>Do What You Can </h5>
+                                    <a href="about.php" class="btn btn-primary btn-style">Start Now</a>
                                 </div>
                             </div>
                         </div>
@@ -43,9 +45,9 @@
                         <div class="banner-info">
                             <div class="container">
                                 <div class="banner-info-bg text-left">
-                                    <p>Save Children</p>
-                                    <h5>Donate with Kindness. Every amount Donated by you Counts.</h5>
-                                    <a href="about.php" class="btn btn-primary btn-style">Read More</a>
+                                    <p>Acheive High</p>
+                                    <h5>Dont be Pushed By Your Problems.<br>Be led by Your Dreams.</h5>
+                                    <a href="about.php" class="btn btn-primary btn-style">Start Now</a>
                                 </div>
                             </div>
                         </div>
@@ -58,9 +60,9 @@
                         <div class="banner-info">
                             <div class="container">
                                 <div class="banner-info-bg text-left">
-                                    <p>Unconditional Help</p>
-                                    <h5>Give a Helping hand. We all need to come together. Our Mission.</h5>
-                                    <a href="about.php" class="btn btn-primary btn-style">Read More</a>
+                                    <p>Recovery For Life</p>
+                                    <h5>Experience,Trust and <br> Proven Success</h5>
+                                    <a href="about.php" class="btn btn-primary btn-style">Start Now</a>
                                 </div>
                             </div>
                         </div>
@@ -73,9 +75,9 @@
                         <div class="banner-info">
                             <div class="container">
                                 <div class="banner-info-bg text-left">
-                                    <p>Unconditional Help</p>
-                                    <h5>Should Children suffer this way? Don't leave Orphans alone</h5>
-                                    <a href="about.php" class="btn btn-primary btn-style">Read More</a>
+                                    <p>Care For Your Body</p>
+                                    <h5>Get All The Helpful<br>Advice For Better<br>Tommorow</h5>
+                                    <a href="about.php" class="btn btn-primary btn-style">Start Now</a>
                                 </div>
                             </div>
                         </div>
@@ -109,12 +111,12 @@
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12 mt-md-0 mt-sm-4 mt-3">
                 <div class="box-wrap">
-                    <h4><a href="#team">Top Phychatris</a></h4>
+                    <h4><a href="#team">Top Pshychatris</a></h4>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12 mt-lg-0 mt-sm-4 mt-3">
                 <div class="box-wrap">
-                    <h4><a href="contact.php">Motivate YourSelf</a></h4>
+                    <h4><a href="#addictionid">Addction Types</a></h4>
                 </div>
             </div>
         </div>
@@ -125,7 +127,7 @@
 
 <!-- //what we do -->
 <!-- /content-6-main-->
-<div class="content-6-mian py-5 ">
+    <div class="content-6-mian py-5 ">
     <div class="container py-lg-5">
         <div class="title-content text-left mb-4 ">
             <h3 style="text-align: center" class="vc_custom_heading white-text vc_custom_1579949523563">Find and Engage New People Actively Searching for an<br>
@@ -143,38 +145,7 @@
     </section>
     <!-- //content-6-->
 
-<!-- /bottom-grids-->
-<section class="w3l-bottom-grids-6 py-5">
-    <div class="container py-lg-5 py-md-4 py-2">
-        <div class="grids-area-hny main-cont-wthree-fea row">
-            <div class="col-lg-4 col-md-6 grids-feature">
-                <div class="area-box">
-                    <img src="assets/images/donate.png" alt="">
-                    <h4><a href="#feature" class="title-head">Give Donation.</a></h4>
-                    <p class="mb-3">Vivamus a ligula quam. Ut blandit eu leo non. Duis sed dolor amet ipsum primis in faucibus orci dolor sit et amet.</p>
-                    <a href="#donate" class="btn btn-text">Donate Now </a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 grids-feature mt-md-0 mt-5">
-                <div class="area-box">
-                    <img src="assets/images/volunteer.png" alt="">
-                    <h4><a href="#feature" class="title-head">Become a Volunteer.</a></h4>
-                    <p class="mb-3">Vivamus a ligula quam. Ut blandit eu leo non. Duis sed dolor amet ipsum primis in faucibus orci dolor sit et amet.</p>
-                    <a href="contact.php" class="btn btn-text">Join Now </a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 grids-feature mt-lg-0 mt-5">
-                <div class="area-box">
-                    <img src="assets/images/child.png" alt="" width="52px"> 
-                    <h4><a href="#feature" class="title-head">Help the Children.</a></h4>
-                    <p class="mb-3">Vivamus a ligula quam. Ut blandit eu leo non. Duis sed dolor amet ipsum primis in faucibus orci dolor sit et amet.</p>
-                    <a href="#donate" class="btn btn-text">Help Now </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- //bottom-grids-->
+
 <!-- stats -->
 <section class="w3_stats py-5" id="stats">
     <div class="container py-lg-5 py-md-4 py-2">
@@ -208,7 +179,7 @@
                     <div class="counter">
                         <span class="fa fa-male"></span>
                         <div class="timer count-title count-number mt-3" data-to="260" data-speed="1500"></div>
-                        <p class="count-text ">Adapted Children</p>
+                        <p class="count-text ">psychiatrist</p>
                     </div>
                 </div>
             </div>
@@ -221,7 +192,7 @@
             <div class="row">
 
 
-                <div class="col-12">
+                <div class="col-12" style="padding: 20px">
                     <div class="row">
                         <div class="col-md-6 text-padding generic-wrapper">
                             <h2 style="color: orangered">What we do</h2> <br>
@@ -250,61 +221,6 @@
         </div>
     </section>
 <!-- //stats -->
-<!-- bg -->
-<div class="w3l-bg py-5">
-    <div class="container py-lg-5 py-md-4">
-        <div class="welcome-left text-center py-lg-4">
-            <span class="fa fa-heart-o"></span>
-            <h3 class="title-big">Help the Homeless & Hungry People.</h3>
-            <a href="#donate" class="btn btn-style btn-primary mt-sm-5 mt-4">Donate Now</a>
-        </div>
-    </div>
-</div>
-<!-- //bg -->
-<section class="w3l-index5 py-5" id="causes">
-    <div class="container py-lg-5 py-md-4">
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="header-section">
-                    <h3 class="title-big">Our Charity Causes </h3>
-                    <h4>If you want to work with for Save Poor charity? <a href="#url">Send your Details.</a></h4>
-                    <p class="mt-3 mb-lg-5 mb-4"> Lorem ipsum dolorus animi obcaecati vel ipsum. Vivamus a ligula quam.
-                        Ut blandit eu leo non. Duis sed dolor amet ipsum primis in faucibus orci dolor sit et amet igula quam.</p>
-                </div>
-                <a href="contact.php" class="btn btn-outline-primary btn-style">Contact Us</a>
-            </div>
-            <div class="col-lg-4 col-md-6 mt-lg-0 mt-5">
-                <div class="img-block">
-                    <a href="causes.php">
-                        <img src="assets/images/blog5.jpg" class="img-fluid radius-image-full" alt="image" />
-                        <span class="title">Food for Hungry</span>
-                    </a>
-                </div>
-                <div class="img-block mt-4">
-                    <a href="causes.php"> <img src="assets/images/blog2.jpg" class="img-fluid radius-image-full"
-                                               alt="image" />
-                        <span class="title">Help from Injuries</span>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 mt-lg-0 mt-md-5 mt-4">
-                <div class="img-block">
-                    <a href="causes.php"> <img src="assets/images/blog3.jpg" class="img-fluid radius-image-full"
-                                               alt="image" />
-                        <span class="title">Education for all</span>
-                    </a>
-                </div>
-                <div class="img-block mt-4">
-                    <a href="causes.php">
-                        <img src="assets/images/blog4.jpg" class="img-fluid radius-image-full" alt="image" />
-                        <span class="title">Clean water for all</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <section class="w3-services-ab py-5" id="mission">
     <div class="container py-lg-5 py-md-4">
         <h3 class="title-big text-center mb-5">Our Mission and Goals</h3>
@@ -316,9 +232,9 @@
                             <img src="assets/images/home.png" alt="" class="img-fluid">
                         </div>
                         <div class="icon-info">
-                            <h5>Homeless Charities.</h5>
-                            <p> Lorem ipsum dolor sit amet, dolor elit, sed eiusmod init
-                                tempor primis in init.</p>
+                            <h5>Recovery With Love and Respect</h5>
+                            <p>We treat every client with the love and respect they deserve while helping them every step of the way on their path to recovery in the real world.
+                            </p>
 
                         </div>
                     </div>
@@ -329,9 +245,8 @@
                             <img src="assets/images/education.png" alt="" class="img-fluid">
                         </div>
                         <div class="icon-info">
-                            <h5>Education Charities.</h5>
-                            <p> Lorem ipsum dolor sit amet, dolor elit, sed eiusmod init
-                                tempor primis in init.</p>
+                            <h5>Motivate Our Client To Succeed</h5>
+                            <p> Inspiring and motivating our clients to succeed on their path in Recovery while creating positive connections in their life and improving their work or education and family bonds.</p>
                         </div>
                     </div>
                 </div>
@@ -341,9 +256,8 @@
                             <img src="assets/images/health.png" alt="" class="img-fluid">
                         </div>
                         <div class="icon-info">
-                            <h5>Health Charities.</h5>
-                            <p> Lorem ipsum dolor sit amet, dolor elit, sed eiusmod init
-                                tempor primis in init.</p>
+                            <h5>Connect People Living A Sobor Life</h5>
+                            <p>we want to connect people living a sober life with like-minded individuals through meet-ups, online live streams, and events across the country. </p>
                         </div>
                     </div>
                 </div>
@@ -353,9 +267,9 @@
                             <img src="assets/images/icon1.png" alt="" class="img-fluid">
                         </div>
                         <div class="icon-info">
-                            <h5>Animal Charities.</h5>
-                            <p> Lorem ipsum dolor sit amet, dolor elit, sed eiusmod init
-                                tempor primis in init.</p>
+                            <h5>Provide High Quality,Accessible and Afordable Care</h5>
+                            <p>Provide high quality, accessible and affordable care that is evidence-based and localised to suit our population.
+                            </p>
 
                         </div>
                     </div>
@@ -366,9 +280,9 @@
                             <img src="assets/images/food.png" alt="" class="img-fluid">
                         </div>
                         <div class="icon-info">
-                            <h5>Food Charities.</h5>
-                            <p> Lorem ipsum dolor sit amet, dolor elit, sed eiusmod init
-                                tempor primis in init.</p>
+                            <h5>Reduce stigma and barriers to seeking treatment.
+                            </h5>
+                            <p>  our mission is to provide individualized, supportive, and compassionate care to those who are suffering from an addiction.</p>
 
                         </div>
                     </div>
@@ -379,9 +293,8 @@
                             <img src="assets/images/eco.png" alt="" class="img-fluid">
                         </div>
                         <div class="icon-info">
-                            <h5>Eco Charities.</h5>
-                            <p> Lorem ipsum dolor sit amet, dolor elit, sed eiusmod init
-                                tempor primis in init.</p>
+                            <h5>Heal Spiritually,mentally and pshysically</h5>
+                            <p> Our alcohol rehab and drug rehab center team members believe in treating each client’s underlying core problems to help them heal spiritually, mentally, and physically.</p>
 
                         </div>
                     </div>
@@ -391,31 +304,131 @@
     </div>
 </section>
 
+    <div class="w3l-open-block-services py-5" id="addictionid">
+        <div class="container py-lg-5 pt-4">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="card text-center">
+                        <div class="icon-holder">
+                            <span class="fa fa-signal service-icon" aria-hidden="true"></span>
+                        </div>
+                        <h4 class="mission">ALCOHOLISM</h4>
+                        <div class="open-description">
+                            <p>Alcoholism is a progressive, chronic illness and in many cases can be fatal when the
+                                consumption of alcoholic drinks is out of control. It interferes with physical,
+                                mental, social and/or family health in addition to work responsibilities.</p>
+                            <a href="#read">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-md-0 mt-5 pt-md-0 pt-3">
+                    <div class="card text-center">
+                        <div class="icon-holder">
+                            <span class="fa fa-assistive-listening-systems service-icon" aria-hidden="true"></span>
+                        </div>
+                        <h4 class="mission">COCAINE</h4>
+                        <div class="open-description">
+                            <p>
+                                Cocaine is a drug belonging to the group of psychoactive substances, that is, it
+                                produces a directly stimulating effect to the central nervous system, principally
+                                to the brain. Cocaine tolerance develops quickly, which means that it is highly
+                                addictive.</p>
+                            <a href="#read">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-lg-0 mt-5 pt-lg-0 pt-3">
+                    <div class="card text-center">
+                        <div class="icon-holder">
+                            <span class="fa fa-diamond service-icon" aria-hidden="true"></span>
+                        </div>
+                        <h4 class="mission">TOBACCO</h4>
+                        <div class="open-description">
+                            <p>Smoking is responsible for approximately 15% of deaths in Spain and kills
+                                approximately 200 people every day, of which 166 are men and 40 are women.
+                                Smoking has been linked to numerous diseases. The largest percentage of smokers
+                                is aged 25-39 years of age (40%), followed by those aged 40-59 years old (39%)</p>
+                            <a href="#read">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mt-lg-0 mt-5 pt-lg-0 pt-3">
+                    <div class="card text-center">
+                        <div class="icon-holder">
+                            <span class="fa fa-magic service-icon" aria-hidden="true"></span>
+                        </div>
+                        <h4 class="mission">BEHAVIOURAL</h4>
+                        <div class="open-description">
+                            <p>Eating disorders encompass a number of chronic and progressive diseases,
+                                comprised of a very complex range of symptoms which go beyond behaviour
+                                around food, such as a change or distortion of body image, a fear of weight
+                                gain and acquiring a series of values which are manifested through body
+                                image.</p>
+                            <a href="#read">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--charity causes -->
+        <section class="w3l-index5 py-5" id="causes">
+            <div class="container py-lg-5 py-md-4">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="header-section">
+                            <h3 class="title-big">Our Charity Causes </h3>
+
+                            <p class="mt-3 mb-lg-5 mb-4">We believe anyone can achieve and sustain long-term sobriety and recovery. We strive to instill the tools needed to achieve and sustain a long-term recovery. we want you to know that achieving long-term sobriety and recovery and growing into a leader within the community is possible.</p>
+                        </div>
+                        <a href="contact.php" class="btn btn-outline-primary btn-style">Contact Us</a>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mt-lg-0 mt-5">
+                        <div class="img-block">
+                            <a href="causes.php">
+                                <img src="assets/images/blog5.jpg" class="img-fluid radius-image-full" alt="image" />
+                                <span class="title">Help Rehab Centers</span>
+                            </a>
+                        </div>
+                        <div class="img-block mt-4">
+                            <a href="causes.php"> <img src="assets/images/blog2.jpg" class="img-fluid radius-image-full"
+                                                       alt="image" />
+                                <span class="title">Fund Addiction Research</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 mt-lg-0 mt-md-5 mt-4">
+                        <div class="img-block">
+                            <a href="causes.php"> <img src="assets/images/blog3.jpg" class="img-fluid radius-image-full"
+                                                       alt="image" />
+                                <span class="title">Help Edcucate and Train Professionals</span>
+                            </a>
+                        </div>
+                        <div class="img-block mt-4">
+                            <a href="causes.php">
+                                <img src="assets/images/blog4.jpg" class="img-fluid radius-image-full" alt="image" />
+                                <span class="title">Support Our creators</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+<!-- //charity causes -->
+        <!-- bg -->
+        <div class="w3l-bg py-5">
+            <div class="container py-lg-5 py-md-4">
+                <div class="welcome-left text-center py-lg-4">
+                    <span class="fa fa-heart-o"></span>
+                    <h3 class="title-big">Help the Homeless & Hungry People.</h3>
+                    <a href="#donate" class="btn btn-style btn-primary mt-sm-5 mt-4">Donate Now</a>
+                </div>
+            </div>
+        </div>
+        <!-- //bg -->
 <!-- footer 14 -->
 <div class="w3l-footer-main">
   <div class="w3l-sub-footer-content">
-      <section class="_form-3">
-          <div class="form-main">
-              <div class="container">
-                  <div class="middle-section grid-column top-bottom">
-                      <div class="image grid-three-column">
-                          <img src="assets/images/subscribe.png" alt="" class="img-fluid radius-image-full">
-                      </div>
-                      <div class="text-grid grid-three-column">
-                          <h2>Subscribe our Newsletter to receive latest updates from us</h2>
-                          <p>We won’t give you spam mails.</p>
-                      </div>
-                      <div class="form-text grid-three-column">
-                          <form action="/" method="GET">
-                              <input type="email" name=" placeholder" placeholder="Enter Your Email" required="">
-                              <button type="submit" class="btn btn-style btn-primary">Submit</button>
-                          </form>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </section>
-      <!-- Footers-14 -->
       <footer class="footer-14">
           <div id="footers14-block">
               <div class="container">
@@ -455,21 +468,6 @@
                                   </li>
                               </ul>
                           </div>
-                      </div>
-                  </div>
-                  <div class="footers14-bottom d-flex">
-                      <div class="copyright">
-                          <p>© 2020 Save Poor. All rights reserved. Design by <a href="https://w3layouts.com/"
-                                  target="_blank">W3Layouts</a></p>
-                      </div>
-                      <div class="language-select d-flex">
-                          <span class="fa fa-language" aria-hidden="true"></span>
-                          <select>
-                              <option>English</option>
-                              <option>Estonina</option>
-                              <option>Deutsch</option>
-                              <option>Nederlan;ds</option>
-                          </select>
                       </div>
                   </div>
               </div>
