@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en-US">
+
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,177 +30,10 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 </head>
+
 <body>
     <!-- HEADER -->
-    <header>
-        <div class="header js-header js-dropdown">
-            <div class="container">
-                <div class="header__logo">
-                    <h1>
-                        <img src="fonts/icons/main/Logo_Forum.svg" alt="logo">
-                    </h1>
-                    <div class="header__logo-btn" data-dropdown-btn="logo">
-                        Unity<i class="icon-Arrow_Below"></i>
-                    </div>
-                    <nav class="dropdown dropdown--design-01" data-dropdown-list="logo">
-                        <ul class="dropdown__catalog">
-                            <li><a href="index.html">Home Page</a></li>
-                            <li><a href="single-topic.html">Single Topic Page</a></li>
-                            <li><a href="simple-signup.html">Sign up Page</a></li>
-                            <li><a href="create-topic.html">Create Topic Page</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="header__search">
-                    <form action="#">
-                        <label>
-                            <i class="icon-Search js-header-search-btn-open"></i>
-                            <input type="search" placeholder="Search all forums" class="form-control">
-                        </label>
-                    </form>
-                    <div class="header__search-close js-header-search-btn-close"><i class="icon-Cancel"></i></div>
-                    <div class="header__search-btn" data-dropdown-btn="search">
-                        Topics<i class="icon-Arrow_Below"></i>
-                    </div>
-                    <div class="dropdown dropdown--design-01" data-dropdown-list="search">
-                        <ul>
-                            <li>
-                                <label>
-                                    <label class="custom-checkbox">
-                                        <input type="checkbox" checked="checked">
-                                        <i></i>
-                                    </label>Search Titles Only
-                                </label>
-
-                            </li>
-                            <li>
-                                <label>
-                                    <label class="custom-checkbox">
-                                        <input type="checkbox">
-                                        <i></i>
-                                    </label>Show Results as Posts
-                                </label>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <i class="icon-Advanced_Search"></i>Advanced Search
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="header__menu">
-                    <div class="header__menu-btn" data-dropdown-btn="menu">
-                        Latest Topics<i class="icon-Menu_Icon"></i>
-                    </div>
-                    <nav class="dropdown dropdown--design-01" data-dropdown-list="menu">
-                        <div>
-                            <ul class="dropdown__catalog row">
-                                <li class="col-xs-6"><a href="#">New</a></li>
-                                <li class="col-xs-6"><a href="#">Unread</a></li>
-                                <li class="col-xs-6"><a href="#">Groups</a></li>
-                                <li class="col-xs-6"><a href="#">Users</a></li>
-                                <li class="col-xs-6"><a href="#">Tags</a></li>
-                                <li class="col-xs-6"><a href="#">Shortcuts</a></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3>Categories</h3>
-                            <ul class="dropdown__catalog row">
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-f9bc64"></i>Hobbies</a></li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-348aa7"></i>Social</a></li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-4436f8"></i>Video</a></li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-5dd39e"></i>Random</a></li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-ff755a"></i>Arts</a></li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-bce784"></i>Tech</a></li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-83253f"></i>Gaming</a></li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-c49bbb"></i>Science</a></li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-3ebafa"></i>Exchange</a></li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-c6b38e"></i>Pets</a></li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-a7cdbd"></i>Entertainment</a></li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-525252"></i>Education</a></li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-777da7"></i>Q&amp;As</a></li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-368f8b"></i>Politics</a></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <ul class="dropdown__catalog row">
-                                <li class="col-xs-6"><a href="#">Support</a></li>
-                                <li class="col-xs-6"><a href="#">Forum Rules</a></li>
-                                <li class="col-xs-6"><a href="#">Blog</a></li>
-                                <li class="col-xs-6"><a href="#">About</a></li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-                <div class="header__notification">
-                    <div class="header__notification-btn" data-dropdown-btn="notification">
-                        <i class="icon-Notification"></i>
-                        <span>6</span>
-                    </div>
-                    <div class="dropdown dropdown--design-01" data-dropdown-list="notification">
-                        <div>
-                            <a href="#">
-                                <i class="icon-Favorite_Topic"></i>
-                                <p>Roswell . 16 feb, 17<span>Which movie have you watched recently?</span></p>
-                            </a>
-                            <a href="#">
-                                <i class="icon-Reply_Empty"></i>
-                                <p>Callis . 18 feb, 17<span>I got an amzon thingie!</span></p>
-                            </a>
-                            <a href="#">
-                                <i class="icon-Badge"></i>
-                                <p>Earned Badge . 19 feb, 17<span><img src="fonts/icons/badges/Lets_talk.svg" alt="Lets Talk">Lets Talk</span></p>
-                            </a>
-                            <a href="#">
-                                <i class="icon-Badge"></i>
-                                <p>Earned Badge . 21 feb, 17<span><img src="fonts/icons/badges/Intermediate.svg" alt="Intermediate">Intermediate</span></p>
-                            </a>
-                            <a href="#">
-                                <i class="icon-Share_Topic"></i>
-                                <p>Charlie . 22 feb, 17<span>Need Video file of that cat.</span></p>
-                            </a>
-                            <a href="#">
-                                <i class="icon-Pencil"></i>
-                                <p>Greentea . 22 feb, 17<span>New Facebook like and share button.</span></p>
-                            </a>
-                            <span><a href="#">view older notifications...</a></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="header__user">
-                    <div class="header__user-btn" data-dropdown-btn="user">
-                        <img src="fonts/icons/avatars/A.svg" alt="avatar">
-                        azyrusmax<i class="icon-Arrow_Below"></i>
-                    </div>
-                    <nav class="dropdown dropdown--design-01" data-dropdown-list="user">
-                        <div>
-                            <div class="dropdown__icons">
-                                <a href="#"><i class="icon-Bookmark"></i></a>
-                                <a href="#"><i class="icon-Message"></i></a>
-                                <a href="#"><i class="icon-Preferences"></i></a>
-                                <a href="#"><i class="icon-Logout"></i></a>
-                            </div>
-                        </div>
-                        <div>
-                            <ul class="dropdown__catalog">
-                                <li><a href="#">Dashboard</a></li>
-                                <li><a href="#">Badges</a></li>
-                                <li><a href="#">My Groups</a></li>
-                                <li><a href="#">Notifications</a></li>
-                                <li><a href="#">Topics</a></li>
-                                <li><a href="#">Likes</a></li>
-                                <li><a href="#">Solved</a></li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-            <div class="header__offset-btn">
-                <a href="create-topic.html"><img src="fonts/icons/main/New_Topic.svg" alt="New Topic"></a>
-            </div>
-        </div>
-    </header>
+    <?php require 'partials/_header.php'; ?>
 
     <!-- MAIN -->
     <main>
@@ -210,20 +44,31 @@
                         <div class="btn-select" data-dropdown-btn="categories">All Categories</div>
                         <nav class="dropdown dropdown--design-01" data-dropdown-list="categories">
                             <ul class="dropdown__catalog row">
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-f9bc64"></i>Hobbies</a></li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-348aa7"></i>Social</a></li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-4436f8"></i>Video</a></li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-5dd39e"></i>Random</a></li>
+                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-f9bc64"></i>Hobbies</a>
+                                </li>
+                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-348aa7"></i>Social</a>
+                                </li>
+                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-4436f8"></i>Video</a>
+                                </li>
+                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-5dd39e"></i>Random</a>
+                                </li>
                                 <li class="col-xs-6"><a href="#" class="category"><i class="bg-ff755a"></i>Arts</a></li>
                                 <li class="col-xs-6"><a href="#" class="category"><i class="bg-bce784"></i>Tech</a></li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-83253f"></i>Gaming</a></li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-c49bbb"></i>Science</a></li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-3ebafa"></i>Exchange</a></li>
+                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-83253f"></i>Gaming</a>
+                                </li>
+                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-c49bbb"></i>Science</a>
+                                </li>
+                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-3ebafa"></i>Exchange</a>
+                                </li>
                                 <li class="col-xs-6"><a href="#" class="category"><i class="bg-c6b38e"></i>Pets</a></li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-a7cdbd"></i>Entertainment</a></li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-525252"></i>Education</a></li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-777da7"></i>Q&amp;As</a></li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-368f8b"></i>Politics</a></li>
+                                <li class="col-xs-6"><a href="#" class="category"><i
+                                            class="bg-a7cdbd"></i>Entertainment</a></li>
+                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-525252"></i>Education</a>
+                                </li>
+                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-777da7"></i>Q&amp;As</a>
+                                </li>
+                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-368f8b"></i>Politics</a>
+                                </li>
                             </ul>
                         </nav>
                     </div>
@@ -272,7 +117,8 @@
                 </div>
                 <div class="nav__thread">
                     <p>Thread Navigation:</p>
-                    <a href="#" class="nav__thread-btn nav__thread-btn--prev"><i class="icon-Arrow_Left"></i>Previous</a>
+                    <a href="#" class="nav__thread-btn nav__thread-btn--prev"><i
+                            class="icon-Arrow_Left"></i>Previous</a>
                     <a href="#" class="nav__thread-btn nav__thread-btn--next">Next<i class="icon-Arrow_Right"></i></a>
                 </div>
             </div>
@@ -304,8 +150,14 @@
                             </div>
                             <div class="topic__content">
                                 <div class="topic__text">
-                                    <p>Welcome to Prey. A lot of this game is going to feel familiar — you’ll see bits and pieces from a dozen well-loved games in its DNA. But that doesn’t mean you’re going to immediately understand how everything works. That’s what we’re here for. Let’s talk about some of the habits you’re going to have to pick up, concepts you’ll have to learn and choices you’re going to be making as you play.</p>
-                                    <p>We’re going to break it down into three rough categories: Your world, your enemies (and ways to kill them) and yourself.</p>
+                                    <p>Welcome to Prey. A lot of this game is going to feel familiar — you’ll see bits
+                                        and pieces from a dozen well-loved games in its DNA. But that doesn’t mean
+                                        you’re going to immediately understand how everything works. That’s what we’re
+                                        here for. Let’s talk about some of the habits you’re going to have to pick up,
+                                        concepts you’ll have to learn and choices you’re going to be making as you play.
+                                    </p>
+                                    <p>We’re going to break it down into three rough categories: Your world, your
+                                        enemies (and ways to kill them) and yourself.</p>
                                 </div>
                                 <div class="topic__footer">
                                     <div class="topic__footer-likes">
@@ -342,15 +194,17 @@
                                     <div class="topic__info-section">
                                         <div>
                                             <span class="topic__info-title">Created</span>
-                                            <div  class="topic__info-avatar">
-                                                <a href="#" class="avatar"><img src="fonts/icons/avatars/B.svg" alt="avatar"></a>
+                                            <div class="topic__info-avatar">
+                                                <a href="#" class="avatar"><img src="fonts/icons/avatars/B.svg"
+                                                        alt="avatar"></a>
                                                 <span>13d</span>
                                             </div>
                                         </div>
                                         <div>
                                             <span class="topic__info-title">Last reply</span>
-                                            <div  class="topic__info-avatar">
-                                                <a href="#" class="avatar"><img src="fonts/icons/avatars/A.svg" alt="avatar"></a>
+                                            <div class="topic__info-avatar">
+                                                <a href="#" class="avatar"><img src="fonts/icons/avatars/A.svg"
+                                                        alt="avatar"></a>
                                                 <span>4h</span>
                                             </div>
                                         </div>
@@ -358,23 +212,23 @@
                                     <div class="topic__info-section">
                                         <div>
                                             <span class="topic__info-title">Replies</span>
-                                            <div  class="topic__info-count">18</div>
+                                            <div class="topic__info-count">18</div>
                                         </div>
                                         <div>
                                             <span class="topic__info-title">Views</span>
-                                            <div  class="topic__info-count">205</div>
+                                            <div class="topic__info-count">205</div>
                                         </div>
                                         <div>
                                             <span class="topic__info-title">Users</span>
-                                            <div  class="topic__info-count">6</div>
+                                            <div class="topic__info-count">6</div>
                                         </div>
                                         <div>
                                             <span class="topic__info-title">Likes</span>
-                                            <div  class="topic__info-count">315</div>
+                                            <div class="topic__info-count">315</div>
                                         </div>
                                         <div>
                                             <span class="topic__info-title">Links</span>
-                                            <div  class="topic__info-count">7</div>
+                                            <div class="topic__info-count">7</div>
                                         </div>
                                     </div>
                                     <a href="#" class="topic__info-more"><i class="icon-Arrow_Down"></i></a>
@@ -383,9 +237,12 @@
                                     <p>Frequent Posters</p>
                                 </div>
                                 <div class="topic__posters">
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/C.svg" alt="avatar"><span>10</span></a>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/U.svg" alt="avatar"><span>5</span></a>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/I.svg" alt="avatar"><span>12</span></a>
+                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/C.svg"
+                                            alt="avatar"><span>10</span></a>
+                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/U.svg"
+                                            alt="avatar"><span>5</span></a>
+                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/I.svg"
+                                            alt="avatar"><span>12</span></a>
                                     <a href="#" class="avatar"><img src="fonts/icons/avatars/K.svg" alt="avatar"></a>
                                     <a href="#" class="avatar"><img src="fonts/icons/avatars/N.svg" alt="avatar"></a>
                                     <a href="#" class="avatar"><img src="fonts/icons/avatars/T.svg" alt="avatar"></a>
@@ -398,18 +255,22 @@
                                 </div>
                                 <div class="topic__list">
                                     <ul>
-                                        <li><span>12</span><a href="#">Deepest and darkest secrets. <span>imgur.com</span></a></li>
+                                        <li><span>12</span><a href="#">Deepest and darkest secrets.
+                                                <span>imgur.com</span></a></li>
                                         <li><span>1</span><a href="#">Help Center. <span>techlabs.net</span></a></li>
-                                        <li><span>7</span><a href="#">Best 20 youtube videos. <span>youtube.com</span></a></li>
+                                        <li><span>7</span><a href="#">Best 20 youtube videos.
+                                                <span>youtube.com</span></a></li>
                                         <li><span>19</span><a href="#">Bootstrap 4, things you need to know.</a></li>
                                         <li><span>3</span><a href="#">Best Simpson jokes.</a></li>
                                     </ul>
                                 </div>
                                 <div class="topic__title">
-                                    <p>There are <span>81 replies</span> with an estimated read time of <span>11 minutes.</span></p>
+                                    <p>There are <span>81 replies</span> with an estimated read time of <span>11
+                                            minutes.</span></p>
                                 </div>
                                 <div class="topic__btns">
-                                    <a href="#" class="btn btn--type-02">Summarize <span data-visible="desktop">This</span>Topic</a>
+                                    <a href="#" class="btn btn--type-02">Summarize <span
+                                            data-visible="desktop">This</span>Topic</a>
                                     <div class="topic__select">
                                         <p>Sort replies by:</p>
                                         <div class="btn-select"><i class="icon-Favorite_Topic"></i>Most Liked</div>
@@ -429,7 +290,8 @@
                                     <div class="topic__date">
                                         <div class="topic__user topic__user--pos-r">
                                             <i class="icon-Reply_Fill"></i>
-                                            <a href="#" class="avatar"><img src="fonts/icons/avatars/B.svg" alt="avatar"></a>
+                                            <a href="#" class="avatar"><img src="fonts/icons/avatars/B.svg"
+                                                    alt="avatar"></a>
                                             <a href="#" class="topic__user-name">Benjamin Caesar</a>
                                         </div>
                                         <i class="icon-Watch_Later"></i>06 May, 2017
@@ -438,7 +300,10 @@
                             </div>
                             <div class="topic__content">
                                 <div class="topic__text">
-                                    <p>I am using BootStrap 4, but they are asking me to use PHP framework, which I won't do. My code is secure against SQL injection, XSS and all other attacks, it is well organized, i was using OOP. I just think CodeCanyon will always find a reason to reject my work....</p>
+                                    <p>I am using BootStrap 4, but they are asking me to use PHP framework, which I
+                                        won't do. My code is secure against SQL injection, XSS and all other attacks, it
+                                        is well organized, i was using OOP. I just think CodeCanyon will always find a
+                                        reason to reject my work....</p>
                                 </div>
                                 <div class="topic__footer">
                                     <div class="topic__footer-likes">
@@ -486,7 +351,10 @@
                             </div>
                             <div class="topic__content">
                                 <div class="topic__text">
-                                    <p>Yeah! This is really bad. Rejecting an item because its not using a PHP framework(no matter what the script is doing) is a wrong move I think. There are a lot of people reporting this problem(Rejected because of not using a framework).</p>
+                                    <p>Yeah! This is really bad. Rejecting an item because its not using a PHP
+                                        framework(no matter what the script is doing) is a wrong move I think. There are
+                                        a lot of people reporting this problem(Rejected because of not using a
+                                        framework).</p>
                                 </div>
                                 <div class="topic__footer">
                                     <div class="topic__footer-likes">
@@ -535,7 +403,8 @@
                             </div>
                             <div class="topic__content">
                                 <div class="topic__text">
-                                    <p>Can you stop ADP, and create new option for author can create coupon code, Author will give for their customer. It's better than now.</p>
+                                    <p>Can you stop ADP, and create new option for author can create coupon code, Author
+                                        will give for their customer. It's better than now.</p>
                                 </div>
                             </div>
                         </div>
@@ -553,12 +422,14 @@
                             </div>
                             <div class="topic__content">
                                 <div class="topic__text">
-                                    <p>I will, but I'm not doing it for me, i'll open ticket for the community.</br>I got accepted with no problems on other marketplace.</p>
+                                    <p>I will, but I'm not doing it for me, i'll open ticket for the community.</br>I
+                                        got accepted with no problems on other marketplace.</p>
                                     <div class="topic topic--answer">
                                         <div class="topic__head">
                                             <div class="topic__caption">
                                                 <div class="topic__user">
-                                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/T.svg" alt="avatar"></a>
+                                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/T.svg"
+                                                            alt="avatar"></a>
                                                     <a href="#" class="topic__user-name">Tesla</a>
                                                 </div>
                                             </div>
@@ -566,11 +437,15 @@
                                         </div>
                                         <div class="topic__content">
                                             <div class="topic__text">
-                                                <p>Yeah! This is really bad. Rejecting an item because its not using a PHP framework(no matter what the script is doing) is a wrong move I think.</p>
+                                                <p>Yeah! This is really bad. Rejecting an item because its not using a
+                                                    PHP framework(no matter what the script is doing) is a wrong move I
+                                                    think.</p>
                                             </div>
                                         </div>
                                     </div>
-                                    <p>Subscribers may download more than an ad-hoc purchaser on a marketplace, but by retaining subscribers over time (paying money every month), there’s more money in total for contributors.</p>
+                                    <p>Subscribers may download more than an ad-hoc purchaser on a marketplace, but by
+                                        retaining subscribers over time (paying money every month), there’s more money
+                                        in total for contributors.</p>
                                 </div>
                                 <div class="topic__footer">
                                     <div class="topic__footer-likes">
@@ -686,7 +561,8 @@
                                     <div class="topic__date">
                                         <div class="topic__user topic__user--pos-r">
                                             <i class="icon-Reply_Fill"></i>
-                                            <a href="#" class="avatar"><img src="fonts/icons/avatars/T.svg" alt="avatar"></a>
+                                            <a href="#" class="avatar"><img src="fonts/icons/avatars/T.svg"
+                                                    alt="avatar"></a>
                                             <a href="#" class="topic__user-name">Tesla</a>
                                         </div>
                                         <i class="icon-Watch_Later"></i>3d
@@ -695,7 +571,8 @@
                             </div>
                             <div class="topic__content">
                                 <div class="topic__text">
-                                    <p>Can you stop ADP, and create new option for author can create coupon code, Author will give for their customer. It's better than now.</p>
+                                    <p>Can you stop ADP, and create new option for author can create coupon code, Author
+                                        will give for their customer. It's better than now.</p>
                                 </div>
                                 <div class="topic__footer">
                                     <div class="topic__footer-likes">
@@ -744,12 +621,14 @@
                             </div>
                             <div class="calendar__bottom">
                                 <a href="#" class="calendar__btn calendar__btn--c-01"><i class="icon-Track"></i></a>
-                                <a href="#" class="calendar__btn calendar__btn--c-02"><i class="icon-Reply_Fill"></i></a>
+                                <a href="#" class="calendar__btn calendar__btn--c-02"><i
+                                        class="icon-Reply_Fill"></i></a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="topics__title"><i class="icon-Watch_Later"></i>This topic will close 6 months after the last reply.</div>
+                <div class="topics__title"><i class="icon-Watch_Later"></i>This topic will close 6 months after the last
+                    reply.</div>
                 <div class="topics__control">
                     <a href="#" class="btn"><i class="icon-Bookmark"></i>Bookmark</a>
                     <a href="#" class="btn"><i class="icon-Share_Topic"></i>Share</a>
@@ -779,7 +658,8 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="posts__category"><a href="#" class="category"><i class="bg-368f8b"></i>Politics</a></div>
+                            <div class="posts__category"><a href="#" class="category"><i
+                                        class="bg-368f8b"></i>Politics</a></div>
                         </div>
                         <div class="posts__section-right">
                             <div class="posts__users">
@@ -803,7 +683,8 @@
                             <div class="posts__topic">
                                 <div class="posts__content">
                                     <a href="#">
-                                        <h3>Get your username drawn by the other users of unity! or a drawing based on what you do</h3>
+                                        <h3>Get your username drawn by the other users of unity! or a drawing based on
+                                            what you do</h3>
                                     </a>
                                     <div class="posts__tags tags">
                                         <a href="#" class="bg-4f80b0">gaming</a>
@@ -812,7 +693,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="posts__category"><a href="#" class="category"><i class="bg-4436f8"></i>Video</a></div>
+                            <div class="posts__category"><a href="#" class="category"><i class="bg-4436f8"></i>Video</a>
+                            </div>
                         </div>
                         <div class="posts__section-right">
                             <div class="posts__users">
@@ -837,7 +719,8 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="posts__category"><a href="#" class="category"><i class="bg-3ebafa"></i> Exchange</a></div>
+                            <div class="posts__category"><a href="#" class="category"><i class="bg-3ebafa"></i>
+                                    Exchange</a></div>
                         </div>
                         <div class="posts__section-right">
                             <div class="posts__users">
@@ -865,7 +748,8 @@
                                     </a>
                                 </div>
                             </div>
-                            <div class="posts__category"><a href="#" class="category"><i class="bg-777da7"></i> Q&amp;As</a></div>
+                            <div class="posts__category"><a href="#" class="category"><i class="bg-777da7"></i>
+                                    Q&amp;As</a></div>
                         </div>
                         <div class="posts__section-right">
                             <div class="posts__users">
@@ -891,7 +775,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="posts__category"><a href="#" class="category"><i class="bg-c6b38e"></i> Pets</a></div>
+                            <div class="posts__category"><a href="#" class="category"><i class="bg-c6b38e"></i> Pets</a>
+                            </div>
                         </div>
                         <div class="posts__section-right">
                             <div class="posts__users">
@@ -934,8 +819,10 @@
                             <li><a href="#">The Team</a></li>
                         </ul>
                         <div class="footer__language">
-                            <div class="footer__language-btn" data-dropdown-btn="language">Americas - English<i class="icon-Arrow_Below"></i></div>
-                            <div class="footer__language-dropdown dropdown dropdown--design-01 dropdown--reverse-y" data-dropdown-list="language">
+                            <div class="footer__language-btn" data-dropdown-btn="language">Americas - English<i
+                                    class="icon-Arrow_Below"></i></div>
+                            <div class="footer__language-dropdown dropdown dropdown--design-01 dropdown--reverse-y"
+                                data-dropdown-list="language">
                                 <div class="row">
                                     <div class="col-xs-6">
                                         <h3>Region</h3>
@@ -975,7 +862,8 @@
                             <li><a href="#"><i class="fa fa-cloud" aria-hidden="true"></i></a></li>
                             <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
                         </ul>
-                        <div class="footer__language-btn-m" data-dropdown-btn="language">Americas - English<i class="icon-Arrow_Below"></i></div>
+                        <div class="footer__language-btn-m" data-dropdown-btn="language">Americas - English<i
+                                class="icon-Arrow_Below"></i></div>
                     </div>
                 </div>
             </div>
@@ -988,4 +876,5 @@
     <script src="js/app.js"></script>
 
 </body>
+
 </html>
