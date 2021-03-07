@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 01, 2021 at 06:03 PM
+-- Generation Time: Mar 07, 2021 at 08:29 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.13
 
@@ -33,6 +33,14 @@ CREATE TABLE `addiction_types` (
   `add_desp` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `addiction_types`
+--
+
+INSERT INTO `addiction_types` (`add_id`, `add_name`, `add_desp`) VALUES
+(1, 'Chemical addiction', ' This refers to addiction that involves the use of substances.'),
+(2, 'Behavioral addiction', 'This refers to addiction that involves compulsive behaviors. These are persistent, repeated behaviors that you carry out even if they don’t offer any real benefit.');
+
 -- --------------------------------------------------------
 
 --
@@ -41,9 +49,17 @@ CREATE TABLE `addiction_types` (
 
 CREATE TABLE `admin` (
   `a_id` int(5) NOT NULL,
+  `a_name` varchar(50) NOT NULL,
   `a_email` varchar(50) NOT NULL,
   `a_password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`a_id`, `a_name`, `a_email`, `a_password`) VALUES
+(1, 'Alok Rathava', 'alokrathava@gmail.com', '21232f297a57a5a743894a0e4a801fc3');
 
 -- --------------------------------------------------------
 
@@ -180,7 +196,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`u_id`, `addiction_id`, `u_name`, `u_contact`, `u_email`, `u_status`, `u_gender`, `r_date`, `u_password`) VALUES
-(1, 0, 'Alok Rathava', '9512334819', 'alokrathava@gmail.com', 0, 'male', '2021-03-01 22:17:30', '21232f297a57a5a743894a0e4a801fc3');
+(1, 0, 'Alok Rathava', '9512334819', 'alokrathava@gmail.com', 0, 'male', '2021-03-06 21:42:21', '21232f297a57a5a743894a0e4a801fc3');
 
 --
 -- Indexes for dumped tables
@@ -260,13 +276,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `addiction_types`
 --
 ALTER TABLE `addiction_types`
-  MODIFY `add_id` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `add_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `a_id` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `a_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `cart`

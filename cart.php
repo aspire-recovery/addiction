@@ -1,7 +1,13 @@
-HTML CSS JSResult Skip Results Iframe
-EDIT ON
-<html lang="en">
+<?php
+//Imports
+session_start();
+require 'config.php';
+if (!isset($_SESSION['u_id'])) {
+    header('Location:login.php');
+}
 
+?>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -357,41 +363,52 @@ EDIT ON
         .remove {
             width: 100%;
         }
+
         .basket-labels {
             display: none;
         }
+
         .basket-module {
             margin-bottom: 1rem;
         }
+
         .item {
             margin-bottom: 1rem;
         }
+
         .product-image {
             width: 40%;
         }
+
         .product-details {
             width: 60%;
         }
+
         .price,
         .subtotal {
             width: 33%;
         }
+
         .quantity {
             text-align: center;
             width: 34%;
         }
+
         .quantity-field {
             float: none;
         }
+
         .remove {
             bottom: 0;
             text-align: left;
             margin-top: 0.75rem;
             position: relative;
         }
+
         .remove button {
             padding: 0;
         }
+
         .summary {
             margin-top: 1.25rem;
             position: relative;
@@ -402,6 +419,7 @@ EDIT ON
         aside {
             padding: 0 1rem 0 0;
         }
+
         .summary {
             width: 28%;
         }
@@ -411,11 +429,11 @@ EDIT ON
         main {
             width: 100%;
         }
+
         .product-details {
             padding: 0 1rem;
         }
     }
-
 
 
 </style>
@@ -509,27 +527,33 @@ EDIT ON
     </aside>
 </main>
 <script>
-    HTML CSS JSResult Skip Results Iframe
-    EDIT ON
+    HTML
+    CSS
+    JSResult
+    Skip
+    Results
+    Iframe
+    EDIT
+    ON
     /* Set values + misc */
     var promoCode;
     var promoPrice;
     var fadeTime = 300;
 
     /* Assign actions */
-    $('.quantity input').change(function() {
+    $('.quantity input').change(function () {
         updateQuantity(this);
     });
 
-    $('.remove button').click(function() {
+    $('.remove button').click(function () {
         removeItem(this);
     });
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         updateSumItems();
     });
 
-    $('.promo-code-cta').click(function() {
+    $('.promo-code-cta').click(function () {
 
         promoCode = $('#promo-code').val();
 
@@ -557,7 +581,7 @@ EDIT ON
         var subtotal = 0;
 
         /* Sum up row totals */
-        $('.basket-product').each(function() {
+        $('.basket-product').each(function () {
             subtotal += parseFloat($(this).children('.subtotal').text());
         });
 
@@ -578,13 +602,13 @@ EDIT ON
         /*If switch for update only total, update only total display*/
         if (onlyTotal) {
             /* Update total display */
-            $('.total-value').fadeOut(fadeTime, function() {
+            $('.total-value').fadeOut(fadeTime, function () {
                 $('#basket-total').html(total.toFixed(2));
                 $('.total-value').fadeIn(fadeTime);
             });
         } else {
             /* Update summary display. */
-            $('.final-value').fadeOut(fadeTime, function() {
+            $('.final-value').fadeOut(fadeTime, function () {
                 $('#basket-subtotal').html(subtotal.toFixed(2));
                 $('#basket-total').html(total.toFixed(2));
                 if (total == 0) {
@@ -606,8 +630,8 @@ EDIT ON
         var linePrice = price * quantity;
 
         /* Update line price display and recalc cart totals */
-        productRow.children('.subtotal').each(function() {
-            $(this).fadeOut(fadeTime, function() {
+        productRow.children('.subtotal').each(function () {
+            $(this).fadeOut(fadeTime, function () {
                 $(this).text(linePrice.toFixed(2));
                 recalculateCart();
                 $(this).fadeIn(fadeTime);
@@ -620,7 +644,7 @@ EDIT ON
 
     function updateSumItems() {
         var sumItems = 0;
-        $('.quantity input').each(function() {
+        $('.quantity input').each(function () {
             sumItems += parseInt($(this).val());
         });
         $('.total-items').text(sumItems);
@@ -630,7 +654,7 @@ EDIT ON
     function removeItem(removeButton) {
         /* Remove row from DOM and recalc cart total */
         var productRow = $(removeButton).parent().parent();
-        productRow.slideUp(fadeTime, function() {
+        productRow.slideUp(fadeTime, function () {
             productRow.remove();
             recalculateCart();
             updateSumItems();

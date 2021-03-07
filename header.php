@@ -49,9 +49,6 @@ if (!isset($_SESSION['u_id'])) {
                         <li class="nav-item">
                             <a class="nav-link" href="register.php">Register</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="cart.php">Cart</a>
-                        </li>
                         <li class="ml-lg-auto mr-lg-0 m-auto">
                         </li>
                         <li class="align-self">
@@ -102,21 +99,17 @@ if (!isset($_SESSION['u_id'])) {
                         <li class="nav-item @@home__active">
                             <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item @@about__active">
-                            <a class="nav-link" href="cart.php">Cart</a>
-                        </li>
-                        <li class="nav-item @@causes__active">
-                            <!-- <a class="nav-link" href="profile.php">-->
-                            <?php //echo $_SESSION['u_name'];?><!--</a>-->
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link" href="product.php">Product</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="profile.php"><?php echo $_SESSION['u_name']; ?></a>
+                            <a class="nav-link" href="forum.php">Forum</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="forum.php">Forum</a>
+                            <a class="nav-link" href="profile.php"><?php echo $_SESSION['u_name']; ?></a>
+                        </li>
+                        <li class="nav-item @@about__active">
+                            <a class="nav-link" href="cart.php">Cart</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="logout.php">Logout</a>
