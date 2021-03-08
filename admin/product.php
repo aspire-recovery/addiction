@@ -21,6 +21,19 @@ session_start();
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->
+    <style>
+        /* Chrome, Safari, Edge, Opera */
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    </style>
 </head>
 <body>
 <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
@@ -69,7 +82,7 @@ session_start();
                     </a></li>
             </ul>
         </li>
-        <li><a href="login.php"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+        <li><a href="logout.php"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
     </ul>
 </div><!--/.sidebar-->
 
@@ -79,37 +92,76 @@ session_start();
             <li><a href="#">
                     <em class="fa fa-home"></em>
                 </a></li>
-            <li class="active">Addiction</li>
+            <li class="active">Products</li>
         </ol>
     </div><!--/.row-->
-
     <div class="row">
         <div class="col-lg-12">
         </div>
     </div><!--/.row-->
-
-
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Add Addictions</div>
+                <div class="panel-heading">Add Products</div>
                 <div class="panel-body">
                     <div class="col-md-12">
-                        <form class="form-group" action="addictions_process.php" method="post">
+                        <form class="form-group" action="product_process.php" method="post"
+                              enctype="multipart/form-data">
                             <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Addiction Name</label>
-                                <input type="text" name="addiction_name" class="form-control" style="width: 40%;"
-                                       placeholder="Addiction Name">
+                                <label for="exampleFormControlTextarea1">Product Name</label>
+                                <input type="text" name="pdt_name" class="form-control" style="width: 40%;"
+                                       placeholder="Product Name">
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Addiction Description</label>
+                                <label for="exampleFormControlTextarea1">Product Category</label>
+                                <select name="pdt_category" class="form-control" style="width: 40%;">
+                                    <option value="">Select Product Category</option>
+                                    <?php
+                                    $category = "SELECT pdt_id,pdt_name FROM `product_categories`";
+                                    $r1 = $conn->query($category);
+                                    if ($r1->num_rows > 0) {
+                                        while ($ro1 = $r1->fetch_assoc()) {
+                                            echo '<option value="' . $ro1['pdt_id'] . '">' . $ro1['pdt_name'] . '</option>';
+                                        }
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Product Quanity</label>
+                                <select name="pdt_qty" class="form-control" style="width: 40%;">
+                                    <option value="">Select Product Quanity</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                </select>
+                            </div>
+                            <div class="form-group" style="width: 40%">
+                                <label for="exampleFormControlTextarea1">Product Price</label>
+                                <input type="number" class="form-control" name="pdt_price" placeholder="Product Price">
+                            </div>
+                            <div class="form-group" style="width: 40%">
+                                <label for="exampleFormControlTextarea1">Product Image</label>
+                                <input type="file" id="image" name="fileToUpload" class="form-control"
+                                       id="fileToUpload"/>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Product Description</label>
                                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                          style="width: 40%;" placeholder="Addiction Description"
-                                          name="description"></textarea>
+                                          style="width: 40%;" placeholder="Product Description"
+                                          name="pdt_description"></textarea>
                             </div>
                             <button type="submit" name="submit" class="btn btn-block btn-lg btn-primary"
                                     style="width: 40%">Submit
                             </button>
+
                         </form>
                     </div>
                 </div>
@@ -117,31 +169,39 @@ session_start();
 
 
             <div class="panel panel-default">
-                <div class="panel-heading">Addiction Details</div>
+                <div class="panel-heading">Product Categories Details</div>
                 <table class="table">
                     <thead class="thead-dark">
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Addiction Name</th>
+                        <th scope="col">Product</th>
+                        <th scope="col">Product Category</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Price</th>
                         <th scope="col">Description</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
                     <tbody>
                     <?php
-                    $addictiopn_sql = "SELECT * FROM `addiction_types`";
-                    $r1 = $conn->query($addictiopn_sql);
+                    $product_sql = "SELECT product.p_id, product.p_name, product_categories.pdt_name, product.p_quantity, product.p_price, product.p_description FROM `product` 
+                                    JOIN product_categories ON product_categories.pdt_id = product.pdt_category";
+                    $r1 = $conn->query($product_sql);
                     $cnt1 = 0;
                     if ($r1->num_rows > 0) {
                         while ($ro1 = $r1->fetch_assoc()) {
                             $cnt1++;
                             echo '<tr>';
                             echo '<th scope="row">' . $cnt1 . '</th>';
-                            echo '<td>' . $ro1['add_name'] . '</td>';
-                            echo '<td>' . $ro1['add_desp'] . '</td>';
-                            echo '<form action="addictions_delete.php" method="post">';
-                            echo '<input type="hidden" value="' . $ro1['add_id'] . '" name="add_id">';
+                            echo '<td>' . $ro1['p_name'] . '</td>';
+                            echo '<td>' . $ro1['pdt_name'] . '</td>';
+                            echo '<td>' . $ro1['p_quantity'] . '</td>';
+                            echo '<td>' . $ro1['p_price'] . '</td>';
+                            echo '<td>' . $ro1['p_description'] . '</td>';
+                            echo '<form action="product_delete.php" method="post">';
+                            echo '<input type="hidden" value="' . $ro1['p_id'] . '" name="p_id">';
                             echo '<td><button type="submit" name="submit" class="btn btn-danger">Delete</button></td>';
+//                            echo '<td><button type="submit" name="submit" class="btn btn-danger">Delete</button> || <a href="product_delete.php/?edit=' . $ro1['p_id'] . '" class="btn btn-warning">Update Product</a></td>';
                             echo '</form>';
                             echo '</tr>';
                         }

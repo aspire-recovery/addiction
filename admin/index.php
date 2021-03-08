@@ -47,9 +47,14 @@ if (!isset($_SESSION['a_id'])) {
     </div>
     <div class="divider"></div>
     <ul class="nav menu">
-        <li class="active"><a href="index.html"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
+        <li class="active"><a href="index.php"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
         <li><a href="addictions.php"><em class="fa fa-calendar">&nbsp;</em> Addictions</a></li>
-        <li><a href="charts.php"><em class="fa fa-bar-chart">&nbsp;</em> Charts</a></li>
+        <li><a href="product_category.php"><em class="fa fa-bar-chart">&nbsp;</em> Product Category</a></li>
+        <li><a href="product.php"><em class="fa fa-bar-chart">&nbsp;</em> Product</a></li>
+        <li><a href="user.php"><em class="fa fa-user">&nbsp;</em> Patient</a></li>
+        <li><a href="psycho.php"><em class="	fa fa-plus-square">&nbsp;</em>Psychiatrist</a></li>
+        <li><a href="forum_content.php"><em class="	fa fa-television">&nbsp;</em>Forum Content</a></li>
+        <li><a href="forum_reply.php"><em class="	fa fa-reply">&nbsp;</em>Forum Reply</a></li>
         <li><a href="elements.php"><em class="fa fa-toggle-off">&nbsp;</em> UI Elements</a></li>
         <li><a href="panels.php"><em class="fa fa-clone">&nbsp;</em> Alerts &amp; Panels</a></li>
         <li class="parent "><a data-toggle="collapse" href="#sub-item-1">
