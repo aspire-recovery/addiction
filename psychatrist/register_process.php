@@ -9,7 +9,7 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 $gender = $_POST['gender'];
 
-echo $name, $phone ,$email, $password, $gender;
+echo $name, $phone, $email, $password, $gender;
 
 
 // OTP Generation
@@ -20,7 +20,6 @@ echo $_SESSION["phone"] = $phone;
 echo $_SESSION["email"] = $email;
 echo $_SESSION["password"] = $password;
 echo $_SESSION["gender"] = $gender;
-
 
 
 // Sending Otp Through Mail
@@ -39,13 +38,13 @@ $mail->Body .= '<h3 style="color:black;">OTP:-  ' . $_SESSION["OTP"] . '</h3>';
 if ($mail->send()) {
 
     echo 'Success.';
-    header('location:verify_otp.php');
+    echo '<script>window.location.href="verify_otp.php"</script>';
 
 } else {
 
     echo 'Message could not be sent.';
     echo 'Mailer Error: ' . $mail->ErrorInfo;
-    header('location:login.php');
+    echo '<script>window.location.href="login.php"</script>';
 }
 
 

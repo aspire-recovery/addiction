@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
     $result = $conn->query($product_delete);
 
     if ($result) {
-        header("Location:product.php");
+        echo '<script>window.location.href="product.php"</script>';
     } else {
         echo '<script>alert("Data Not Deleted")</script>';
         echo '<script>window.location.href="product.php"</script>';

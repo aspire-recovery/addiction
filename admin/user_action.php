@@ -8,10 +8,10 @@ if (isset($_GET['block'])) {
     $block = $conn->query("UPDATE `user` SET u_status='1' WHERE u_id='$u_id'");
     if ($block) {
         echo '<script>alert("User Blocked")</script>';
-        header('Location:user.php');
+        echo '<script>window.location.href="user.php"</script>';
     } else {
         echo '<script>alert("Error in blocking")</script>';
-        header('Location:user.php');
+        echo '<script>window.location.href="user.php"</script>';
 
     }
 }
@@ -20,13 +20,13 @@ if (isset($_GET['unblock'])) {
     $block = $conn->query("UPDATE `user` SET u_status='0' WHERE u_id='$u_id'");
     if ($block) {
         echo '<script>alert("User Blocked")</script>';
-        header('Location:user.php');
+        echo '<script>window.location.href="user.php"</script>';
 
     } else {
         echo '<script>alert("Error in blocking")</script>';
-        header('Location:user.php');
+        echo '<script>window.location.href="user.php"</script>';
 
     }
 }
-header("Location:../user.php");
+echo '<script>window.location.href="../user.php"</script>';
 ?>

@@ -27,7 +27,8 @@ if (isset($_POST['submit'])) {
         $_SESSION['u_email'] = $u_email;
         $_SESSION['u_name'] = $u_name;
 
-        header('Location:login.php');
+        echo '<script>window.location.href="login.php";</script>';
+
     } else {
         echo '<script>alert("Invalid Email and Password");</script>';
         echo '<script>window.location.href="index.php";</script>';

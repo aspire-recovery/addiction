@@ -17,10 +17,11 @@ echo $pdt_category;
 $result = $conn->query($pdt_category);
 
 if ($result) {
-    header('Location:product_category.php');
+    echo '<script>window.location.href="product_category.php"</script>';
+
 } else {
     echo '<script>alert("Data Not Inserted")</script>';
-    echo '<script>window.location.href="addictions.php"</script>';
+    echo '<script>window.location.href="product_category.php"</script>';
 }
 
 ?>

@@ -40,13 +40,13 @@ $mail->Body .= '<h3 style="color:black;">OTP:-  ' . $_SESSION["OTP"] . '</h3>';
 if ($mail->send()) {
 
     echo 'Success.';
-    header('location:verify_otp.php');
+    echo '<script>window.location.href="verify_otp.php"</script>';
 
 } else {
 
     echo 'Message could not be sent.';
     echo 'Mailer Error: ' . $mail->ErrorInfo;
-    header('location:register.php');
+    echo '<script>window.location.href="register.php"</script>';
 }
 
 

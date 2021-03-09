@@ -3,7 +3,7 @@
 require 'config.php';
 session_start();
 if (!isset($_SESSION['a_id'])) {
-    header('Location:login.php');
+    echo '<script>window.location.href="login.php"</script>';
 }
 ?>
 <!DOCTYPE html>

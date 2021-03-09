@@ -67,7 +67,7 @@ echo $insert_product;
 $result = $conn->query($insert_product);
 
 if ($result) {
-    header("Location:product.php");
+    echo '<script>window.location.href="product.php"</script>';
 } else {
     echo '<script>alert("Product Not Inserted")</script>';
     echo '<script>window.location.href="product.php"</script>';

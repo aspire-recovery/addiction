@@ -14,7 +14,7 @@ $delete_sql = "DELETE FROM `product_categories` WHERE pdt_id='$id'";
 $result = $conn->query($delete_sql);
 
 if ($result) {
-    header('Location:product_category.php');
+    echo '<script>window.location.href="product_category.php"</script>';
 } else {
     echo '<script>alert("Data Not Deleted")</script>';
     echo '<script>window.location.href="product_category.php"</script>';

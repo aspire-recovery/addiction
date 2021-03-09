@@ -10,14 +10,17 @@ if (isset($_GET['delete'])) {
     $result = $conn->query($delete_sql);
 
     if ($result) {
-        header("Location:forum_content.php");
+        echo '<script>window.location.href="forum_content.php"</script>';
     } else {
         echo '<script>alert("Content not deleted")</script>';
-        header("Location:forum_content.php");
+        echo '<script>window.location.href="forum_content.php"</script>';
+//        header("Location:forum_content.php");
     }
 
 }
-header("Location:../forum_content.php");
+echo '<script>window.location.href="../forum_content.php"</script>';
+
+//header("Location:../forum_content.php");
 
 
 ?>
