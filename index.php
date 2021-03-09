@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Save Poor - Charity Category Responsive Website Template | Home : W3layouts</title>
+    <title>Aspire recovery</title>
 
     <link href="//fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
 
@@ -21,7 +21,7 @@ include "header.php";
 
 <!-- //header -->
 <!-- main-slider -->
-<section class="w3l-main-slider" id="home">
+<section class="w3l-main-slider" id="home" >
     <div class="companies20-content">
         <div class="owl-one owl-carousel owl-theme">
             <div class="item">
@@ -111,12 +111,12 @@ include "header.php";
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12 mt-md-0 mt-sm-4 mt-3">
                 <div class="box-wrap">
-                    <h4><a href="#team">Top Pshychatris</a></h4>
+                    <h4><a href="#team">Top psychiatrist</a></h4>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12 mt-lg-0 mt-sm-4 mt-3">
                 <div class="box-wrap">
-                    <h4><a href="#addictionid">Addction Types</a></h4>
+                    <h4><a href="#addictionid">Addiction Types</a></h4>
                 </div>
             </div>
         </div>
@@ -264,7 +264,7 @@ include "header.php";
                 <div class="col-lg-4 col-md-6 mt-md-0 mt-4">
                     <div class="float-mid feature-gd">
                         <div class="icon">
-                            <img src="assets/images/education.png" alt="" class="img-fluid">
+                            <img src="assets/images/slideshow1.jpg" alt="" class="img-fluid">
                         </div>
                         <div class="icon-info">
                             <h5>Motivate Our Client To Succeed</h5>
