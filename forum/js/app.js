@@ -1,3 +1,4 @@
+
 (function($, namespace) {
     'use strict';
 
@@ -137,3 +138,5 @@
 
     window[namespace] = app.init();
 })(jQuery, 'app');
+
+

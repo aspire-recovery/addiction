@@ -2,13 +2,8 @@
 <html lang="en-US">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
-    <meta name="keywords" content="HTML5 Template">
-    <meta name="description" content="Responsive HTML5 Template">
-    <meta name="author" content="author.com">
-    <title>Responsive HTML5 Template</title>
+    <meta charset="utf-8">
+    <title>Create Thread</title>
 
     <!-- STYLESHEET -->
     <!-- fonts -->
@@ -21,8 +16,21 @@
     <!-- Vendor -->
     <link rel="stylesheet" href="vendor/bootstrap/v3/bootstrap.min.css">
     <link rel="stylesheet" href="vendor/bootstrap/v4/bootstrap-grid.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
     <!-- Custom -->
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.tiny.cloud/1/c7z8wx5m5u6j9yj237a233drpztw21qo2l4k45cxbzch4qov/tinymce/5/tinymce.min.js"
+        referrerpolicy="origin"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    
+
+    <script>
+    tinymce.init({
+        selector: '#mytextarea'
+    });
+    </script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -33,7 +41,43 @@
 
 <body>
     <!-- HEADER -->
-    <?php require 'partials/_header.php'; ?>
+
+    <?php
+    $alert=false;
+    session_start();
+
+    $u_id = $_SESSION['u_id'];
+    require 'partials/_header.php';
+    require '../config.php';
+
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if (!empty($_POST['description'])  && !empty($_POST['title'])){
+        $title = $_POST['title'];
+        $category = $_POST['category'];
+        $desc = $_POST['description'];  
+        $sql = "INSERT INTO `threads` (`thread_desc`, `thread_title`, `user_id`, `c_id`) VALUES ('$desc' , '$title' , '$u_id', '$category')";
+        $result = mysqli_query($conn, $sql);
+        if($result=true){
+            $alert=true;
+        $error ='<div class="alert alert-success alert-dismissible show" role="alert">
+      <strong>Success!</strong> Thread Published Sucessfully.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>';
+        }
+    }
+    else{
+        $alert=true;
+        $error ='<div class="alert alert-danger alert-dismissible show" role="alert">
+        <strong>Error!!!</strong> Cannot Field Empty.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>';
+    }
+
+    }
+
+
+    ?>
+
 
     <!-- MAIN -->
     <main>
@@ -44,143 +88,57 @@
                         Thread</div>
                     <span>Forum Guidelines</span>
                 </div>
-                <div class="create__section">
-                    <label class="create__label" for="title">Thread Title</label>
-                    <input type="text" class="form-control" id="title" placeholder="Add here">
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="create__section">
-                            <label class="create__label" for="category">Select Category</label>
-                            <label class="custom-select">
-                                <select id="category">
-                                    <option>Choose</option>
-                                    <option>Choose #2</option>
-                                    <option>Choose #3</option>
-                                </select>
-                            </label>
-                        </div>
+                <?php
+if($alert)
+{
+    echo $error;
+}
+?>
+                <form action="create-topic.php" method="post">
+                    <div class="create__section">
+                        <label class="create__label" for="title">Thread Title</label>
+                        <input type="text" class="form-control" name="title" id="title" placeholder="Add here">
                     </div>
-                    <div class="col-md-6">
-                        <div class="create__section">
-                            <label class="create__label" for="sub-category">Select Sub Category</label>
-                            <label class="custom-select">
-                                <select id="sub-category">
-                                    <option>Choose</option>
-                                    <option>Choose #2</option>
-                                    <option>Choose #3</option>
-                                </select>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="create__section create__textarea">
-                    <label class="create__label" for="description">Description</label>
-                    <div class="create__textarea-head">
-                        <span><i class="icon-Quote"></i></span>
-                        <span><i class="icon-Bold"></i></span>
-                        <span><i class="icon-Italic"></i></span>
-                        <div class="create__textarea-separate"></div>
-                        <span><i class="icon-Share_Topic"></i></span>
-                        <span><i class="icon-BlockQuote"></i></span>
-                        <span><i class="icon-Performatted"></i></span>
-                        <span><i class="icon-Upload_Files"></i></span>
-                        <span class="create__textarea-separate"></span>
-                        <span><i class="icon-Bullet_List"></i></span>
-                        <span><i class="icon-heading"></i></span>
-                        <span><i class="icon-Horizontal_Line"></i></span>
-                        <span><i class="icon-Emoticon"></i></span>
-                        <span><i class="icon-Settings"></i></span>
-                        <span><i class="icon-Color_Picker"></i></span>
-                        <div class="create__textarea-btn">
-                            <a href="#" class="btn">Preview</a>
-                        </div>
-                    </div>
-                    <textarea class="form-control"
-                        id="description">Adding amazing books to your summer reading list can be as simple as signing up for the BuzzFeed Books newsletter! You'll get a review of a new book you might love every Wednesday, plus much more twice a week: great jokes and quizzes, wonderful lists, powerful essays, all the Harry Potter and YA buzz you can handle, and of course, even more book recommendations. So make some space in your beach bag now — because you're going to have a lot to read this summer.</textarea>
-                </div>
-                <div class="create__section">
-                    <label class="create__label" for="tags">Add Tags</label>
-                    <input type="text" class="form-control" id="tags" placeholder="e.g. nature, science">
-                </div>
-                <div class="create__advanced">
                     <div class="row">
-                        <div class="col-lg-4 col-xl-4">
+                        <div class="col-md-6">
                             <div class="create__section">
-                                <label class="create__label">Who can see this?</label>
-                                <div class="create__radio">
-                                    <label class="create__box">
-                                        <label class="custom-radio">
-                                            <input type="radio" name="can-see" checked="checked">
-                                            <i></i>
-                                        </label>
-                                        <span>Everyone</span>
-                                    </label>
-                                    <label class="create__box">
-                                        <label class="custom-radio">
-                                            <input type="radio" name="can-see">
-                                            <i></i>
-                                        </label>
-                                        <span>Only Friends</span>
-                                    </label>
-                                </div>
+
+                                <label class="create__label" for="category">Select Category</label>
+                                <label class="custom-select">
+                                    <select id="category" name="category">
+
+                                        <?php
+                                        $sql = "SELECT * FROM `forum_categories`";
+                                        $result = mysqli_query($conn, $sql);
+
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                            $catid = $row['cat_id'];
+                                            $catname = ucwords($row['cat_name']);
+                                            echo ' <option value="' . $catid . '">' . $catname . '</option>';
+                                        }
+                                        ?>
+
+
+                                    </select>
+                                </label>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-xl-3">
-                            <div class="create__section">
-                                <label class="create__label">Share on Social?</label>
-                                <div class="create__radio">
-                                    <label class="create__box">
-                                        <label class="custom-checkbox">
-                                            <input type="checkbox" name="share-social" checked="checked">
-                                            <i></i>
-                                        </label>
-                                        <i class="fa fa-facebook-square" aria-hidden="true"></i>
-                                    </label>
-                                    <label class="create__box">
-                                        <label class="custom-checkbox">
-                                            <input type="checkbox" name="share-social" checked="checked">
-                                            <i></i>
-                                        </label>
-                                        <i class="fa fa-twitter" aria-hidden="true"></i>
-                                    </label>
-                                    <label class="create__box">
-                                        <label class="custom-checkbox">
-                                            <input type="checkbox" name="share-social">
-                                            <i></i>
-                                        </label>
-                                        <i class="fa fa-google-plus" aria-hidden="true"></i>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-xl-5">
-                            <div class="create__section">
-                                <label class="create__label">Is this a Mature Thread?</label>
-                                <div class="create__radio">
-                                    <label class="create__box">
-                                        <label class="custom-radio">
-                                            <input type="radio" name="mature-thread">
-                                            <i></i>
-                                        </label>
-                                        <span>Yes</span>
-                                    </label>
-                                    <label class="create__box">
-                                        <label class="custom-radio">
-                                            <input type="radio" name="mature-thread" checked="checked">
-                                            <i></i>
-                                        </label>
-                                        <span>No</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
-                </div>
-                <div class="create__footer">
-                    <a href="#" class="create__btn-cansel btn">Cancel</a>
-                    <a href="#" class="create__btn-create btn btn--type-02">Create Thread</a>
-                </div>
+                    <div class="create__section create__textarea">
+                        <label class="create__label" for="description">Description</label>
+
+                        <textarea class="form-control" name="description" id="mytextarea"
+                            cols="200">Enter Your Thread Here.</textarea>
+                    </div>
+                    <div class="create__footer">
+                        <a href="#" class="create__btn-cansel btn">Cancel</a>
+                        <button type="submit" name="submit" class="create__btn-create btn btn--type-02">Create
+                            Thread</button>
+                    </div>
+
+                </form>
+
             </div>
             <div class="posts" data-visible="desktop">
                 <div class="posts__head">
@@ -414,8 +372,15 @@
     </footer>
 
     <!-- JAVA SCRIPT -->
+    
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/velocity/velocity.min.js"></script>
+    <script>
+    $( document ).ready(function() {
+     $(".dropdown").removeClass("dropdown--open");
+});
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
     <script src="js/app.js"></script>
 
 </body>

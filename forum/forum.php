@@ -2,13 +2,8 @@
 <html lang="en-US">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
-    <meta name="keywords" content="HTML5 Template">
-    <meta name="description" content="Responsive HTML5 Template">
-    <meta name="author" content="author.com">
-    <title>Responsive HTML5 Template</title>
+
+    <title>Aspire Recovery</title>
 
     <!-- STYLESHEET -->
     <!-- fonts -->
@@ -24,6 +19,18 @@
     <!-- Custom -->
     <link rel="stylesheet" href="css/style.css">
 
+
+    <style>
+    .dropdown {
+        position: absolute;
+        top: auto;
+    }
+
+    #top {
+        top: 100% !important;
+    }
+    </style>
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -33,763 +40,241 @@
 
 <body>
     <!-- HEADER -->
-    <?php require 'partials/_header.php'; ?>
+
+    <?php
+
+    require 'partials/_header.php';
+    require '../config.php';
+    include 'partials/_functions.php';
+    ?>
+
 
     <!-- MAIN -->
     <main>
         <div class="container">
             <div class="nav">
-                <div class="nav__categories js-dropdown">
+                <div class="nav__categories js-dropdown" style="padding: 15px 0px;">
                     <div class="nav__select">
-                        <div class="btn-select" data-dropdown-btn="categories">All Categories</div>
+
+
+                        <div class="btn-select" data-dropdown-btn="categories"><?php
+                                                                                if (isset($_GET['catid'])) {
+                                                                                    $cid = $_GET['catid'];
+                                                                                    $sql2 = "SELECT * FROM `forum_categories` WHERE cat_id =" . $cid . "";
+                                                                                    $result2 = mysqli_query($conn, $sql2);
+                                                                                    $row2 = mysqli_fetch_assoc($result2);
+                                                                                    $cname = ucwords($row2['cat_name']);
+                                                                                    $cdesc = $row2['cat_desc'];
+                                                                                    echo $cname;
+                                                                                } else {
+                                                                                    echo "All Categories";
+                                                                                }
+                                                                                ?></div>
+
                         <nav class="dropdown dropdown--design-01" data-dropdown-list="categories">
                             <ul class="dropdown__catalog row">
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-f9bc64"></i>Hobbies</a>
-                                </li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-348aa7"></i>Social</a>
-                                </li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-4436f8"></i>Video</a>
-                                </li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-5dd39e"></i>Random</a>
-                                </li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-ff755a"></i>Arts</a></li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-bce784"></i>Tech</a></li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-83253f"></i>Gaming</a>
-                                </li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-c49bbb"></i>Science</a>
-                                </li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-3ebafa"></i>Exchange</a>
-                                </li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-c6b38e"></i>Pets</a></li>
-                                <li class="col-xs-6"><a href="#" class="category"><i
-                                            class="bg-a7cdbd"></i>Entertainment</a></li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-525252"></i>Education</a>
-                                </li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-777da7"></i>Q&amp;As</a>
-                                </li>
-                                <li class="col-xs-6"><a href="#" class="category"><i class="bg-368f8b"></i>Politics</a>
-                                </li>
+                                <?php
+                                $sql = "SELECT * FROM `forum_categories`";
+                                $result = mysqli_query($conn, $sql);
+                                $color_array = array("f9bc64", "348aa7", "4436f8", "5dd39e", "ff755a", "bce784", "83253f", "c49bbb", "3ebafa", "c6b38e");
+                                $i = rand(0, 9);
+                                echo '<li class="col-xs-6"><a href="forum.php?all=true" class="category"><i class="bg-' . $color_array[$i] . '"></i> All Categories </a>
+                                </li>';
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    $i = rand(0, 9);
+                                    $catid = $row['cat_id'];
+                                    $catname = $row['cat_name'];
+                                    echo '<li class="col-xs-6"><a href="forum.php?catid=' . $catid . '" class="category"><i class="bg-' . $color_array[$i] . '"></i>' . $catname . '</a>
+                                </li>';
+                                }
+
+                                ?>
                             </ul>
                         </nav>
                     </div>
-                    <div class="nav__select">
-                        <div class="btn-select" data-dropdown-btn="tags">Tags</div>
-                        <div class="dropdown dropdown--design-01" data-dropdown-list="tags">
-                            <div class="tags">
-                                <a href="#" class="bg-4f80b0">gaming</a>
-                                <a href="#" class="bg-424ee8">nature</a>
-                                <a href="#" class="bg-36b7d7">entertainment</a>
-                                <a href="#" class="bg-ef429e">selfie</a>
-                                <a href="#" class="bg-7cc576">camera</a>
-                                <a href="#" class="bg-3a3a17">username</a>
-                                <a href="#" class="bg-6f7e9c">funny</a>
-                                <a href="#" class="bg-f26522">photography</a>
-                                <a href="#" class="bg-a3d39c">climbing</a>
-                                <a href="#" class="bg-92278f">adventure</a>
-                                <a href="#" class="bg-8781bd">dreams</a>
-                                <a href="#" class="bg-f1ab32">life</a>
-                                <a href="#" class="bg-3b96ca">reason</a>
-                                <a href="#" class="bg-348aa7">social</a>
+
+                    <div class="nav__menu js-dropdown">
+                        <div class="nav__select">
+                            <div class="b" data-dropdown-btn="menu"></div>
+                            <div class="" data-dropdown-list="menu">
+                                <ul class="">
+
+                                </ul>
                             </div>
                         </div>
+                        <ul>
+                        </ul>
                     </div>
                 </div>
-                <div class="nav__menu js-dropdown">
-                    <div class="nav__select">
-                        <div class="btn-select" data-dropdown-btn="menu">Latest</div>
-                        <div class="dropdown dropdown--design-01" data-dropdown-list="menu">
-                            <ul class="dropdown__catalog">
-                                <li><a href="#">Latest</a></li>
-                                <li><a href="#">Unread</a></li>
-                                <li><a href="#">Rising</a></li>
-                                <li><a href="#">Most Liked</a></li>
-                                <li><a href="#">Follow Feed</a></li>
-                            </ul>
+
+                <div class="posts__body" style="display:block; width:100%;">
+                    <?php
+                    if (isset($_GET['catid'])) {
+
+                        echo '<div class="posts__item bg-fef2e0">
+                        <div class="posts__section-left" style="width: 100%;">
+                            <div class="posts__topic">
+                                <div class="posts__content">
+                                    <a href="#">
+                                        <h3><i><img src="fonts/icons/main/pinned.svg" alt="Pinned"></i>Welcome To
+                                            ' . $cname . ' Category! We Hope You Will Find Your Answers!</h3>
+                                    </a>
+                                    <p>' . $cdesc . '</p>
+                                </div>
+                            </div>
                         </div>
+                    </div>';
+                    }
+                    ?>
+                    <!-- MENU -->
+                    <div class="posts">
+                        <?php
+                        if (isset($_GET['all']) && $_GET['all'] = true) {
+                            echo '<div class="posts__head  bg-fef2e0">';
+                        } else {
+                            echo '<div class="posts__head">';
+                        }
+                        ?>
+
+                        <div class="posts__topic">Topic</div>
+                        <div class="posts__category">Category</div>
+                        <div class="posts__users">Created By</div>
+                        <div class="posts__replies">Replies</div>
+                        <div class="posts__views">Views</div>
+                        <div class="posts__activity">Activity</div>
                     </div>
-                    <ul>
-                        <li class="active"><a href="#">Latest</a></li>
-                        <li><a href="#">Unread</a></li>
-                        <li><a href="#">Rising</a></li>
-                        <li><a href="#">Most Liked</a></li>
-                        <li><a href="#">Follow Feed</a></li>
-                    </ul>
+                    <?php
+                    $color = array("", "bg-f2f4f6", "posts__item--bg-gradient");
+                    $color_array = array("f9bc64", "348aa7", "4436f8", "5dd39e", "f26522", "c49bbb", "ff755a", "bce784", "83253f", "c49bbb", "3ebafa", "c6b38e");
+                    $tag = array("Photo", "Cool", "Healthy", "Good", "Horror", "Amazing!", "Fabulous!",);
+                    $x = rand(0, 6);
+
+                    if (isset($_GET['catid'])) {
+                        $cat_id = $_GET['catid'];
+                        $sqla = "SELECT * FROM `threads` WHERE c_id='$cat_id'";
+                        $resulta = mysqli_query($conn, $sqla);
+                    } else {
+                        $sqla = "SELECT * FROM `threads`";
+                        $resulta = mysqli_query($conn, $sqla);
+                    }
+                    $i = 0;
+                    $k = false;
+                    while ($rowa = mysqli_fetch_assoc($resulta)) {
+                        $thread_id = $rowa['thread_id'];
+                        $thread_desc = $rowa['thread_desc'];
+                        $thread_title = $rowa['thread_title'];
+                        $thread_user = $rowa['user_id'];
+                        $thread_c_id = $rowa['c_id'];
+                        $sqlu = "SELECT u_name,r_date FROM `user` where u_id= $thread_user";
+                        $resultu = mysqli_query($conn, $sqlu);
+                        $rowu = mysqli_fetch_assoc($resultu);
+                        $input = $rowu['u_name'];
+                        $r_date = date('Y-m-d', strtotime($rowu['r_date']));;
+                        $logo = userlogo($input);
+                        $sqlc = "SELECT cat_name FROM `forum_categories` where cat_id= $thread_c_id";
+                        $resultc = mysqli_query($conn, $sqlc);
+                        $rowc = mysqli_fetch_assoc($resultc);
+                        $c_name = $rowc['cat_name'];
+                        $j = rand(0, 11);
+                        $f = rand(0, 11);
+                        $x = rand(0, 6);
+                        $y = rand(0, 6);
+                        if ($x == $y) {
+                            $x = rand(0, 6);
+                        }
+                        echo '<div class="posts__item ' . $color[$i] . '">
+            <div class="posts__section-left">
+                <div class="posts__topic">
+                    <div class="posts__content">
+                        <a href="#">
+                            <h3>' . $thread_title . '</h3>
+                        </a>
+                        <div class="posts__tags tags">
+                        <a href="#" class="bg-' . $color_array[$j] . '">' . $tag[$x] . '</a>
+               
+                        <a href="#" class="bg-' . $color_array[$f] . '">' . $tag[$y] . '</a>
+                    </div>
+                    </div>
+                    
                 </div>
+                <div class="posts__category"><a href="#" class="category"><i
+                            class="bg-' . $color_array[$j] . '"></i>' . ucwords($c_name) . '</a>
+                </div>
+               
             </div>
-            <div class="posts">
-                <div class="posts__head">
-                    <div class="posts__topic">Topic</div>
-                    <div class="posts__category">Category</div>
-                    <div class="posts__users">Users</div>
-                    <div class="posts__replies">Replies</div>
-                    <div class="posts__views">Views</div>
-                    <div class="posts__activity">Activity</div>
+            <div class="posts__section-right">
+                <div class="posts__users js-dropdown">
+                    <div>
+                    <a href="#" class="avatar"><img src="fonts/icons/avatars/' . $logo . '.svg" alt="avatar" data-dropdown-btn="user-b"></a>
+                    <div class="posts__users-dropdown dropdown dropdown--user dropdown--reverse-y" data-dropdown-list="user-b">
+                        <div class="dropdown__user">
+                            <a href="#" class="dropdown__user-label bg-' . $color_array[$f] . '">' . substr($logo, 0, 1) . '</a>
+                            <div class="dropdown__user-nav">
+                                <a href="#"><i class="icon-Add_User"></i></a>
+                                <a href="#"><i class="icon-Message"></i></a>
+                            </div>
+                            <div class="dropdown__user-info">
+                                <a href="#">' . $input . '</a>
+                                <p>Last post 4 hours ago. Joined ' . $r_date . '</p>
+                            </div>
+                            <div class="dropdown__user-icons">
+                                <a href="#"><img src="fonts/icons/badges/Intermediate.svg" alt="user-icon"></a>
+                                <a href="#"><img src="fonts/icons/badges/Bot.svg" alt="user-icon"></a>
+                                <a href="#"><img src="fonts/icons/badges/Animal_Lover.svg" alt="user-icon"></a>
+                            </div>
+                            <div class="dropdown__user-statistic">
+                                <div>Threads - <span>1184</span></div>
+                                <div>Posts - <span>5,863</span></div>
+                            </div>
+                        </div>
+                    </div>
+                        
+                    </div>
+                   
                 </div>
-                <div class="posts__body">
-                    <div class="posts__item bg-fef2e0">
-                        <div class="posts__section-left">
-                            <div class="posts__topic">
-                                <div class="posts__content">
-                                    <a href="#">
-                                        <h3><i><img src="fonts/icons/main/Pinned.svg" alt="Pinned"></i>Welcome New
-                                            Users! Please read this before posting!</h3>
-                                    </a>
-                                    <p>Congratulations, you have found the Community! Before you make a new topic or
-                                        post, please read community guidelines.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="posts__section-right">
-                            <div class="posts__users js-dropdown">
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/B.svg" alt="avatar"
-                                            data-dropdown-btn="user-b"></a>
-                                    <div class="posts__users-dropdown dropdown dropdown--user dropdown--reverse-y"
-                                        data-dropdown-list="user-b">
-                                        <div class="dropdown__user">
-                                            <a href="#" class="dropdown__user-label bg-218380">B</a>
-                                            <div class="dropdown__user-nav">
-                                                <a href="#"><i class="icon-Add_User"></i></a>
-                                                <a href="#"><i class="icon-Message"></i></a>
-                                            </div>
-                                            <div class="dropdown__user-info">
-                                                <a href="#">Tesla Motors</a>
-                                                <p>Last post 4 hours ago. Joined Jun 1, 16</p>
-                                            </div>
-                                            <div class="dropdown__user-icons">
-                                                <a href="#"><img src="fonts/icons/badges/Intermediate.svg"
-                                                        alt="user-icon"></a>
-                                                <a href="#"><img src="fonts/icons/badges/Bot.svg" alt="user-icon"></a>
-                                                <a href="#"><img src="fonts/icons/badges/Animal_Lover.svg"
-                                                        alt="user-icon"></a>
-                                            </div>
-                                            <div class="dropdown__user-statistic">
-                                                <div>Threads - <span>1184</span></div>
-                                                <div>Posts - <span>5,863</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/K.svg" alt="avatar"></a>
-                                </div>
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/O.svg" alt="avatar"></a>
-                                </div>
-                            </div>
-                            <div class="posts__replies">66</div>
-                            <div class="posts__views">15.1k</div>
-                            <div class="posts__activity">11d</div>
-                        </div>
-                    </div>
-                    <div class="posts__item">
-                        <div class="posts__section-left">
-                            <div class="posts__topic">
-                                <div class="posts__content">
-                                    <a href="#">
-                                        <h3>Current news and discussion</h3>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="posts__category"><a href="#" class="category"><i
-                                        class="bg-368f8b"></i>Politics</a></div>
-                        </div>
-                        <div class="posts__section-right">
-                            <div class="posts__users">
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/A.svg" alt="avatar"></a>
-                                </div>
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/G.svg" alt="avatar"></a>
-                                </div>
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/P.svg" alt="avatar"></a>
-                                </div>
-                            </div>
-                            <div class="posts__replies">31</div>
-                            <div class="posts__views">14.5k</div>
-                            <div class="posts__activity">13d</div>
-                        </div>
-                    </div>
-                    <div class="posts__item bg-f2f4f6">
-                        <div class="posts__section-left">
-                            <div class="posts__topic">
-                                <div class="posts__content">
-                                    <a href="#">
-                                        <h3>Get your username drawn by the other users of unity! or a drawing based on
-                                            what you do</h3>
-                                    </a>
-                                    <div class="posts__tags tags">
-                                        <a href="#" class="bg-4f80b0">gaming</a>
-                                        <a href="#" class="bg-424ee8">nature</a>
-                                        <a href="#" class="bg-36b7d7">entertainment</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="posts__category"><a href="#" class="category"><i class="bg-4436f8"></i>Video</a>
-                            </div>
-                        </div>
-                        <div class="posts__section-right">
-                            <div class="posts__users">
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/L.svg" alt="avatar"></a>
-                                </div>
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/T.svg" alt="avatar"></a>
-                                </div>
-                            </div>
-                            <div class="posts__replies">252</div>
-                            <div class="posts__views">396</div>
-                            <div class="posts__activity">13m</div>
-                        </div>
-                    </div>
-                    <div class="posts__item">
-                        <div class="posts__section-left">
-                            <div class="posts__topic">
-                                <div class="posts__content">
-                                    <a href="#">
-                                        <h3>Which movie have you watched most recently?</h3>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="posts__category"><a href="#" class="category"><i class="bg-3ebafa"></i>
-                                    Exchange</a></div>
-                        </div>
-                        <div class="posts__section-right">
-                            <div class="posts__users">
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/E.svg" alt="avatar"></a>
-                                </div>
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/I.svg" alt="avatar"></a>
-                                </div>
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/R.svg" alt="avatar"></a>
-                                </div>
-                            </div>
-                            <div class="posts__replies">207</div>
-                            <div class="posts__views">7.5k</div>
-                            <div class="posts__activity">41m</div>
-                        </div>
-                    </div>
-                    <div class="posts__item posts__item--bg-gradient">
-                        <div class="posts__section-left">
-                            <div class="posts__topic">
-                                <div class="posts__content">
-                                    <a href="#">
-                                        <h3><span>This post contails spoiler about</span> Star Wars Movie.</h3>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="posts__category"><a href="#" class="category"><i class="bg-777da7"></i>
-                                    Q&amp;As</a></div>
-                        </div>
-                        <div class="posts__section-right">
-                            <div class="posts__users">
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/F.svg" alt="avatar"></a>
-                                </div>
-                            </div>
-                            <div class="posts__replies">2.3k</div>
-                            <div class="posts__views">2.0k</div>
-                            <div class="posts__activity">1h</div>
-                        </div>
-                    </div>
-                    <div class="posts__item">
-                        <div class="posts__section-left">
-                            <div class="posts__topic">
-                                <div class="posts__content">
-                                    <a href="#">
-                                        <h3>Take a picture of what you’re doing at this very moment</h3>
-                                    </a>
-                                    <div class="posts__tags tags">
-                                        <a href="#" class="bg-ec008c">selfie</a>
-                                        <a href="#" class="bg-7cc576">camera</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="posts__category"><a href="#" class="category"><i class="bg-c6b38e"></i> Pets</a>
-                            </div>
-                        </div>
-                        <div class="posts__section-right">
-                            <div class="posts__users">
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/C.svg" alt="avatar"></a>
-                                </div>
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/U.svg" alt="avatar"></a>
-                                </div>
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/I.svg" alt="avatar"></a>
-                                </div>
-                            </div>
-                            <div class="posts__replies">441</div>
-                            <div class="posts__views">3.1k</div>
-                            <div class="posts__activity">6h</div>
-                        </div>
-                    </div>
-                    <div class="posts__item bg-f2f4f6">
-                        <div class="posts__section-left">
-                            <div class="posts__topic">
-                                <div class="posts__content">
-                                    <a href="#">
-                                        <h3>Name Generator/Pick-n-Choose Nonsense</h3>
-                                    </a>
-                                    <div class="posts__tags tags">
-                                        <a href="#" class="bg-3a3a17">username</a>
-                                        <a href="#" class="bg-6f7e9c">funny</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="posts__category"><a href="#" class="category"><i class="bg-525252"></i>
-                                    Education</a></div>
-                        </div>
-                        <div class="posts__section-right">
-                            <div class="posts__users">
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/K.svg" alt="avatar"></a>
-                                </div>
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/N.svg" alt="avatar"></a>
-                                </div>
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/Q.svg" alt="avatar"></a>
-                                </div>
-                            </div>
-                            <div class="posts__replies">1.3k</div>
-                            <div class="posts__views">6.0k</div>
-                            <div class="posts__activity">7h</div>
-                        </div>
-                    </div>
-                    <div class="posts__item">
-                        <div class="posts__section-left">
-                            <div class="posts__topic">
-                                <div class="posts__content">
-                                    <a href="#">
-                                        <h3><i class="icon-Locked"></i>I got an Amazon thingie!</h3>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="posts__category"><a href="#" class="category"><i class="bg-bce784"></i> Tech</a>
-                            </div>
-                        </div>
-                        <div class="posts__section-right">
-                            <div class="posts__users">
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/C.svg" alt="avatar"></a>
-                                </div>
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/W.svg" alt="avatar"></a>
-                                </div>
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/Y.svg" alt="avatar"></a>
-                                </div>
-                            </div>
-                            <div class="posts__replies">5.7k</div>
-                            <div class="posts__views">33.6k</div>
-                            <div class="posts__activity">13h</div>
-                        </div>
-                    </div>
-                    <div class="posts__item bg-f2f4f6">
-                        <div class="posts__section-left">
-                            <div class="posts__topic">
-                                <div class="posts__content">
-                                    <a href="#">
-                                        <h3>Post the weirdest thing you own here!</h3>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="posts__category"><a href="#" class="category"><i class="bg-525252"></i>
-                                    Education</a></div>
-                        </div>
-                        <div class="posts__section-right">
-                            <div class="posts__users">
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/D.svg" alt="avatar"></a>
-                                </div>
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/M.svg" alt="avatar"></a>
-                                </div>
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/R.svg" alt="avatar"></a>
-                                </div>
-                            </div>
-                            <div class="posts__replies">236</div>
-                            <div class="posts__views">2.3k</div>
-                            <div class="posts__activity">10h</div>
-                        </div>
-                    </div>
-                    <div class="posts__item">
-                        <div class="posts__section-left">
-                            <div class="posts__topic">
-                                <div class="posts__content">
-                                    <a href="#">
-                                        <h3>Show me your awesome photography</h3>
-                                    </a>
-                                    <div class="posts__tags tags">
-                                        <a href="#" class="bg-f26522">photography</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="posts__category"><a href="#" class="category"><i class="bg-c49bbb"></i>
-                                    Science</a></div>
-                        </div>
-                        <div class="posts__section-right">
-                            <div class="posts__users js-dropdown">
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/E.svg" alt="avatar"></a>
-                                </div>
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/R.svg" alt="avatar"></a>
-                                </div>
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/T.svg" alt="avatar"
-                                            data-dropdown-btn="user-t"></a>
-                                    <div class="posts__users-dropdown dropdown dropdown--user dropdown--open"
-                                        data-dropdown-list="user-t">
-                                        <div class="dropdown__user">
-                                            <a href="#" class="dropdown__user-label bg-00bd9d">T</a>
-                                            <div class="dropdown__user-nav">
-                                                <a href="#"><i class="icon-Add_User"></i></a>
-                                                <a href="#"><i class="icon-Message"></i></a>
-                                            </div>
-                                            <div class="dropdown__user-info">
-                                                <a href="#">Tesla Motors</a>
-                                                <p>Last post 4 hours ago. Joined Jun 1, 16</p>
-                                            </div>
-                                            <div class="dropdown__user-icons">
-                                                <a href="#"><img src="fonts/icons/badges/Intermediate.svg"
-                                                        alt="user-icon"></a>
-                                                <a href="#"><img src="fonts/icons/badges/Bot.svg" alt="user-icon"></a>
-                                                <a href="#"><img src="fonts/icons/badges/Animal_Lover.svg"
-                                                        alt="user-icon"></a>
-                                            </div>
-                                            <div class="dropdown__user-statistic">
-                                                <div>Threads - <span>1184</span></div>
-                                                <div>Posts - <span>5,863</span></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="posts__replies">3</div>
-                            <div class="posts__views">519</div>
-                            <div class="posts__activity">2d</div>
-                        </div>
-                    </div>
-                    <div class="posts__item bg-f2f4f6">
-                        <div class="posts__section-left">
-                            <div class="posts__topic">
-                                <div class="posts__content">
-                                    <a href="#">
-                                        <h3>GAMERS UNITE! What games do the Unity Community play?</h3>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="posts__category"><a href="#" class="category"><i class="bg-5dd39e"></i>
-                                    Random</a></div>
-                        </div>
-                        <div class="posts__section-right">
-                            <div class="posts__users">
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/H.svg" alt="avatar"></a>
-                                </div>
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/M.svg" alt="avatar"></a>
-                                </div>
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/Y.svg" alt="avatar"></a>
-                                </div>
-                            </div>
-                            <div class="posts__replies">60</div>
-                            <div class="posts__views">891</div>
-                            <div class="posts__activity">1h</div>
-                        </div>
-                    </div>
-                    <div class="posts__item">
-                        <div class="posts__section-left">
-                            <div class="posts__topic">
-                                <div class="posts__content">
-                                    <a href="#">
-                                        <h3>Take a virtual tour of the world’s creepiest basement!</h3>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="posts__category"><a href="#" class="category"><i class="bg-83253f"></i>
-                                    Gaming</a></div>
-                        </div>
-                        <div class="posts__section-right">
-                            <div class="posts__users">
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/L.svg" alt="avatar"></a>
-                                </div>
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/A.svg" alt="avatar"></a>
-                                </div>
-                            </div>
-                            <div class="posts__replies">587</div>
-                            <div class="posts__views">3.8k</div>
-                            <div class="posts__activity">3d</div>
-                        </div>
-                    </div>
-                    <div class="posts__item bg-f2f4f6">
-                        <div class="posts__section-left">
-                            <div class="posts__topic">
-                                <div class="posts__content">
-                                    <a href="#">
-                                        <h3>Climbing Mount Borah in centeral Idaho</h3>
-                                    </a>
-                                    <div class="posts__tags tags">
-                                        <a href="#" class="bg-a3d39c">climbing</a>
-                                        <a href="#" class="bg-6f7e9c">funny</a>
-                                        <a href="#" class="bg-92278f">adventure</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="posts__category"><a href="#" class="category"><i class="bg-a7cdbd"></i>
-                                    Entertainment</a></div>
-                        </div>
-                        <div class="posts__section-right">
-                            <div class="posts__users">
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/I.svg" alt="avatar"></a>
-                                </div>
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/O.svg" alt="avatar"></a>
-                                </div>
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/S.svg" alt="avatar"></a>
-                                </div>
-                            </div>
-                            <div class="posts__replies">628</div>
-                            <div class="posts__views">997</div>
-                            <div class="posts__activity">1h</div>
-                        </div>
-                    </div>
-                    <div class="posts__item">
-                        <div class="posts__section-left">
-                            <div class="posts__topic">
-                                <div class="posts__content">
-                                    <a href="#">
-                                        <h3>Post your artwork!</h3>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="posts__category"><a href="#" class="category"><i class="bg-c6b38e"></i> Pets</a>
-                            </div>
-                        </div>
-                        <div class="posts__section-right">
-                            <div class="posts__users">
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/S.svg" alt="avatar"></a>
-                                </div>
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/G.svg" alt="avatar"></a>
-                                </div>
-                            </div>
-                            <div class="posts__replies">147</div>
-                            <div class="posts__views">397</div>
-                            <div class="posts__activity">3h</div>
-                        </div>
-                    </div>
-                    <div class="posts__item bg-f2f4f6">
-                        <div class="posts__section-left">
-                            <div class="posts__topic">
-                                <div class="posts__content">
-                                    <a href="#">
-                                        <h3>Who’s playing Overwatch?</h3>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="posts__category"><a href="#" class="category"><i class="bg-ff755a"></i> Arts</a>
-                            </div>
-                        </div>
-                        <div class="posts__section-right">
-                            <div class="posts__users">
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/K.svg" alt="avatar"></a>
-                                </div>
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/L.svg" alt="avatar"></a>
-                                </div>
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/R.svg" alt="avatar"></a>
-                                </div>
-                            </div>
-                            <div class="posts__replies">274</div>
-                            <div class="posts__views">2.9k</div>
-                            <div class="posts__activity">1d</div>
-                        </div>
-                    </div>
-                    <div class="posts__item">
-                        <div class="posts__section-left">
-                            <div class="posts__topic">
-                                <div class="posts__content">
-                                    <a href="#">
-                                        <h3>Tell me about your recent dream</h3>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="posts__category"><a href="#" class="category"><i class="bg-f9bc64"></i>
-                                    Hobbies</a></div>
-                        </div>
-                        <div class="posts__section-right">
-                            <div class="posts__users">
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/N.svg" alt="avatar"></a>
-                                </div>
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/H.svg" alt="avatar"></a>
-                                </div>
-                            </div>
-                            <div class="posts__replies">0</div>
-                            <div class="posts__views">2.9k</div>
-                            <div class="posts__activity">1d</div>
-                        </div>
-                    </div>
-                    <div class="posts__item bg-f2f4f6">
-                        <div class="posts__section-left">
-                            <div class="posts__topic">
-                                <div class="posts__content">
-                                    <a href="#">
-                                        <h3>A thread in which you tell users to go to sleep</h3>
-                                    </a>
-                                    <div class="posts__tags tags">
-                                        <a href="#" class="bg-8781bd">dreams</a>
-                                        <a href="#" class="bg-f1ab32">life</a>
-                                        <a href="#" class="bg-3b96ca">reason</a>
-                                        <a href="#" class="bg-348aa7">social</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="posts__category"><a href="#" class="category"><i class="bg-348aa7"></i>
-                                    Social</a></div>
-                        </div>
-                        <div class="posts__section-right">
-                            <div class="posts__users">
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/J.svg" alt="avatar"></a>
-                                </div>
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/D.svg" alt="avatar"></a>
-                                </div>
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/Q.svg" alt="avatar"></a>
-                                </div>
-                            </div>
-                            <div class="posts__replies">129</div>
-                            <div class="posts__views">752</div>
-                            <div class="posts__activity">19m</div>
-                        </div>
-                    </div>
-                    <div class="posts__item">
-                        <div class="posts__section-left">
-                            <div class="posts__topic">
-                                <div class="posts__content">
-                                    <a href="#">
-                                        <h3>What’s everyone drinking?</h3>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="posts__category"><a href="#" class="category"><i class="bg-5dd39e"></i>
-                                    Random</a></div>
-                        </div>
-                        <div class="posts__section-right">
-                            <div class="posts__users">
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/B.svg" alt="avatar"></a>
-                                </div>
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/M.svg" alt="avatar"></a>
-                                </div>
-                                <div>
-                                    <a href="#" class="avatar"><img src="fonts/icons/avatars/Z.svg" alt="avatar"></a>
-                                </div>
-                            </div>
-                            <div class="posts__replies">305</div>
-                            <div class="posts__views">2.1k</div>
-                            <div class="posts__activity">6m</div>
-                        </div>
-                    </div>
+                <div class="posts__replies">31</div>
+                <div class="posts__views">14.5k</div>
+                <div class="posts__activity">13d</div>
+            </div>
+        </div>';
+
+                        if ($i == 0 && $k == false) {
+                            $i = 1;
+                        } elseif ($k == true) {
+                            $i = 2;
+                            $k = false;
+                        } elseif ($i == 2) {
+                            $i = 0;
+                        } else {
+                            $i = 0;
+                            if ($k == false) {
+                                $k = true;
+                            } else {
+                                $k = false;
+                            }
+                        }
+                    }
+                    ?>
+
+
+
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer js-dropdown">
-            <div class="container">
-                <div class="footer__logo">
-                    <div>
-                        <img src="fonts/icons/main/Logo_Forum.svg" alt="logo">Unity
-                    </div>
-                </div>
-                <div class="footer__nav">
-                    <div class="footer__tline">
-                        <i class="icon-Support"></i>
-                        <ul class="footer__menu">
-                            <li><a href="#">Support</a></li>
-                            <li><a href="#">About</a></li>
-                            <li><a href="#">Contact Us</a></li>
-                            <li><a href="#">The Team</a></li>
-                        </ul>
-                        <div class="footer__language">
-                            <div class="footer__language-btn" data-dropdown-btn="language">Americas - English<i
-                                    class="icon-Arrow_Below"></i></div>
-                            <div class="footer__language-dropdown dropdown dropdown--design-01 dropdown--reverse-y"
-                                data-dropdown-list="language">
-                                <div class="row">
-                                    <div class="col-xs-6">
-                                        <h3>Region</h3>
-                                        <ul class="dropdown__catalog">
-                                            <li class="active"><a href="#"><i></i>America</a></li>
-                                            <li><a href="#"><i></i>Europe</a></li>
-                                            <li><a href="#"><i></i>Asia</a></li>
-                                            <li><a href="#"><i></i>China</a></li>
-                                            <li><a href="#"><i></i>Australia</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <h3>Language</h3>
-                                        <ul class="dropdown__catalog">
-                                            <li class="active"><a href="#"><i></i>English</a></li>
-                                            <li><a href="#"><i></i>Espanol</a></li>
-                                            <li><a href="#"><i></i>Portugues</a></li>
-                                            <li><a href="#"><i></i>Chinese</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="footer__bline">
-                        <ul class="footer__menu">
-                            <li class="footer__copyright"><span>&copy; 2017 azyrusthemes.com</span></li>
-                            <li><a href="#">Teams</a></li>
-                            <li><a href="#">Privacy</a></li>
-                            <li><a href="#">Send Feedback</a></li>
-                        </ul>
-                        <ul class="footer__social">
-                            <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-cloud" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
-                        </ul>
-                        <div class="footer__language-btn-m" data-dropdown-btn="language">Americas - English<i
-                                class="icon-Arrow_Below"></i></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <?php
+    require 'partials/_footer.php';
+    ?>
 
     <!-- JAVA SCRIPT -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/velocity/velocity.min.js"></script>
     <script src="js/app.js"></script>
+
+    <script>
+
+    </script>
 
 </body>
 

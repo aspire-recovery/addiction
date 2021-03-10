@@ -2779,7 +2779,7 @@ select {
 @media only screen and (min-width: 1040px) {
   .header__search {
     position: relative;
-    width: 600px;
+    width: 700px;
     padding-left: 30px;
     padding-right: 30px;
     border-right: solid 1px #e9ecee;
@@ -2963,6 +2963,7 @@ select {
 }
 .header__menu-btn.dropdown__btn--open > i {
   color: #f9bc64;
+
 }
 .header__notification {
   align-items: center;
@@ -3062,11 +3063,11 @@ select {
   font-size: 6px;
 }
 .header__offset-btn {
-  position: absolute;
+ display: flex;
+ align-items: center;
+ justify-self: start;
   width: 30px;
-  margin-top: -15px;
-  top: 50%;
-  right: 30px;
+
 }
 @media only screen and (max-width: 1039px) {
   .header__offset-btn {
