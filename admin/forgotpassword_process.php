@@ -27,13 +27,13 @@ if ($result->num_rows > 0) {
     if ($mail->send()) {
 
         echo 'Success.';
-        header('location:login.php');
+        echo '<script>window.location.href="login.php"</script>';
 
     } else {
 
         echo 'Message could not be sent.';
         echo 'Mailer Error: ' . $mail->ErrorInfo;
-        header('location:forgotpassword.php');
+        echo '<script>window.location.href="forgotpassword.php"</script>';
     }
 
 

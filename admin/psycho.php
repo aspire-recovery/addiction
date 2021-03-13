@@ -2,6 +2,9 @@
 //    Imports
 require 'config.php';
 session_start();
+if (!isset($_SESSION['a_id'])) {
+    echo '<script>window.location.href="login.php"</script>';
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -79,70 +82,51 @@ session_start();
             <li><a href="#">
                     <em class="fa fa-home"></em>
                 </a></li>
-            <li class="active">Addiction</li>
+            <li class="active">Patient Details</li>
         </ol>
     </div><!--/.row-->
-
     <div class="row">
         <div class="col-lg-12">
         </div>
     </div><!--/.row-->
-
-
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Add Addictions</div>
-                <div class="panel-body">
-                    <div class="col-md-12">
-                        <form class="form-group" action="addictions_process.php" method="post">
-                            <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Addiction Name</label>
-                                <input type="text" name="addiction_name" class="form-control" style="width: 40%;"
-                                       placeholder="Addiction Name">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Addiction Description</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                          style="width: 40%;" placeholder="Addiction Description"
-                                          name="description"></textarea>
-                            </div>
-                            <button type="submit" name="submit" class="btn btn-block btn-lg btn-primary"
-                                    style="width: 40%">Submit
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div><!-- /.panel-->
-
-
-            <div class="panel panel-default">
-                <div class="panel-heading">Addiction Details</div>
+                <div class="panel-heading">Patient Details</div>
                 <table class="table">
                     <thead class="thead-dark">
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Addiction Name</th>
-                        <th scope="col">Description</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Contact No</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">BIO</th>
+                        <th scope="col">Gender</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
                     <tbody>
                     <?php
-                    $addictiopn_sql = "SELECT * FROM `addiction_types`";
-                    $r1 = $conn->query($addictiopn_sql);
+                    $psycho_detail = "SELECT * FROM `physcho`";
+                    $r1 = $conn->query($psycho_detail);
                     $cnt1 = 0;
                     if ($r1->num_rows > 0) {
                         while ($ro1 = $r1->fetch_assoc()) {
                             $cnt1++;
                             echo '<tr>';
                             echo '<th scope="row">' . $cnt1 . '</th>';
-                            echo '<td>' . $ro1['add_name'] . '</td>';
-                            echo '<td>' . $ro1['add_desp'] . '</td>';
-                            echo '<form action="addictions_delete.php" method="post">';
-                            echo '<input type="hidden" value="' . $ro1['add_id'] . '" name="add_id">';
-                            echo '<td><button type="submit" name="submit" class="btn btn-danger">Delete</button></td>';
-                            echo '</form>';
+                            echo '<td>' . $ro1['psy_name'] . '</td>';
+                            echo '<td>' . $ro1['psy_contact'] . '</td>';
+                            echo '<td>' . $ro1['psy_email'] . '</td>';
+                            echo '<td>' . $ro1['psy_bio'] . '</td>';
+                            echo '<td>' . $ro1['psy_gender'] . '</td>';
+                            echo '<td>';
+                            if ($ro1['psy_status'] == 0) {
+                                echo '<a href="psy_action.php/?block=' . $ro1['psy_id'] . '" class="btn btn-danger">BLOCK</a>';
+                            } elseif ($ro1['psy_status'] == 1) {
+                                echo '<a href="psy_action.php/?unblock=' . $ro1['psy_id'] . '" class="btn btn-primary">UNBLOCK</a>';
+                            }
+                            echo '</td>';
                             echo '</tr>';
                         }
                     }

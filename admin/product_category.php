@@ -79,32 +79,29 @@ session_start();
             <li><a href="#">
                     <em class="fa fa-home"></em>
                 </a></li>
-            <li class="active">Addiction</li>
+            <li class="active">Products</li>
         </ol>
     </div><!--/.row-->
-
     <div class="row">
         <div class="col-lg-12">
         </div>
     </div><!--/.row-->
-
-
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Add Addictions</div>
+                <div class="panel-heading">Add Products Categories</div>
                 <div class="panel-body">
                     <div class="col-md-12">
-                        <form class="form-group" action="addictions_process.php" method="post">
+                        <form class="form-group" action="product_category_process.php" method="post">
                             <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Addiction Name</label>
-                                <input type="text" name="addiction_name" class="form-control" style="width: 40%;"
-                                       placeholder="Addiction Name">
+                                <label for="exampleFormControlTextarea1">Product Name</label>
+                                <input type="text" name="product_name" class="form-control" style="width: 40%;"
+                                       placeholder="Product Name">
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Addiction Description</label>
+                                <label for="exampleFormControlTextarea1">Product Description</label>
                                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                          style="width: 40%;" placeholder="Addiction Description"
+                                          style="width: 40%;" placeholder="Product Description"
                                           name="description"></textarea>
                             </div>
                             <button type="submit" name="submit" class="btn btn-block btn-lg btn-primary"
@@ -117,30 +114,30 @@ session_start();
 
 
             <div class="panel panel-default">
-                <div class="panel-heading">Addiction Details</div>
+                <div class="panel-heading">Product Categories Details</div>
                 <table class="table">
                     <thead class="thead-dark">
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Addiction Name</th>
+                        <th scope="col">Category Name</th>
                         <th scope="col">Description</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
                     <tbody>
                     <?php
-                    $addictiopn_sql = "SELECT * FROM `addiction_types`";
-                    $r1 = $conn->query($addictiopn_sql);
+                    $product_sql = "SELECT * FROM `product_categories`";
+                    $r1 = $conn->query($product_sql);
                     $cnt1 = 0;
                     if ($r1->num_rows > 0) {
                         while ($ro1 = $r1->fetch_assoc()) {
                             $cnt1++;
                             echo '<tr>';
                             echo '<th scope="row">' . $cnt1 . '</th>';
-                            echo '<td>' . $ro1['add_name'] . '</td>';
-                            echo '<td>' . $ro1['add_desp'] . '</td>';
-                            echo '<form action="addictions_delete.php" method="post">';
-                            echo '<input type="hidden" value="' . $ro1['add_id'] . '" name="add_id">';
+                            echo '<td>' . $ro1['pdt_name'] . '</td>';
+                            echo '<td>' . $ro1['pdt_description'] . '</td>';
+                            echo '<form action="product_category_delete.php" method="post">';
+                            echo '<input type="hidden" value="' . $ro1['pdt_id'] . '" name="pdt_id">';
                             echo '<td><button type="submit" name="submit" class="btn btn-danger">Delete</button></td>';
                             echo '</form>';
                             echo '</tr>';

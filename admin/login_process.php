@@ -23,7 +23,7 @@ if ($result->num_rows > 0) {
     $_SESSION['a_id'] = $a_id;
     $_SESSION['a_email'] = $a_email;
     $_SESSION['a_name'] = $a_name;
-    header('Location:index.php');
+    echo '<script>window.location.href="index.php"</script>';
 } else {
     echo '<script>window.location.href="login.php"</script>';
 }

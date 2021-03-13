@@ -1,7 +1,5 @@
-
 <!doctype html>
 <html lang="zxx">
-
 <head>
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
@@ -14,10 +12,7 @@
 	<link href="//fonts.googleapis.com/css?family=Poppins:300,400,400i,500,600,700&display=swap" rel="stylesheet">
 	<!-- Template CSS -->
 </head>
-
 <body>
-	
-	
 <?php
 include "header.php";
 ?>
