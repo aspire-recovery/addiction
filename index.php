@@ -264,7 +264,7 @@ include "header.php";
                 <div class="col-lg-4 col-md-6 mt-md-0 mt-4">
                     <div class="float-mid feature-gd">
                         <div class="icon">
-                            <img src="assets/images/slideshow1.jpg" alt="" class="img-fluid">
+                            <img src="assets/images/education.png" alt="" class="img-fluid">
                         </div>
                         <div class="icon-info">
                             <h5>Motivate Our Client To Succeed</h5>
@@ -337,8 +337,8 @@ include "header.php";
         <div class="row">
             <div class="col-lg-3 col-md-6">
                 <div class="card text-center">
-                    <div class="icon-holder">
-                        <span class="fa fa-signal service-icon" aria-hidden="true"></span>
+                    <div class="icon-holder" >
+                        <span class="fa fa-signal service-icon" aria-hidden="true"></span>K
                     </div>
                     <h4 class="mission">ALCOHOLISM</h4>
                     <div class="open-description">
@@ -351,7 +351,7 @@ include "header.php";
             </div>
             <div class="col-lg-3 col-md-6 mt-md-0 mt-5 pt-md-0 pt-3">
                 <div class="card text-center">
-                    <div class="icon-holder">
+                    <div class="icon-holder " style="background-image: url("")">
                         <span class="fa fa-assistive-listening-systems service-icon" aria-hidden="true"></span>
                     </div>
                     <h4 class="mission">COCAINE</h4>
