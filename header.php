@@ -22,8 +22,7 @@ if (!isset($_SESSION['u_id'])) {
         <div class="container">
             <nav class="navbar navbar-expand-lg stroke">
                 <h1><a class="navbar-brand mr-lg-5" href="index.php">
-                        <img src="assets/images/logof.jpg" alt="" title="Your logo" width="150px" height="80px"/>
-                    Aspire</a></h1>
+                        Aspire</a></h1>
                 <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
                         data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
                         aria-label="Toggle navigation">
@@ -31,7 +30,6 @@ if (!isset($_SESSION['u_id'])) {
                     <span class="navbar-toggler-icon fa icon-close fa-times"></span>
                     </span>
                 </button>
-
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav w-100">
                         <li class="nav-item @@home__active">
