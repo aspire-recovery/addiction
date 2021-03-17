@@ -15,22 +15,18 @@ $status = 0;
 $otpv = $_POST['otp'];
 
 $encrypted_pass = md5($password);
-
-
 if ($otp == $otpv) {
 //Query
-    $insert_sql = "INSERT INTO `user`(`addiction_id`, `u_name`, `u_contact`, `u_email`, `u_status`, `u_gender`,`u_password`) VALUES 
+    $insert_sql = "INSERT INTO `user`(`addiction_id`, `u_name`, `u_contact`, `u_email`, `u_status`, `u_gender`,`u_password`) VALUES
                 ('$addiction','$name','$phone','$email','$status','$gender','$encrypted_pass')";
-
-    echo $insert_sql;
 
     $result = $conn->query($insert_sql);
 
     if ($result) {
-        echo 'Data Inserted';
+        // Give Sucess Alert Later
         echo '<script>window.location.href="login.php"</script>';
     } else {
-        echo 'Error Occured';
+        // Give Error Alert Later
         echo '<script>window.location.href="register.php"</script>';
     }
 
@@ -47,6 +43,3 @@ if ($otp == $otpv) {
     echo '<script>window.location.href="register.php"</script>';
 
 }
-
-
-?>

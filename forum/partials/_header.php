@@ -21,10 +21,10 @@
             </div>
 
             <div class="header__search" style="padding-left:0px; width: 700px;">
-                <form action="#">
+                <form action="search.php" method="get">
                     <label style="">
                         <i class="icon-Search js-header-search-btn-open"></i>
-                        <input type="search" placeholder="Search all forums" class="form-control">
+                        <input type="search" name="search" placeholder="Search all forums" class="form-control">
                     </label>
                 </form>
                 <div class="header__search-close js-header-search-btn-close"><i class="icon-Cancel"></i></div>
