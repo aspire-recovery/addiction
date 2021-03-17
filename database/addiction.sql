@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 07, 2021 at 08:29 AM
+-- Generation Time: Mar 17, 2021 at 12:42 PM
 -- Server version: 10.4.17-MariaDB
--- PHP Version: 7.4.13
+-- PHP Version: 7.3.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -77,15 +77,23 @@ CREATE TABLE `cart` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `forum`
+-- Table structure for table `forum_categories`
 --
 
-CREATE TABLE `forum` (
-  `fu_id` int(5) NOT NULL,
-  `fu_caption` varchar(100) NOT NULL,
-  `post_path` varchar(200) NOT NULL,
-  `psy_id` int(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `forum_categories` (
+  `cat_id` int(7) NOT NULL,
+  `cat_name` varchar(255) NOT NULL,
+  `cat_desc` text NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `forum_categories`
+--
+
+INSERT INTO `forum_categories` (`cat_id`, `cat_name`, `cat_desc`, `created_at`) VALUES
+(1, 'Alcohol', 'Alcoholism affects people of any race, sex, and socioeconomic background. Read more on how to treat it.', '2021-03-08 18:25:49'),
+(2, 'cocaine', 'A Directory of De-addiction helpline across India and rehab center to quit smoking ,alcohol or any such substance.\r\n', '2021-03-08 18:25:49');
 
 -- --------------------------------------------------------
 
@@ -97,8 +105,19 @@ CREATE TABLE `forum_reply` (
   `reply_id` int(5) NOT NULL,
   `fu_id` int(5) NOT NULL,
   `u_id` int(5) NOT NULL,
-  `message` varchar(100) NOT NULL
+  `message` text CHARACTER SET utf8 NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `forum_reply`
+--
+
+INSERT INTO `forum_reply` (`reply_id`, `fu_id`, `u_id`, `message`, `created_at`) VALUES
+(8, 1, 3, '<p>khkjh</p>', '2021-03-17 00:06:47'),
+(9, 1, 3, '<h3>vdjdncvncvfrf</h3>\r\n<blockquote>\r\n<p style=\"text-align: center;\"><em><strong>jlkgbkhbkj,h</strong></em></p>\r\n</blockquote>', '2021-03-17 15:41:03'),
+(10, 1, 3, '<h3>vdjdncvncvfrf</h3>\r\n<blockquote>\r\n<p style=\"text-align: center;\"><em><strong>jlkgbkhbkj,h</strong></em></p>\r\n</blockquote>', '2021-03-17 15:42:14'),
+(11, 1, 3, '<p>fh;dfbm;l</p>', '2021-03-17 16:55:27');
 
 -- --------------------------------------------------------
 
@@ -196,7 +215,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`u_id`, `addiction_id`, `u_name`, `u_contact`, `u_email`, `u_status`, `u_gender`, `r_date`, `u_password`) VALUES
-(1, 0, 'Alok Rathava', '9512334819', 'alokrathava@gmail.com', 0, 'male', '2021-03-06 21:42:21', '21232f297a57a5a743894a0e4a801fc3');
+(1, 0, 'Alok Rathava', '9512334819', 'alokrathava@gmail.com', 0, 'male', '2021-03-06 21:42:21', '21232f297a57a5a743894a0e4a801fc3'),
+(2, 1, 'Dhruvit', '9825183134', 'allinoneguruji3@gmail.com', 0, 'male', '2021-03-07 22:26:42', '5d41402abc4b2a76b9719d911017c592'),
+(3, 2, 'Dhruvit', '9825183134', 'allinoneguruji3@gmail.com', 0, 'male', '2021-03-16 12:55:48', '5d41402abc4b2a76b9719d911017c592');
 
 --
 -- Indexes for dumped tables
@@ -221,16 +242,18 @@ ALTER TABLE `cart`
   ADD PRIMARY KEY (`cart_id`);
 
 --
--- Indexes for table `forum`
+-- Indexes for table `forum_categories`
 --
-ALTER TABLE `forum`
-  ADD PRIMARY KEY (`fu_id`);
+ALTER TABLE `forum_categories`
+  ADD PRIMARY KEY (`cat_id`);
 
 --
 -- Indexes for table `forum_reply`
 --
 ALTER TABLE `forum_reply`
-  ADD PRIMARY KEY (`reply_id`);
+  ADD PRIMARY KEY (`reply_id`),
+  ADD KEY `fu_id` (`fu_id`),
+  ADD KEY `u_id` (`u_id`);
 
 --
 -- Indexes for table `order`
@@ -291,16 +314,16 @@ ALTER TABLE `cart`
   MODIFY `cart_id` int(5) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `forum`
+-- AUTO_INCREMENT for table `forum_categories`
 --
-ALTER TABLE `forum`
-  MODIFY `fu_id` int(5) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `forum_categories`
+  MODIFY `cat_id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `forum_reply`
 --
 ALTER TABLE `forum_reply`
-  MODIFY `reply_id` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `reply_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `order`
@@ -336,7 +359,19 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `u_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `u_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `forum_reply`
+--
+ALTER TABLE `forum_reply`
+  ADD CONSTRAINT `forum_reply_ibfk_2` FOREIGN KEY (`u_id`) REFERENCES `user` (`u_id`),
+  ADD CONSTRAINT `forum_reply_ibfk_3` FOREIGN KEY (`fu_id`) REFERENCES `threads` (`thread_id`),
+  ADD CONSTRAINT `forum_reply_ibfk_4` FOREIGN KEY (`u_id`) REFERENCES `user` (`u_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
