@@ -199,7 +199,7 @@ if (isset($_GET['search']) && !empty($_GET['search'])) {
         }
     }
 } else {
-    // echo '<script>window.location.href="forum.php"</script>';
+
 }
 ?>
 
