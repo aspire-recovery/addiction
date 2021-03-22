@@ -383,7 +383,8 @@ include "header.php";
             <div class="col-lg-3 col-md-6 mt-lg-0 mt-5 pt-lg-0 pt-3">
                 <div class="card text-center">
                     <div class="icon-holder">
-                        <span class="fa fa-magic service-icon" aria-hidden="true"></span>
+                        <span class="fa fa-magic service-icon" aria-hidden="true"> </span>
+                      
                     </div>
                     <h4 class="mission">BEHAVIOURAL</h4>
                     <div class="open-description">

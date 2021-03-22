@@ -1,0 +1,56 @@
+body{
+    padding: 10px;
+    margin: 10px;
+    box-sizing: border-box;
+    text-size-adjust: 100%;
+    cursor: default;
+    font-size: 17px;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    font-family: "Proxima Nova",system-ui,sans-serif;
+    color: #231f20;
+    font-weight: lighter;
+    background-image: url(assets\images\Maldives.jpg);
+}
+.main-topic{
+    margin-top: 0;
+    padding-top: 0;
+    font-weight: bold;
+    position: relative;
+    clear: both;
+    font-family: "Proxima Nova",system-ui,sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    margin-bottom: 15px;
+    margin-top: 30px;
+}
+
+.sub-topic{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 20px;
+
+    font-size: 17px;
+    line-height: 26px;
+    margin: auto;
+    width: 60%;
+    border: 5px solid #62d2e6;
+    padding: 10px;
+
+}
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+.css-5r4717 {
+    cursor: pointer;
+    text-decoration: none;
+    border-color: currentColor;
+    color: #01adb9;
+}

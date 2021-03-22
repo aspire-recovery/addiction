@@ -42,6 +42,9 @@ if (!isset($_SESSION['u_id'])) {
                             <a class="nav-link" href="causes.php">Causes</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="articles.php">Articles</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="login.php">Login</a>
                         </li>
                         <li class="nav-item">
