@@ -345,7 +345,7 @@ include "header.php";
                         <p>Alcoholism is a progressive, chronic illness and in many cases can be fatal when the
                             consumption of alcoholic drinks is out of control. It interferes with physical,
                             mental, social and/or family health in addition to work responsibilities.</p>
-                        <a href="#read">Read More</a>
+                        <a href="articles.php">Read More</a>
                     </div>
                 </div>
             </div>
@@ -361,7 +361,7 @@ include "header.php";
                             produces a directly stimulating effect to the central nervous system, principally
                             to the brain. Cocaine tolerance develops quickly, which means that it is highly
                             addictive.</p>
-                        <a href="#read">Read More</a>
+                        <a href="articles.php">Read More</a>
                     </div>
                 </div>
             </div>
@@ -376,7 +376,7 @@ include "header.php";
                             approximately 200 people every day, of which 166 are men and 40 are women.
                             Smoking has been linked to numerous diseases. The largest percentage of smokers
                             is aged 25-39 years of age (40%), followed by those aged 40-59 years old (39%)</p>
-                        <a href="#read">Read More</a>
+                        <a href="articles.php">Read More</a>
                     </div>
                 </div>
             </div>
@@ -393,7 +393,7 @@ include "header.php";
                             around food, such as a change or distortion of body image, a fear of weight
                             gain and acquiring a series of values which are manifested through body
                             image.</p>
-                        <a href="#read">Read More</a>
+                        <a href="articles.php">Read More</a>
                     </div>
                 </div>
             </div>
@@ -418,12 +418,12 @@ include "header.php";
             <div class="col-lg-4 col-md-6 mt-lg-0 mt-5">
                 <div class="img-block">
                     <a href="causes.php">
-                        <img src="assets/images/blog5.jpg" class="img-fluid radius-image-full" alt="image"/>
+                        <img src="assets/images/helprehab.jpg" class="img-fluid radius-image-full" alt="image"/>
                         <span class="title">Help Rehab Centers</span>
                     </a>
                 </div>
                 <div class="img-block mt-4">
-                    <a href="causes.php"> <img src="assets/images/blog2.jpg" class="img-fluid radius-image-full"
+                    <a href="causes.php"> <img src="assets/images/fund.jpg" class="img-fluid radius-image-full"
                                                alt="image"/>
                         <span class="title">Fund Addiction Research</span>
                     </a>
@@ -431,14 +431,14 @@ include "header.php";
             </div>
             <div class="col-lg-4 col-md-6 mt-lg-0 mt-md-5 mt-4">
                 <div class="img-block">
-                    <a href="causes.php"> <img src="assets/images/blog3.jpg" class="img-fluid radius-image-full"
+                    <a href="causes.php"> <img src="assets/images/professionals.jpg" class="img-fluid radius-image-full"
                                                alt="image"/>
                         <span class="title">Help Edcucate and Train Professionals</span>
                     </a>
                 </div>
                 <div class="img-block mt-4">
                     <a href="causes.php">
-                        <img src="assets/images/blog4.jpg" class="img-fluid radius-image-full" alt="image"/>
+                        <img src="assets/images/support.jpg" class="img-fluid radius-image-full" alt="image"/>
                         <span class="title">Support Our creators</span>
                     </a>
                 </div>
