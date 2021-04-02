@@ -3555,3 +3555,7 @@ a:hover {
 .bg-218380 {
   background-color: #218380 !important;
 }
+main.container{
+  width: 85%; !important;
+}
+

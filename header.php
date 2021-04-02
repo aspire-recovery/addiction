@@ -18,7 +18,7 @@ session_start();
 <body>
     <!--header-->
     <?php
-    if (!isset($_SESSION['u_id'])) {
+if (!isset($_SESSION['u_id'])) {
     ?>
     <header id="site-header" class="fixed-top">
         <div class="container">
@@ -78,8 +78,7 @@ session_start();
         </div>
     </header>
     <?php
-    } else {
-
+} else {
 
     ?>
     <header id="site-header" class="fixed-top">
@@ -143,8 +142,8 @@ session_start();
         </div>
     </header>
     <?php
-    }
-    ?>
+}
+?>
     <!-- //header -->
     <script src="assets/js/jquery-3.3.1.min.js"></script> <!-- Common jquery plugin -->
 

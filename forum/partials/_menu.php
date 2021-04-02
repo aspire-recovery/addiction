@@ -53,7 +53,8 @@ while ($row = mysqli_fetch_assoc($result)) {
         </div>
     </div>
     <div class="nav__thread">
-        <p>Thread Navigation:</p>
-        <a href="#" class="nav__thread-btn nav__thread-btn--prev"><i class="icon-Arrow_Left"></i>Previous</a>
+        <p>Navigation:</p>
+        <a onclick="history.back()" class="nav__thread-btn nav__thread-btn--prev"><i
+                class="icon-Arrow_Left"></i>Previous</a>
         <a href="#" class="nav__thread-btn nav__thread-btn--next">Next<i class="icon-Arrow_Right"></i></a>
     </div>

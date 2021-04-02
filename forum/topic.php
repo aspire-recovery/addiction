@@ -30,15 +30,20 @@ session_start();
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
     <!-- Custom -->
-    <link rel="stylesheet" href="css/style.css">
+
     <script src="https://cdn.tiny.cloud/1/c7z8wx5m5u6j9yj237a233drpztw21qo2l4k45cxbzch4qov/tinymce/5/tinymce.min.js"
         referrerpolicy="origin"></script>
-
+    <link rel="stylesheet" href="css/style.css">
     <script>
     tinymce.init({
         selector: '#mytextarea'
     });
     </script>
+    <style>
+    body main.container {
+        max-width: 85% !important;
+    }
+    </style>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -93,15 +98,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 }
 echo '<div class="topics" style="flex-basis:100%">
-                <div class="topics__heading">
-                    <h2 class="topics__heading-title">' . $row['thread_title'] . '</h2>
-                    <div class="topics__heading-info">
-                        <a href="#" class="category"><i class="bg-3ebafa"></i>' . $rowc['cat_name'] . '</a>
-                        <div class="tags">
-                            <a href="#" class="bg-4f80b0">gaming</a>
-                            <a href="#" class="bg-424ee8">nature</a>
-                            <a href="#" class="bg-36b7d7">entertainment</a>
-                        </div>
+                         <div class="topics__heading">
+                             <h2 class="topics__heading-title">' . $row['thread_title'] . '</h2>
+                                    <div class="topics__heading-info">
+                                        <a href="#" class="category"><i class="bg-3ebafa"></i>' . $rowc['cat_name'] . '</a>
+                                        <div class="tags">
+                                            <a href="#" class="bg-4f80b0">gaming</a>
+                                            <a href="#" class="bg-424ee8">nature</a>
+                                            <a href="#" class="bg-36b7d7">entertainment</a>
+                                        </div>
                     </div>
                 </div>
                 <div class="topics__body" style="">
@@ -288,28 +293,7 @@ while ($rows = mysqli_fetch_assoc($results)) {
 
 
         </div>
-        <div class="topics__calendar">
-            <div class="calendar">
-                <div class="calendar__top">
-                    <a href="#" class="calendar__btn calendar__btn--c-01"><i class="icon-Calender"></i></a>
-                </div>
-                <div class="calendar__center">
-                    <div class="calendar__first">Jun 12</div>
-                    <div class="calendar__range">
-                        <div class="calendar__current">
-                            <p>31 / 75</p>
-                            <span>Jun 17</span>
-                        </div>
-                    </div>
-                    <div class="calendar__last">6h ago</div>
-                </div>
-                <div class="calendar__bottom">
-                    <a href="#" class="calendar__btn calendar__btn--c-01"><i class="icon-Track"></i></a>
-                    <a href="#" class="calendar__btn calendar__btn--c-02"><i class="icon-Reply_Fill"></i></a>
-                </div>
-            </div>
-        </div>
-        </div>
+
 
         <div class="topics__control">
         </div>
