@@ -111,7 +111,7 @@ include "header.php";
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12 mt-md-0 mt-sm-4 mt-3">
                 <div class="box-wrap">
-                    <h4><a href="#team">Top psychiatrist</a></h4>
+                    <h4><a href="psyprofile.php">Book psychiatrist</a></h4>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12 mt-lg-0 mt-sm-4 mt-3">
