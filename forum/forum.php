@@ -128,6 +128,8 @@ while ($rowa = mysqli_fetch_assoc($resulta)) {
 
     $sql_last = "SELECT created_at FROM `forum_reply` WHERE fu_id=$thread_id ORDER BY `forum_reply`.`created_at` DESC LIMIT 1";
     $resultl = mysqli_query($conn, $sql_last);
+    $num = mysqli_num_rows($result);
+    
     $rowl = mysqli_fetch_assoc($resultl);
     $l_date = date_create(date('Y-m-d', strtotime($rowl['created_at'])));
     $now = date_create(date('y-m-d'));
