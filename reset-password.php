@@ -1,7 +1,3 @@
-<?php
-//Imports
-require 'config.php';
-?>
 <!doctype html>
 <html lang="en">
 
@@ -13,36 +9,32 @@ require 'config.php';
     <title>Aspire Recovery</title>
 
     <link href="//fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="assets/css/style-starter.css">
-    <style>
-    /* Chrome, Safari, Edge, Opera */
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
 
-    /* Firefox */
-    input[type=number] {
-        -moz-appearance: textfield;
-    }
-    </style>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
 </head>
 
 <body>
     <!--header-->
     <?php
 include "header.php";
+
+require "config.php";
+if ($_SESSION['loggedin'] == true) {
+    echo '<script>window.location.href="index.php";</script>';
+    exit();
+}
 ?>
     <!-- //header -->
     <div class="inner-banner">
         <section class="w3l-breadcrumb py-5">
             <div class="container py-lg-5 py-md-3">
-                <h2 class="title"></h2>
+                <h2 class="title"> Reset Password</h2>
             </div>
         </section>
     </div>
@@ -61,71 +53,82 @@ include "header.php";
             <div class="top-map">
                 <div class="row map-content-9">
                     <?php
+$error = array("Check Your Mail", " Message could not be sent...", "Invalid Email Address. Go back!!!!!!");
+if (isset($_GET['error'])) {
+    $i = $_GET['error'];
 
-if (isset($_GET['exist']) && $_GET['exist'] == true) {
+    echo ' <h3 class="title-big" style=" margin-bottom:25px;">
+                       Message Below!!!
+                       </h3>
+                       <br>
+                       <br>
 
-    echo ' <div class="alert alert-primary" style="left: 20px;">
-                        Email Already Exist!
-                    </div>';
-}
-?>
-
-                    <div class="col-lg-8">
-                        <h3 class="title-big">Register</h3>
-                        <br>
-
-                        <form action="register_process.php" method="post" class="text-right" style="width: 70%">
-                            <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
-                                <input type="text" name="name" id="" placeholder="Name" required="">
-                            </div>
-                            <br>
-                            <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
-                                <input type="email" name="email" id="" placeholder="Email" required="">
-                            </div>
-                            <br>
-                            <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
-                                <input type="password" name="password" id="" placeholder="Password" required="">
-                            </div>
-                            <br>
-                            <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
-                                <input type="number" name="phone" id="" placeholder="Contact No." required="">
-                            </div>
-                            <br>
-                            <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
-                                <select name="gender" class="form-control" style="margin-top: 10px">
-                                    <option style="width: 40%" value="">Select Gender...</option>
-                                    <option style="width: 40%" value="male">Male</option>
-                                    <option style="width: 40%" value="female">Female</option>
-                                    <option style="width: 40%" value="others">Others</option>
-                                </select>
-                            </div>
-                            <br>
-                            <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
-                                <select name="addiction" class="form-control" style="margin-top: 10px">
-                                    <option style="width: 40%" value="dummy">Select Addiction...</option>
-                                    <?php
-$addiction_sql = "SELECT add_id,add_name FROM `addiction_types`";
-$result = $conn->query($addiction_sql);
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        echo '<option value="' . $row['add_id'] . '">' . $row['add_name'] . '</option>';
+                       <div class="alert alert-primary">
+                        ' . $error[$i] . '
+                       </div>
+                     ';
+} elseif (isset($_GET['key']) && isset($_GET['token'])) {
+    if (isset($_GET['match'])) {
+        echo '<div class="alert alert-primary">Password Do Not Match!          </div>';
     }
+
+    $email = $_GET['key'];
+    $token = $_GET['token'];
+    $sql = "SELECT * FROM `pwd_reset` WHERE reset_link_token='" . $token . "' and reset_email='" . $email . "';";
+    $query = mysqli_query($conn, $sql);
+
+    $curDate = date("Y-m-d H:i:s");
+    if (mysqli_num_rows($query) > 0) {
+        $row = mysqli_fetch_assoc($query);
+        if ($row['exp_date'] >= $curDate) {
+            echo '<div class="col-lg-8">
+                        <h3 class="title-big" style="left: 20px;">Reset Password</h3>
+                        <form action="includes/update-forget-password.php" method="post" class="text-right" style="width: 70%">
+                   <form action="update-forget-password.php" method="post">
+                   <input type="hidden" name="email" value="' . $email . '">
+                    <input type="hidden" name="reset_link_token" value="' . $token . '">
+
+                    <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
+                        <input type="Password" name="password" id="" placeholder="Create New Password" required="">
+                    </div>
+                    <br>
+                    <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
+                        <input type="password" name="cpassword" id="" placeholder="Confirm Password" required="">
+                    </div>
+                    <button type="submit" class="btn btn-primary" name="new-password"
+                        style="float: left;width: 30%;padding:  10px;margin-top: 10px;margin-left: 20px;">Reset
+                    </button>
+                    </form>
+                </div>
+
+                </form>';
+        } else {
+            echo ' <div class="alert alert-primary">
+                    This forget password link has been expired.
+                </div>';
+            mysqli_query($conn, "DELETE FROM `pwd_reset` WHERE `pwd_reset`.`reset_link_token` = '" .
+                $token . "'");
+
+        }
+    }
+} else {
+    echo '
+                <div class="col-lg-8">
+                    <h3 class="title-big" style="left: 20px;">Enter Your Email</h3>
+                    <br>
+                    <form action="includes/password-reset-token.php" method="post" class="text-right"
+                        style="width: 70%">
+                        <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
+                            <input type="email" name="email" id="" placeholder="Email" required="">
+                        </div>
+                        <button type="submit" class="btn btn-primary" name="password-reset-token"
+                            style="float: left;width: 30%;padding:  10px;margin-top: 10px;margin-left: 20px;">Get
+                            Link
+                        </button>
+                    </form>
+                </div>';
 }
 ?>
-                                </select>
-                            </div>
-                            <br>
-                            <button type="submit" class="btn btn-primary" name="submit"
-                                style="float: left;width: 30%;padding:  10px;margin-top: 10px;margin-left: 20px;">Create
-                                Account
-                            </button>
-                            <a href="login.php" class="btn btn-primary"
-                                style="float: left;width: 30%;padding: 10px;margin-top: 10px;margin-left: 20px;">Login</a>
-                            <br>
-                            <br>
-                            <br>
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>
@@ -330,6 +333,10 @@ if ($result->num_rows > 0) {
     <!-- //disable body scroll which navbar is in active -->
 
     <!--bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+        integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous">
+    </script>
+
     <script src="assets/js/bootstrap.min.js"></script>
     <!-- //bootstrap-->
 </body>
