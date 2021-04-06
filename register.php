@@ -31,13 +31,6 @@ require 'config.php';
         -moz-appearance: textfield;
     }
 
-    #profileDisplay { 
-    display: block; 
-    height: 200px; 
-    width: 200px; 
-    margin: 0px 25px 25px -20px ; 
-    border-radius: 50%;
-     }
     </style>
 </head>
 
@@ -93,8 +86,6 @@ if (isset($_GET['exist']) && $_GET['exist'] == true) {
                         <br>
 
                         <form action="register_process.php" method="post" class="text-right" style="width: 70%">
-                            <img src="forum/fonts/icons/avatars/A.svg" onClick="triggerClick()" id="profileDisplay">
-                            <input type="file" name="profileImage" onChange="displayImage(this)" id="profileImage" class="form-control" style="display: none;">
                             
                             
                             <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
@@ -124,7 +115,7 @@ if (isset($_GET['exist']) && $_GET['exist'] == true) {
                             <br>
                             <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
                                 <select name="addiction" class="form-control" style="margin-top: 10px">
-                                    <option style="width: 40%" value="dummy">Select Addiction...</option>
+                                    
                                     <?php
 $addiction_sql = "SELECT add_id,add_name FROM `addiction_types`";
 $result = $conn->query($addiction_sql);
@@ -137,10 +128,12 @@ if ($result->num_rows > 0) {
                                 </select>
                             </div>
                             <br>
+                           
                             <button type="submit" class="btn btn-primary" name="submit"
                                 style="float: left;width: 30%;padding:  10px;margin-top: 10px;margin-left: 20px;">Create
                                 Account
                             </button>
+                       
                             <a href="login.php" class="btn btn-primary"
                                 style="float: left;width: 30%;padding: 10px;margin-top: 10px;margin-left: 20px;">Login</a>
                             <br>
@@ -353,20 +346,7 @@ if ($result->num_rows > 0) {
 
     <!--bootstrap-->
     <script src="assets/js/bootstrap.min.js"></script>
-    <script>
-        function triggerClick(e) {
-  document.querySelector('#profileImage').click();
-}
-function displayImage(e) {
-  if (e.files[0]) {
-    var reader = new FileReader();
-    reader.onload = function(e){
-      document.querySelector('#profileDisplay').setAttribute('src', e.target.result);
-    }
-    reader.readAsDataURL(e.files[0]);
-  }
-}
-    </script>
+    
     <!-- //bootstrap-->
 </body>
 
