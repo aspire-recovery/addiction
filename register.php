@@ -47,10 +47,20 @@ require 'config.php';
 include "header.php";
 ?>
     <!-- //header -->
-    <div class="inner-banner">
+    <div class="inner-banner" style="background-color: #269abc">
         <section class="w3l-breadcrumb py-5">
             <div class="container py-lg-5 py-md-3">
-                <h2 class="title"></h2>
+                <center>
+                    <h3 style="color:black; margin-bottom: 20px">ARE YOU?</h3>
+                    <div class="">
+                        <a href="register.php">
+                            <img  alt="user icon" class="profile_icons" src="../addiction/assets/images/userp.svg" width="100" height="100">
+                        </a>
+                        <a href="psychatrist/registration.php">
+                            <img style="margin-left: 20px" alt="psychaitrist icon" class="profile_icons" src="../addiction/assets/images/psychaitristp.svg" width="100" height="100">
+                        </a>
+                    </div>
+                </center>
             </div>
         </section>
     </div>

@@ -10,10 +10,23 @@
 
     <title>ALCOHOLISM article</title>
 </head>
-<body>
-<br>
-<br>
 
+<body>
+<button onclick="goBack() " class="btn btn-outline-info"> < Back </button>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+<br>
+<br>
+<!--<center>-->
+<div class="header-image">
+    <img src="assets/images/alchoholism.jpg" width="1500" height="500">
+</div>
+<!--</center>-->
+    
 <div class="main-topic">
     <h1><b><center>What is Alcohol Addiction?</center></b></h1>
 </div>

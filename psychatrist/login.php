@@ -8,7 +8,7 @@
     <title>Dentile a Medical Category Bootstrap Responsive Website Template | Contact :: W3layouts
     </title>
     <!-- Template CSS -->
-    <link rel="stylesheet" href="assets/css/style-starter.css">
+    <link rel="stylesheet" href="../assets/css/style-starter.css">
     <!-- Template CSS -->
     <link href="//fonts.googleapis.com/css?family=Poppins:300,400,400i,500,600,700&display=swap" rel="stylesheet">
     <!-- Template CSS -->
@@ -17,7 +17,7 @@
 <body>
 
 <?php
-include "header.php"
+include "../header.php"
 ?>
 
 <!-- /contact-form -->
@@ -25,8 +25,22 @@ include "header.php"
     <div class="contact-infhny py-5">
         <div class="container py-lg-5">
             <div class="title-content text-left mb-lg-5 mt-4">
+                            <center>
+                                <h3 style="color:black; margin-bottom: 20px">ARE YOU?</h3>
+                                <div class="">
+                                    <a href="/login.php">
+                                        <img  alt="user icon" class="profile_icons" src="assets/images/userp.svg" width="100" height="100">
+                                    </a>
+                                    <a href="psychatrist/login.php">
+                                        <img style="margin-left: 20px" alt="psychaitrist icon" class="profile_icons" src="assets/images/psychaitristp.svg" width="100" height="100">
+                                    </a>
+                                </div>
+                            </center>
 
-                <h3 class="hny-title">Login</h3>
+
+
+
+                <h3 class="hny-title" style="margin-top: 20px">Login</h3>
             </div>
             <div class="row align-form-map">
                 <div class="col-lg-6 form-inner-cont">

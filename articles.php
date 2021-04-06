@@ -37,7 +37,7 @@ include "header.php";
 <div class="card mb-3 first" style="max-width: 800px; ">
     <div class="row no-gutters">
         <div class="col-md-4">
-            <img src="assets/images/slideshow1.jpg" class="card-img" width="100%" height="230px" >
+            <img src="assets/images/alchoholism.jpg" class="card-img" width="100%" height="230px" >
         </div>
         <div class="col-md-8">
             <div class="card-body">
@@ -54,7 +54,7 @@ include "header.php";
 <div class="card mb-3 second" style="max-width: 800px;">
     <div class="row no-gutters">
         <div class="col-md-4">
-            <img src="assets/images/slideshow2.jpg" class="card-img" width="100%" height="230px" alt="...">
+            <img src="assets/images/cocaine.jpg" class="card-img" width="100%" height="230px" alt="...">
         </div>
         <div class="col-md-8">
             <div class="card-body">
@@ -72,7 +72,7 @@ include "header.php";
 <div class="card mb-3 third" style="max-width: 800px;">
     <div class="row no-gutters">
         <div class="col-md-4">
-            <img src="assets/images/slideshow1.jpg" class="card-img" width="100%" height="250px" alt="...">
+            <img src="assets/images/tobacco.jpg" class="card-img" width="100%" height="250px" alt="...">
         </div>
         <div class="col-md-8">
             <div class="card-body">
@@ -80,7 +80,7 @@ include "header.php";
                 <p class="card-text">Smoking is responsible for approximately 15% of deaths in Spain and kills
                     approximately 200 people every day, of which 166 are men and 40 are women.
                     Smoking has been linked to numerous diseases. The largest percentage of smokers
-                    is aged 25-39 years of age (40%), followed by those aged 40-59 years old (39%)</p>
+                    is aged 25-39 years of age,followed by those aged 40-59 years old</p>
                 <a href="#" class="btn btn-primary text-color">read more</a>
             </div>
         </div>
@@ -90,7 +90,7 @@ include "header.php";
 <div class="card mb-3 fourth" style="max-width: 800px;">
     <div class="row no-gutters">
         <div class="col-md-4">
-            <img src="assets/images/slideshow2.jpg" class="card-img" width="100%" height="250px" alt="...">
+            <img src="assets/images/fap.jpg" class="card-img" width="100%" height="250px" alt="...">
         </div>
         <div class="col-md-8">
             <div class="card-body">
@@ -105,15 +105,13 @@ include "header.php";
 <div class="card mb-3 fifth" style="max-width: 800px;">
     <div class="row no-gutters">
         <div class="col-md-4">
-            <img src="assets/images/slideshow2.jpg" class="card-img" width="100%" height="300px" alt="...">
+            <img src="assets/images/socialmedia.jpg" class="card-img" width="100%" height="250px" alt="...">
         </div>
         <div class="col-md-8">
             <div class="card-body">
                 <h5 class="card-title">Social Media</h5>
                 <p class="card-text">Checking and scrolling through social media has become an increasingly popular activity
-                    over the last decade. Although the majority of peoples’ use of social media is non-problematic,
-                    there is a small percentage of users that become addicted to social networking sites and engage
-                    in excessive or compulsive use. In fact, psychologists estimate that as many as 5 to 10%
+                    over the last decade. In fact, psychologists estimate that as many as 5 to 10%
                     of Americans meet the criteria for social media addiction today.</p>
                 <a href="socialmedia.php" class="btn btn-primary text-color" >read more</a>
             </div>
@@ -123,7 +121,7 @@ include "header.php";
 <div class="card mb-3 fourth" style="max-width: 800px;">
     <div class="row no-gutters">
         <div class="col-md-4">
-            <img src="assets/images/slideshow2.jpg" class="card-img" width="100%" height="250px" alt="...">
+            <img src="assets/images/nicotine.jpg" class="card-img" width="100%" height="250px" alt="...">
         </div>
         <div class="col-md-8">
             <div class="card-body">
