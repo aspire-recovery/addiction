@@ -9,6 +9,7 @@
     </title>
     <!-- Template CSS -->
 
+
     <link rel="stylesheet" href="../assets/css/style-starter.css">
     <!-- Template CSS -->
     <link href="//fonts.googleapis.com/css?family=Poppins:300,400,400i,500,600,700&display=swap" rel="stylesheet">
@@ -75,14 +76,20 @@ include "../header.php"
                             </div>
 
                         </div>
-                        <link rel="script/javascript" href="assets/js/fileupload.js">
+
                         <div class="form-group">
                             <select class="form-control" name="gender" id="exampleFormControlSelect1">
                                 <option>Select Your Gender</option>
                                 <option>male</option>
                                 <option>Female</option>
                                 <option>Others</option>
-                            </select>
+                            </select> <br>
+
+                            <div class="form-group">
+                                <select class="form-control" name="gender" id="exampleFormControlSelect1">
+                                    <option>Qualification</option>
+
+
 
 
 
@@ -99,7 +106,7 @@ include "../header.php"
 </body>
 
 </html>
-
+<link rel="script/javascript" href="assets/js/fileupload.js">
 <script src="assets/js/jquery-3.3.1.min.js"></script>
 <!-- disable body scroll which navbar is in active -->
 
