@@ -522,7 +522,7 @@ select {
   padding-right: 30px;
 }
 .dropdown.dropdown--design-01:not(.dropdown--reverse-y) {
-  border-top: solid 1px #f9bc64;
+  border-top: solid 1px #ff5200;
   -webkit-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.08);
   -moz-box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.08);
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.08);
@@ -3556,6 +3556,12 @@ a:hover {
   background-color: #218380 !important;
 }
 main.container{
-  width: 85%; !important;
+  width: 85% !important;
 }
+
+.navbar{
+  margin-bottom: 0px;
+}
+
+
 

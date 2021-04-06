@@ -41,81 +41,17 @@
                     </div>
                 </div>
             </div>
-            <script src="../assets/js/jquery-3.3.1.min.js"></script> <!-- Common jquery plugin -->
+            
 
             <script src="../assets/js/theme-change.js"></script><!-- theme switch js (light and dark)-->
-            <script src="../assets/js/owl.carousel.js"></script>
+           
 
-            <!-- script for banner slider-->
-            <script>
-            $(document).ready(function() {
-                $('.owl-one').owlCarousel({
-                    loop: true,
-                    dots: false,
-                    margin: 0,
-                    nav: true,
-                    responsiveClass: true,
-                    autoplay: true,
-                    autoplayTimeout: 5000,
-                    autoplaySpeed: 1000,
-                    autoplayHoverPause: false,
-                    responsive: {
-                        0: {
-                            items: 1
-                        },
-                        480: {
-                            items: 1
-                        },
-                        667: {
-                            items: 1
-                        },
-                        1000: {
-                            items: 1
-                        }
-                    }
-                })
-            })
-            </script>
-            <!-- //script -->
-
-            <!-- script for tesimonials carousel slider -->
-            <script>
-            $(document).ready(function() {
-                $("#owl-demo1").owlCarousel({
-                    loop: true,
-                    margin: 20,
-                    nav: false,
-                    responsiveClass: true,
-                    responsive: {
-                        0: {
-                            items: 1
-                        },
-                        736: {
-                            items: 1
-                        },
-                        1000: {
-                            items: 2,
-                            loop: false
-                        }
-                    }
-                })
-            })
-            </script>
-            <!-- //script for tesimonials carousel slider -->
-
-            <script src="../assets/js/counter.js"></script>
+           
+        
 
             <!--/MENU-JS-->
             <script>
-            $(window).on("scroll", function() {
-                var scroll = $(window).scrollTop();
-
-                if (scroll >= 80) {
-                    $("#site-header").addClass("nav-fixed");
-                } else {
-                    $("#site-header").removeClass("nav-fixed");
-                }
-            });
+            
 
             //Main navigation Active Class Add Remove
             $(".navbar-toggler").on("click", function() {

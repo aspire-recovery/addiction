@@ -52,27 +52,28 @@ session_start();
     include 'partials/header.php';
     include 'partials/_header.php';
     include 'partials/_functions.php';
-        ?>
+    ?>
 
     <link rel="stylesheet" href="css/style.css">
     <main>
         <div class="container" style="margin-bottom:30px;">
-            <?php include 'partials/_menu.php';?>
+            <?php include 'partials/_menu.php'; ?>
             <div class="posts__body" style="display:block; width:100%;">
 
                 <?php if (isset($_GET['catid'])) {
+                    $cat_id = $_GET['catid'];
                     echo '<div class="posts__item bg-fef2e0">
 <div class="posts__section-left"style="width: 100%;"><div class="posts__topic"><div class="posts__content"><a href="#"><h3><i><img src="fonts/icons/main/pinned.svg"alt="Pinned"></i>Welcome To ' . $cname . 'Category ! We Hope You Will Find Your Answers !</h3></a><p>' . $cdesc . '</p></div></div></div></div>';
                 }
-?>
+                ?>
                 <div class="posts"><?php if (isset($_GET['all']) && $_GET['all'] = true) {
-    echo '<div class="posts__head  bg-fef2e0">';
-} else {
-    echo '<div class="posts__head">';
-}
+                                        echo '<div class="posts__head  " style="background-color:#343a40; color:#FFFFFF">';
+                                    } else {
+                                        echo '<div class="posts__head" style="background-color:#343a40; color:#FFFFFF">';
+                                    }
 
-?>
-                    <div class="posts__topic">Topic</div>
+                                    ?>
+                    <div class="posts__topic" style="padding-left:15px;">Topic</div>
                     <div class="posts__category">Category</div>
                     <div class="posts__users">Created By</div>
                     <div class="posts__replies">Replies</div>
@@ -80,150 +81,50 @@ session_start();
                     <div class="posts__activity">Activity</div>
                 </div>
 
-                <?php $color = array("", "bg-f2f4f6", "posts__item--bg-gradient");
-$color_array = array("ff5200", "3b3663", "333333", "0a0a0a", "b9b9b9", "fe346e", "0d001a", "ffc107", "83253f", "c49bbb", "3ebafa", "c6b38e");
-$tag = array("Photo", "Cool", "Healthy", "Good", "Horror", "Amazing!", "Fabulous!");
-$x = rand(0, 6);
 
-if (isset($_GET['catid'])) {
-    $cat_id = $_GET['catid'];
-    $sqla = "SELECT * FROM `threads` WHERE c_id='$cat_id'";
-    $resulta = mysqli_query($conn, $sqla);
-} else {
-    $sqla = "SELECT * FROM `threads`";
-    $resulta = mysqli_query($conn, $sqla);
-}
+                <div id="posts__id">
 
-$i = 0;
-$k = false;
+                </div>
 
-while ($rowa = mysqli_fetch_assoc($resulta)) {
-    $thread_id = $rowa['thread_id'];
-    $thread_desc = $rowa['thread_desc'];
-    $thread_title = $rowa['thread_title'];
-    $thread_user = $rowa['user_id'];
-    $thread_c_id = $rowa['c_id'];
-    $sqlu = "SELECT u_name,r_date FROM `user` where u_id= $thread_user";
-    $resultu = mysqli_query($conn, $sqlu);
-    $rowu = mysqli_fetch_assoc($resultu);
-    $input = $rowu['u_name'];
-    $r_date = date('Y-m-d', strtotime($rowu['r_date']));
-    $logo = userlogo($input);
-    $sqlc = "SELECT * FROM `forum_categories` where cat_id= $thread_c_id";
-    $resultc = mysqli_query($conn, $sqlc);
-    $rowc = mysqli_fetch_assoc($resultc);
-    $c_name = $rowc['cat_name'];
-    $j = rand(0, 11);
-    $f = rand(0, 11);
-    $x = rand(0, 6);
-    $y = rand(0, 6);
-
-    if ($x == $y) {
-        $x = rand(0, 6);
-    }
-
-    $sqlr = "SELECT * FROM `forum_reply` where fu_id='" . $thread_id . "'";
-    $resultr = mysqli_query($conn, $sqlr);
-    $rowcount = mysqli_num_rows($resultr);
-
-    $sql_last = "SELECT created_at FROM `forum_reply` WHERE fu_id=$thread_id ORDER BY `forum_reply`.`created_at` DESC LIMIT 1";
-    $resultl = mysqli_query($conn, $sql_last);
-    $num = mysqli_num_rows($result);
-    
-    $rowl = mysqli_fetch_assoc($resultl);
-    $l_date = date_create(date('Y-m-d', strtotime($rowl['created_at'])));
-    $now = date_create(date('y-m-d'));
-    $diff = date_diff($l_date, $now);
-
-    echo '<div class="posts__item ' . $color[$i] . '">
-<div class="posts__section-left"><div class="posts__topic"><div class="posts__content"><a href="topic.php?id=' . $thread_id . '&title=' . $thread_title . '"><h3>' . $thread_title . '</h3></a><div class="posts__tags tags"><a href="#"class="bg-' . $color_array[$j] . '">' . $tag[$x] . '</a><a href="#"class="bg-' . $color_array[$f] . '">' . $tag[$y] . '</a></div></div></div><div class="posts__category"><a href="forum.php?catid=' . $rowc['cat_id'] . '"class="category"><i class="bg-' . $color_array[$j] . '"></i>' . ucwords($c_name) . '</a></div></div><div class="posts__section-right"><div class="posts__users js-dropdown"><div><a href="#"class="avatar"><img src="fonts/icons/avatars/' . $logo . '.svg"alt="avatar"data-dropdown-btn="user-b"></a><div class="posts__users-dropdown dropdown dropdown--user dropdown--reverse-y"data-dropdown-list="user-b"><div class="dropdown__user"><a href="#"class="dropdown__user-label bg-' . $color_array[$f] . '">' . substr($logo, 0, 1) . '</a><div class="dropdown__user-nav"><a href="#"><i class="icon-Add_User"></i></a><a href="#"><i class="icon-Message"></i></a></div><div class="dropdown__user-info"><a href="#">' . $input . '</a><p>Last post 4 hours ago. Joined ' . $r_date . '</p></div><div class="dropdown__user-icons"><a href="#"><img src="fonts/icons/badges/Intermediate.svg"alt="user-icon"></a><a href="#"><img src="fonts/icons/badges/Bot.svg"alt="user-icon"></a><a href="#"><img src="fonts/icons/badges/Animal_Lover.svg"alt="user-icon"></a></div><div class="dropdown__user-statistic"><div>Threads - <span>1184</span></div><div>Posts - <span>5,
-        863</span></div></div></div></div></div></div><div class="posts__replies">' . $rowcount . '</div><div class="posts__views">14.5k</div><div class="posts__activity">' . $diff->format("%d days") . '</div></div></div>';
-
-    if ($i == 0 && $k == false) {
-        $i = 1;
-    } elseif ($k == true) {
-        $i = 2;
-        $k = false;
-    } elseif ($i == 2) {
-        $i = 0;
-    } else {
-        $i = 0;
-
-        if ($k == false) {
-            $k = true;
-        } else {
-            $k = false;
-        }
-    }
-}
-
-?>
             </div>
-        </div>
         </div>
     </main>
     <?php
-require 'partials/_footer.php';
-?>
-    <script src="../assets/js/jquery-3.3.1.min.js"></script> <!-- Common jquery plugin -->
+    require 'partials/_footer.php';
+    ?>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!-- Common jquery plugin -->
 
     <script src="../assets/js/theme-change.js"></script><!-- theme switch js (light and dark)-->
     <script src="../assets/js/owl.carousel.js"></script>
 
     <!-- script for banner slider-->
-    <script>
+    <script type="text/javascript">
     $(document).ready(function() {
-        $('.owl-one').owlCarousel({
-            loop: true,
-            dots: false,
-            margin: 0,
-            nav: true,
-            responsiveClass: true,
-            autoplay: true,
-            autoplayTimeout: 5000,
-            autoplaySpeed: 1000,
-            autoplayHoverPause: false,
-            responsive: {
-                0: {
-                    items: 1
-                },
-                480: {
-                    items: 1
-                },
-                667: {
-                    items: 1
-                },
-                1000: {
-                    items: 1
-                }
-            }
-        })
-    })
-    </script>
-    <!-- //script -->
+        function loadTable(page) {
+            $.post("partials/pagination.php", {
+                    page_no: page
 
-    <!-- script for tesimonials carousel slider -->
-    <script>
-    $(document).ready(function() {
-        $("#owl-demo1").owlCarousel({
-            loop: true,
-            margin: 20,
-            nav: false,
-            responsiveClass: true,
-            responsive: {
-                0: {
-                    items: 1
                 },
-                736: {
-                    items: 1
-                },
-                1000: {
-                    items: 2,
-                    loop: false
+                function(data, status) {
+                    $("#posts__id").html(data);
                 }
-            }
-        })
-    })
+            );
+        }
+        loadTable();
+
+
+        //Pagination Code
+        $(document).on("click", "#pagination li a", function(e) {
+            e.preventDefault();
+            page_id = $(this).attr("id");
+
+            loadTable(page_id);
+
+        });
+
+    });
     </script>
     <!-- //script for tesimonials carousel slider -->
 
@@ -311,11 +212,29 @@ div.posts__head {
     font-size: 18px;
 
 }
+
+a.nav__thread-btn:hover,
+div.btn-select:hover {
+
+    background-color: #343a40;
+    color: #FFFFFF;
+
+    transition: color 0.5s, background-color 1s;
+}
+
+.posts__item {
+    transition: box-shadow 0.1s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.posts__item:hover {
+    box-shadow: 0 11px 11px 0 rgba(0, 0, 0, .16);
+    transform: translateY(-5px);
+}
 </style>
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/velocity/velocity.min.js"></script>
 <script src="js/app.js"></script>
-<script></script>
+
 </body>
 
 </html>

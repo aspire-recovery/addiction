@@ -103,7 +103,7 @@ if (!isset($_SESSION['u_id'])) {
                             <a class="nav-link" href="product.php">Product</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="forum.php">Forum</a>
+                            <a class="nav-link" href="forum/forum.php">Forum</a>
                         </li>
                         <li class="nav-item @@about__active">
                             <a class="nav-link" href="cart.php">Cart</a>

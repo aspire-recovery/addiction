@@ -30,6 +30,14 @@ require 'config.php';
     input[type=number] {
         -moz-appearance: textfield;
     }
+
+    #profileDisplay { 
+    display: block; 
+    height: 200px; 
+    width: 200px; 
+    margin: 0px 25px 25px -20px ; 
+    border-radius: 50%;
+     }
     </style>
 </head>
 
@@ -75,6 +83,10 @@ if (isset($_GET['exist']) && $_GET['exist'] == true) {
                         <br>
 
                         <form action="register_process.php" method="post" class="text-right" style="width: 70%">
+                            <img src="forum/fonts/icons/avatars/A.svg" onClick="triggerClick()" id="profileDisplay">
+                            <input type="file" name="profileImage" onChange="displayImage(this)" id="profileImage" class="form-control" style="display: none;">
+                            
+                            
                             <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
                                 <input type="text" name="name" id="" placeholder="Name" required="">
                             </div>
@@ -331,6 +343,20 @@ if ($result->num_rows > 0) {
 
     <!--bootstrap-->
     <script src="assets/js/bootstrap.min.js"></script>
+    <script>
+        function triggerClick(e) {
+  document.querySelector('#profileImage').click();
+}
+function displayImage(e) {
+  if (e.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function(e){
+      document.querySelector('#profileDisplay').setAttribute('src', e.target.result);
+    }
+    reader.readAsDataURL(e.files[0]);
+  }
+}
+    </script>
     <!-- //bootstrap-->
 </body>
 

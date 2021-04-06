@@ -636,6 +636,7 @@ include "header.php";
             $('body').toggleClass('noscroll');
         })
     });
+   
 </script>
 <!-- //disable body scroll which navbar is in active -->
 
