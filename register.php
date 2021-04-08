@@ -30,16 +30,24 @@ require 'config.php';
     input[type=number] {
         -moz-appearance: textfield;
     }
-
     </style>
 </head>
 
 <body>
     <!--header-->
     <?php
-include "header.php";
-?>
+    include "header.php";
+    ?>
     <!-- //header -->
+
+    <?php
+    if (!isset($_SESSION['ploggedin'])) {
+
+        if (isset($_SESSION['loggedin'])) {
+            echo '<script>window.location.href="index.php"</script>';
+        } else {
+    ?>
+
     <div class="inner-banner" style="background-color: #269abc">
         <section class="w3l-breadcrumb py-5">
             <div class="container py-lg-5 py-md-3">
@@ -47,10 +55,12 @@ include "header.php";
                     <h3 style="color:black; margin-bottom: 20px">ARE YOU?</h3>
                     <div class="">
                         <a href="register.php">
-                            <img  alt="user icon" class="profile_icons" src="../addiction/assets/images/userp.svg" width="100" height="100">
+                            <img alt="user icon" class="profile_icons" src="../addiction/assets/images/userp.svg"
+                                width="100" height="100">
                         </a>
                         <a href="psychatrist/registration.php">
-                            <img style="margin-left: 20px" alt="psychaitrist icon" class="profile_icons" src="../addiction/assets/images/psychaitristp.svg" width="100" height="100">
+                            <img style="margin-left: 20px" alt="psychaitrist icon" class="profile_icons"
+                                src="../addiction/assets/images/psychaitristp.svg" width="100" height="100">
                         </a>
                     </div>
                 </center>
@@ -73,21 +83,21 @@ include "header.php";
                 <div class="row map-content-9">
                     <?php
 
-if (isset($_GET['exist']) && $_GET['exist'] == true) {
+                            if (isset($_GET['exist']) && $_GET['exist'] == true) {
 
-    echo ' <div class="alert alert-primary" style="left: 20px;">
+                                echo ' <div class="alert alert-primary" style="left: 20px;">
                         Email Already Exist!
                     </div>';
-}
-?>
+                            }
+                            ?>
 
                     <div class="col-lg-8">
                         <h3 class="title-big">Register</h3>
                         <br>
 
                         <form action="register_process.php" method="post" class="text-right" style="width: 70%">
-                            
-                            
+
+
                             <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
                                 <input type="text" name="name" id="" placeholder="Name" required="">
                             </div>
@@ -115,25 +125,25 @@ if (isset($_GET['exist']) && $_GET['exist'] == true) {
                             <br>
                             <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
                                 <select name="addiction" class="form-control" style="margin-top: 10px">
-                                    
+
                                     <?php
-$addiction_sql = "SELECT add_id,add_name FROM `addiction_types`";
-$result = $conn->query($addiction_sql);
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        echo '<option value="' . $row['add_id'] . '">' . $row['add_name'] . '</option>';
-    }
-}
-?>
+                                            $addiction_sql = "SELECT add_id,add_name FROM `addiction_types`";
+                                            $result = $conn->query($addiction_sql);
+                                            if ($result->num_rows > 0) {
+                                                while ($row = $result->fetch_assoc()) {
+                                                    echo '<option value="' . $row['add_id'] . '">' . $row['add_name'] . '</option>';
+                                                }
+                                            }
+                                            ?>
                                 </select>
                             </div>
                             <br>
-                           
+
                             <button type="submit" class="btn btn-primary" name="submit"
                                 style="float: left;width: 30%;padding:  10px;margin-top: 10px;margin-left: 20px;">Create
                                 Account
                             </button>
-                       
+
                             <a href="login.php" class="btn btn-primary"
                                 style="float: left;width: 30%;padding: 10px;margin-top: 10px;margin-left: 20px;">Login</a>
                             <br>
@@ -145,6 +155,30 @@ if ($result->num_rows > 0) {
             </div>
         </div>
     </section>
+
+    <?php
+        }
+    } else {
+        echo '<section class="w3l-contact-main">
+        <div class="contact-infhny py-5">
+            <div class="container py-lg-5">
+                <div class="card bg-dark">
+                    <div class="card-header text-light" style="color:white;">
+                        ISSUE
+                    </div>
+                    <div class="card-body text-light" style="color:white;">
+                        <h5 class="card-title" style="color:white;">You Are Logged In as Psychiatrist!!!</h5>
+                        <p class="card-text" style="color:white;">With supporting text below as a natural lead-in to
+                            additional content.</p>
+                        <a href="psychatrist/logout.php" class="btn btn-danger bg-danger text-light">Logout</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>';
+    }
+    ?>
     <!-- //contacts -->
     <!-- footer 14 -->
     <div class="w3l-footer-main">
@@ -346,7 +380,7 @@ if ($result->num_rows > 0) {
 
     <!--bootstrap-->
     <script src="assets/js/bootstrap.min.js"></script>
-    
+
     <!-- //bootstrap-->
 </body>
 

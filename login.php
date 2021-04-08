@@ -17,22 +17,32 @@
 <body>
     <!--header-->
     <?php
-include "header.php";
-?>
+    include "header.php";
+    ?>
+
+    <?php
+    if (!isset($_SESSION['ploggedin'])) {
+        if (isset($_SESSION['loggedin'])) {
+            echo '<script>window.location.href="index.php"</script>';
+        } else {
+    ?>
+
     <!-- //header -->
     <div class="inner-banner" style="background-color: #269abc">
         <section class="w3l-breadcrumb py-5">
             <div class="container py-lg-5 py-md-3">
                 <center>
-                <h3 style="color:black; margin-bottom: 20px">ARE YOU?</h3>
-                  <div class="">
-                      <a href="login.php">
-                          <img  alt="user icon" class="profile_icons" src="../addiction/assets/images/userp.svg" width="100" height="100">
-                      </a>
-                      <a href="psychatrist/login.php">
-                          <img style="margin-left: 20px" alt="psychaitrist icon" class="profile_icons" src="../addiction/assets/images/psychaitrist.png" width="100" height="100">
-                      </a>
-                  </div>
+                    <h3 style="color:black; margin-bottom: 20px">ARE YOU?</h3>
+                    <div class="">
+                        <a href="login.php">
+                            <img alt="user icon" class="profile_icons" src="../addiction/assets/images/userp.svg"
+                                width="100" height="100">
+                        </a>
+                        <a href="psychatrist/login.php">
+                            <img style="margin-left: 20px" alt="psychaitrist icon" class="profile_icons"
+                                src="../addiction/assets/images/psychaitrist.png" width="100" height="100">
+                        </a>
+                    </div>
                 </center>
             </div>
         </section>
@@ -55,9 +65,9 @@ include "header.php";
 
                     <div class="col-lg-8">
                         <?php
-if (isset($_GET['success'])) {
+                                if (isset($_GET['success'])) {
 
-    echo ' <h3 class="title-big" style=" margin-bottom:25px;">
+                                    echo ' <h3 class="title-big" style=" margin-bottom:25px;">
                                    Success!!!
                                    </h3>
                                    <br>
@@ -67,7 +77,7 @@ if (isset($_GET['success'])) {
                                     Password ResetSucess
                                    </div>
                                  ';
-}?>
+                                } ?>
                         <form action="login_process.php" method="post" class="text-right" style="width: 70%">
                             <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
                                 <input type="email" name="email" id="" placeholder="Email" required="">
@@ -94,7 +104,31 @@ if (isset($_GET['success'])) {
             </div>
         </div>
     </section>
+
     <!-- //contacts -->
+    <?php
+        }
+    } else {
+        echo '<section class="w3l-contact-main">
+        <div class="contact-infhny py-5">
+            <div class="container py-lg-5">
+                <div class="card bg-dark">
+                    <div class="card-header text-light" style="color:white;">
+                        ISSUE
+                    </div>
+                    <div class="card-body text-light" style="color:white;">
+                        <h5 class="card-title" style="color:white;">You Are Logged In as Psychiatrist!!!</h5>
+                        <p class="card-text" style="color:white;">With supporting text below as a natural lead-in to
+                            additional content.</p>
+                        <a href="psychatrist/logout.php" class="btn btn-danger bg-danger text-light">Logout</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>';
+    }
+    ?>
     <!-- footer 14 -->
     <div class="w3l-footer-main">
         <div class="w3l-sub-footer-content">
