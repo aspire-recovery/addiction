@@ -1,369 +1,721 @@
-<!doctype html>
-<html lang="zxx">
+
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-	<!-- Required meta tags -->
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>Aspire Recovery
-	</title>
-	<!-- Template CSS -->
-	<link rel="stylesheet" href="assets/css/style-starter.css">
-	<!-- Template CSS -->
-	<link href="//fonts.googleapis.com/css?family=Poppins:300,400,400i,500,600,700&display=swap" rel="stylesheet">
-	<!-- Template CSS -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+    <title>
+        Black Dashboard by Creative Tim
+    </title>
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <!-- Nucleo Icons -->
+    <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link href="./assets/css/black-dashboard.css" rel="stylesheet" />
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+
 </head>
-<body>
-<?php
-include "header.php";
-?>
-	<center>
-	<div class="p-3 mb-2 bg-secondary text-white"><h3>ONCE AN ADDICT "NOT" ALWAYS AN ADDICT</h3></div>
-	</center>
-	<!-- //w3l-header -->
-	<!--banner-slider-->
-	<!-- main-slider -->
-	<section class="w3l-main-slider" id="home">
-		<div class="banner-content">
-			<div class="owl-one owl-carousel owl-theme">
-				<div class="item">
-					<li>
-						<div class="slider-info banner-view bg bg2">
-							<div class="banner-info">
-								<div class="container">
-									<div class="banner-info-bg">
-										<h6>Addiction Recovery for Life</h6>
-										<h5>Experience, trust and proven success
-										</h5>
-										<a class="btn mt-sm-5 mt-4" href="services.html">View Our Services</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</li>
-				</div>
-				<div class="item">
-					<li>
-						<div class="slider-info  banner-view banner-top1 bg bg2">
-							<div class="banner-info">
-								<div class="container">
-									<div class="banner-info-bg">
-										<h6>Care for your Body</h6>
-										<h5>Get All the Helpful Advice 
-											For The Better Tommorow</h5>
-										<a class="btn mt-sm-5 mt-4" href="services.html">View Our Services</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</li>
-				</div>
-			</div>
-			<ul class="slide-social-icons list-unstyled">
-				<li class="share">Share On : </li>
-				<li>
-					<a href="#" class="w3pvt_facebook">
-						<span class="fa fa-facebook-f"></span>
-					</a>
-				</li>
-				<li>
-					<a href="#" class="w3pvt_twitter">
-						<span class="fa fa-twitter"></span>
-					</a>
-				</li>
-				<li>
-					<a href="#" class="w3pvt_dribble">
-						<span class="fa fa-dribbble"></span>
-					</a>
-				</li>
-				<li>
-					<a href="#" class="w3pvt_google">
-						<span class="fa fa-google-plus"></span>
-					</a>
-				</li>
-			</ul>
-		</div>
 
-	</section>
-	<!-- /main-slider -->
-	<!-- //banner-slider-->
-	<!-- /content-6-->
-	<section class="w3l-content-6">
-	<!-- /content-6-main-->
-		<div class="content-6-mian py-5 ">
-			<div class="container py-lg-5">
-				<div class="title-content text-left mb-4 ">
-					<h3 style="text-align: center" class="vc_custom_heading white-text vc_custom_1579949523563">Find and Engage New People Actively Searching for an<br>
-						Addiction Treatment Center in Your Area</h3>
-				</div>
-				<p>When people are faced with the decision to enter an addiction treatment center, they usually find a rehab in one of three places: a recommendation from their lawyer or court, friends or family, or the internet. And since the internet has become a central hub of information, when people have an issue that they need to solve then they tend to bypass those first two options and go straight to their computer to find the answer. That’s why your addiction treatment facility needs to have a strong presence to connect you to the people who need you the most. But if you don’t know where to start, then that’s where our addiction treatment web design experts can step in and build you an engaging, eye-catching website that easily converts web users into patients. </p>
-		</div>
-	</section>
-	<!-- //content-6-->
+<body class="">
+<div class="wrapper">
+    <div class="sidebar">
+        <!--
+          Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red"
+      -->
+        <div class="sidebar-wrapper">
+            <div class="logo">
+                <a href="javascript:void(0)" class="simple-text logo-mini">
+                    CT
+                </a>
+                <a href="javascript:void(0)" class="simple-text logo-normal">
+                    Creative Tim
+                </a>
+            </div>
+            <ul class="nav">
+                <li class="active ">
+                    <a href="index.php">
+                        <i class="tim-icons icon-chart-pie-36"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="notification.php">
+                        <i class="tim-icons icon-bell-55"></i>
+                        <p>Notifications</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="userprofile.php">
+                        <i class="tim-icons icon-single-02"></i>
+                        <p>Your Profile</p>
+                    </a>
+                </li>1
+            </ul>
+        </div>
+    </div>
+    <div class="main-panel">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
+            <div class="container-fluid">
+                <div class="navbar-wrapper">
+                    <div class="navbar-toggle d-inline">
+                        <button type="button" class="navbar-toggler">
+                            <span class="navbar-toggler-bar bar1"></span>
+                            <span class="navbar-toggler-bar bar2"></span>
+                            <span class="navbar-toggler-bar bar3"></span>
+                        </button>
+                    </div>
+                    <a class="navbar-brand" href="javascript:void(0)">Dashboard</a>
+                </div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                    <span class="navbar-toggler-bar navbar-kebab"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navigation">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="search-bar input-group">
+                            <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i class="tim-icons icon-zoom-split" ></i>
+                                <span class="d-lg-none d-md-block">Search</span>
+                            </button>
+                        </li>
+                        <li class="dropdown nav-item">
+                            <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                                <div class="notification d-none d-lg-block d-xl-block"></div>
+                                <i class="tim-icons icon-sound-wave"></i>
+                                <p class="d-lg-none">
+                                    Notifications
+                                </p>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right dropdown-navbar">
+                                <li class="nav-link"><a href="#" class="nav-item dropdown-item">Mike John responded to your email</a></li>
+                                <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">You have 5 more tasks</a></li>
+                                <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Your friend Michael is in town</a></li>
+                                <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Another notification</a></li>
+                                <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Another one</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown nav-item">
+                            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+                                <div class="photo">
+                                    <img src="../assets/img/anime3.png" alt="Profile Photo">
+                                </div>
+                                <b class="caret d-none d-lg-block d-xl-block"></b>
+                                <p class="d-lg-none">
+                                    Log out
+                                </p>
+                            </a>
+                            <ul class="dropdown-menu dropdown-navbar">
+                                <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Profile</a></li>
+                                <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a></li>
+                                <li class="dropdown-divider"></li>
+                                <li class="nav-link"><a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a></li>
+                            </ul>
+                        </li>
+                        <li class="separator d-lg-none"></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="SEARCH">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <i class="tim-icons icon-simple-remove"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Navbar -->
+        <div class="content">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card card-chart">
+                        <div class="card-header ">
+                            <div class="row">
+                                <div class="col-sm-6 text-left">
+                                    <h5 class="card-category">Total Shipments</h5>
+                                    <h2 class="card-title">Performance</h2>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+                                        <label class="btn btn-sm btn-primary btn-simple active" id="0">
+                                            <input type="radio" name="options" checked>
+                                            <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Accounts</span>
+                                            <span class="d-block d-sm-none">
+                          <i class="tim-icons icon-single-02"></i>
+                        </span>
+                                        </label>
+                                        <label class="btn btn-sm btn-primary btn-simple" id="1">
+                                            <input type="radio" class="d-none d-sm-none" name="options">
+                                            <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Purchases</span>
+                                            <span class="d-block d-sm-none">
+                          <i class="tim-icons icon-gift-2"></i>
+                        </span>
+                                        </label>
+                                        <label class="btn btn-sm btn-primary btn-simple" id="2">
+                                            <input type="radio" class="d-none" name="options">
+                                            <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Sessions</span>
+                                            <span class="d-block d-sm-none">
+                          <i class="tim-icons icon-tap-02"></i>
+                        </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-area">
+                                <canvas id="chartBig1"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="card card-chart">
+                        <div class="card-header">
+                            <h5 class="card-category">Total Shipments</h5>
+                            <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary"></i> 763,215</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-area">
+                                <canvas id="chartLinePurple"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card card-chart">
+                        <div class="card-header">
+                            <h5 class="card-category">Daily Sales</h5>
+                            <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info"></i> 3,500€</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-area">
+                                <canvas id="CountryChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card card-chart">
+                        <div class="card-header">
+                            <h5 class="card-category">Completed Tasks</h5>
+                            <h3 class="card-title"><i class="tim-icons icon-send text-success"></i> 12,100K</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-area">
+                                <canvas id="chartLineGreen"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <div class="card card-tasks">
+                        <div class="card-header ">
+                            <h6 class="title d-inline">Tasks(5)</h6>
+                            <p class="card-category d-inline">today</p>
+                            <div class="dropdown">
+                                <button type="button" class="btn btn-link dropdown-toggle btn-icon" data-toggle="dropdown">
+                                    <i class="tim-icons icon-settings-gear-63"></i>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#pablo">Action</a>
+                                    <a class="dropdown-item" href="#pablo">Another action</a>
+                                    <a class="dropdown-item" href="#pablo">Something else</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body ">
+                            <div class="table-full-width table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="checkbox" value="">
+                                                    <span class="form-check-sign">
+                                <span class="check"></span>
+                              </span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <p class="title">Update the Documentation</p>
+                                            <p class="text-muted">Dwuamish Head, Seattle, WA 8:47 AM</p>
+                                        </td>
+                                        <td class="td-actions text-right">
+                                            <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
+                                                <i class="tim-icons icon-pencil"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="checkbox" value="" checked="">
+                                                    <span class="form-check-sign">
+                                <span class="check"></span>
+                              </span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <p class="title">GDPR Compliance</p>
+                                            <p class="text-muted">The GDPR is a regulation that requires businesses to protect the personal data and privacy of Europe citizens for transactions that occur within EU member states.</p>
+                                        </td>
+                                        <td class="td-actions text-right">
+                                            <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
+                                                <i class="tim-icons icon-pencil"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="checkbox" value="">
+                                                    <span class="form-check-sign">
+                                <span class="check"></span>
+                              </span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <p class="title">Solve the issues</p>
+                                            <p class="text-muted">Fifty percent of all respondents said they would be more likely to shop at a company </p>
+                                        </td>
+                                        <td class="td-actions text-right">
+                                            <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
+                                                <i class="tim-icons icon-pencil"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="checkbox" value="">
+                                                    <span class="form-check-sign">
+                                <span class="check"></span>
+                              </span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <p class="title">Release v2.0.0</p>
+                                            <p class="text-muted">Ra Ave SW, Seattle, WA 98116, SUA 11:19 AM</p>
+                                        </td>
+                                        <td class="td-actions text-right">
+                                            <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
+                                                <i class="tim-icons icon-pencil"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="checkbox" value="">
+                                                    <span class="form-check-sign">
+                                <span class="check"></span>
+                              </span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <p class="title">Export the processed files</p>
+                                            <p class="text-muted">The report also shows that consumers will not easily forgive a company once a breach exposing their personal data occurs. </p>
+                                        </td>
+                                        <td class="td-actions text-right">
+                                            <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
+                                                <i class="tim-icons icon-pencil"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="checkbox" value="">
+                                                    <span class="form-check-sign">
+                                <span class="check"></span>
+                              </span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <p class="title">Arival at export process</p>
+                                            <p class="text-muted">Capitol Hill, Seattle, WA 12:34 AM</p>
+                                        </td>
+                                        <td class="td-actions text-right">
+                                            <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
+                                                <i class="tim-icons icon-pencil"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="card ">
+                        <div class="card-header">
+                            <h4 class="card-title"> Simple Table</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table tablesorter " id="">
+                                    <thead class=" text-primary">
+                                    <tr>
+                                        <th>
+                                            Name
+                                        </th>
+                                        <th>
+                                            Country
+                                        </th>
+                                        <th>
+                                            City
+                                        </th>
+                                        <th class="text-center">
+                                            Salary
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>
+                                            Dakota Rice
+                                        </td>
+                                        <td>
+                                            Niger
+                                        </td>
+                                        <td>
+                                            Oud-Turnhout
+                                        </td>
+                                        <td class="text-center">
+                                            $36,738
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Minerva Hooper
+                                        </td>
+                                        <td>
+                                            Curaçao
+                                        </td>
+                                        <td>
+                                            Sinaai-Waas
+                                        </td>
+                                        <td class="text-center">
+                                            $23,789
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Sage Rodriguez
+                                        </td>
+                                        <td>
+                                            Netherlands
+                                        </td>
+                                        <td>
+                                            Baileux
+                                        </td>
+                                        <td class="text-center">
+                                            $56,142
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Philip Chaney
+                                        </td>
+                                        <td>
+                                            Korea, South
+                                        </td>
+                                        <td>
+                                            Overland Park
+                                        </td>
+                                        <td class="text-center">
+                                            $38,735
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Doris Greene
+                                        </td>
+                                        <td>
+                                            Malawi
+                                        </td>
+                                        <td>
+                                            Feldkirchen in Kärnten
+                                        </td>
+                                        <td class="text-center">
+                                            $63,542
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Mason Porter
+                                        </td>
+                                        <td>
+                                            Chile
+                                        </td>
+                                        <td>
+                                            Gloucester
+                                        </td>
+                                        <td class="text-center">
+                                            $78,615
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Jon Porter
+                                        </td>
+                                        <td>
+                                            Portugal
+                                        </td>
+                                        <td>
+                                            Gloucester
+                                        </td>
+                                        <td class="text-center">
+                                            $98,615
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container-fluid">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a href="javascript:void(0)" class="nav-link">
+                            Creative Tim
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)" class="nav-link">
+                            About Us
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void(0)" class="nav-link">
+                            Blog
+                        </a>
+                    </li>
+                </ul>
+                <div class="copyright">
+                    ©
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script>2018 made with <i class="tim-icons icon-heart-2"></i> by
+                    <a href="javascript:void(0)" target="_blank">Creative Tim</a> for a better web.
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<div class="fixed-plugin">
+    <div class="dropdown show-dropdown">
+        <a href="#" data-toggle="dropdown">
+            <i class="fa fa-cog fa-2x"> </i>
+        </a>
+        <ul class="dropdown-menu">
+            <li class="header-title"> Sidebar Background</li>
+            <li class="adjustments-line">
+                <a href="javascript:void(0)" class="switch-trigger background-color">
+                    <div class="badge-colors text-center">
+                        <span class="badge filter badge-primary active" data-color="primary"></span>
+                        <span class="badge filter badge-info" data-color="blue"></span>
+                        <span class="badge filter badge-success" data-color="green"></span>
+                    </div>
+                    <div class="clearfix"></div>
+                </a>
+            </li>
+            <li class="adjustments-line text-center color-change">
+                <span class="color-label">LIGHT MODE</span>
+                <span class="badge light-badge mr-2"></span>
+                <span class="badge dark-badge ml-2"></span>
+                <span class="color-label">DARK MODE</span>
+            </li>
+            <li class="button-container">
+                <a href="https://www.creative-tim.com/product/black-dashboard" target="_blank" class="btn btn-primary btn-block btn-round">Download Now</a>
+                <a href="https://demos.creative-tim.com/black-dashboard/docs/1.0/getting-started/introduction.html" target="_blank" class="btn btn-default btn-block btn-round">
+                    Documentation
+                </a>
+            </li>
+            <li class="header-title">Thank you for 95 shares!</li>
+            <li class="button-container text-center">
+                <button id="twitter" class="btn btn-round btn-info"><i class="fab fa-twitter"></i> &middot; 45</button>
+                <button id="facebook" class="btn btn-round btn-info"><i class="fab fa-facebook-f"></i> &middot; 50</button>
+                <br>
+                <br>
+                <a class="github-button" href="https://github.com/creativetimofficial/black-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--   Core JS Files   -->
+<script src="./assets/js/core/jquery.min.js"></script>
+<script src="./assets/js/core/popper.min.js"></script>
+<script src="./assets/js/core/bootstrap.min.js"></script>
+<script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+<!--  Google Maps Plugin    -->
+<!-- Place this tag in your head or just before your close body tag. -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+<!-- Chart JS -->
+<script src="./assets/js/plugins/chartjs.min.js"></script>
+<!--  Notifications Plugin    -->
+<script src="./assets/js/plugins/bootstrap-notify.js"></script>
+<!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="./assets/js/black-dashboard.min.js"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
+
+<script>
+    $(document).ready(function() {
+        $().ready(function() {
+            $sidebar = $('.sidebar');
+            $navbar = $('.navbar');
+            $main_panel = $('.main-panel');
+
+            $full_page = $('.full-page');
+
+            $sidebar_responsive = $('body > .navbar-collapse');
+            sidebar_mini_active = true;
+            white_color = false;
+
+            window_width = $(window).width();
+
+            fixed_plugin_open = $('.sidebar .sidebar-wrapper .nav li.active a p').html();
 
 
 
+            $('.fixed-plugin a').click(function(event) {
+                if ($(this).hasClass('switch-trigger')) {
+                    if (event.stopPropagation) {
+                        event.stopPropagation();
+                    } else if (window.event) {
+                        window.event.cancelBubble = true;
+                    }
+                }
+            });
 
-	<!-- footer-66 -->
-	<footer class="w3l-footer-66">
-		<!-- footer -->
-		<div class="footer-66-info">
-			<div class="container">
-				<div class="row footer-top">
-					<div class="col-lg-4 footer-grid_section_w3layouts pr-lg-5">
-						<h2 class="logo-2 mb-lg-4 mb-3">
-							<a class="navbar-brand" href="index.php"><span>Dent</span>ile</a>
-							<!-- if logo is image enable this   
-									<a class="navbar-brand" href="#index.php">
-										<img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
-									</a> -->
-						</h2>
-						<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-							commodo consequat.</p>
-						<h4 class="sub-con-fo ad-info my-4">Catch on Social</h4>
-						<ul class="w3layouts_social_list list-unstyled">
-							<li>
-								<a href="#" class="w3pvt_facebook">
-									<span class="fa fa-facebook-f"></span>
-								</a>
-							</li>
-							<li>
-								<a href="#" class="w3pvt_twitter">
-									<span class="fa fa-twitter"></span>
-								</a>
-							</li>
-							<li>
-								<a href="#" class="w3pvt_dribble">
-									<span class="fa fa-dribbble"></span>
-								</a>
-							</li>
-							<li>
-								<a href="#" class="w3pvt_google">
-									<span class="fa fa-google-plus"></span>
-								</a>
-							</li>
-						</ul>
-					</div>
-					<div class="col-lg-8 footer-right">
-						<div class="w3layouts-news-letter">
-							<h3 class="footer-title mb-0">Newsletter</h3>
+            $('.fixed-plugin .background-color span').click(function() {
+                $(this).siblings().removeClass('active');
+                $(this).addClass('active');
 
-							<p class="mb-3">By subscribing to our mailing list you will always get latest news and
-								updates from us.
-							</p>
-							<form action="#" method="post" class="w3layouts-newsletter">
-								<input type="email" name="Email" placeholder="Enter your email..." required="">
-								<button class="btn1"> Subscribe</button>
+                var new_color = $(this).data('color');
 
-							</form>
-						</div>
-						<div class="bottom-w3layouts-sec-nav">
-							<div class="row sub-content-botom mx-0">
-								<div class="col-md-4 footer-grid_section_w3layouts pl-lg-0">
-									<h3 class="footer-title">Information</h3>
-									<ul class="footer list-unstyled">
-										<li>
-											<a href="index.php">Home</a>
-										</li>
-										<li>
-											<a href="about.html">About Us</a>
-										</li>
-										<li>
-											<a href="blog.html">Blog</a>
-										</li>
-										<li>
-											<a href="services.html">Services</a>
-										</li>
-										<li>
-											<a href="contact.html">Contact Us</a>
-										</li>
-									</ul>
-								</div>
-								<div class="col-md-4 footer-grid_section_w3layouts">
-									<!-- social icons -->
+                if ($sidebar.length != 0) {
+                    $sidebar.attr('data', new_color);
+                }
 
-									<h3 class="footer-title">Treatments</h3>
-									<ul class="footer list-unstyled">
+                if ($main_panel.length != 0) {
+                    $main_panel.attr('data', new_color);
+                }
 
-										<li>
-											<a href="#">Preventative Dentistry</a>
-										</li>
-										<li>
-											<a href="#">Child Dentistry</a>
-										</li>
-										<li>
-											<a href="#">Affordable Dentures</a>
-										</li>
-										<li>
-											<a href="#">Tooth Extraction</a>
-										</li>
+                if ($full_page.length != 0) {
+                    $full_page.attr('filter-color', new_color);
+                }
 
-									</ul>
+                if ($sidebar_responsive.length != 0) {
+                    $sidebar_responsive.attr('data', new_color);
+                }
+            });
 
-									<!-- social icons -->
-								</div>
-								
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+            $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function() {
+                var $btn = $(this);
 
-		<!-- move top -->
-		<button onclick="topFunction()" id="movetop" title="Go to top">
-			<span class="fa fa-level-up"></span>
-		</button>
-		<script>
-			// When the user scrolls down 20px from the top of the document, show the button
-			window.onscroll = function () {
-				scrollFunction()
-			};
+                if (sidebar_mini_active == true) {
+                    $('body').removeClass('sidebar-mini');
+                    sidebar_mini_active = false;
+                    blackDashboard.showSidebarMessage('Sidebar mini deactivated...');
+                } else {
+                    $('body').addClass('sidebar-mini');
+                    sidebar_mini_active = true;
+                    blackDashboard.showSidebarMessage('Sidebar mini activated...');
+                }
 
-			function scrollFunction() {
-				if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-					document.getElementById("movetop").style.display = "block";
-				} else {
-					document.getElementById("movetop").style.display = "none";
-				}
-			}
+                // we simulate the window Resize so the charts will get updated in realtime.
+                var simulateWindowResize = setInterval(function() {
+                    window.dispatchEvent(new Event('resize'));
+                }, 180);
 
-			// When the user clicks on the button, scroll to the top of the document
-			function topFunction() {
-				document.body.scrollTop = 0;
-				document.documentElement.scrollTop = 0;
-			}
-		</script>
-		<!-- /move top -->
-	</footer>
-	<!--//footer-66 -->
+                // we stop the simulation of Window Resize after the animations are completed
+                setTimeout(function() {
+                    clearInterval(simulateWindowResize);
+                }, 1000);
+            });
+
+            $('.switch-change-color input').on("switchChange.bootstrapSwitch", function() {
+                var $btn = $(this);
+
+                if (white_color == true) {
+
+                    $('body').addClass('change-background');
+                    setTimeout(function() {
+                        $('body').removeClass('change-background');
+                        $('body').removeClass('white-content');
+                    }, 900);
+                    white_color = false;
+                } else {
+
+                    $('body').addClass('change-background');
+                    setTimeout(function() {
+                        $('body').removeClass('change-background');
+                        $('body').addClass('white-content');
+                    }, 900);
+
+                    white_color = true;
+                }
+
+
+            });
+
+            $('.light-badge').click(function() {
+                $('body').addClass('white-content');
+            });
+
+            $('.dark-badge').click(function() {
+                $('body').removeClass('white-content');
+            });
+        });
+    });
+</script>
+<script>
+    $(document).ready(function() {
+        // Javascript method's body can be found in assets/js/demos.js
+        demo.initDashboardPageCharts();
+
+    });
+</script>
+<script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+<script>
+    window.TrackJS &&
+    TrackJS.install({
+        token: "ee6fab19c5a04ac1a32a645abde4613a",
+        application: "black-dashboard-free"
+    });
+</script>
 </body>
 
 </html>
-
-<script src="assets/js/jquery-3.3.1.min.js"></script>
-<!-- disable body scroll which navbar is in active -->
-
-<!--//-->
-<script>
-	$(function () {
-		$('.navbar-toggler').click(function () {
-			$('body').toggleClass('noscroll');
-		})
-	});
-</script>
-<!--/scroll-down-JS-->
-<!-- stats -->
-<script src="assets/js/jquery.waypoints.min.js"></script>
-<script src="assets/js/jquery.countup.js"></script>
-<script>
-	$('.counter').countUp();
-</script>
-<!-- //stats -->
-<script src="assets/js/jquery.magnific-popup.min.js"></script>
-<script type="text/javascript">
-	$(document).ready(function () {
-		$('.popup-with-zoom-anim').magnificPopup({
-			type: 'inline',
-
-			fixedContentPos: false,
-			fixedBgPos: true,
-
-			overflowY: 'auto',
-
-			closeBtnInside: true,
-			preloader: false,
-
-			midClick: true,
-			removalDelay: 300,
-			mainClass: 'my-mfp-zoom-in'
-		});
-
-		$('.popup-with-move-anim').magnificPopup({
-			type: 'inline',
-
-			fixedContentPos: false,
-			fixedBgPos: true,
-
-			overflowY: 'auto',
-
-			closeBtnInside: true,
-			preloader: false,
-
-			midClick: true,
-			removalDelay: 300,
-			mainClass: 'my-mfp-slide-bottom'
-		});
-	});
-</script>
-<!-- for blog carousel slider -->
-<script src="assets/js/owl.carousel.js"></script>
-<!-- script for banner slider-->
-<script>
-	$(document).ready(function () {
-		$('.owl-one').owlCarousel({
-			loop: true,
-			margin: 0,
-			nav: false,
-			responsiveClass: true,
-			autoplay: false,
-			autoplayTimeout: 5000,
-			autoplaySpeed: 1000,
-			autoplayHoverPause: false,
-			responsive: {
-				0: {
-					items: 1,
-					nav: false
-				},
-				480: {
-					items: 1,
-					nav: false
-				},
-				667: {
-					items: 1,
-					nav: true
-				},
-				1000: {
-					items: 1,
-					nav: true
-				}
-			}
-		})
-	})
-</script>
-<!-- //testimonials owlcarousel -->
-<script>
-	$(document).ready(function () {
-		$('.owl-two').owlCarousel({
-			loop: true,
-			margin: 20,
-			nav: false,
-			responsiveClass: true,
-			autoplay: false,
-			autoplayTimeout: 5000,
-			autoplaySpeed: 1000,
-			autoplayHoverPause: false,
-			responsive: {
-				0: {
-					items: 1,
-					nav: false
-				},
-				480: {
-					items: 1,
-					nav: false
-				},
-				667: {
-					items: 1,
-					nav: false
-				},
-				1000: {
-					items: 1,
-					nav: false
-				}
-			}
-		})
-	})
-</script>
-<!-- //script for Testimonials-->
-<!-- //script -->
-
-<script src="assets/js/bootstrap.min.js"></script>
