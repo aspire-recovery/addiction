@@ -10,7 +10,7 @@ body{
     font-family: "Proxima Nova",system-ui,sans-serif;
     color: #231f20;
     font-weight: lighter;
-    background-image: url(assets\images\Maldives.jpg);
+
 }
 .main-topic{
     margin-top: 0;
@@ -37,6 +37,9 @@ body{
     border: 5px solid #62d2e6;
     padding: 10px;
 
+}
+.lasttopic{
+    margin-bottom: 20px;
 }
 ul {
     display: block;

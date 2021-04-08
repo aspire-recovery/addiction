@@ -102,8 +102,11 @@ if (!isset($_SESSION['u_id'])) {
                         <li class="nav-item">
                             <a class="nav-link" href="forum/forum.php">Forum</a>
                         </li>
-                        <li class="nav-item @@about__active">
+                        <li class="nav-item">
                             <a class="nav-link" href="cart.php">Cart</a>
+                        </li>
+                        <li class="nav-item @@about__active">
+                            <a class="nav-link" href="about.php">About</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="logout.php">Logout</a>

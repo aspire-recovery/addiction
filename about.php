@@ -11,6 +11,105 @@
     
     <!-- Template CSS -->
     <link rel="stylesheet" href="assets/css/style-starter.css">
+      <style>
+          .team {
+              text-align: center
+          }
+
+          .section {
+              padding: 60px 0
+          }
+
+          .section-title {
+              text-align: center;
+              font-size: 40px;
+              position: relative;
+              margin-bottom: 40px;
+              margin-top: 0
+          }
+
+          .team .team-item {
+              text-align: left;
+              margin-bottom: 30px
+          }
+
+          .team .team-item figure {
+              position: relative;
+              overflow: hidden
+          }
+
+          img {
+              max-width: 100%
+          }
+
+          .team .team-item figure figcaption {
+              position: absolute;
+              left: 0;
+              top: 0;
+              width: 100%;
+              height: 100%;
+              opacity: 0;
+              background: rgba(9, 9, 9, .6);
+              -webkit-transition: all .5s ease;
+              -moz-transition: all .5s ease;
+              transition: all .5s ease
+          }
+
+          .team .team-item figure figcaption .info {
+              position: absolute;
+              color: #fff;
+              float: left;
+              bottom: 10px;
+              left: 20px;
+              margin-left: -80px;
+              -webkit-transition: all .5s ease;
+              -moz-transition: all .5s ease;
+              transition: all .5s ease
+          }
+
+          .team .team-item figure:hover figcaption {
+              opacity: 1
+          }
+
+          .team .team-item figure:hover figcaption .info {
+              margin-left: 0
+          }
+
+          .team .team-item figure figcaption .info h3 {
+              font-size: 20px
+          }
+
+          .team .team-item figure figcaption .info p {
+              color: #fff
+          }
+
+          .team .team-item figure:hover figcaption .social {
+              margin-bottom: 0
+          }
+
+          .team .team-item figure figcaption .social {
+              position: absolute;
+              float: right;
+              bottom: 28px;
+              margin-bottom: -80px;
+              right: 20px;
+              -webkit-transition: all .5s ease;
+              -moz-transition: all .5s ease;
+              transition: all .5s ease
+          }
+
+          .team .team-item figure figcaption .social a {
+              color: #fff;
+              font-size: 15px;
+              width: 36px;
+              height: 36px;
+              background: #3f51b5;
+              display: inline-block;
+              text-align: center;
+              line-height: 36px;
+              border-radius: 2px
+          }
+      </style>
   </head>
   <body>
 <!--header-->
@@ -39,13 +138,10 @@
         <div class="row">
             <div class="col-lg-6">
                 <h5 class="title-small">A little about Us</h5>
-                <h3 class="title-big">Welcome to Save Poor charity</h3>
-                <p class="mt-3">Lorem ipsum viverra feugiat. Pellen tesque libero ut justo,
-                    ultrices in ligula. Semper at tempufddfel. Lorem ipsum dolor sit amet viverra ornare
-                    elit. Non quae, ut diam libero erat.</p>
-                <p class="mt-3">Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut sed diam libero erat. Aenean faucibus
-                    nibh et justo cursus.</p>
-                <h3 class="title mt-4">"Over 20 Years of Accomplishments”</h3>
+                <h3 class="title-big">Welcome to Aspire Recovery Where "Everything Is Possible"</h3>
+                <p class="mt-3">ASPIRE, a treatment provider for different kind's of addict', is the Newest opioid addiction treatment program in Internet. We help people start and sustain their journey to recovery. We offer hope and healing.</p>
+                <p class="mt-3">Inspiring and motivating our clients to succeed on their path in Recovery while creating positive connections in their life and improving their work or education and family bonds.</p>
+                <h3 class="title mt-4">"Growing Everyday With You”</h3>
                 <a href="#MoreAboutUs" class="btn btn-primary btn-style mt-lg-5 mt-4">Learn More about Us</a>
             </div>
             <div class="col-lg-6 mt-lg-0 mt-5">
@@ -60,11 +156,8 @@
          <div class="container">
              <div class="row align-items-center">
                  <div class="main-midd col-lg-9">
-                     <h3 class="title-big">Facts about Save Poor charity</h3>
-                     <p class="mt-3">A lot of work goes down at the grass root level in villages in the remotest corners
-                         as
-                         well as the most populous metros across India, with schools and government bodies.
-                         We need your contributions to keep coming in.</p>
+                     <h3 class="title-big">Facts about Aspire Recovery Charity</h3>
+                     <p class="mt-3">he cost of addiction treatment can be a serious barrier—and another reason why so many people turn to crowdfunding to raise money for addiction treatment. The process is easier than you think. Creating a fundraiser not only makes it possible to raise funds quickly, but it also helps you build an emotional support network, bringing your friends and family along on the journey of recovery.</p>
                  </div>
                  <div class="main-midd-2 col-lg-3 mt-lg-0 mt-4 text-lg-right">
                      <a class="btn btn-style btn-primary" href="#donate"><span class="fa fa-heart mr-1"></span> Donate
@@ -76,311 +169,80 @@
                 <div class="right-side text-center">
                     <span class="fa fa-heart"></span>
                     <p>OUR TOP DONAR</p>
-                    <h3 class="big my-3">$1.6m</h3>
-                    <a class="btn btn-text" href="#ViewMore">View More</a>
+                    <h3 class="big my-3">$0m</h3>
+
                 </div>
             </div>
          </div>
      </div>
  </section>
- <!-- //forms -->
-<section class="w3l-aboutblock3 py-5" id="videos">
-    <div class="video-recipe py-lg-5 py-md-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 align-self">
-                    <h3 class="title-big">To help the poor to raise their head and face the future with pride</h3>
-                    <p class="mt-4">Lorem ipsum viverra feugiat. Pellen tesque libero ut justo,
-                        ultrices in ligula. Semper at tempufddfel. Lorem ipsum dolor sit amet consectetur adipisicing
-                        elit. Non quae, fugiat consequatur voluptatem nihil ad. Lorem ipsum dolor sit amet</p>
+
+<!--/team-sec-->
+<section class="team section">
+    <div class="container">
+        <h1 class="section-title">Our Team Section</h1>
+        <div class="row">
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="team-item">
+                    <figure>
+                        <img  src="../addiction/assets/images/socialmedia.jpg" alt="">
+                        <figcaption>
+                            <div class="info">
+                                <h3>Ajay Rathod</h3>
+                                <p></p>
+                            </div>
+                            <div class="social">
+                                <a href="#" class="twitter" data-abc="true"><i class="fa fa-twitter"></i></a>
+                                <a href="#" class="facebook" data-abc="true"><i class="fa fa-facebook"></i></a>
+                                <a href="#" class="google-plus" data-abc="true"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </figcaption>
+                    </figure>
                 </div>
-                <div class="col-lg-7 mt-lg-0 mt-md-5 mt-4">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <iframe src="https://www.youtube.com/embed/MG3jGHnBVQs" frameborder="0"
-                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
-                            <h3 class="video-title mt-sm-4 mt-3">The man of the poor.</h3>
-                        </div>
-                        <div class="col-md-6 mt-md-0 mt-5">
-                            <iframe src="https://www.youtube.com/embed/MG3jGHnBVQs" frameborder="0"
-                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
-                                <h3 class="video-title mt-sm-4 mt-3">Mission of “garbage people”</h3>
-                        </div>
-                    </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="team-item">
+                    <figure>
+                        <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1558758980/portrait-1287413_640.jpg" alt="">
+                        <figcaption>
+                            <div class="info">
+                                <h3>Dhruvit  Salat</h3>
+                                <p>Backend Developer</p>
+                            </div>
+                            <div class="social">
+                                <a href="#" class="twitter" data-abc="true"><i class="fa fa-twitter"></i></a>
+                                <a href="#" class="facebook" data-abc="true"><i class="fa fa-facebook"></i></a>
+                                <a href="#" class="google-plus" data-abc="true"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="team-item">
+                    <figure>
+                        <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1558758980/people-875617_1280.jpg" alt="">
+                        <figcaption>
+                            <div class="info">
+                                <h3>Umang Kalavadiya</h3>
+                                <p>Front-End Developer</p>
+                            </div>
+                            <div class="social">
+                                <a href="#" class="twitter" data-abc="true"><i class="fa fa-twitter"></i></a>
+                                <a href="#" class="facebook" data-abc="true"><i class="fa fa-facebook"></i></a>
+                                <a href="#" class="google-plus" data-abc="true"><i class="fa fa-linkedin"></i></a>
+                            </div>
+                        </figcaption>
+                    </figure>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!--/team-sec-->
-<section class="w3l-team-main" id="team">
-    <div class="team py-5">
-        <div class="container py-lg-5">
-            <div class="title-content text-center">
-                <h3 class="title-big">Happy Volunteers</h3>
-            </div>
-            <div class="team-row mt-md-5 mt-4">
-                <div class="team-wrap">
-                    <div class="team-member text-center">
-                        <div class="team-img">
-                            <img src="assets/images/team1.jpg" alt="" class="radius-image img-fluid">
-                        </div>
-                        <a href="#url" class="team-title">Luke jacobs</a>
-                        <p>Volunteers</p>
-                    </div>
-                </div>
-                <!-- end team member -->
-
-                <div class="team-wrap">
-                    <div class="team-member text-center">
-                        <div class="team-img">
-                            <img src="assets/images/team2.jpg" alt="" class="radius-image img-fluid">
-                        </div>
-                        <a href="#url" class="team-title">Claire olson</a>
-                        <p>Volunteers</p>
-                    </div>
-                </div>
-                <!-- end team member -->
-
-                <div class="team-wrap">
-                    <div class="team-member last text-center">
-                        <div class="team-img">
-                            <img src="assets/images/team3.jpg" alt="" class="radius-image img-fluid">
-                        </div>
-                        <a href="#url" class="team-title">Phillip hunt</a>
-                        <p>Volunteers</p>
-                    </div>
-                </div>
-                <!-- end team member -->
-
-                <div class="team-wrap">
-                    <div class="team-member last text-center">
-                        <div class="team-img">
-                            <img src="assets/images/team4.jpg" alt="" class="radius-image img-fluid">
-                        </div>
-                        <a href="#url" class="team-title">Sara grant</a>
-                        <p>Volunteers</p>
-                    </div>
-                </div>
-                <!-- end team member -->
-
-                <div class="team-wrap">
-                    <div class="team-member last text-center">
-                        <div class="team-img">
-                            <img src="assets/images/team5.jpg" alt="" class="radius-image img-fluid">
-                        </div>
-                        <a href="#url" class="team-title">Sara grant</a>
-                        <p>Volunteers</p>
-                    </div>
-                </div>
-                <!-- end team member -->
-
-                <div class="team-wrap">
-                    <div class="team-member last text-center">
-                        <div class="team-img">
-                            <img src="assets/images/team6.jpg" alt="" class="radius-image img-fluid">
-                        </div>
-                        <a href="#url" class="team-title">Sara grant</a>
-                        <p>Volunteers</p>
-                    </div>
-                </div>
-                <!-- end team member -->
-
-                <div class="team-wrap">
-                    <div class="team-member last text-center">
-                        <div class="team-img">
-                            <img src="assets/images/team7.jpg" alt="" class="radius-image img-fluid">
-                        </div>
-                        <a href="#url" class="team-title">Sara grant</a>
-                        <p>Volunteers</p>
-                    </div>
-                </div>
-                <!-- end team member -->
-
-                <div class="team-wrap">
-                    <div class="team-member last text-center">
-                        <div class="team-img">
-                            <img src="assets/images/team8.jpg" alt="" class="radius-image img-fluid">
-                        </div>
-                        <a href="#url" class="team-title">Sara grant</a>
-                        <p>Volunteers</p>
-                    </div>
-                </div>
-                <!-- end team member -->
-
-                <div class="team-wrap">
-                    <div class="team-member last text-center">
-                        <div class="team-img">
-                            <img src="assets/images/team9.jpg" alt="" class="radius-image img-fluid">
-                        </div>
-                        <a href="#url" class="team-title">Sara grant</a>
-                        <p>Volunteers</p>
-                    </div>
-                </div>
-                <!-- end team member -->
-
-                <div class="team-apply">
-                    <a href="#url" class="team-title m-0"><span class="fa fa-plus-circle d-block mb-3"></span> Apply for Volunteer</a>
-                </div>
-
-            </div>
-        </div>
-</section>
 <!--//team-sec-->
-<!-- testimonials -->
-<section class="w3l-testimonials" id="testimonials">
-	<!-- /grids -->
-	<div class="customer-layout py-5">
-		<div class="container py-lg-5 py-md-4">
-            <div class="heading align-self text-center">
-                <h6 class="title-small">Our Testimonials</h6>
-                <h3 class="title-big mb-md-5 mb-4">Over 20 Years of Accomplishments</h3>
-            </div>
-			<!-- /grids -->
-			<div class="row testimonial-row">
-				<div id="owl-demo1" class="owl-two owl-carousel owl-theme mb-lg-3 mb-5">
-					<div class="item">
-						<div class="testimonial-content">
-							<div class="testimonial">
-								<blockquote>
-									<q>Lorem ipsum dolor sit amet int consectetur adipisicing elit. Velita beatae laudantium
-										voluptate rem ullam dolore nisi voluptatibus est quasi, doloribus tempora.</q>
-								</blockquote>
-								<div class="testi-des">
-									<div class="test-img"><img src="assets/images/team1.jpg" class="img-fluid" alt="client-img">
-									</div>
-									<div class="peopl align-self">
-										<h3>Michael D. Kirby</h3>
-										<p class="indentity">Former U.S. Ambassador </p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="testimonial-content">
-							<div class="testimonial">
-							  <blockquote>
-								  <q>Lorem ipsum dolor sit amet int consectetur adipisicing elit. Velita beatae laudantium
-									  voluptate rem ullam dolore nisi voluptatibus est quasi, doloribus tempora.</q>
-							  </blockquote>
-								<div class="testi-des">
-									<div class="test-img"><img src="assets/images/team2.jpg" class="img-fluid" alt="client-img">
-									</div>
-									<div class="peopl align-self">
-										<h3>Elaine F. Marshall</h3>
-										<p class="indentity">Secretary of State </p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="testimonial-content">
-							<div class="testimonial">
-							  <blockquote>
-								  <q>Lorem ipsum dolor sit amet int consectetur adipisicing elit. Velita beatae laudantium
-									  voluptate rem ullam dolore nisi voluptatibus est quasi, doloribus tempora.</q>
-							  </blockquote>
-								<div class="testi-des">
-									<div class="test-img"><img src="assets/images/team3.jpg" class="img-fluid" alt="client-img">
-									</div>
-									<div class="peopl align-self">
-										<h3>Janice Hoffman</h3>
-										<p class="indentity">Chief Operating Officer</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="testimonial-content">
-							<div class="testimonial">
-							  <blockquote>
-								  <q>Lorem ipsum dolor sit amet int consectetur adipisicing elit. Velita beatae laudantium
-									  voluptate rem ullam dolore nisi voluptatibus est quasi, doloribus tempora.</q>
-							  </blockquote>
-								<div class="testi-des">
-									<div class="test-img"><img src="assets/images/team4.jpg" class="img-fluid" alt="client-img">
-									</div>
-									<div class="peopl align-self">
-										<h3>Stefan Homa</h3>
-										<p class="indentity">Charity architect</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="testimonial-content">
-							<div class="testimonial">
-							  <blockquote>
-								  <q>Lorem ipsum dolor sit amet int consectetur adipisicing elit. Velita beatae laudantium
-									  voluptate rem ullam dolore nisi voluptatibus est quasi, doloribus tempora.</q>
-							  </blockquote>
-								<div class="testi-des">
-									<div class="test-img"><img src="assets/images/team2.jpg" class="img-fluid" alt="client-img">
-									</div>
-									<div class="peopl align-self">
-										<h3>Jeannie Gooch</h3>
-										<p class="indentity">Funding teacher</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="testimonial-content">
-							<div class="testimonial">
-							  <blockquote>
-								  <q>Lorem ipsum dolor sit amet int consectetur adipisicing elit. Velita beatae laudantium
-									  voluptate rem ullam dolore nisi voluptatibus est quasi, doloribus tempora.</q>
-							  </blockquote>
-								<div class="testi-des">
-									<div class="test-img"><img src="assets/images/team3.jpg" class="img-fluid" alt="client-img">
-									</div>
-									<div class="peopl align-self">
-										<h3>Elaine F. Marshall</h3>
-										<p class="indentity">Secretary of State</p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- /grids -->
-	</div>
-	<!-- //grids -->
-  </section>
-  <!-- //testimonials -->
 <!-- footer 14 -->
 <div class="w3l-footer-main">
   <div class="w3l-sub-footer-content">
-      <section class="_form-3">
-          <div class="form-main">
-              <div class="container">
-                  <div class="middle-section grid-column top-bottom">
-                      <div class="image grid-three-column">
-                          <img src="assets/images/subscribe.png" alt="" class="img-fluid radius-image-full">
-                      </div>
-                      <div class="text-grid grid-three-column">
-                          <h2>Subscribe our Newsletter to receive latest updates from us</h2>
-                          <p>We won’t give you spam mails.</p>
-                      </div>
-                      <div class="form-text grid-three-column">
-                          <form action="/" method="GET">
-                              <input type="email" name=" placeholder" placeholder="Enter Your Email" required="">
-                              <button type="submit" class="btn btn-style btn-primary">Submit</button>
-                          </form>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </section>
       <!-- Footers-14 -->
       <footer class="footer-14">
           <div id="footers14-block">
@@ -389,18 +251,18 @@
                       <div class="d-grid grid-col-4 grids-content">
                           <div class="column">
                               <h4>Our Address</h4>
-                                <p>235 Terry, 10001 20C Trolley Square,
-                                  DE 19806  U.S.A.</p>
+                                <p>MSU Polytechnic,Pandya Bridge,Sayaji Gunj,vadodara</p>
                           </div>
                           <div class="column">
                               <h4>Call Us</h4>
                               <p>Mon - Fri 10:30 -18:00</p>
-                              <p><a href="tel:+44-000-888-999">+44-000-888-999</a></p>
+                              <p><a href="tel:+916351301322">6351301322</a></p>
                           </div>
                           <div class="column">
                               <h4>Mail Us</h4>
-                              <p><a href="mailto:info@example.com">info@example.com</a></p>
-                              <p><a href="mailto:no.reply@example.com">no.reply@example.com</a></p>
+                              <p><a href="mailto:info@example.com">umang.kalavadiya@gmail.com</a></p>
+                              <p><a href="mailto:no.reply@example.com">Salatd0852@gmail.com</a></p>
+                              <p><a href="mailto:no.reply@example.com">ajay.rathod0801@gmail.com</a></p>
                           </div>
                           <div class="column">
                               <h4>Follow Us On</h4>
@@ -417,27 +279,13 @@
                                   <li><a href="#google"><span class="fa fa-google-plus"
                                               aria-hidden="true"></span></a>
                                   </li>
-                                  <li><a href="#github"><span class="fa fa-github" aria-hidden="true"></span></a>
+                                  <li><a href="https://github.com/valentinos2077"><span class="fa fa-github" aria-hidden="true"></span></a>
                                   </li>
                               </ul>
                           </div>
                       </div>
                   </div>
-                  <div class="footers14-bottom d-flex">
-                      <div class="copyright">
-                          <p>© 2020 Save Poor. All rights reserved. Design by <a href="https://w3layouts.com/"
-                                  target="_blank">W3Layouts</a></p>
-                      </div>
-                      <div class="language-select d-flex">
-                          <span class="fa fa-language" aria-hidden="true"></span>
-                          <select>
-                              <option>English</option>
-                              <option>Estonina</option>
-                              <option>Deutsch</option>
-                              <option>Nederlan;ds</option>
-                          </select>
-                      </div>
-                  </div>
+
               </div>
           </div>
           <!-- move top -->
