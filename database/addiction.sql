@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2021 at 12:42 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.3.26
+-- Generation Time: Apr 06, 2021 at 03:39 PM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 7.3.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -105,19 +105,9 @@ CREATE TABLE `forum_reply` (
   `reply_id` int(5) NOT NULL,
   `fu_id` int(5) NOT NULL,
   `u_id` int(5) NOT NULL,
-  `message` text CHARACTER SET utf8 NOT NULL,
+  `message` varchar(100) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `forum_reply`
---
-
-INSERT INTO `forum_reply` (`reply_id`, `fu_id`, `u_id`, `message`, `created_at`) VALUES
-(8, 1, 3, '<p>khkjh</p>', '2021-03-17 00:06:47'),
-(9, 1, 3, '<h3>vdjdncvncvfrf</h3>\r\n<blockquote>\r\n<p style=\"text-align: center;\"><em><strong>jlkgbkhbkj,h</strong></em></p>\r\n</blockquote>', '2021-03-17 15:41:03'),
-(10, 1, 3, '<h3>vdjdncvncvfrf</h3>\r\n<blockquote>\r\n<p style=\"text-align: center;\"><em><strong>jlkgbkhbkj,h</strong></em></p>\r\n</blockquote>', '2021-03-17 15:42:14'),
-(11, 1, 3, '<p>fh;dfbm;l</p>', '2021-03-17 16:55:27');
 
 -- --------------------------------------------------------
 
@@ -182,6 +172,48 @@ CREATE TABLE `product_categories` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pwd_reset`
+--
+
+CREATE TABLE `pwd_reset` (
+  `reset_id` int(7) NOT NULL,
+  `reset_link_token` text NOT NULL,
+  `exp_date` datetime NOT NULL,
+  `reset_email` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `threads`
+--
+
+CREATE TABLE `threads` (
+  `thread_id` int(5) NOT NULL,
+  `thread_desc` text CHARACTER SET utf8 NOT NULL,
+  `thread_title` varchar(200) NOT NULL,
+  `user_id` int(5) NOT NULL,
+  `c_id` int(7) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `threads`
+--
+
+INSERT INTO `threads` (`thread_id`, `thread_desc`, `thread_title`, `user_id`, `c_id`, `created_at`) VALUES
+(1, 'Welcome to Prey. A lot of this game is going to feel familiar ? you?ll see bits and pieces from a dozen well-loved games in its DNA. But that doesn?t mean you?re going to immediately understand how everything works. That?s what we?re here for. Let?s talk about some of the habits you?re going to have to pick up, concepts you?ll have to learn and choices you?re going to be making as you play.\r\n\r\n', 'Which movie have you watched most recently?\r\n', 2, 1, '2021-03-10 23:53:07'),
+(17, '<p>I,M her fan</p>', 'Taneshow fanart!', 2, 2, '2021-03-10 23:53:07'),
+(18, '<p>Enter Your Thread Here.</p>', 'jjjj', 2, 1, '2021-03-10 23:53:07'),
+(19, '<p>saueor</p>', 'Your world, your enemies (and ways to kill them) and yourself.', 2, 1, '2021-03-10 23:53:07'),
+(20, '<p>Enter Your Thread Here.</p>', 'Taneshow fanart!', 2, 1, '2021-03-10 23:53:07'),
+(21, '<p>Enter Your Thread Here.</p>', 'Taneshow fanart!', 2, 1, '2021-03-10 23:53:07'),
+(22, '<p>Enter Your Thread Here.#</p>', 'jjjj', 2, 1, '2021-03-10 23:53:07'),
+(23, '<p>Enter Your Thread Here.</p>', 'ghcjgh', 2, 2, '2021-04-03 18:47:31');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `transaction`
 --
 
@@ -216,8 +248,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`u_id`, `addiction_id`, `u_name`, `u_contact`, `u_email`, `u_status`, `u_gender`, `r_date`, `u_password`) VALUES
 (1, 0, 'Alok Rathava', '9512334819', 'alokrathava@gmail.com', 0, 'male', '2021-03-06 21:42:21', '21232f297a57a5a743894a0e4a801fc3'),
-(2, 1, 'Dhruvit', '9825183134', 'allinoneguruji3@gmail.com', 0, 'male', '2021-03-07 22:26:42', '5d41402abc4b2a76b9719d911017c592'),
-(3, 2, 'Dhruvit', '9825183134', 'allinoneguruji3@gmail.com', 0, 'male', '2021-03-16 12:55:48', '5d41402abc4b2a76b9719d911017c592');
+(2, 1, 'Dhruvit', '9825183134', 'allinoneguruji3@gmail.com', 0, 'male', '2021-03-07 22:26:42', '81dc9bdb52d04dc20036dbd8313ed055');
 
 --
 -- Indexes for dumped tables
@@ -252,7 +283,6 @@ ALTER TABLE `forum_categories`
 --
 ALTER TABLE `forum_reply`
   ADD PRIMARY KEY (`reply_id`),
-  ADD KEY `fu_id` (`fu_id`),
   ADD KEY `u_id` (`u_id`);
 
 --
@@ -278,6 +308,20 @@ ALTER TABLE `product`
 --
 ALTER TABLE `product_categories`
   ADD PRIMARY KEY (`pdt_id`);
+
+--
+-- Indexes for table `pwd_reset`
+--
+ALTER TABLE `pwd_reset`
+  ADD PRIMARY KEY (`reset_id`);
+
+--
+-- Indexes for table `threads`
+--
+ALTER TABLE `threads`
+  ADD PRIMARY KEY (`thread_id`),
+  ADD KEY `c_id` (`c_id`),
+  ADD KEY `psy_id` (`user_id`);
 
 --
 -- Indexes for table `transaction`
@@ -323,7 +367,7 @@ ALTER TABLE `forum_categories`
 -- AUTO_INCREMENT for table `forum_reply`
 --
 ALTER TABLE `forum_reply`
-  MODIFY `reply_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `reply_id` int(5) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `order`
@@ -350,6 +394,18 @@ ALTER TABLE `product_categories`
   MODIFY `pdt_id` int(5) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `pwd_reset`
+--
+ALTER TABLE `pwd_reset`
+  MODIFY `reset_id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `threads`
+--
+ALTER TABLE `threads`
+  MODIFY `thread_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
@@ -359,7 +415,7 @@ ALTER TABLE `transaction`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `u_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `u_id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -369,9 +425,14 @@ ALTER TABLE `user`
 -- Constraints for table `forum_reply`
 --
 ALTER TABLE `forum_reply`
-  ADD CONSTRAINT `forum_reply_ibfk_2` FOREIGN KEY (`u_id`) REFERENCES `user` (`u_id`),
-  ADD CONSTRAINT `forum_reply_ibfk_3` FOREIGN KEY (`fu_id`) REFERENCES `threads` (`thread_id`),
-  ADD CONSTRAINT `forum_reply_ibfk_4` FOREIGN KEY (`u_id`) REFERENCES `user` (`u_id`);
+  ADD CONSTRAINT `forum_reply_ibfk_2` FOREIGN KEY (`u_id`) REFERENCES `user` (`u_id`);
+
+--
+-- Constraints for table `threads`
+--
+ALTER TABLE `threads`
+  ADD CONSTRAINT `threads_ibfk_1` FOREIGN KEY (`c_id`) REFERENCES `forum_categories` (`cat_id`),
+  ADD CONSTRAINT `threads_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`u_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
