@@ -82,7 +82,7 @@ if (!isset($_SESSION['u_id'])) {
         <div class="container">
             <nav class="navbar navbar-expand-lg stroke">
                 <h1><a class="navbar-brand mr-lg-5" href="index.php">
-                    </a></h1>
+                        Aspire </a></h1>
                 <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
                         data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
                         aria-label="Toggle navigation">

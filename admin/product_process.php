@@ -10,12 +10,12 @@ $pdt_price = $_POST['pdt_price'];
 $pdt_description = $_POST['pdt_description'];
 
 
-// Image
-$target_dir = "../upload/";
+$target_dir = "uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-// Check if image file is a actual image or fake image2wbmp(image)
+
+// Check if image file is a actual image or fake image
 if (isset($_POST["submit"])) {
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
     if ($check !== false) {
@@ -27,7 +27,6 @@ if (isset($_POST["submit"])) {
     }
 }
 
-
 // Check if file already exists
 if (file_exists($target_file)) {
     echo "Sorry, file already exists.";
@@ -35,7 +34,7 @@ if (file_exists($target_file)) {
 }
 
 // Check file size
-if ($_FILES["fileToUpload"]["size"] > 500000000) {
+if ($_FILES["fileToUpload"]["size"] > 500000) {
     echo "Sorry, your file is too large.";
     $uploadOk = 0;
 }
@@ -47,30 +46,27 @@ if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpe
     $uploadOk = 0;
 }
 
+// Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded.";
-    // if everything is ok, try to upload file
+// if everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-//        echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.";
+        echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.";
     } else {
         echo "Sorry, there was an error uploading your file.";
     }
 }
-
-
 //Query
 
 $insert_product = "INSERT INTO `product`(`p_name`, `p_price`, `pdt_category`, `p_quantity`, `p_description`,`p_image`) VALUES ('$pdt_name','$pdt_price','$pdt_category','$pdt_qty','$pdt_description','$target_file')";
-echo $insert_product;
-
 $result = $conn->query($insert_product);
 
 if ($result) {
-    echo '<script>window.location.href="product.php"</script>';
+//    echo '<script>window.location.href="product.php"</script>';
 } else {
-    echo '<script>alert("Product Not Inserted")</script>';
-    echo '<script>window.location.href="product.php"</script>';
+//    echo '<script>alert("Product Not Inserted")</script>';
+//    echo '<script>window.location.href="product.php"</script>';
 
 }
 

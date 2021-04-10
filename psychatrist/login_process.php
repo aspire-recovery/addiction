@@ -1,4 +1,4 @@
-<?php
+ <?php
 // Imports
 require 'config.php';
 session_start();
