@@ -25,28 +25,23 @@ include "../header.php"
     <div class="contact-infhny py-5">
         <div class="container py-lg-5">
             <div class="title-content text-left mb-lg-5 mt-4">
-                            <center>
-                                <h3 style="color:black; margin-bottom: 20px">ARE YOU?</h3>
-                                <div class="">
-                                    <a href="/login.php">
-                                        <img  alt="user icon" class="profile_icons" src="assets/images/userp.svg" width="100" height="100">
-                                    </a>
-                                    <a href="psychatrist/login.php">
-                                        <img style="margin-left: 20px" alt="psychaitrist icon" class="profile_icons" src="assets/images/psychaitristp.svg" width="100" height="100">
-                                    </a>
-                                </div>
-                            </center>
-
-
-
-
+                <div style="text-align: center;">
+                    <h3 style="color:black; margin-bottom: 20px">ARE YOU?</h3>
+                    <div class="">
+                        <a href="../login.php">
+                            <img alt="user icon" class="profile_icons" src="assets/images/user.png" width="125px"
+                                 height="125px">
+                        </a>
+                    </div>
+                </div>
                 <h3 class="hny-title" style="margin-top: 20px">Login</h3>
             </div>
             <div class="row align-form-map">
                 <div class="col-lg-6 form-inner-cont">
                     <form action="login_process.php" method="post" class="signin-form">
                         <div class="form-input">
-                            <input type="email" name="w3lSender" id="w3lSender" name="email" placeholder="E-mail" required=""/>
+                            <input type="email" name="w3lSender" id="w3lSender" name="email" placeholder="E-mail"
+                                   required=""/>
                         </div>
 
                         <div class="form-group">
@@ -56,10 +51,10 @@ include "../header.php"
                         </div>
 
                         <button type="submit" name="submit" class="btn btn-contact" style="width: 45%">Submit</button>
-                        <a href="registration.php" class="btn btn-contact" style="width: 45%; float:right; text-align: center">New Account</a>
+                        <a href="registration.php" class="btn btn-contact"
+                           style="width: 45%; float:right; text-align: center">New Account</a>
                     </form>
                 </div>
-
             </div>
         </div>
 </section>

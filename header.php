@@ -1,6 +1,6 @@
 <?php
 require 'config.php';
-session_start();
+//session_start();
 ?>
 <!doctype html>
 <html lang="en">
