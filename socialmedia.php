@@ -12,7 +12,20 @@
     <link rel="stylesheet" href="assets/css/articles.css">
 </head>
 <body>
-<br><br><br>
+<button onclick="goBack() " class="btn btn-outline-info"> < Back </button>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+<br><br>
+
+<center>
+    <div class="header-image">
+        <img src="assets/images/socialmedia1.jpg" height="550" width="1280" >
+    </div>
+</center>
 
 <div class="main-topic">
     <h1><b><center>What Is Social Media Addiction?</center></b></h1>

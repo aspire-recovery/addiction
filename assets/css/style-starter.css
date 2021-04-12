@@ -483,6 +483,7 @@ pre {
   @media (min-width: 1200px) {
     .container {
       max-width: 1140px; } }
+      
 
 .container-fluid, .container-sm, .container-md, .container-lg, .container-xl {
   width: 100%;
@@ -1866,6 +1867,11 @@ fieldset:disabled a.btn {
     .btn-secondary:not(:disabled):not(.disabled):active:focus, .btn-secondary:not(:disabled):not(.disabled).active:focus,
     .show > .btn-secondary.dropdown-toggle:focus {
       box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 0.5); }
+
+    .profile_icons{
+      padding:10px;
+      margin-top: 23px;
+    }
 
 .btn-success {
   color: #fff;

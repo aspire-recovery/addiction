@@ -37,7 +37,7 @@ include "header.php";
 <div class="card mb-3 first" style="max-width: 800px; ">
     <div class="row no-gutters">
         <div class="col-md-4">
-            <img src="assets/images/slideshow1.jpg" class="card-img" width="100%" height="230px" >
+            <img src="assets/images/alchoholism.jpg" class="card-img" width="100%" height="230px" >
         </div>
         <div class="col-md-8">
             <div class="card-body">
@@ -54,7 +54,7 @@ include "header.php";
 <div class="card mb-3 second" style="max-width: 800px;">
     <div class="row no-gutters">
         <div class="col-md-4">
-            <img src="assets/images/slideshow2.jpg" class="card-img" width="100%" height="230px" alt="...">
+            <img src="assets/images/cocaine.jpg" class="card-img" width="100%" height="230px" alt="...">
         </div>
         <div class="col-md-8">
             <div class="card-body">
@@ -72,7 +72,7 @@ include "header.php";
 <div class="card mb-3 third" style="max-width: 800px;">
     <div class="row no-gutters">
         <div class="col-md-4">
-            <img src="assets/images/slideshow1.jpg" class="card-img" width="100%" height="250px" alt="...">
+            <img src="assets/images/tobacco.jpg" class="card-img" width="100%" height="250px" alt="...">
         </div>
         <div class="col-md-8">
             <div class="card-body">
@@ -80,7 +80,7 @@ include "header.php";
                 <p class="card-text">Smoking is responsible for approximately 15% of deaths in Spain and kills
                     approximately 200 people every day, of which 166 are men and 40 are women.
                     Smoking has been linked to numerous diseases. The largest percentage of smokers
-                    is aged 25-39 years of age (40%), followed by those aged 40-59 years old (39%)</p>
+                    is aged 25-39 years of age,followed by those aged 40-59 years old</p>
                 <a href="#" class="btn btn-primary text-color">read more</a>
             </div>
         </div>
@@ -90,7 +90,7 @@ include "header.php";
 <div class="card mb-3 fourth" style="max-width: 800px;">
     <div class="row no-gutters">
         <div class="col-md-4">
-            <img src="assets/images/slideshow2.jpg" class="card-img" width="100%" height="250px" alt="...">
+            <img src="assets/images/fap.jpg" class="card-img" width="100%" height="250px" alt="...">
         </div>
         <div class="col-md-8">
             <div class="card-body">
@@ -105,15 +105,13 @@ include "header.php";
 <div class="card mb-3 fifth" style="max-width: 800px;">
     <div class="row no-gutters">
         <div class="col-md-4">
-            <img src="assets/images/slideshow2.jpg" class="card-img" width="100%" height="300px" alt="...">
+            <img src="assets/images/socialmedia.jpg" class="card-img" width="100%" height="250px" alt="...">
         </div>
         <div class="col-md-8">
             <div class="card-body">
                 <h5 class="card-title">Social Media</h5>
                 <p class="card-text">Checking and scrolling through social media has become an increasingly popular activity
-                    over the last decade. Although the majority of peoples’ use of social media is non-problematic,
-                    there is a small percentage of users that become addicted to social networking sites and engage
-                    in excessive or compulsive use. In fact, psychologists estimate that as many as 5 to 10%
+                    over the last decade. In fact, psychologists estimate that as many as 5 to 10%
                     of Americans meet the criteria for social media addiction today.</p>
                 <a href="socialmedia.php" class="btn btn-primary text-color" >read more</a>
             </div>
@@ -123,7 +121,7 @@ include "header.php";
 <div class="card mb-3 fourth" style="max-width: 800px;">
     <div class="row no-gutters">
         <div class="col-md-4">
-            <img src="assets/images/slideshow2.jpg" class="card-img" width="100%" height="250px" alt="...">
+            <img src="assets/images/nicotine.jpg" class="card-img" width="100%" height="250px" alt="...">
         </div>
         <div class="col-md-8">
             <div class="card-body">
@@ -134,6 +132,85 @@ include "header.php";
         </div>
     </div>
 </div>
+<!-- footer 14 -->
+<div class="w3l-footer-main">
+    <div class="w3l-sub-footer-content">
+        <!-- Footers-14 -->
+        <footer class="footer-14">
+            <div id="footers14-block">
+                <div class="container">
+                    <div class="footers20-content">
+                        <div class="d-grid grid-col-4 grids-content">
+                            <div class="column">
+                                <h4>Our Address</h4>
+                                <p>MSU Polytechnic,Pandya Bridge,Sayaji Gunj,vadodara</p>
+                            </div>
+                            <div class="column">
+                                <h4>Call Us</h4>
+                                <p>Mon - Fri 10:30 -18:00</p>
+                                <p><a href="tel:+916351301322">6351301322</a></p>
+                            </div>
+                            <div class="column">
+                                <h4>Mail Us</h4>
+                                <p><a href="mailto:info@example.com">umang.kalavadiya@gmail.com</a></p>
+                                <p><a href="mailto:no.reply@example.com">Salatd0852@gmail.com</a></p>
+                                <p><a href="mailto:no.reply@example.com">ajay.rathod0801@gmail.com</a></p>
+                            </div>
+                            <div class="column">
+                                <h4>Follow Us On</h4>
+                                <ul>
+                                    <li><a href="#facebook"><span class="fa fa-facebook"
+                                                                  aria-hidden="true"></span></a>
+                                    </li>
+                                    <li><a href="#linkedin"><span class="fa fa-linkedin"
+                                                                  aria-hidden="true"></span></a>
+                                    </li>
+                                    <li><a href="#twitter"><span class="fa fa-twitter"
+                                                                 aria-hidden="true"></span></a>
+                                    </li>
+                                    <li><a href="#google"><span class="fa fa-google-plus"
+                                                                aria-hidden="true"></span></a>
+                                    </li>
+                                    <li><a href="https://github.com/valentinos2077"><span class="fa fa-github" aria-hidden="true"></span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- move top -->
+            <button onclick="topFunction()" id="movetop" title="Go to top">
+                &uarr;
+            </button>
+            <script>
+                // When the user scrolls down 20px from the top of the document, show the button
+                window.onscroll = function () {
+                    scrollFunction()
+                };
+
+                function scrollFunction() {
+                    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                        document.getElementById("movetop").style.display = "block";
+                    } else {
+                        document.getElementById("movetop").style.display = "none";
+                    }
+                }
+
+                // When the user clicks on the button, scroll to the top of the document
+                function topFunction() {
+                    document.body.scrollTop = 0;
+                    document.documentElement.scrollTop = 0;
+                }
+            </script>
+            <!-- /move top -->
+
+        </footer>
+        <!-- Footers-14 -->
+    </div>
+</div>
+<!-- //footer 14 -->
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

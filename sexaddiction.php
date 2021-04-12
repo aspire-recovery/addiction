@@ -12,8 +12,21 @@
     <title>SEX Addiction-Article</title>
 </head>
 <body>
+<button onclick="goBack() " class="btn btn-outline-info"> < Back </button>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 <br>
 <br>
+
+<center>
+    <div class="header-image">
+        <img src="assets/images/fap.jpg" height="550" width="1280" >
+    </div>
+</center>
 
 <div class="main-topic">
     <h1><b><center>What is sex addiction?</center></b></h1>

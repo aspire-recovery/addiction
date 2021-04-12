@@ -111,7 +111,7 @@ include "header.php";
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12 mt-md-0 mt-sm-4 mt-3">
                 <div class="box-wrap">
-                    <h4><a href="#team">Top psychiatrist</a></h4>
+                    <h4><a href="psyprofile.php">Book psychiatrist</a></h4>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12 mt-lg-0 mt-sm-4 mt-3">
@@ -345,7 +345,7 @@ include "header.php";
                         <p>Alcoholism is a progressive, chronic illness and in many cases can be fatal when the
                             consumption of alcoholic drinks is out of control. It interferes with physical,
                             mental, social and/or family health in addition to work responsibilities.</p>
-                        <a href="#read">Read More</a>
+                        <a href="articles.php">Read More</a>
                     </div>
                 </div>
             </div>
@@ -361,7 +361,7 @@ include "header.php";
                             produces a directly stimulating effect to the central nervous system, principally
                             to the brain. Cocaine tolerance develops quickly, which means that it is highly
                             addictive.</p>
-                        <a href="#read">Read More</a>
+                        <a href="articles.php">Read More</a>
                     </div>
                 </div>
             </div>
@@ -376,7 +376,7 @@ include "header.php";
                             approximately 200 people every day, of which 166 are men and 40 are women.
                             Smoking has been linked to numerous diseases. The largest percentage of smokers
                             is aged 25-39 years of age (40%), followed by those aged 40-59 years old (39%)</p>
-                        <a href="#read">Read More</a>
+                        <a href="articles.php">Read More</a>
                     </div>
                 </div>
             </div>
@@ -393,7 +393,7 @@ include "header.php";
                             around food, such as a change or distortion of body image, a fear of weight
                             gain and acquiring a series of values which are manifested through body
                             image.</p>
-                        <a href="#read">Read More</a>
+                        <a href="articles.php">Read More</a>
                     </div>
                 </div>
             </div>
@@ -418,12 +418,12 @@ include "header.php";
             <div class="col-lg-4 col-md-6 mt-lg-0 mt-5">
                 <div class="img-block">
                     <a href="causes.php">
-                        <img src="assets/images/blog5.jpg" class="img-fluid radius-image-full" alt="image"/>
+                        <img src="assets/images/helprehab.jpg" class="img-fluid radius-image-full" alt="image"/>
                         <span class="title">Help Rehab Centers</span>
                     </a>
                 </div>
                 <div class="img-block mt-4">
-                    <a href="causes.php"> <img src="assets/images/blog2.jpg" class="img-fluid radius-image-full"
+                    <a href="causes.php"> <img src="assets/images/fund.jpg" class="img-fluid radius-image-full"
                                                alt="image"/>
                         <span class="title">Fund Addiction Research</span>
                     </a>
@@ -431,14 +431,14 @@ include "header.php";
             </div>
             <div class="col-lg-4 col-md-6 mt-lg-0 mt-md-5 mt-4">
                 <div class="img-block">
-                    <a href="causes.php"> <img src="assets/images/blog3.jpg" class="img-fluid radius-image-full"
+                    <a href="causes.php"> <img src="assets/images/professionals.jpg" class="img-fluid radius-image-full"
                                                alt="image"/>
                         <span class="title">Help Edcucate and Train Professionals</span>
                     </a>
                 </div>
                 <div class="img-block mt-4">
                     <a href="causes.php">
-                        <img src="assets/images/blog4.jpg" class="img-fluid radius-image-full" alt="image"/>
+                        <img src="assets/images/support.jpg" class="img-fluid radius-image-full" alt="image"/>
                         <span class="title">Support Our creators</span>
                     </a>
                 </div>
@@ -461,6 +461,7 @@ include "header.php";
 <!-- footer 14 -->
 <div class="w3l-footer-main">
     <div class="w3l-sub-footer-content">
+        <!-- Footers-14 -->
         <footer class="footer-14">
             <div id="footers14-block">
                 <div class="container">
@@ -468,18 +469,18 @@ include "header.php";
                         <div class="d-grid grid-col-4 grids-content">
                             <div class="column">
                                 <h4>Our Address</h4>
-                                <p>235 Terry, 10001 20C Trolley Square,
-                                    DE 19806 U.S.A.</p>
+                                <p>MSU Polytechnic,Pandya Bridge,Sayaji Gunj,vadodara</p>
                             </div>
                             <div class="column">
                                 <h4>Call Us</h4>
                                 <p>Mon - Fri 10:30 -18:00</p>
-                                <p><a href="tel:+44-000-888-999">+44-000-888-999</a></p>
+                                <p><a href="tel:+916351301322">6351301322</a></p>
                             </div>
                             <div class="column">
                                 <h4>Mail Us</h4>
-                                <p><a href="mailto:info@example.com">info@example.com</a></p>
-                                <p><a href="mailto:no.reply@example.com">no.reply@example.com</a></p>
+                                <p><a href="mailto:info@example.com">umang.kalavadiya@gmail.com</a></p>
+                                <p><a href="mailto:no.reply@example.com">Salatd0852@gmail.com</a></p>
+                                <p><a href="mailto:no.reply@example.com">ajay.rathod0801@gmail.com</a></p>
                             </div>
                             <div class="column">
                                 <h4>Follow Us On</h4>
@@ -496,44 +497,15 @@ include "header.php";
                                     <li><a href="#google"><span class="fa fa-google-plus"
                                                                 aria-hidden="true"></span></a>
                                     </li>
-                                    <li><a href="#github"><span class="fa fa-github" aria-hidden="true"></span></a>
+                                    <li><a href="https://github.com/valentinos2077"><span class="fa fa-github" aria-hidden="true"></span></a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
-            <!-- move top -->
-            <button onclick="topFunction()" id="movetop" title="Go to top">
-                &uarr;
-            </button>
-            <script>
-                // When the user scrolls down 20px from the top of the document, show the button
-                window.onscroll = function () {
-                    scrollFunction()
-                };
-
-                function scrollFunction() {
-                    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                        document.getElementById("movetop").style.display = "block";
-                    } else {
-                        document.getElementById("movetop").style.display = "none";
-                    }
-                }
-
-                // When the user clicks on the button, scroll to the top of the document
-                function topFunction() {
-                    document.body.scrollTop = 0;
-                    document.documentElement.scrollTop = 0;
-                }
-            </script>
-            <!-- /move top -->
-
-        </footer>
-        <!-- Footers-14 -->
-    </div>
-</div>
 <!-- //footer 14 -->
 
 <script src="assets/js/jquery-3.3.1.min.js"></script> <!-- Common jquery plugin -->
@@ -636,6 +608,7 @@ include "header.php";
             $('body').toggleClass('noscroll');
         })
     });
+   
 </script>
 <!-- //disable body scroll which navbar is in active -->
 

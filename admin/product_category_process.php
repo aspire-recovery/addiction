@@ -13,7 +13,7 @@ $description = $_POST['description'];
 //Query
 
 $pdt_category = "INSERT INTO `product_categories` (`pdt_name`, `pdt_description`) VALUES ('$name','$description')";
-echo $pdt_category;
+//echo $pdt_category;
 $result = $conn->query($pdt_category);
 
 if ($result) {

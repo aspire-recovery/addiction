@@ -10,10 +10,27 @@
 
     <title>ALCOHOLISM article</title>
 </head>
-<body>
-<br>
-<br>
 
+<body>
+<?php
+//include "header.php";
+//?>
+
+<button onclick="goBack() " class="btn btn-outline-info"> < Back </button>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+<br>
+<br>
+<!--<center>-->
+<div class="header-image">
+    <img src="assets/images/alchoholism.jpg" width="1500" height="500">
+</div>
+<!--</center>-->
+    
 <div class="main-topic">
     <h1><b><center>What is Alcohol Addiction?</center></b></h1>
 </div>
@@ -96,7 +113,7 @@
 </div>
 
 </div>
-<div class="main-topic">
+<div class="main-topic lasttopic">
     <h1><b><center>What is the outlook for alcoholism?</center></b></h1>
 </div>
 <div class="sub-topic">
@@ -117,6 +134,8 @@
 
     <p>As a loved one of someone with an alcohol addiction, try to be encouraging and provide emotional support.</p>
 </div>
+
+
 <!-- Option 1: Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
 

@@ -12,7 +12,19 @@
     <title>cocaine-article</title>
 </head>
 <body>
+<button onclick="goBack() " class="btn btn-outline-info"> < Back </button>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 <br><br>
+<center>
+    <div class="header-image">
+        <img src="assets/images/cocaine.jpg" height="500" >
+    </div>
+</center>
 <div class="main-topic">
     <h1><b><center>Cocaine And Addiction</center></b></h1>
 </div>
