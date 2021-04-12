@@ -62,8 +62,6 @@ if ($uploadOk == 0) {
 //Query
 
 $insert_product = "INSERT INTO `product`(`p_name`, `p_price`, `pdt_category`, `p_quantity`, `p_description`,`p_image`) VALUES ('$pdt_name','$pdt_price','$pdt_category','$pdt_qty','$pdt_description','$target_file')";
-echo $insert_product;
-
 $result = $conn->query($insert_product);
 
 if ($result) {

@@ -20,7 +20,7 @@ if (isset($_POST['password-reset-token']) && $_POST['email']) {
         $sqli = "INSERT INTO `pwd_reset` (`reset_link_token`, `exp_date`, `reset_email`) VALUES ('$token', '$expDate', '$emailId');";
         $update = mysqli_query($conn, $sqli);
 
-        $link = "<a href='http://localhost/Aspire Recovery/addiction/reset-password.php?key=" . $emailId . "&token=" . $token . "'>Click To Reset password</a>";
+        $link = "<a href='http://localhost/addiction/reset-password.php?key=" . $emailId . "&token=" . $token . "'>Click To Reset password</a>";
 
         require '../emailconfig.php';
 
