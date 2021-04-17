@@ -1,7 +1,7 @@
 <?php
 //Imports
 session_start();
-require 'config.php';
+require '../includes/config.inc.php';
 
 if (isset($_GET['delete'])) {
     $reply_id = $_GET['delete'];

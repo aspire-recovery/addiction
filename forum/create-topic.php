@@ -57,7 +57,7 @@ if (isset($_SESSION['loggedin'])) {
     $u_id = $_SESSION['u_id'];
 }
 
-require '../config.php';
+require '../includes/config.inc.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!empty($_POST['description']) && !empty($_POST['title'])) {

@@ -1,7 +1,7 @@
 <?php
 /*Imports*/
 session_start();
-require 'config.php';
+require '../includes/config.inc.php';
 /*Data Fetch*/
 
 $Email = $_POST['email'];
@@ -19,7 +19,7 @@ if ($result->num_rows > 0) {
         $a_password = $row['a_password'];
     }
 
-    require 'emailconfig.php';
+    require '../includes/emailconfig.inc.php';
     $mail->addAddress($email, 'Admin');     // Add a recipient
     $mail->isHTML(true);                    // Set email format to HTML
     $mail->Subject = 'Password Of The Admin';

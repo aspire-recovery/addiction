@@ -1,7 +1,7 @@
 <?php
 //Imports
 session_start();
-require 'config.php';
+require 'includes/config.inc.php';
 if (!isset($_SESSION['u_id'])) {
     echo '<script>window.location.href="login.php"</script>';
 }

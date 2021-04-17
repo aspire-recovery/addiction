@@ -1,6 +1,6 @@
 <?php
 // Imports
-require 'config.php';
+require '../includes/config.inc.php';
 session_start();
 //Data Fetch
 $profileArray = $_FILES['profileImage'];
@@ -33,7 +33,7 @@ if (!empty($fileName) && !empty($_FILES['profileImage']['tmp_name'])) {
         if ($fileError == 0) {
             if ($fileSize < 1048576) {
                 $fileNameNew = uniqid('$', true) . "." . $fileActualExt;
-                $_SESSION['fileDestination'] = "Uploads/Profile" . $fileNameNew;
+                $_SESSION['fileDestination'] = "Uploads/Profile/" . $fileNameNew;
                 $_SESSION['error'] = $_SESSION['fileDestination'];
                 echo '<script>window.location.href="registration.php?error=true"</script>';
             } else {
@@ -78,7 +78,7 @@ if (!empty($_POST['name'])) {
 
 
         // Sending Otp Through Mail
-        require 'emailconfig.php';
+        require '../includes/emailconfig.inc.php';
 
         $mail->addAddress($email, 'Person Name'); // Add a recipient
 

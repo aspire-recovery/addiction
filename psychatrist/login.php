@@ -57,12 +57,13 @@
                     <div class="col-lg-6 form-inner-cont">
                         <form action="login_process.php" method="post" class="signin-form">
                             <div class="form-input">
+                                
                                 <input type="email"  id="w3lSender" name="mail" placeholder="E-mail"
                                     required="">
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Password</label>
+                              
                                 <input type="password" class="form-control" id="exampleInputPassword1" name="ppassword"
                                     placeholder="Password">
                             </div>

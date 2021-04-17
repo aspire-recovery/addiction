@@ -1,7 +1,7 @@
 <?php
 /*Imports*/
 session_start();
-require 'config.php';
+require '../includes/config.inc.php';
 /*Data Fetch*/
 
 $Email = $_POST['email'];
@@ -27,6 +27,3 @@ if ($result->num_rows > 0) {
 } else {
     echo '<script>window.location.href="login.php"</script>';
 }
-
-
-?>

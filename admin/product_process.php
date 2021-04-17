@@ -1,7 +1,7 @@
 <?php
 //Imports
 session_start();
-require 'config.php';
+require '../includes/config.inc.php';
 
 $pdt_name = $_POST['pdt_name'];
 $pdt_category = $_POST['pdt_category'];

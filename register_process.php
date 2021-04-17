@@ -1,6 +1,6 @@
 <?php
 // Imports
-require 'config.php';
+require 'includes/config.inc.php';
 session_start();
 //Data Fetch
 $name = $_POST['name'];
@@ -33,7 +33,7 @@ if ($row > 0) {
     $_SESSION["loggedin"] = true;
 
     // Sending Otp Through Mail
-    require 'emailconfig.php';
+    require 'includes/emailconfig.inc.php';
 
     $mail->addAddress($email, 'Person Name'); // Add a recipient
 

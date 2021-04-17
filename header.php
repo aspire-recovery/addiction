@@ -1,5 +1,5 @@
 <?php
-require 'config.php';
+require 'includes/config.inc.php';
 session_start();
 ?>
 <!doctype html>

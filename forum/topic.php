@@ -60,7 +60,7 @@ session_start();
     <main>
         <div class="container">
             <?php
-require '../config.php';
+require '../includes/config.inc.php';
 include 'partials/_menu.php';
 include 'partials/_functions.php';
 $thread_id = $_GET['id'];

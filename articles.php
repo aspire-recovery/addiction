@@ -45,7 +45,7 @@ include "header.php";
                 <p class="card-text">Alcoholism is a progressive, chronic illness and in many cases can be fatal when the
                     consumption of alcoholic drinks is out of control. It interferes with physical,
                     mental, social and/or family health in addition to work responsibilities.</p>
-                <a href="alcoholism.php" class="btn btn-primary text-color" >read more</a>
+                <a href="articles/alcoholism.php" class="btn btn-primary text-color" >read more</a>
             </div>
         </div>
     </div>
@@ -63,7 +63,7 @@ include "header.php";
                     produces a directly stimulating effect to the central nervous system, principally
                     to the brain. Cocaine tolerance develops quickly, which means that it is highly
                     addictive.</p>
-                <a href="cocaine.php" class="btn btn-primary text-color">read more</a>
+                <a href="articles/cocaine.php" class="btn btn-primary text-color">read more</a>
             </div>
         </div>
     </div>
@@ -96,7 +96,7 @@ include "header.php";
             <div class="card-body">
                 <h5 class="card-title">Sex addiction</h5>
                 <p class="card-text">Sexual addiction, also known as sex addiction, is a state characterized by compulsive participation or engagement in sexual activity, particularly sexual intercourse, despite negative consequences.</p>
-                <a href="sexaddiction.php" class="btn btn-primary text-color" >read more</a>
+                <a href="articles/sexaddiction.php" class="btn btn-primary text-color" >read more</a>
             </div>
         </div>
     </div>
@@ -113,7 +113,7 @@ include "header.php";
                 <p class="card-text">Checking and scrolling through social media has become an increasingly popular activity
                     over the last decade. In fact, psychologists estimate that as many as 5 to 10%
                     of Americans meet the criteria for social media addiction today.</p>
-                <a href="socialmedia.php" class="btn btn-primary text-color" >read more</a>
+                <a href="articles/socialmedia.php" class="btn btn-primary text-color" >read more</a>
             </div>
         </div>
     </div>
