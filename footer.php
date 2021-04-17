@@ -34,9 +34,7 @@
                             </div>
                             <div class="column">
                                 <h4>Mail Us</h4>
-                                <p><a href="mailto:info@example.com">umang.kalavadiya@gmail.com</a></p>
-                                <p><a href="mailto:no.reply@example.com">Salatd0852@gmail.com</a></p>
-                                <p><a href="mailto:no.reply@example.com">ajay.rathod0801@gmail.com</a></p>
+                                <p><a href="mailto:info@example.com">aspirerecovery173@gmail.com</a></p>
                             </div>
                             <div class="column">
                                 <h4>Follow Us On</h4>

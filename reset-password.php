@@ -15,13 +15,13 @@
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
 </head>
 
 <body>
-    <!--header-->
-    <?php
+<!--header-->
+<?php
 include "header.php";
 
 require "includes/config.inc.php";
@@ -30,34 +30,34 @@ if ($_SESSION['loggedin'] == true) {
     exit();
 }
 ?>
-    <!-- //header -->
-    <div class="inner-banner">
-        <section class="w3l-breadcrumb py-5">
-            <div class="container py-lg-5 py-md-3">
-                <h2 class="title"> Reset Password</h2>
-            </div>
-        </section>
-    </div>
-    <!-- banner bottom shape -->
-    <div class="position-relative">
-        <div class="shape overflow-hidden">
-            <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
-            </svg>
+<!-- //header -->
+<div class="inner-banner">
+    <section class="w3l-breadcrumb py-5">
+        <div class="container py-lg-5 py-md-3">
+            <h2 class="title"> Reset Password</h2>
         </div>
+    </section>
+</div>
+<!-- banner bottom shape -->
+<div class="position-relative">
+    <div class="shape overflow-hidden">
+        <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+        </svg>
     </div>
-    <!-- banner bottom shape -->
-    <!-- contacts -->
-    <section class="w3l-contact-7 py-5" id="contact">
-        <div class="container">
-            <div class="top-map">
-                <div class="row map-content-9">
-                    <?php
-$error = array("Check Your Mail", " Message could not be sent...", "Invalid Email Address. Go back!!!!!!");
-if (isset($_GET['error'])) {
-    $i = $_GET['error'];
+</div>
+<!-- banner bottom shape -->
+<!-- contacts -->
+<section class="w3l-contact-7 py-5" id="contact">
+    <div class="container">
+        <div class="top-map">
+            <div class="row map-content-9">
+                <?php
+                $error = array("Check Your Mail", " Message could not be sent...", "Invalid Email Address. Go back!!!!!!");
+                if (isset($_GET['error'])) {
+                    $i = $_GET['error'];
 
-    echo ' <h3 class="title-big" style=" margin-bottom:25px;">
+                    echo ' <h3 class="title-big" style=" margin-bottom:25px;">
                        Message Below!!!
                        </h3>
                        <br>
@@ -67,21 +67,21 @@ if (isset($_GET['error'])) {
                         ' . $error[$i] . '
                        </div>
                      ';
-} elseif (isset($_GET['key']) && isset($_GET['token'])) {
-    if (isset($_GET['match'])) {
-        echo '<div class="alert alert-primary">Password Do Not Match!          </div>';
-    }
+                } elseif (isset($_GET['key']) && isset($_GET['token'])) {
+                    if (isset($_GET['match'])) {
+                        echo '<div class="alert alert-primary">Password Do Not Match!</div>';
+                    }
 
-    $email = $_GET['key'];
-    $token = $_GET['token'];
-    $sql = "SELECT * FROM `pwd_reset` WHERE reset_link_token='" . $token . "' and reset_email='" . $email . "';";
-    $query = mysqli_query($conn, $sql);
+                    $email = $_GET['key'];
+                    $token = $_GET['token'];
+                    $sql = "SELECT * FROM `pwd_reset` WHERE reset_link_token='" . $token . "' and reset_email='" . $email . "';";
+                    $query = mysqli_query($conn, $sql);
 
-    $curDate = date("Y-m-d H:i:s");
-    if (mysqli_num_rows($query) > 0) {
-        $row = mysqli_fetch_assoc($query);
-        if ($row['exp_date'] >= $curDate) {
-            echo '<div class="col-lg-8">
+                    $curDate = date("Y-m-d H:i:s");
+                    if (mysqli_num_rows($query) > 0) {
+                        $row = mysqli_fetch_assoc($query);
+                        if ($row['exp_date'] >= $curDate) {
+                            echo '<div class="col-lg-8">
                         <h3 class="title-big" style="left: 20px;">Reset Password</h3>
                         <form action="includes/update-forget-password.php" method="post" class="text-right" style="width: 70%">
                    <form action="update-forget-password.php" method="post">
@@ -102,17 +102,17 @@ if (isset($_GET['error'])) {
                 </div>
 
                 </form>';
-        } else {
-            echo ' <div class="alert alert-primary">
+                        } else {
+                            echo ' <div class="alert alert-primary">
                     This forget password link has been expired.
                 </div>';
-            mysqli_query($conn, "DELETE FROM `pwd_reset` WHERE `pwd_reset`.`reset_link_token` = '" .
-                $token . "'");
+                            mysqli_query($conn, "DELETE FROM `pwd_reset` WHERE `pwd_reset`.`reset_link_token` = '" .
+                                $token . "'");
 
-        }
-    }
-} else {
-    echo '
+                        }
+                    }
+                } else {
+                    echo '
                 <div class="col-lg-8">
                     <h3 class="title-big" style="left: 20px;">Enter Your Email</h3>
                     <br>
@@ -127,83 +127,83 @@ if (isset($_GET['error'])) {
                         </button>
                     </form>
                 </div>';
-}
-?>
-                </div>
+                }
+                ?>
             </div>
         </div>
-    </section>
-    <!-- //contacts -->
-    <!-- footer 14 -->
-    <div class="w3l-footer-main">
-        <div class="w3l-sub-footer-content">
-            <section class="_form-3">
-                <div class="form-main">
-                </div>
-            </section>
-            <!-- Footers-14 -->
-            <footer class="footer-14">
-                <div id="footers14-block">
-                    <div class="container">
-                        <div class="footers20-content">
-                            <div class="d-grid grid-col-4 grids-content">
-                                <div class="column">
-                                    <h4>Our Address</h4>
-                                    <p>235 Terry, 10001 20C Trolley Square,
-                                        DE 19806 U.S.A.</p>
-                                </div>
-                                <div class="column">
-                                    <h4>Call Us</h4>
-                                    <p>Mon - Fri 10:30 -18:00</p>
-                                    <p><a href="tel:+44-000-888-999">+44-000-888-999</a></p>
-                                </div>
-                                <div class="column">
-                                    <h4>Mail Us</h4>
-                                    <p><a href="mailto:info@example.com">info@example.com</a></p>
-                                    <p><a href="mailto:no.reply@example.com">no.reply@example.com</a></p>
-                                </div>
-                                <div class="column">
-                                    <h4>Follow Us On</h4>
-                                    <ul>
-                                        <li><a href="#facebook"><span class="fa fa-facebook"
-                                                    aria-hidden="true"></span></a>
-                                        </li>
-                                        <li><a href="#linkedin"><span class="fa fa-linkedin"
-                                                    aria-hidden="true"></span></a>
-                                        </li>
-                                        <li><a href="#twitter"><span class="fa fa-twitter"
-                                                    aria-hidden="true"></span></a>
-                                        </li>
-                                        <li><a href="#google"><span class="fa fa-google-plus"
-                                                    aria-hidden="true"></span></a>
-                                        </li>
-                                        <li><a href="#github"><span class="fa fa-github" aria-hidden="true"></span></a>
-                                        </li>
-                                    </ul>
-                                </div>
+    </div>
+</section>
+<!-- //contacts -->
+<!-- footer 14 -->
+<div class="w3l-footer-main">
+    <div class="w3l-sub-footer-content">
+        <section class="_form-3">
+            <div class="form-main">
+            </div>
+        </section>
+        <!-- Footers-14 -->
+        <footer class="footer-14">
+            <div id="footers14-block">
+                <div class="container">
+                    <div class="footers20-content">
+                        <div class="d-grid grid-col-4 grids-content">
+                            <div class="column">
+                                <h4>Our Address</h4>
+                                <p>235 Terry, 10001 20C Trolley Square,
+                                    DE 19806 U.S.A.</p>
                             </div>
-                        </div>
-                        <div class="footers14-bottom d-flex">
-                            <div class="copyright">
-                                <p>© 2020 Save Poor. All rights reserved. Design by <a href="https://w3layouts.com/"
-                                        target="_blank">W3Layouts</a></p>
+                            <div class="column">
+                                <h4>Call Us</h4>
+                                <p>Mon - Fri 10:30 -18:00</p>
+                                <p><a href="tel:+44-000-888-999">+44-000-888-999</a></p>
                             </div>
-                            <div class="language-select d-flex">
-                                <span class="fa fa-language" aria-hidden="true"></span>
-                                <select>
-                                    <option>English</option>
-                                    <option>Estonina</option>
-                                    <option>Deutsch</option>
-                                    <option>Nederlan;ds</option>
-                                </select>
+                            <div class="column">
+                                <h4>Mail Us</h4>
+                                <p><a href="mailto:info@example.com">info@example.com</a></p>
+                                <p><a href="mailto:no.reply@example.com">no.reply@example.com</a></p>
+                            </div>
+                            <div class="column">
+                                <h4>Follow Us On</h4>
+                                <ul>
+                                    <li><a href="#facebook"><span class="fa fa-facebook"
+                                                                  aria-hidden="true"></span></a>
+                                    </li>
+                                    <li><a href="#linkedin"><span class="fa fa-linkedin"
+                                                                  aria-hidden="true"></span></a>
+                                    </li>
+                                    <li><a href="#twitter"><span class="fa fa-twitter"
+                                                                 aria-hidden="true"></span></a>
+                                    </li>
+                                    <li><a href="#google"><span class="fa fa-google-plus"
+                                                                aria-hidden="true"></span></a>
+                                    </li>
+                                    <li><a href="#github"><span class="fa fa-github" aria-hidden="true"></span></a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
+                    <div class="footers14-bottom d-flex">
+                        <div class="copyright">
+                            <p>© 2020 Save Poor. All rights reserved. Design by <a href="https://w3layouts.com/"
+                                                                                   target="_blank">W3Layouts</a></p>
+                        </div>
+                        <div class="language-select d-flex">
+                            <span class="fa fa-language" aria-hidden="true"></span>
+                            <select>
+                                <option>English</option>
+                                <option>Estonina</option>
+                                <option>Deutsch</option>
+                                <option>Nederlan;ds</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
-                <!-- move top -->
-                <script>
+            </div>
+            <!-- move top -->
+            <script>
                 // When the user scrolls down 20px from the top of the document, show the button
-                window.onscroll = function() {
+                window.onscroll = function () {
                     scrollFunction()
                 };
 
@@ -220,23 +220,23 @@ if (isset($_GET['error'])) {
                     document.body.scrollTop = 0;
                     document.documentElement.scrollTop = 0;
                 }
-                </script>
-                <!-- /move top -->
+            </script>
+            <!-- /move top -->
 
-            </footer>
-            <!-- Footers-14 -->
-        </div>
+        </footer>
+        <!-- Footers-14 -->
     </div>
-    <!-- //footer 14 -->
+</div>
+<!-- //footer 14 -->
 
-    <script src="assets/js/jquery-3.3.1.min.js"></script> <!-- Common jquery plugin -->
+<script src="assets/js/jquery-3.3.1.min.js"></script> <!-- Common jquery plugin -->
 
-    <script src="assets/js/theme-change.js"></script><!-- theme switch js (light and dark)-->
-    <script src="assets/js/owl.carousel.js"></script>
+<script src="assets/js/theme-change.js"></script><!-- theme switch js (light and dark)-->
+<script src="assets/js/owl.carousel.js"></script>
 
-    <!-- script for banner slider-->
-    <script>
-    $(document).ready(function() {
+<!-- script for banner slider-->
+<script>
+    $(document).ready(function () {
         $('.owl-one').owlCarousel({
             loop: true,
             dots: false,
@@ -263,12 +263,12 @@ if (isset($_GET['error'])) {
             }
         })
     })
-    </script>
-    <!-- //script -->
+</script>
+<!-- //script -->
 
-    <!-- script for tesimonials carousel slider -->
-    <script>
-    $(document).ready(function() {
+<!-- script for tesimonials carousel slider -->
+<script>
+    $(document).ready(function () {
         $("#owl-demo1").owlCarousel({
             loop: true,
             margin: 20,
@@ -288,14 +288,14 @@ if (isset($_GET['error'])) {
             }
         })
     })
-    </script>
-    <!-- //script for tesimonials carousel slider -->
+</script>
+<!-- //script for tesimonials carousel slider -->
 
-    <script src="assets/js/counter.js"></script>
+<script src="assets/js/counter.js"></script>
 
-    <!--/MENU-JS-->
-    <script>
-    $(window).on("scroll", function() {
+<!--/MENU-JS-->
+<script>
+    $(window).on("scroll", function () {
         var scroll = $(window).scrollTop();
 
         if (scroll >= 80) {
@@ -306,39 +306,39 @@ if (isset($_GET['error'])) {
     });
 
     //Main navigation Active Class Add Remove
-    $(".navbar-toggler").on("click", function() {
+    $(".navbar-toggler").on("click", function () {
         $("header").toggleClass("active");
     });
-    $(document).on("ready", function() {
+    $(document).on("ready", function () {
         if ($(window).width() > 991) {
             $("header").removeClass("active");
         }
-        $(window).on("resize", function() {
+        $(window).on("resize", function () {
             if ($(window).width() > 991) {
                 $("header").removeClass("active");
             }
         });
     });
-    </script>
-    <!--//MENU-JS-->
+</script>
+<!--//MENU-JS-->
 
-    <!-- disable body scroll which navbar is in active -->
-    <script>
-    $(function() {
-        $('.navbar-toggler').click(function() {
+<!-- disable body scroll which navbar is in active -->
+<script>
+    $(function () {
+        $('.navbar-toggler').click(function () {
             $('body').toggleClass('noscroll');
         })
     });
-    </script>
-    <!-- //disable body scroll which navbar is in active -->
+</script>
+<!-- //disable body scroll which navbar is in active -->
 
-    <!--bootstrap-->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+<!--bootstrap-->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
         integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous">
-    </script>
+</script>
 
-    <script src="assets/js/bootstrap.min.js"></script>
-    <!-- //bootstrap-->
+<script src="assets/js/bootstrap.min.js"></script>
+<!-- //bootstrap-->
 </body>
 
 </html>
