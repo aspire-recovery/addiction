@@ -102,14 +102,8 @@ if (!isset($_SESSION['u_id'])) {
                         <li class="nav-item">
                             <a class="nav-link" href="forum/forum.php">Forum</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="cart.php">Cart</a>
-                        </li>
                         <li class="nav-item @@about__active">
                             <a class="nav-link" href="about.php">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="logout.php">Logout</a>
                         </li>
                         <li class="ml-lg-auto mr-lg-0 m-auto">
                         </li>
@@ -117,8 +111,8 @@ if (!isset($_SESSION['u_id'])) {
                             <a class="nav-link" href="profile.php"><?php echo $_SESSION['u_name']; ?></a>
                         </li>
                         <li class="align-self">
-                            <a href="donate.html" class="btn btn-style btn-primary ml-lg-3 mr-lg-2"><span
-                                        class="fa fa-heart mr-1"></span> Donate</a>
+                            <a href="cart.html" class="btn btn-style btn-primary ml-lg-3 mr-lg-2"><span
+                                        class="fa fa-shopping-cart"></span> CART</a>
                         </li>
                     </ul>
                 </div>
