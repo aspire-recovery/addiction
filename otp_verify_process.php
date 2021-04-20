@@ -1,6 +1,7 @@
 <?php
 //Imports
 require 'includes/config.inc.php';
+include 'forum/partials/_functions.php';
 session_start();
 
 //Data Fetch
@@ -11,15 +12,17 @@ $password = $_SESSION["password"];
 $phone = $_SESSION["phone"];
 $gender = $_SESSION["gender"];
 $addiction = $_SESSION["addiction"];
+$logo = userlogo($name);
+$profile = "fonts/icons/avatars/" . $logo . ".svg";
 $status = 0;
 $otpv = $_POST['otp'];
 
 $encrypted_pass = md5($password);
 
 if ($otp == $otpv) {
-//Query
-    $insert_sql = "INSERT INTO `user`(`addiction_id`, `u_name`, `u_contact`, `u_email`, `u_status`, `u_gender`,`u_password`) VALUES
-                ('$addiction','$name','$phone','$email','$status','$gender','$encrypted_pass')";
+    //Query
+    $insert_sql = "INSERT INTO `user`(`addiction_id`, `u_name`,`u_img`, `u_contact`, `u_email`, `u_status`, `u_gender`,`u_password`) VALUES
+                ('$addiction','$name','$profile','$phone','$email','$status','$gender','$encrypted_pass')";
 
     $result = $conn->query($insert_sql);
 
@@ -36,9 +39,7 @@ if ($otp == $otpv) {
     unset($_SESSION['gender']);
     unset($_SESSION['addiction']);
     session_destroy();
-
 } else {
     echo '<script>alert("WRONG OTP")</script>';
     echo '<script>window.location.href="register.php"</script>';
-
 }

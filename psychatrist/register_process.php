@@ -34,8 +34,6 @@ if (!empty($fileName) && !empty($_FILES['profileImage']['tmp_name'])) {
             if ($fileSize < 1048576) {
                 $fileNameNew = uniqid('$', true) . "." . $fileActualExt;
                 $_SESSION['fileDestination'] = "Uploads/Profile/" . $fileNameNew;
-                $_SESSION['error'] = $_SESSION['fileDestination'];
-                echo '<script>window.location.href="registration.php?error=true"</script>';
             } else {
                 $error = true;
                 $_SESSION['error'] = "File Size is too big! Choose a lower Resolution Image.";
