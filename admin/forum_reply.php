@@ -67,7 +67,7 @@ include 'leftmenu.php';
                     </thead>
                     <tbody>
                     <?php
-                    $forum_sql = "SELECT forum_reply.message, forum.fu_caption, user.u_name, forum_reply.reply_id FROM `forum_reply` JOIN forum ON forum.fu_id = forum_reply.fu_id JOIN user ON user.u_id = forum_reply.u_id";
+                    $forum_sql = "SELECT * FROM `threads` JOIN user ON user.u_id = threads.user_id JOIN forum_categories ON forum_categories.cat_id = thread_id";
                     $r1 = $conn->query($forum_sql);
                     $cnt1 = 0;
                     if ($r1->num_rows > 0) {
@@ -76,11 +76,10 @@ include 'leftmenu.php';
                             echo '<tr>';
                             echo '<th scope="row">' . $cnt1 . '</th>';
                             echo '<td>' . $ro1['u_name'] . '</td>';
-                            echo '<td>' . $ro1['fu_caption'] . '</td>';
-                            echo '<td>' . $ro1['message'] . '</td>';
-//                            echo '<td><img src="../upload/' . $ro1['post_path'] . '" alt="Image" width="150px" height="150px"></td>';
+                            echo '<td>' . $ro1['thread_desc'] . '</td>';
+                            echo '<td>' . $ro1['thread_title'] . '</td>';
                             echo '<td>';
-                            echo '<a href="forum_reply_action.php/?delete=' . $ro1['reply_id'] . '" class="btn btn-danger">Delete</a>';
+                            echo '<a href="forum_reply_action.php/?delete=' . $ro1['thread_id'] . '" class="btn btn-danger">Delete</a>';
                             echo '</td>';
                             echo '</tr>';
                         }
