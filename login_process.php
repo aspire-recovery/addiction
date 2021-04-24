@@ -19,13 +19,18 @@ if (isset($_POST['submit'])) {
             $u_id = $row['u_id'];
             $u_email = $row['u_email'];
             $u_name = $row['u_name'];
+            $status = $row['u_status'];
         }
-        $_SESSION['loggedin'] = true;
-        $_SESSION['u_id'] = $u_id;
-        $_SESSION['u_email'] = $u_email;
-        $_SESSION['u_name'] = $u_name;
+        if ($status == 0) {
+            $_SESSION['loggedin'] = true;
+            $_SESSION['u_id'] = $u_id;
+            $_SESSION['u_email'] = $u_email;
+            $_SESSION['u_name'] = $u_name;
 
-        echo '<script>window.location.href="index.php"</script>';
+            echo '<script>window.location.href="index.php"</script>';
+        } else {
+            echo '<script>window.location.href ="login.php"</script>';
+        }
     } else {
         echo '<script>alert("Invalid Email and Password");</script>';
         echo '<script>window.location.href="login.php";</script>';

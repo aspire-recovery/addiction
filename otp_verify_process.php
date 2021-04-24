@@ -17,6 +17,7 @@ $otpv = $_POST['otp'];
 $encrypted_pass = md5($password);
 
 if ($otp == $otpv) {
+
 //Query
     $insert_sql = "INSERT INTO `user`(`addiction_id`, `u_name`, `u_contact`, `u_email`, `u_status`, `u_gender`,`u_password`) VALUES
                 ('$addiction','$name','$phone','$email','$status','$gender','$encrypted_pass')";
