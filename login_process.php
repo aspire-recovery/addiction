@@ -19,10 +19,12 @@ if (isset($_POST['submit'])) {
             $u_id = $row['u_id'];
             $u_email = $row['u_email'];
             $u_name = $row['u_name'];
+            $u_img = $row['u_img'];
             $_SESSION['loggedin'] = true;
             $_SESSION['u_id'] = $u_id;
             $_SESSION['u_email'] = $u_email;
             $_SESSION['u_name'] = $u_name;
+            $_SESSION['u_img'] = $u_img;
         }
 
         echo '<script>window.location.href="index.php"</script>';

@@ -39,43 +39,39 @@ if (isset($_SESSION['loggedin'])) {
         $gender = $row['psy_gender'];
 
 
-        $output .= '
-           
-    <div class="col-lg-4">
-        <div class="text-center card-box">
-            <div class="member-card pt-2 pb-2">
-                <div class="thumb-lg member-thumb mx-auto"><img
-                        src="https://bootdey.com/img/Content/avatar/avatar' . $k . '.png"
-                        class="rounded-circle img-thumbnail" alt="profile-image"></div>
-                <div class="">
-                    <h4>' . $name . '</h4>
-                    <p class="text-muted">Qualification <span>| </span><span><a href="#"
-                                class="text-pink">' . $quali . '</a></span></p>
-                </div>
-                <ul class="social-links list-inline">
-                    <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip"
-                            class="tooltips" href="" data-original-title="Facebook"><i
-                                class="fa fa-facebook"></i></a></li>
-                    <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip"
-                            class="tooltips" href="" data-original-title="Twitter"><i
-                                class="fa fa-twitter"></i></a></li>
-                    <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip"
-                            class="tooltips" href="" data-original-title="Skype"><i
-                                class="fa fa-skype"></i></a></li>
-                </ul>
-                <a href="apbooking.php?id=' . $id . '"> <button type="button"
-                        class="btn btn-primary mt-3 btn-rounded waves-effect w-md waves-light">Book
-                        Appointment</button> </a>
-                <div class="mt-4">
-                    <div class="row">
-                        <p style="font-size:16px;">' . mb_strimwidth($bio, 0, 150, "...") . '
-
-                        </p>
+        $output .= '<div class="col-md-4">
+            <div class="card mt-3">
+                <div class="product-1 align-items-center p-2 text-center">
+                    <img src="images/image01.jpg" alt="" class="rounded" width="160">
+                    <h5>Product 1</h5>
+    
+                    <!--Card info-->
+                    <div class="mt-3 info">
+                        <span class="text1 d-block">Product description ( TBD ).</span>
+                        <span class="text1">Product description line-2</span>
+                    </div>
+                    <div class="productcost1 mt-3 text-dark">
+                        <span>$69.99</span>
+                        <div class="star mt-3 align-items-center">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <a href="cart.php?p_id='..'" class="btn btn-primary btn-lg" style="margin-top: 105px;">Add To
+                            Cart</a>
                     </div>
                 </div>
+    
+                <!--Button for cards-->
+                <div class="p-3 pro-1 text-center text-white mt-3 cursor">
+                    <span class="text-uppercase">Add to cart</span>
+                </div>
             </div>
-        </div>
-    </div>';
+        </div>';
+           
+    
         if ($k == 9) {
         } else {
             $k++;
@@ -122,3 +118,14 @@ if (isset($_SESSION['loggedin'])) {
             </div>
 </section>';
 }
+
+
+
+
+
+
+
+
+
+    
+   

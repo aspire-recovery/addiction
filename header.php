@@ -4,6 +4,7 @@ session_start();
 ?>
 <!doctype html>
 <html lang="en">
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -12,11 +13,38 @@ session_start();
     <link href="//fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
     <!-- Template CSS -->
     <link rel="stylesheet" href="assets/css/style-starter.css">
+    <style>
+    .header__user-btn {
+        color: #8e9091;
+        cursor: pointer;
+        align-items: center;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 1px solid red;
+    }
+
+    .header__user-btn img {
+        max-width: 45px;
+        margin-right: 15px;
+    }
+
+    .header__user-btn>i {
+        margin-top: 2px;
+        margin-left: 15px;
+        font-size: 6px;
+    }
+    </style>
 </head>
+
 <body>
-<!--header-->
-<?php
-if (!isset($_SESSION['u_id'])) {
+    <!--header-->
+    <?php
+    if (!isset($_SESSION['u_id'])) {
     ?>
     <header id="site-header" class="fixed-top">
         <div class="container">
@@ -24,8 +52,8 @@ if (!isset($_SESSION['u_id'])) {
                 <h1><a class="navbar-brand mr-lg-5" href="index.php">
                         Aspire</a></h1>
                 <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
-                        data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
-                        aria-label="Toggle navigation">
+                    data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
                     <span class="navbar-toggler-icon fa icon-close fa-times"></span>
                     </span>
@@ -51,7 +79,7 @@ if (!isset($_SESSION['u_id'])) {
                         </li>
                         <li class="align-self">
                             <a href="donate.html" class="btn btn-style btn-primary ml-lg-3 mr-lg-2"><span
-                                        class="fa fa-heart mr-1"></span> Donate</a>
+                                    class="fa fa-heart mr-1"></span> Donate</a>
                         </li>
                     </ul>
                 </div>
@@ -74,7 +102,7 @@ if (!isset($_SESSION['u_id'])) {
         </div>
     </header>
     <?php
-} else {
+    } else {
 
 
     ?>
@@ -84,8 +112,8 @@ if (!isset($_SESSION['u_id'])) {
                 <h1><a class="navbar-brand mr-lg-5" href="index.php">
                         Aspire </a></h1>
                 <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
-                        data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
-                        aria-label="Toggle navigation">
+                    data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
                     <span class="navbar-toggler-icon fa icon-close fa-times"></span>
                     </span>
@@ -108,11 +136,23 @@ if (!isset($_SESSION['u_id'])) {
                         <li class="ml-lg-auto mr-lg-0 m-auto">
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="profile.php"><?php echo $_SESSION['u_name']; ?></a>
+                            <a class="nav-link" href="profile.php">
+                                <div class="header__user-btn">
+                                    <img src="
+                                <?php
+                                $u_img =  $_SESSION['u_img'];
+                                if (strpos($u_img, 'fonts') !== false) {
+                                    echo "forum/" . $u_img;
+                                } else {
+                                    echo $u_img;
+                                } ?>" alt="avatar">
+
+                                </div>
+                            </a>
                         </li>
                         <li class="align-self">
                             <a href="cart.html" class="btn btn-style btn-primary ml-lg-3 mr-lg-2"><span
-                                        class="fa fa-shopping-cart"></span> CART</a>
+                                    class="fa fa-shopping-cart"></span> CART</a>
                         </li>
                     </ul>
                 </div>
@@ -135,17 +175,17 @@ if (!isset($_SESSION['u_id'])) {
         </div>
     </header>
     <?php
-}
-?>
-<!-- //header -->
-<script src="assets/js/jquery-3.3.1.min.js"></script> <!-- Common jquery plugin -->
+    }
+    ?>
+    <!-- //header -->
+    <script src="assets/js/jquery-3.3.1.min.js"></script> <!-- Common jquery plugin -->
 
-<script src="assets/js/theme-change.js"></script><!-- theme switch js (light and dark)-->
-<script src="assets/js/owl.carousel.js"></script>
+    <script src="assets/js/theme-change.js"></script><!-- theme switch js (light and dark)-->
+    <script src="assets/js/owl.carousel.js"></script>
 
-<!-- script for banner slider-->
-<script>
-    $(document).ready(function () {
+    <!-- script for banner slider-->
+    <script>
+    $(document).ready(function() {
         $('.owl-one').owlCarousel({
             loop: true,
             dots: false,
@@ -172,12 +212,12 @@ if (!isset($_SESSION['u_id'])) {
             }
         })
     })
-</script>
-<!-- //script -->
+    </script>
+    <!-- //script -->
 
-<!-- script for tesimonials carousel slider -->
-<script>
-    $(document).ready(function () {
+    <!-- script for tesimonials carousel slider -->
+    <script>
+    $(document).ready(function() {
         $("#owl-demo1").owlCarousel({
             loop: true,
             margin: 20,
@@ -197,14 +237,14 @@ if (!isset($_SESSION['u_id'])) {
             }
         })
     })
-</script>
-<!-- //script for tesimonials carousel slider -->
+    </script>
+    <!-- //script for tesimonials carousel slider -->
 
-<script src="assets/js/counter.js"></script>
+    <script src="assets/js/counter.js"></script>
 
-<!--/MENU-JS-->
-<script>
-    $(window).on("scroll", function () {
+    <!--/MENU-JS-->
+    <script>
+    $(window).on("scroll", function() {
         var scroll = $(window).scrollTop();
 
         if (scroll >= 80) {
@@ -215,35 +255,35 @@ if (!isset($_SESSION['u_id'])) {
     });
 
     //Main navigation Active Class Add Remove
-    $(".navbar-toggler").on("click", function () {
+    $(".navbar-toggler").on("click", function() {
         $("header").toggleClass("active");
     });
-    $(document).on("ready", function () {
+    $(document).on("ready", function() {
         if ($(window).width() > 991) {
             $("header").removeClass("active");
         }
-        $(window).on("resize", function () {
+        $(window).on("resize", function() {
             if ($(window).width() > 991) {
                 $("header").removeClass("active");
             }
         });
     });
-</script>
-<!--//MENU-JS-->
+    </script>
+    <!--//MENU-JS-->
 
-<!-- disable body scroll which navbar is in active -->
-<script>
-    $(function () {
-        $('.navbar-toggler').click(function () {
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
             $('body').toggleClass('noscroll');
         })
     });
-</script>
-<!-- //disable body scroll which navbar is in active -->
+    </script>
+    <!-- //disable body scroll which navbar is in active -->
 
-<!--bootstrap-->
-<script src="assets/js/bootstrap.min.js"></script>
-<!-- //bootstrap-->
+    <!--bootstrap-->
+    <script src="assets/js/bootstrap.min.js"></script>
+    <!-- //bootstrap-->
 </body>
 
 </html>

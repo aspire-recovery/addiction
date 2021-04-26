@@ -110,109 +110,12 @@ include "header.php";
         <div class="w3-services-grids">
             <div class="fea-gd-vv row">
                 <div class="container mb-5 mt-5">
-                    <div class="row">
-                        <!--Card 1-->
-                        <div class="col-md-4">
-                            <div class="card mt-3">
-                                <div class="product-1 align-items-center p-2 text-center">
-                                    <img src="images/image01.jpg" alt="" class="rounded" width="160">
-                                    <h5>Product 1</h5>
-
-                                    <!--Card info-->
-                                    <div class="mt-3 info">
-                                        <span class="text1 d-block">Product description ( TBD ).</span>
-                                        <span class="text1">Product description line-2</span>
-                                    </div>
-                                    <div class="productcost1 mt-3 text-dark">
-                                        <span>$69.99</span>
-                                        <div class="star mt-3 align-items-center">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <a href="cart.php?p_id='..'" class="btn btn-primary btn-lg" style="margin-top: 105px;">Add To
-                                            Cart</a>
-                                    </div>
-                                </div>
-
-                                <!--Button for cards-->
-                                <div class="p-3 pro-1 text-center text-white mt-3 cursor">
-                                    <span class="text-uppercase">Add to cart</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!--card 1 ends here-->
-
-                        <!--Card 2-->
-                        <div class="col-md-4">
-                            <div class="card mt-3">
-                                <div class="product-1 align-items-center p-2 text-center">
-                                    <img src="" alt="" class="rounded" width="160">
-                                    <h5>Product 2</h5>
-
-                                    <!--Card info-->
-                                    <div class="mt-3 info">
-                                        <span class="text1 d-block">Product description ( TBD ).</span>
-                                        <span class="text1">Product description line-2</span>
-                                    </div>
-                                    <div class="productcost2 mt-3 text-dark">
-                                        <span>$69.99</span>
-                                        <div class="star mt-3 align-items-center">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <a href="cart.php?p_id='..'" class="btn btn-primary btn-lg" style="margin-top: 105px;">Add To
-                                            Cart</a>
-                                    </div>
-                                </div>
-
-                                <!--Button for cards-->
-                                <div class="p-3 pro-2 text-center text-white mt-3 cursor">
-                                    <span class="text-uppercase">Add to cart</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!--card 2 ends here-->
-
-                        <!--Card 3-->
-                        <div class="col-md-4">
-                            <div class="card mt-3">
-                                <div class="product-1 align-items-center p-2 text-center">
-                                    <img src="images/image01.jpg" alt="" class="rounded" width="160">
-                                    <h5>Product 3</h5>
-
-                                    <!--Card info-->
-                                    <div class="mt-3 info">
-                                        <span class="text1 d-block">Product description ( TBD ).</span>
-                                        <span class="text1">Product description line-2</span>
-                                    </div>
-                                    <div class="productcost3 mt-3 text-dark">
-                                        <span>$69.99</span>
-                                        <div class="star mt-3 align-items-center">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <a href="cart.php?p_id='..'" class="btn btn-primary btn-lg" style="margin-top: 105px;">Add To
-                                            Cart</a>
-                                    </div>
-                                </div>
-
-                                <!--Button for cards-->
-                                <div class="p-3 pro-3 text-center text-white mt-3 cursor">
-                                    <span class="text-uppercase">Add to cart</span>
-                                </div>
-                            </div>
-                        </div>
-                        <!--card 3 ends here-->
+                    <div class="container" id="container">
+                        <!-- end row -->
+            
+            
                     </div>
+                   
                 </div>
             </div>
         </div>
@@ -221,5 +124,36 @@ include "header.php";
 <?php
 include 'footer.php';
 ?>
+<script src="https://code.jquery.com/jquery-3.6.0.js"
+integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+</script>
+<script>
+$(document).ready(function() {
+function loadTable(page) {
+    $.post("partials/psypagination.php", {
+            page_no: page
+
+        },
+        function(data, status) {
+            $("#container").html(data);
+        }
+    );
+}
+loadTable();
+
+
+//Pagination Code
+$(document).on("click", "#pagination li a", function(e) {
+    e.preventDefault();
+    page_id = $(this).attr("id");
+
+    loadTable(page_id);
+
+});
+
+});
+</script>
 </body>
 </html>
