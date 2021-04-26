@@ -41,8 +41,8 @@ if (!isset($_SESSION['a_id'])) {
         <li><a href="product.php"><em class="fa fa-bar-chart">&nbsp;</em> Product</a></li>
         <li><a href="user.php"><em class="fa fa-user">&nbsp;</em> Patient</a></li>
         <li><a href="psycho.php"><em class="	fa fa-plus-square">&nbsp;</em>Psychiatrist</a></li>
-        <li><a href="forum_content.php"><em class="	fa fa-television">&nbsp;</em>Forum Content</a></li>
-        <li><a href="forum_reply.php"><em class="	fa fa-reply">&nbsp;</em>Forum Reply</a></li>
+<!--        <li><a href="forum_content.php"><em class="	fa fa-television">&nbsp;</em>Forum Content</a></li>-->
+        <li><a href="forum_reply.php"><em class="	fa fa-reply">&nbsp;</em>Forum Content</a></li>
         <li><a href="login.php"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
     </ul>
 </div><!--/.sidebar-->

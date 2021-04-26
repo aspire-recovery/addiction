@@ -14,7 +14,7 @@ require 'includes/config.inc.php';
 
     <link href="//fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="assets/css/style-starter.css">
@@ -74,26 +74,61 @@ require 'includes/config.inc.php';
                 <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
             </svg>
         </div>
+    </section>
+</div>
+<!-- banner bottom shape -->
+<div class="position-relative">
+    <div class="shape overflow-hidden">
+        <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+        </svg>
     </div>
-    <!-- banner bottom shape -->
-    <!-- contacts -->
-    <section class="w3l-contact-7 py-5" id="contact">
-        <div class="container">
-            <div class="top-map">
-                <div class="row map-content-9">
-                    <?php
+</div>
+<!-- banner bottom shape -->
+<!-- contacts -->
+<section class="w3l-contact-7 py-5" id="contact">
+    <div class="container">
+        <div class="top-map">
+            <div class="row map-content-9">
+                <?php
 
                             if (isset($_GET['exist']) && $_GET['exist'] == true) {
 
                                 echo ' <div class="alert alert-primary" style="left: 20px;">
                         Email Already Exist!
+                       
                     </div>';
                             }
                             ?>
 
-                    <div class="col-lg-8">
-                        <h3 class="title-big">Register</h3>
+
+                        <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
+                            <input type="text" name="name" id="" placeholder="Name" required="">
+                        </div>
                         <br>
+                        <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
+                            <input type="email" name="email" id="" placeholder="Email" required="">
+                        </div>
+                        <br>
+                        <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
+                            <input type="password" name="password" id="" placeholder="Password" required="">
+                        </div>
+                        <br>
+                        <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
+                            <input type="number" name="phone" id="" placeholder="Contact No." required="">
+                        </div>
+                        <br>
+                        <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
+                            <select name="gender" class="form-control" style="margin-top: 10px">
+                                <option style="width: 40%" value="">Select Gender...</option>
+                                <option style="width: 40%" value="male">Male</option>
+                                <option style="width: 40%" value="female">Female</option>
+                                <option style="width: 40%" value="others">Others</option>
+                            </select>
+                        </div>
+                        <br>
+                        <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
+                            <select name="addiction" class="form-control" style="margin-top: 10px">
 
                         <form action="register_process.php" method="post" class="text-right" style="width: 70%">
 
@@ -225,49 +260,50 @@ require 'includes/config.inc.php';
                                 </div>
                             </div>
                         </div>
-
                     </div>
+
                 </div>
-                <!-- move top -->
-                <button onclick="topFunction()" id="movetop" title="Go to top">
-                    &uarr;
-                </button>
-                <script>
-                    // When the user scrolls down 20px from the top of the document, show the button
-                    window.onscroll = function () {
-                        scrollFunction()
-                    };
+            </div>
+            <!-- move top -->
+            <button onclick="topFunction()" id="movetop" title="Go to top">
+                &uarr;
+            </button>
+            <script>
+                // When the user scrolls down 20px from the top of the document, show the button
+                window.onscroll = function () {
+                    scrollFunction()
+                };
 
-                    function scrollFunction() {
-                        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                            document.getElementById("movetop").style.display = "block";
-                        } else {
-                            document.getElementById("movetop").style.display = "none";
-                        }
+                function scrollFunction() {
+                    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                        document.getElementById("movetop").style.display = "block";
+                    } else {
+                        document.getElementById("movetop").style.display = "none";
                     }
+                }
 
-                    // When the user clicks on the button, scroll to the top of the document
-                    function topFunction() {
-                        document.body.scrollTop = 0;
-                        document.documentElement.scrollTop = 0;
-                    }
-                </script>
-                <!-- /move top -->
+                // When the user clicks on the button, scroll to the top of the document
+                function topFunction() {
+                    document.body.scrollTop = 0;
+                    document.documentElement.scrollTop = 0;
+                }
+            </script>
+            <!-- /move top -->
 
-            </footer>
-            <!-- Footers-14 -->
-        </div>
+        </footer>
+        <!-- Footers-14 -->
     </div>
-    <!-- //footer 14 -->
+</div>
+<!-- //footer 14 -->
 
-    <script src="assets/js/jquery-3.3.1.min.js"></script> <!-- Common jquery plugin -->
+<script src="assets/js/jquery-3.3.1.min.js"></script> <!-- Common jquery plugin -->
 
-    <script src="assets/js/theme-change.js"></script><!-- theme switch js (light and dark)-->
-    <script src="assets/js/owl.carousel.js"></script>
+<script src="assets/js/theme-change.js"></script><!-- theme switch js (light and dark)-->
+<script src="assets/js/owl.carousel.js"></script>
 
-    <!-- script for banner slider-->
-    <script>
-    $(document).ready(function() {
+<!-- script for banner slider-->
+<script>
+    $(document).ready(function () {
         $('.owl-one').owlCarousel({
             loop: true,
             dots: false,
@@ -294,12 +330,12 @@ require 'includes/config.inc.php';
             }
         })
     })
-    </script>
-    <!-- //script -->
+</script>
+<!-- //script -->
 
-    <!-- script for tesimonials carousel slider -->
-    <script>
-    $(document).ready(function() {
+<!-- script for tesimonials carousel slider -->
+<script>
+    $(document).ready(function () {
         $("#owl-demo1").owlCarousel({
             loop: true,
             margin: 20,
@@ -319,14 +355,14 @@ require 'includes/config.inc.php';
             }
         })
     })
-    </script>
-    <!-- //script for tesimonials carousel slider -->
+</script>
+<!-- //script for tesimonials carousel slider -->
 
-    <script src="assets/js/counter.js"></script>
+<script src="assets/js/counter.js"></script>
 
-    <!--/MENU-JS-->
-    <script>
-    $(window).on("scroll", function() {
+<!--/MENU-JS-->
+<script>
+    $(window).on("scroll", function () {
         var scroll = $(window).scrollTop();
 
         if (scroll >= 80) {
@@ -337,36 +373,38 @@ require 'includes/config.inc.php';
     });
 
     //Main navigation Active Class Add Remove
-    $(".navbar-toggler").on("click", function() {
+    $(".navbar-toggler").on("click", function () {
         $("header").toggleClass("active");
     });
-    $(document).on("ready", function() {
+    $(document).on("ready", function () {
         if ($(window).width() > 991) {
             $("header").removeClass("active");
         }
-        $(window).on("resize", function() {
+        $(window).on("resize", function () {
             if ($(window).width() > 991) {
                 $("header").removeClass("active");
             }
         });
     });
-    </script>
-    <!--//MENU-JS-->
+</script>
+<!--//MENU-JS-->
 
-    <!-- disable body scroll which navbar is in active -->
-    <script>
-    $(function() {
-        $('.navbar-toggler').click(function() {
+<!-- disable body scroll which navbar is in active -->
+<script>
+    $(function () {
+        $('.navbar-toggler').click(function () {
             $('body').toggleClass('noscroll');
         })
     });
-    </script>
-    <!-- //disable body scroll which navbar is in active -->
+</script>
+<!-- //disable body scroll which navbar is in active -->
+
+<!--bootstrap-->
+<script src="assets/js/bootstrap.min.js"></script>
 
     <!--bootstrap-->
-    <script src="assets/js/bootstrap.min.js"></script>
+ 
 
-    <!-- //bootstrap-->
 </body>
 
 </html>
