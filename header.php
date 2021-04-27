@@ -111,7 +111,7 @@ if (!isset($_SESSION['u_id'])) {
                             <a class="nav-link" href="profile.php"><?php echo $_SESSION['u_name']; ?></a>
                         </li>
                         <li class="align-self">
-                            <a href="cart.html" class="btn btn-style btn-primary ml-lg-3 mr-lg-2"><span
+                            <a href="cart.php" class="btn btn-style btn-primary  mr-lg-2"><span
                                         class="fa fa-shopping-cart"></span> CART</a>
                         </li>
                     </ul>
