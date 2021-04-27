@@ -1,5 +1,5 @@
 <?php
-require 'config.php';
+require '../includes/config.inc.php';
 session_start();
 if (!isset($_SESSION['a_id'])) {
     echo '<script>window.location.href="login.php"</script>';

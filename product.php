@@ -1,6 +1,7 @@
 <?php
 //Imports
 require 'includes/config.inc.php';
+session_start();
 include "header.php";
 ?>
 <!doctype html>
@@ -132,7 +133,7 @@ integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9E
 <script>
 $(document).ready(function() {
 function loadTable(page) {
-    $.post("partials/psypagination.php", {
+    $.post("partials/prodpagination.php", {
             page_no: page
 
         },

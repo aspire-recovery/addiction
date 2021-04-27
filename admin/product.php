@@ -1,6 +1,6 @@
 <?php
 //    Imports
-require 'config.php';
+require '../includes/config.inc.php';
 ?>
 <!DOCTYPE html>
 <html>

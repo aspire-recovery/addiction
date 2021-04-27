@@ -1,6 +1,6 @@
 <?php
 require 'includes/config.inc.php';
-session_start();
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -25,12 +25,18 @@ session_start();
         display: flex;
         border-radius: 50%;
         overflow: hidden;
-        border: 1px solid red;
+        border: 3px solid white ;
+       
+    }
+    .header__user-btn:hover{
+        border: 3px solid rgb(212, 212, 212);
+
     }
 
     .header__user-btn img {
-        max-width: 45px;
-        margin-right: 15px;
+    height: 40px;
+    width: 40px;
+        object-fit: cover;
     }
 
     .header__user-btn>i {
@@ -38,6 +44,7 @@ session_start();
         margin-left: 15px;
         font-size: 6px;
     }
+   
     </style>
 </head>
 
@@ -69,17 +76,18 @@ session_start();
                         <li class="nav-item">
                             <a class="nav-link" href="articles.php">Articles</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="register.php">Register</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.php">Login</a>
-                        </li>
+                       
+                       
                         <li class="ml-lg-auto mr-lg-0 m-auto">
                         </li>
                         <li class="align-self">
-                            <a href="donate.html" class="btn btn-style btn-primary ml-lg-3 mr-lg-2"><span
-                                    class="fa fa-heart mr-1"></span> Donate</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="register.php">Register</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="login.php">Login</a>
+                            </li>
+                            
                         </li>
                     </ul>
                 </div>
@@ -135,24 +143,20 @@ session_start();
                         </li>
                         <li class="ml-lg-auto mr-lg-0 m-auto">
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="profile.php">
+                        <li class="align-self">
+                        
                                 <div class="header__user-btn">
-                                    <img src="
-                                <?php
-                                $u_img =  $_SESSION['u_img'];
-                                if (strpos($u_img, 'fonts') !== false) {
-                                    echo "forum/" . $u_img;
+                                    <img src="<?php $u_img =  $_SESSION['u_img']; if (strpos($u_img, 'fonts') !== false)
+                                     { echo "forum/" . $u_img;
                                 } else {
                                     echo $u_img;
-                                } ?>" alt="avatar">
+                                } ?>" onclick="location.href='profile.php';" class="" alt="avatar">
 
                                 </div>
-                            </a>
+                        
                         </li>
                         <li class="align-self">
-                            <a href="cart.html" class="btn btn-style btn-primary ml-lg-3 mr-lg-2"><span
-                                    class="fa fa-shopping-cart"></span> CART</a>
+                         
                         </li>
                     </ul>
                 </div>
