@@ -156,7 +156,11 @@ require 'includes/config.inc.php';
                         
                         </li>
                         <li class="align-self">
-                         
+                          
+                               
+                                <a href="cart.php" class="btn btn-style  " style="margin: 0 -25px 10px -25px;"><span
+                                            class="fa fa-shopping-cart"></span> CART</a>
+                           
                         </li>
                     </ul>
                 </div>
