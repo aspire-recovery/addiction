@@ -160,28 +160,28 @@ include "header.php";
                 <div class="col-md-3 col-6">
                     <div class="counter">
                         <span class="fa fa-users"></span>
-                        <div class="timer count-title count-number mt-3" data-to="1500" data-speed="1500"></div>
+                        <div class="timer count-title count-number mt-3" data-to="00" data-speed="1500"></div>
                         <p class="count-text ">Total Patient Recover</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-6">
                     <div class="counter">
                         <span class="fa fa-cutlery"></span>
-                        <div class="timer count-title count-number mt-3" data-to="2256" data-speed="1500"></div>
+                        <div class="timer count-title count-number mt-3" data-to="3" data-speed="1500"></div>
                         <p class="count-text ">Active User</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-6">
                     <div class="counter">
                         <span class="fa fa-home"></span>
-                        <div class="timer count-title count-number mt-3" data-to="1000" data-speed="1500"></div>
+                        <div class="timer count-title count-number mt-3" data-to="2" data-speed="1500"></div>
                         <p class="count-text ">Addiction Types</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-6">
                     <div class="counter">
                         <span class="fa fa-male"></span>
-                        <div class="timer count-title count-number mt-3" data-to="260" data-speed="1500"></div>
+                        <div class="timer count-title count-number mt-3" data-to="3" data-speed="1500"></div>
                         <p class="count-text ">psychiatrist</p>
                     </div>
                 </div>
@@ -377,10 +377,9 @@ include "header.php";
                 </div>
                 <h4 class="mission">TOBACCO</h4>
                 <div class="open-description">
-                    <p>Smoking is responsible for approximately 15% of deaths in Spain and kills
-                        approximately 200 people every day, of which 166 are men and 40 are women.
+                    <p>Smoking is responsible for approximately 15% of deaths in Spain. of which 166 are men and 40 are women.
                         Smoking has been linked to numerous diseases. The largest percentage of smokers
-                        is aged 25-39 years of age (40%), followed by those aged 40-59 years old (39%)</p>
+                        is aged 25-39 years of age, followed by those aged 40-59 years old.</p>
                     <a href="articles.php">Read More</a>
                 </div>
             </div>
@@ -395,9 +394,7 @@ include "header.php";
                 <div class="open-description">
                     <p>Eating disorders encompass a number of chronic and progressive diseases,
                         comprised of a very complex range of symptoms which go beyond behaviour
-                        around food, such as a change or distortion of body image, a fear of weight
-                        gain and acquiring a series of values which are manifested through body
-                        image.</p>
+                        around food, such as a change or distortion of body image. </p>
                     <a href="articles.php">Read More</a>
                 </div>
             </div>
