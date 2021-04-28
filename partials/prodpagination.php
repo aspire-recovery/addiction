@@ -15,7 +15,7 @@ $offset = ($page - 1) * $limit_per_page;
 
 if (isset($_SESSION['loggedin'])) {
 
-    $sql = "SELECT * FROM `physcho` LIMIT {$offset},{$limit_per_page}";
+    $sql = "SELECT * FROM `product` LIMIT {$offset},{$limit_per_page}";
     $result = mysqli_query($conn, $sql);
     $resut_num = mysqli_num_rows($result);
     $sum = $resut_num / 3;
@@ -28,50 +28,66 @@ if (isset($_SESSION['loggedin'])) {
 
     $k = 1;
     $j = 1;
-    $output .= ' <br><div class="row">';
+    $output .= ' <br><div class="row">
+
+        ';
     while ($row = mysqli_fetch_assoc($result)) {
 
-        $id = $row['psy_id'];
-        $name = $row['psy_name'];
-        $email = $row['psy_email'];
-        $quali = $row['psy_qualification'];
-        $bio = $row['psy_bio'];
-        $gender = $row['psy_gender'];
+        $id = $row['p_id'];
+        $name = $row['p_name'];
+        $descc = $row['p_description'];
+        $price = $row['p_price'];
+        $img = $row['p_image'];
+        $cat = $row['pdt_category'];
+        $quan = $row['p_quantity'];
+        if ($quan > 0) {
+            $quan_txt = "In Stock";
+        } else {
+            $quan_txt = "Out of Stock";
+        }
 
 
-        $output .= '<div class="col-md-4">
+        $output .= ' <form class="col-md-4" method="post" action="cart.php?action=add&id=' . $id . ' ">
+        
+        
             <div class="card mt-3">
                 <div class="product-1 align-items-center p-2 text-center">
-                    <img src="images/image01.jpg" alt="" class="rounded" width="160">
-                    <h5>Product 1</h5>
+                    <img style="object-fit:cover;" src="' . $img . '" alt="" class="rounded" width="160" height="250">
+                    <h3 style="margin-top:10px; color:#3b3663;">' . $name . '</h3>
     
                     <!--Card info-->
                     <div class="mt-3 info">
-                        <span class="text1 d-block">Product description ( TBD ).</span>
-                        <span class="text1">Product description line-2</span>
+                    
+                        <span class="text1 d-block">' . $descc . '</span>
+                        
                     </div>
                     <div class="productcost1 mt-3 text-dark">
-                        <span>$69.99</span>
-                        <div class="star mt-3 align-items-center">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
+                        <span>$' . $price . '</span>
+                        <div class="star mt-3 align-items-center" >
+                            <span class="fa fa-star " style="color:orange;"></span>
+                            <span class="fa fa-star "  style="color:orange;"></span>
+                            <span class="fa fa-star "  style="color:orange;"></span>
+                            <span class="fa fa-star"  style="color:orange;"></span>
+                            <span class="fa fa-star"></span>
+                        <span style="font-weight: bold;" class="text1 d-block">' . $quan_txt . '</span>
+                       
                         </div>
-                        <a href="cart.php" class="btn btn-primary btn-lg" style="margin-top: 105px;">Add To
-                            Cart</a>
+                        <div class="cart-action"><input type="number" class="product-quantity" name="quantity" min="1" max="10" value="1" size="2" />
+                        
+                        <input type="submit" value="Add to Cart" href="cart.php" class="btn btn-primary btn-lg" style="margin-top: 15px; margin-bottom: 15px;"/>
+                        </div>
+                            
                     </div>
                 </div>
     
                 <!--Button for cards-->
-                <div class="p-3 pro-1 text-center text-white mt-3 cursor">
-                    <span class="text-uppercase">Add to cart</span>
-                </div>
+                
             </div>
-        </div>';
-           
-    
+            
+        </form>
+        ';
+
+
         if ($k == 9) {
         } else {
             $k++;
@@ -101,31 +117,5 @@ if (isset($_SESSION['loggedin'])) {
     ';
     echo $output;
 } else {
-    echo '<section class="w3l-contact-main">
-    <div class="contact-infhny py-5">
-        <div class="container py-lg-5"><div class="card bg-dark">
-    <div class="card-header text-light" style="color:white;">
-        ERROR 403
-    </div>
-    <div class="card-body text-light"  style="color:white;">
-        <h5 class="card-title"  style="color:white;">You need to be logged in to book pyschiatrist!!!</h5>
-        <p class="card-text"  style="color:white;">With supporting text below as a natural lead-in to additional content.</p>
-        <br>
-        <a href="login.php" class="btn btn-danger bg-danger text-light">Login</a>
-    </div>
-</div>
-</div>
-            </div>
-</section>';
+    header('Location: ../e404.php');
 }
-
-
-
-
-
-
-
-
-
-    
-   

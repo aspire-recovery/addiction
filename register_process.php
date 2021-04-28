@@ -2,6 +2,9 @@
 // Imports
 require 'includes/config.inc.php';
 session_start();
+if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+    header("location: e404.php");
+}
 //Data Fetch
 $name = $_POST['name'];
 $email = $_POST['email'];
@@ -49,7 +52,7 @@ if ($row > 0) {
         echo '<script>window.location.href="verify_otp.php"</script>';
     } else {
 
-   
+
         echo 'Mailer Error: ' . $mail->ErrorInfo;
         echo '<script>window.location.href="register.php"</script>';
     }

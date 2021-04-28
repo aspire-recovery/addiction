@@ -1,748 +1,490 @@
 <?php
-//Imports
+include 'includes/config.inc.php';
 session_start();
-require 'includes/config.inc.php';
-if (!isset($_SESSION['u_id'])) {
-    echo '<script>window.location.href="login.php"</script>';
+
+if (!isset($_SESSION['loggedin'])) {
+    header('location: login.php?login?true');
 }
+if (!empty($_GET["action"])) {
 
-?>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Basket</title>
-</head>
-<style>
+    switch ($_GET["action"]) {
+        case "add":
+            $id = $_GET["id"];
+            if (!empty($_POST["quantity"])) {
+                $query = "SELECT * FROM product WHERE p_id='$id'";
+                $result = mysqli_query($conn, $query);
 
-    @charset "utf-8";
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $arraya[] = $row;
+                }
+                $productByCode = $arraya;
 
-    @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,600);
 
-    html,
-    html a {
-        -webkit-font-smoothing: antialiased;
-        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+                $itemArray = array($productByCode[0]["p_id"] => array(
+                    'name' => $productByCode[0]["p_name"],
+                    'id' => $productByCode[0]["p_id"],
+                    'quantity' => $_POST["quantity"],
+                    'price' => $productByCode[0]["p_price"],
+                    'image' => $productByCode[0]["p_image"],
+                    'descc' => $productByCode[0]["p_description"]
+                ));
+
+                if (!empty($_SESSION["cart_item"])) {
+                    if (in_array($productByCode[0]["p_id"], array_keys($_SESSION["cart_item"]))) {
+                        foreach ($_SESSION["cart_item"] as $k => $v) {
+                            if ($productByCode[0]["p_id"] == $k) {
+                                if (empty($_SESSION["cart_item"][$k]["quantity"])) {
+                                    $_SESSION["cart_item"][$k]["quantity"] = 0;
+                                }
+                                $_SESSION["cart_item"][$k]["quantity"] += $_POST["quantity"];
+                            }
+                        }
+                    } else {
+                        $_SESSION["cart_item"] = array_merge($_SESSION["cart_item"], $itemArray);
+                    }
+                } else {
+                    $_SESSION["cart_item"] = $itemArray;
+                }
+            }
+            break;
+
+        case "remove":
+            if (!empty($_SESSION["cart_item"])) {
+                foreach ($_SESSION["cart_item"] as $k => $v) {
+                    if ($_GET["id"] == $k)
+                        unset($_SESSION["cart_item"][$k]);
+                    if (empty($_SESSION["cart_item"]))
+                        unset($_SESSION["cart_item"]);
+                }
+            }
+            break;
+        case "empty":
+            unset($_SESSION["cart_item"]);
+            break;
     }
+}
+?>
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+
+
+<!DOCTYPE html>
+<html lang='en' class=''>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style class="cp-pen-styles">
+    @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic|Montserrat:400,700);
 
     body {
-        background-color: #fff;
-        color: #666;
-        font-family: 'Open Sans', sans-serif;
-        font-size: 62.5%;
-        margin: 0 auto;
+        font-family: Arial;
+        color: #211a1a;
+        font-size: 1.1em !important;
     }
 
-    a {
-        border: 0 none;
-        outline: 0;
-        text-decoration: none;
+    #shopping-cart {
+        margin: 40px;
     }
 
-    strong {
-        font-weight: bold;
+    #product-grid {
+        margin: 40px;
     }
 
-    p {
-        margin: 0.75rem 0 0;
-    }
-
-    h1 {
-        font-size: 0.75rem;
-        font-weight: normal;
-        margin: 0;
-        padding: 0;
-    }
-
-    input,
-    button {
-        border: 0 none;
-        outline: 0 none;
-    }
-
-    button {
-        background-color: #666;
-        color: #fff;
-    }
-
-    button:hover,
-    button:focus {
-        background-color: #555;
-    }
-
-    img,
-    .basket-module,
-    .basket-labels,
-    .basket-product {
+    #shopping-cart table {
         width: 100%;
+        background-color: #F0F0F0;
     }
 
-    input,
-    button,
-    .basket,
-    .basket-module,
-    .basket-labels,
-    .item,
-    .price,
-    .quantity,
-    .subtotal,
-    .basket-product,
-    .product-image,
-    .product-details {
-        float: left;
+    #shopping-cart table td {
+        background-color: #FFFFFF;
     }
 
-    .price:before,
-    .subtotal:before,
-    .subtotal-value:before,
-    .total-value:before,
-    .promo-value:before {
-        content: '£';
+    .txt-heading {
+        color: #211a1a;
+        border-bottom: 1px solid #E0E0E0;
+        overflow: auto;
     }
 
-    .hide {
-        display: none;
-    }
-
-    main {
-        clear: both;
-        font-size: 0.75rem;
-        margin: 0 auto;
-        overflow: hidden;
-        padding: 1rem 0;
-        width: 960px;
-    }
-
-    .basket,
-    aside {
-        padding: 0 1rem;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-    }
-
-    .basket {
-        width: 70%;
-    }
-
-    .basket-module {
-        color: #111;
-    }
-
-    label {
-        display: block;
-        margin-bottom: 0.3125rem;
-    }
-
-    .promo-code-field {
-        border: 1px solid #ccc;
-        padding: 0.5rem;
-        text-transform: uppercase;
-        transition: all 0.2s linear;
-        width: 48%;
-        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-        -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-        -o-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-    }
-
-    .promo-code-field:hover,
-    .promo-code-field:focus {
-        border: 1px solid #999;
-    }
-
-    .promo-code-cta {
-        border-radius: 4px;
-        font-size: 0.625rem;
-        margin-left: 0.625rem;
-        padding: 0.6875rem 1.25rem 0.625rem;
-    }
-
-    .basket-labels {
-        border-top: 1px solid #ccc;
-        border-bottom: 1px solid #ccc;
-        margin-top: 1.625rem;
-    }
-
-    ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-    }
-
-    li {
-        color: #111;
-        display: inline-block;
-        padding: 0.625rem 0;
-    }
-
-    li.price:before,
-    li.subtotal:before {
-        content: '';
-    }
-
-    .item {
-        width: 55%;
-    }
-
-    .price,
-    .quantity,
-    .subtotal {
-        width: 15%;
-    }
-
-    .subtotal {
-        text-align: right;
-    }
-
-    .remove {
-        bottom: 1.125rem;
+    #btnEmpty {
+        background-color: #ffffff;
+        border: #d00000 1px solid;
+        padding: 5px 10px;
+        color: #d00000;
         float: right;
-        position: absolute;
-        right: 0;
-        text-align: right;
-        width: 45%;
+        text-decoration: none;
+        border-radius: 3px;
+        margin: 10px 0px;
     }
 
-    .remove button {
-        background-color: transparent;
-        color: #777;
-        float: none;
-        text-decoration: underline;
-        text-transform: uppercase;
+    .btnAddAction {
+        padding: 5px 10px;
+        margin-left: 5px;
+        background-color: #efefef;
+        border: #E0E0E0 1px solid;
+        color: #211a1a;
+        float: right;
+        text-decoration: none;
+        border-radius: 3px;
+        cursor: pointer;
     }
 
-    .item-heading {
-        padding-left: 4.375rem;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
+    #product-grid .txt-heading {
+        margin-bottom: 18px;
     }
 
-    .basket-product {
-        border-bottom: 1px solid #ccc;
-        padding: 1rem 0;
-        position: relative;
+    .product-item {
+        float: left;
+        background: #ffffff;
+        margin: 30px 30px 0px 0px;
+        border: #E0E0E0 1px solid;
     }
 
     .product-image {
-        width: 35%;
-    }
-
-    .product-details {
-        width: 65%;
-    }
-
-    .product-frame {
-        border: 1px solid #aaa;
-    }
-
-    .product-details {
-        padding: 0 1.5rem;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-    }
-
-    .quantity-field {
-        background-color: #ccc;
-        border: 1px solid #aaa;
-        border-radius: 4px;
-        font-size: 0.625rem;
-        padding: 2px;
-        width: 3.75rem;
-    }
-
-    aside {
-        float: right;
-        position: relative;
-        width: 30%;
-    }
-
-    .summary {
-        background-color: #eee;
-        border: 1px solid #aaa;
-        padding: 1rem;
-        position: fixed;
+        height: 155px;
         width: 250px;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
+        background-color: #FFF;
     }
 
-    .summary-total-items {
-        color: #666;
-        font-size: 0.875rem;
-        text-align: center;
-    }
-
-    .summary-subtotal,
-    .summary-total {
-        border-top: 1px solid #ccc;
-        border-bottom: 1px solid #ccc;
+    .clear-float {
         clear: both;
-        margin: 1rem 0;
-        overflow: hidden;
-        padding: 0.5rem 0;
     }
 
-    .subtotal-title,
-    .subtotal-value,
-    .total-title,
-    .total-value,
-    .promo-title,
-    .promo-value {
-        color: #111;
+    .demo-input-box {
+        border-radius: 2px;
+        border: #CCC 1px solid;
+        padding: 2px 1px;
+    }
+
+    .tbl-cart {
+        font-size: 0.9em;
+    }
+
+    .tbl-cart th {
+        font-weight: normal;
+    }
+
+    .product-title {
+        margin-bottom: 20px;
+    }
+
+    .product-price {
         float: left;
-        width: 50%;
     }
 
-    .summary-promo {
-        -webkit-transition: all .3s ease;
-        -moz-transition: all .3s ease;
-        -o-transition: all .3s ease;
-        transition: all .3s ease;
+    .cart-action {
+        display: flex;
+        justify-content: center;
+
     }
 
-    .promo-title {
-        float: left;
-        width: 70%;
+    .product-quantity {
+        padding: 5px 10px;
+        border-radius: 3px;
+        border: #E0E0E0 1px solid;
     }
 
-    .promo-value {
-        color: #8B0000;
-        float: left;
-        text-align: right;
-        width: 30%;
+    .product-tile-footer {
+        padding: 15px 15px 0px 15px;
+        overflow: auto;
     }
 
-    .summary-delivery {
-        padding-bottom: 3rem;
+    .cart-item-image {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        border: #E0E0E0 1px solid;
+        padding: 2px;
+        vertical-align: middle;
+        margin-right: 15px;
     }
 
-    .subtotal-value,
-    .total-value {
-        text-align: right;
-    }
-
-    .total-title {
-        font-weight: bold;
-        text-transform: uppercase;
-    }
-
-    .summary-checkout {
-        display: block;
-    }
-
-    .checkout-cta {
-        display: block;
-        float: none;
-        font-size: 0.75rem;
+    .no-records {
         text-align: center;
-        text-transform: uppercase;
-        padding: 0.625rem 0;
-        width: 100%;
+        clear: both;
+        margin: 38px 0px;
     }
 
-    .summary-delivery-selection {
-        background-color: #ccc;
-        border: 1px solid #aaa;
-        border-radius: 4px;
-        display: block;
-        font-size: 0.625rem;
-        height: 34px;
-        width: 100%;
+    .sticky {
+        position: static;
+        bottom: 0px;
     }
 
-    @media screen and (max-width: 640px) {
-        aside,
-        .basket,
-        .summary,
-        .item,
-        .remove {
-            width: 100%;
-        }
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
-        .basket-labels {
-            display: none;
-        }
-
-        .basket-module {
-            margin-bottom: 1rem;
-        }
-
-        .item {
-            margin-bottom: 1rem;
-        }
-
-        .product-image {
-            width: 40%;
-        }
-
-        .product-details {
-            width: 60%;
-        }
-
-        .price,
-        .subtotal {
-            width: 33%;
-        }
-
-        .quantity {
-            text-align: center;
-            width: 34%;
-        }
-
-        .quantity-field {
-            float: none;
-        }
-
-        .remove {
-            bottom: 0;
-            text-align: left;
-            margin-top: 0.75rem;
-            position: relative;
-        }
-
-        .remove button {
-            padding: 0;
-        }
-
-        .summary {
-            margin-top: 1.25rem;
-            position: relative;
-        }
+    body {
+        background-color: #eeeeee;
+        font-family: 'Open Sans', serif;
+        font-size: 14px
     }
 
-    @media screen and (min-width: 641px) and (max-width: 960px) {
-        aside {
-            padding: 0 1rem 0 0;
-        }
-
-        .summary {
-            width: 28%;
-        }
+    .container-fluid {
+        margin-top: 70px
     }
 
-    @media screen and (max-width: 960px) {
-        main {
-            width: 100%;
-        }
-
-        .product-details {
-            padding: 0 1rem;
-        }
+    .card-body {
+        -ms-flex: 1 1 auto;
+        flex: 1 1 auto;
+        padding: 1.40rem
     }
 
+    .img-sm {
+        width: 80px;
+        height: 80px
+    }
 
-</style>
+    .itemside .info {
+        padding-left: 15px;
+        padding-right: 7px
+    }
+
+    .table-shopping-cart .price-wrap {
+        line-height: 1.2
+    }
+
+    .table-shopping-cart .price {
+        font-weight: bold;
+        margin-right: 5px;
+        display: block
+    }
+
+    .text-muted {
+        color: #969696 !important
+    }
+
+    a {
+        text-decoration: none !important
+    }
+
+    .card {
+        position: relative;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgba(0, 0, 0, .125);
+        border-radius: 0px
+    }
+
+    .itemside {
+        position: relative;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        width: 100%
+    }
+
+    .dlist-align {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex
+    }
+
+    [class*="dlist-"] {
+        margin-bottom: 5px
+    }
+
+    .coupon {
+        border-radius: 1px
+    }
+
+    .price {
+        font-weight: 600;
+        color: #212529
+    }
+
+    .btn.btn-out {
+        outline: 1px solid #fff;
+        outline-offset: -5px
+    }
+
+    .btn-main {
+        border-radius: 2px;
+        text-transform: capitalize;
+        font-size: 15px;
+        padding: 10px 19px;
+        cursor: pointer;
+        color: #fff;
+        width: 100%
+    }
+
+    .btn-light {
+        color: #ffffff;
+        background-color: #F44336;
+        border-color: #f8f9fa;
+        font-size: 12px
+    }
+
+    .btn-light:hover {
+        color: #ffffff;
+        background-color: #F44336;
+        border-color: #F44336
+    }
+
+    .btn-apply {
+        font-size: 11px
+    }
+    </style>
+</head>
+
 <body>
-<main>
     <?php
-    include "header.php";
+    include 'header.php';
     ?>
     <br>
     <br>
     <br>
-    <div class="basket">
+    <br>
 
-        <div class="basket-labels">
-            <ul>
-                <li class="item item-heading">Item</li>
-                <li class="price">Price</li>
-                <li class="quantity">Quantity</li>
-                <li class="subtotal">Subtotal</li>
-            </ul>
-        </div>
-        <div class="basket-product">
-            <div class="item">
-                <div class="product-image">
-                    <img src="http://placehold.it/120x166" alt="Placholder Image 2" class="product-frame">
+
+    <div class="container">
+        <div class="row " style="margin: 20px 0px;">
+            <aside class="col-lg-9">
+                <div id="shopping-cart">
+
+                    <div class="txt-heading">Shopping Cart</div>
+
+
+                    <?php
+                    if (isset($_SESSION["cart_item"])) {
+                        $total_quantity = 0;
+                        $total_price = 0;
+                    ?>
+
+                    <table class="tbl-cart" cellpadding="10" cellspacing="1">
+                        <tbody>
+                            <tr>
+                                <a id="btnEmpty" href="cart.php?action=empty">Empty Cart</a>
+                                <th style="text-align:left;" width="20%">Name</th>
+                                <th style=" text-align:left;">Description</th>
+                                <th style="text-align:right;" width="5%">Quantity</th>
+                                <th style="text-align:right;" width="15%">Unit Price</th>
+                                <th style="text-align:right;" width="15%">Price</th>
+                                <th style="text-align:center;" width="5%">Remove</th>
+                            </tr>
+                            <?php
+                                $_SESSION["cart_item"];
+                                foreach ($_SESSION["cart_item"] as $item) {
+                                    $item_price = $item["quantity"] * $item["price"];
+
+                                ?>
+                            <tr>
+                                <td><img src="<?php echo $item["image"]; ?>"
+                                        class="cart-item-image" /><?php echo $item["name"]; ?></td>
+                                <td><?php echo $item["descc"]; ?></td>
+                                <td style="text-align:right;"><?php echo $item["quantity"]; ?></td>
+                                <td style="text-align:right;"><?php echo "$ " . $item["price"]; ?></td>
+                                <td style="text-align:right;"><?php echo "$ " . number_format($item_price, 2); ?></td>
+                                <td style="text-align:center;"><a
+                                        href="cart.php?action=remove&id=<?php echo $item["id"]; ?>"
+                                        class="btnRemoveAction"><img src="assets\images\icon-delete.png"
+                                            alt="Remove Item" /></a></td>
+                            </tr>
+                            <?php
+                                    $total_quantity += $item["quantity"];
+                                    $total_price += ($item["price"] * $item["quantity"]);
+                                }
+                                ?>
+
+
+                        </tbody>
+                    </table>
                 </div>
-                <div class="product-details">
-                    <h1><strong><span class="item-quantity">4</span> x Eliza J</strong> Lace Sleeve Cuff Dress</h1>
-                    <p><strong>Navy, Size 18</strong></p>
-                    <p>Product Code - 232321939</p>
-                </div>
-            </div>
-            <div class="price">26.00</div>
-            <div class="quantity">
-                <input type="number" value="4" min="1" class="quantity-field">
-            </div>
-            <div class="subtotal">104.00</div>
-            <div class="remove">
-                <button>Remove</button>
-            </div>
-        </div>
-        <div class="basket-product">
-            <div class="item">
-                <div class="product-image">
-                    <img src="http://placehold.it/120x166" alt="Placholder Image 2" class="product-frame">
-                </div>
-                <div class="product-details">
-                    <h1><strong><span class="item-quantity">1</span> x Whistles</strong> Amella Lace Midi Dress</h1>
-                    <p><strong>Navy, Size 10</strong></p>
-                    <p>Product Code - 232321939</p>
-                </div>
-            </div>
-            <div class="price">26.00</div>
-            <div class="quantity">
-                <input type="number" value="1" min="1" class="quantity-field">
-            </div>
-            <div class="subtotal">26.00</div>
-            <div class="remove">
-                <button>Remove</button>
-            </div>
-        </div>
-    </div>
-    <aside>
-        <div class="summary">
-            <div class="summary-total-items"><span class="total-items"></span> Items in your Bag</div>
-            <div class="summary-subtotal">
-                <div class="subtotal-title">Subtotal</div>
-                <div class="subtotal-value final-value" id="basket-subtotal">130.00</div>
-                <div class="summary-promo hide">
-                    <div class="promo-title">Promotion</div>
-                    <div class="promo-value final-value" id="basket-promo"></div>
-                </div>
-            </div>
-            <div class="summary-delivery">
-                <select name="delivery-collection" class="summary-delivery-selection">
-                    <option value="0" selected="selected">Select Collection or Delivery</option>
-                    <option value="collection">Collection</option>
-                    <option value="first-class">Royal Mail 1st Class</option>
-                    <option value="second-class">Royal Mail 2nd Class</option>
-                    <option value="signed-for">Royal Mail Special Delivery</option>
-                </select>
-            </div>
-            <div class="summary-total">
-                <div class="total-title">Total</div>
-                <div class="total-value final-value" id="basket-total">130.00</div>
-            </div>
-            <div class="summary-checkout">
-                <button class="checkout-cta">Go to Secure Checkout</button>
-            </div>
-        </div>
-    </aside>
-</main>
-<!-- footer 14 -->
-<div class="w3l-footer-main">
-    <div class="w3l-sub-footer-content">
-        <!-- Footers-14 -->
-        <footer class="footer-14">
-            <div id="footers14-block">
-                <div class="container">
-                    <div class="footers20-content">
-                        <div class="d-grid grid-col-4 grids-content">
-                            <div class="column">
-                                <h4>Our Address</h4>
-                                <p>MSU Polytechnic,Pandya Bridge,Sayaji Gunj,vadodara</p>
-                            </div>
-                            <div class="column">
-                                <h4>Call Us</h4>
-                                <p>Mon - Fri 10:30 -18:00</p>
-                                <p><a href="tel:+916351301322">6351301322</a></p>
-                            </div>
-                            <div class="column">
-                                <h4>Mail Us</h4>
-                                <p><a href="mailto:info@example.com">umang.kalavadiya@gmail.com</a></p>
-                                <p><a href="mailto:no.reply@example.com">Salatd0852@gmail.com</a></p>
-                                <p><a href="mailto:no.reply@example.com">ajay.rathod0801@gmail.com</a></p>
-                            </div>
-                            <div class="column">
-                                <h4>Follow Us On</h4>
-                                <ul>
-                                    <li><a href="#facebook"><span class="fa fa-facebook"
-                                                                  aria-hidden="true"></span></a>
-                                    </li>
-                                    <li><a href="#linkedin"><span class="fa fa-linkedin"
-                                                                  aria-hidden="true"></span></a>
-                                    </li>
-                                    <li><a href="#twitter"><span class="fa fa-twitter"
-                                                                 aria-hidden="true"></span></a>
-                                    </li>
-                                    <li><a href="#google"><span class="fa fa-google-plus"
-                                                                aria-hidden="true"></span></a>
-                                    </li>
-                                    <li><a href="https://github.com/valentinos2077"><span class="fa fa-github" aria-hidden="true"></span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+            </aside>
+            <aside class="col-lg-3">
+
+                <div class="card">
+                    <div class="card-body">
+                        <dl class="dlist-align">
+                            <dt>Total Product:</dt>
+                            <dd class="text-right ml-3"><?php echo $total_quantity; ?></dd>
+                        </dl>
+                        <dl class="dlist-align">
+                            <dt>Discount:</dt>
+                            <dd class="text-right text-danger ml-3">- $0.00</dd>
+                        </dl>
+                        <dl class="dlist-align">
+                            <dt>Fees:</dt>
+                            <dd class="text-right text-dark ml-3"><?php $tax = (0.02 * $total_price) + 3;
+                                                                    echo number_format($tax, 2); ?></dd>
+                        </dl>
+                        <dl class="dlist-align">
+                            <dt>GST:</dt>
+                            <dd class="text-right text-dark ml-3"><?php $gst = 0.18 * $tax;
+                                                                    echo number_format($gst, 2); ?></dd>
+                        </dl>
+                        <dl class="dlist-align">
+                            <dt>Total:</dt>
+                            <dd class="text-right text-dark b ml-3">
+                                <strong><?php echo "$ " . number_format($total_price + $tax + $gst, 2); ?></strong>
+                            </dd>
+                        </dl>
+                        <hr>
+                        <?php
+                        $price = number_format($total_price + $tax + $gst, 2);
+                        ?>
+                        <form action="pay.php" method="post">
+                            <input type="hidden" name="price" value="<?php echo $price; ?>">
+
+                            <input type="submit" name="pay" class="btn btn-out btn-primary btn-square btn-main"
+                                data-abc="true">
+                        </form>
+                        <a href="product.php" class="btn btn-out btn-success btn-square btn-main mt-2"
+                            data-abc="true">Continue
+                            Shopping</a>
                     </div>
-
                 </div>
-            </div>
-            <!-- move top -->
-            <button onclick="topFunction()" id="movetop" title="Go to top">
-                &uarr;
-            </button>
-            <script>
-                // When the user scrolls down 20px from the top of the document, show the button
-                window.onscroll = function () {
-                    scrollFunction()
-                };
+            </aside>
+            </row>
 
-                function scrollFunction() {
-                    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                        document.getElementById("movetop").style.display = "block";
+            <?php
                     } else {
-                        document.getElementById("movetop").style.display = "none";
+        ?>
+            <div class="no-records ">Your Cart is Empty</div>
+            </aside>
+            <aside class="col-lg-3">
+
+                <div class="card">
+                    <div class="card-body">
+                        <dl class="dlist-align">
+                            <dt>Total price:</dt>
+                            <dd class="text-right ml-3"></dd>
+                        </dl>
+                        <dl class="dlist-align">
+                            <dt>Discount:</dt>
+                            <dd class="text-right text-danger ml-3"></dd>
+                        </dl>
+                        <dl class="dlist-align">
+                            <dt>Total:</dt>
+                            <dd class="text-right text-dark b ml-3"><strong></strong></dd>
+                        </dl>
+                        <hr> <a href="#" class="btn btn-out btn-primary btn-square btn-main" data-abc="true"
+                            disabled="true">
+                            Make
+                            Purchase
+                        </a> <a href="product.php" class="btn btn-out btn-success btn-square btn-main mt-2"
+                            data-abc="true">Continue
+                            Shopping</a>
+                    </div>
+                </div>
+            </aside>
+            <?php
                     }
-                }
-
-                // When the user clicks on the button, scroll to the top of the document
-                function topFunction() {
-                    document.body.scrollTop = 0;
-                    document.documentElement.scrollTop = 0;
-                }
-            </script>
-            <!-- /move top -->
-
-        </footer>
-        <!-- Footers-14 -->
+        ?>
+        </div>
     </div>
-</div>
-<!-- //footer 14 -->
-<script>
-    HTML
-    CSS
-    JSResult
-    Skip
-    Results
-    Iframe
-    EDIT
-    ON
-    /* Set values + misc */
-    var promoCode;
-    var promoPrice;
-    var fadeTime = 300;
-
-    /* Assign actions */
-    $('.quantity input').change(function () {
-        updateQuantity(this);
-    });
-
-    $('.remove button').click(function () {
-        removeItem(this);
-    });
-
-    $(document).ready(function () {
-        updateSumItems();
-    });
-
-    $('.promo-code-cta').click(function () {
-
-        promoCode = $('#promo-code').val();
-
-        if (promoCode == '10off' || promoCode == '10OFF') {
-            //If promoPrice has no value, set it as 10 for the 10OFF promocode
-            if (!promoPrice) {
-                promoPrice = 10;
-            } else if (promoCode) {
-                promoPrice = promoPrice * 1;
-            }
-        } else if (promoCode != '') {
-            alert("Invalid Promo Code");
-            promoPrice = 0;
-        }
-        //If there is a promoPrice that has been set (it means there is a valid promoCode input) show promo
-        if (promoPrice) {
-            $('.summary-promo').removeClass('hide');
-            $('.promo-value').text(promoPrice.toFixed(2));
-            recalculateCart(true);
-        }
-    });
-
-    /* Recalculate cart */
-    function recalculateCart(onlyTotal) {
-        var subtotal = 0;
-
-        /* Sum up row totals */
-        $('.basket-product').each(function () {
-            subtotal += parseFloat($(this).children('.subtotal').text());
-        });
-
-        /* Calculate totals */
-        var total = subtotal;
-
-        //If there is a valid promoCode, and subtotal < 10 subtract from total
-        var promoPrice = parseFloat($('.promo-value').text());
-        if (promoPrice) {
-            if (subtotal >= 10) {
-                total -= promoPrice;
-            } else {
-                alert('Order must be more than £10 for Promo code to apply.');
-                $('.summary-promo').addClass('hide');
-            }
-        }
-
-        /*If switch for update only total, update only total display*/
-        if (onlyTotal) {
-            /* Update total display */
-            $('.total-value').fadeOut(fadeTime, function () {
-                $('#basket-total').html(total.toFixed(2));
-                $('.total-value').fadeIn(fadeTime);
-            });
-        } else {
-            /* Update summary display. */
-            $('.final-value').fadeOut(fadeTime, function () {
-                $('#basket-subtotal').html(subtotal.toFixed(2));
-                $('#basket-total').html(total.toFixed(2));
-                if (total == 0) {
-                    $('.checkout-cta').fadeOut(fadeTime);
-                } else {
-                    $('.checkout-cta').fadeIn(fadeTime);
-                }
-                $('.final-value').fadeIn(fadeTime);
-            });
-        }
-    }
-
-    /* Update quantity */
-    function updateQuantity(quantityInput) {
-        /* Calculate line price */
-        var productRow = $(quantityInput).parent().parent();
-        var price = parseFloat(productRow.children('.price').text());
-        var quantity = $(quantityInput).val();
-        var linePrice = price * quantity;
-
-        /* Update line price display and recalc cart totals */
-        productRow.children('.subtotal').each(function () {
-            $(this).fadeOut(fadeTime, function () {
-                $(this).text(linePrice.toFixed(2));
-                recalculateCart();
-                $(this).fadeIn(fadeTime);
-            });
-        });
-
-        productRow.find('.item-quantity').text(quantity);
-        updateSumItems();
-    }
-
-    function updateSumItems() {
-        var sumItems = 0;
-        $('.quantity input').each(function () {
-            sumItems += parseInt($(this).val());
-        });
-        $('.total-items').text(sumItems);
-    }
-
-    /* Remove item from cart */
-    function removeItem(removeButton) {
-        /* Remove row from DOM and recalc cart total */
-        var productRow = $(removeButton).parent().parent();
-        productRow.slideUp(fadeTime, function () {
-            productRow.remove();
-            recalculateCart();
-            updateSumItems();
-        });
-    }
-</script>
+    <div class="sticky">
+        <?php
+        include 'footer.php';
+        ?>
+    </div>
 </body>
 
 </html>
-
-
-

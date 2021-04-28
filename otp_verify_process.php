@@ -3,6 +3,9 @@
 require 'includes/config.inc.php';
 include 'forum/partials/_functions.php';
 session_start();
+if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+    header("location: e404.php");
+}
 
 //Data Fetch
 $otp = $_SESSION["OTP"];

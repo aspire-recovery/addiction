@@ -86,7 +86,7 @@
                         <h3 style="color:black; margin-bottom: 20px">ARE YOU?</h3>
                         <div class="">
                             <a href="../register.php">
-                                <img alt="user icon" class="profile_icons" src="assets/images/userp.svg" width="100"
+                                <img alt="user icon" class="profile_icons" src="../assets/images/userp.svg" width="100"
                                     height="100">
                             </a>
                             <a href="registration.php">

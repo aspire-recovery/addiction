@@ -69,6 +69,16 @@ include 'leftmenu.php';
                 <div class="panel-heading">Add Products</div>
                 <div class="panel-body">
                     <div class="col-md-12">
+                        <?php
+
+                        if (isset($_GET['error']) && $_GET['error'] == true && isset($_SESSION['error'])) {
+                
+                            echo ' <div class="alert alert-primary">
+                ' . $_SESSION['error'] . '
+                </div>';
+                            unset($_SESSION['error']);
+                        }
+                        ?>
                         <form class="form-group" action="product_process.php" method="post"
                               enctype="multipart/form-data">
                             <div class="form-group">

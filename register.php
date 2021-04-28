@@ -1,6 +1,7 @@
 <?php
 //Imports
 require 'includes/config.inc.php';
+session_start();
 ?>
 <!doctype html>
 <html lang="en">
@@ -100,35 +101,6 @@ require 'includes/config.inc.php';
                     </div>';
                             }
                             ?>
-
-
-                        <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
-                            <input type="text" name="name" id="" placeholder="Name" required="">
-                        </div>
-                        <br>
-                        <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
-                            <input type="email" name="email" id="" placeholder="Email" required="">
-                        </div>
-                        <br>
-                        <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
-                            <input type="password" name="password" id="" placeholder="Password" required="">
-                        </div>
-                        <br>
-                        <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
-                            <input type="number" name="phone" id="" placeholder="Contact No." required="">
-                        </div>
-                        <br>
-                        <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
-                            <select name="gender" class="form-control" style="margin-top: 10px">
-                                <option style="width: 40%" value="">Select Gender...</option>
-                                <option style="width: 40%" value="male">Male</option>
-                                <option style="width: 40%" value="female">Female</option>
-                                <option style="width: 40%" value="others">Others</option>
-                            </select>
-                        </div>
-                        <br>
-                        <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
-                            <select name="addiction" class="form-control" style="margin-top: 10px">
 
                         <form action="register_process.php" method="post" class="text-right" style="width: 70%">
 

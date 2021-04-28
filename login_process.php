@@ -2,6 +2,9 @@
 // Imports
 require 'includes/config.inc.php';
 session_start();
+if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+    header("location: e404.php");
+}
 
 if (isset($_POST['submit'])) {
     //Data Fetch

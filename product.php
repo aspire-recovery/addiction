@@ -2,6 +2,11 @@
 //Imports
 require 'includes/config.inc.php';
 session_start();
+
+if (!isset($_SESSION['loggedin'])){
+    header('Location: login.php?login=true');
+
+}
 include "header.php";
 ?>
 <!doctype html>
@@ -14,9 +19,10 @@ include "header.php";
     <title>Aspire recovery</title>
 
     <link href="//fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <!-- Template CSS -->
+   
     <link rel="stylesheet" href="psychatrist/assets/css/style-starter.css">
     <link rel="stylesheet" href="assets/css/style-starter.css">
     <!--    <style>-->
@@ -103,14 +109,15 @@ include "header.php";
     <!--            border-bottom-right-radius: 20px;-->
     <!--        }-->
     <!--    </style>-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<section class="w3-services-ab py-5" id="mission" style="margin-top: 55px">
-    <div class="container py-lg-5 py-md-4">
-        <h3 class="title-big text-center mb-5">Recovery Aids</h3>
+<section class="w3-services-ab " id="mission" style="margin-top: 55px">
+    <div class="container  py-md-4">
+        <h3 class="title-big text-center mt-5">Recovery Aids</h3>
         <div class="w3-services-grids">
             <div class="fea-gd-vv row">
-                <div class="container mb-5 mt-5">
+                <div class="container mb-5 ">
                     <div class="container" id="container">
                         <!-- end row -->
             
