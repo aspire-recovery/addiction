@@ -157,7 +157,7 @@
              <div class="row align-items-center">
                  <div class="main-midd col-lg-9">
                      <h3 class="title-big">Facts about Aspire Recovery Charity</h3>
-                     <p class="mt-3">he cost of addiction treatment can be a serious barrier—and another reason why so many people turn to crowdfunding to raise money for addiction treatment. The process is easier than you think. Creating a fundraiser not only makes it possible to raise funds quickly, but it also helps you build an emotional support network, bringing your friends and family along on the journey of recovery.</p>
+                     <p class="mt-3">The cost of addiction treatment can be a serious barrier—and another reason why so many people turn to crowdfunding to raise money for addiction treatment. The process is easier than you think. Creating a fundraiser not only makes it possible to raise funds quickly, but it also helps you build an emotional support network, bringing your friends and family along on the journey of recovery.</p>
                  </div>
                  <div class="main-midd-2 col-lg-3 mt-lg-0 mt-4 text-lg-right">
                      <a class="btn btn-style btn-primary" href="#donate"><span class="fa fa-heart mr-1"></span> Donate
@@ -180,7 +180,7 @@
 <!--/team-sec-->
 <section class="team section">
     <div class="container">
-        <h1 class="section-title">Our Team Section</h1>
+        <h1 class="section-title">Our Team</h1>
         <div class="row">
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="team-item">

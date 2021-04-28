@@ -132,7 +132,7 @@ include "header.php";
         </div>
         <div class="col-md-8">
             <div class="card-body">
-                <5 class="card-title">Nicotine5>
+                <h5 class="card-title">Nicotine</h5>
                 <p class="card-text">Nicotine is a highly addictive chemical found in the tobacco plant. The addiction
                     is physical, meaning habitual users come to crave the chemical, and also mental, meaning users
                     consciously desire nicotine’s effects. Nicotine addiction is also behavioral.</p>

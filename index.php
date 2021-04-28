@@ -342,7 +342,7 @@ include "header.php";
             <div class="col-lg-3 col-md-6">
                 <div class="card text-center">
                     <div class="icon-holder">
-                        <span class="fa fa-signal service-icon" aria-hidden="true"></span>K
+                        <span class="fa fa-signal service-icon" aria-hidden="true"></span>
                     </div>
                     <h4 class="mission">ALCOHOLISM</h4>
                     <div class="open-description">

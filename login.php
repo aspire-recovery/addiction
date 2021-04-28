@@ -84,7 +84,7 @@ include "header.php";
                         <br>
                         <br>
                         <br>
-                        <a href=" reset-password.php" class="badge badge-warning"
+                        <a href="reset-password.php" class="badge badge-warning"
                            style="float: left;padding:  10px;margin-top: 10px;margin-left: 20px;">Forgot Password
                             ?</a>
                     </form>
