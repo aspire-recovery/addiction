@@ -63,10 +63,23 @@ include "header.php";
                                    <br>
 
                                    <div class="alert alert-primary">
-                                    Password ResetSucess
+                                    Password Reset Sucessfully!
                                    </div>
                                  ';
-                    } ?>
+                    } 
+                    if (isset($_GET['login'])){
+                        echo ' <h3 class="title-big" style=" margin-bottom:25px;">
+                            Forbidden!!!
+                            </h3>
+                            <br>
+                            <br>
+
+                            <div class="alert alert-primary">
+                            You Must be Logged in to use this Feature. 
+                            </div>';
+
+                    }
+                    ?>
                     <form action="login_process.php" method="post" class="text-right" style="width: 70%">
                         <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
                             <input type="email" name="email" id="" placeholder="Email" required="">

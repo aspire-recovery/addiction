@@ -1,7 +1,10 @@
 <?php
 // Imports
-require 'config.php';
+require 'includes/config.inc.php';
 session_start();
+if ($_SERVER['REQUEST_METHOD'] != 'POST') {
+    header("location: e404.php");
+}
 //Data Fetch
 $name = $_POST['name'];
 $email = $_POST['email'];
@@ -23,17 +26,17 @@ if ($row > 0) {
 
     // OTP Generation
     $otp = rand(000000, 999999);
-    echo $_SESSION["OTP"] = $otp;
-    echo $_SESSION["name"] = $name;
-    echo $_SESSION["email"] = $email;
-    echo $_SESSION["password"] = $password;
-    echo $_SESSION["phone"] = $phone;
-    echo $_SESSION["gender"] = $gender;
-    echo $_SESSION["addiction"] = $addiction;
-    echo $_SESSION["loggedin"] = true;
+    $_SESSION["OTP"] = $otp;
+    $_SESSION["name"] = $name;
+    $_SESSION["email"] = $email;
+    $_SESSION["password"] = $password;
+    $_SESSION["phone"] = $phone;
+    $_SESSION["gender"] = $gender;
+    $_SESSION["addiction"] = $addiction;
+    $_SESSION["loggedin"] = true;
 
     // Sending Otp Through Mail
-    require 'emailconfig.php';
+    require 'includes/emailconfig.inc.php';
 
     $mail->addAddress($email, 'Person Name'); // Add a recipient
 
@@ -46,11 +49,10 @@ if ($row > 0) {
 
     if ($mail->send()) {
 
-        echo 'Success.';
         echo '<script>window.location.href="verify_otp.php"</script>';
     } else {
 
-        echo 'Message could not be sent.';
+
         echo 'Mailer Error: ' . $mail->ErrorInfo;
         echo '<script>window.location.href="register.php"</script>';
     }

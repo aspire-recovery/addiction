@@ -44,7 +44,7 @@
     <?php
 
 require 'partials/_header.php';
-require '../config.php';
+require '../includes/config.inc.php';
 include 'partials/_functions.php';
 ?>
 

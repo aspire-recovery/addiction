@@ -24,7 +24,7 @@
 <?php
 include "header.php";
 
-require "config.php";
+require "includes/config.inc.php";
 if ($_SESSION['loggedin'] == true) {
     echo '<script>window.location.href="index.php";</script>';
     exit();

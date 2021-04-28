@@ -1,38 +1,39 @@
  <?php
-// Imports
-require 'config.php';
-session_start();
+    // Imports
+    require '../includes/config.inc.php';
+    session_start();
 
-if (isset($_POST['submit'])) {
-//Data Fetch
-    $email = $_POST['email'];
-    $password = $_POST['password'];
 
-    echo $email, $password;
+    if (isset($_POST['psubmit'])) {
+        //Data Fetch
+        $email = $_POST['mail'];
+        $password = $_POST['ppassword'];
+        $encrypted_pass = md5($password);
 
-//Query
-    $login_sql = "SELECT * FROM `physcho` WHERE psy_email='$email' AND psy_password'$password'";
-    echo $login_sql;
 
-    $result = $conn->query($login_sql);
+        //Query
+        $login_sql = "SELECT * FROM `physcho` WHERE psy_email='$email' AND psy_password='$encrypted_pass'";
 
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-            $u_id = $row['u_id'];
-            $u_email = $row['u_email'];
-            $u_name = $row['u_name'];
+        $result = $conn->query($login_sql);
+
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $psy_id = $row['psy_id'];
+                $psy_email = $row['psy_email'];
+                $psy_name = $row['psy_name'];
+                $psy_profile = $row['psy_profile'];
+                $_SESSION['p_id'] = $psy_id;
+                $_SESSION['p_email'] = $psy_email;
+                $_SESSION['p_name'] = $psy_name;
+                $_SESSION['p_profile'] = $psy_profile;
+                $_SESSION['ploggedin'] = true;
+            }
+
+
+            echo '<script>window.location.href="index.php";</script>';
+        } else {
+            $error_detail = "Incorrect Credentials";
+            echo '<script>window.location.href="login.php?error=true";</script>';
         }
-
-        $_SESSION['u_id'] = $u_id;
-        $_SESSION['u_email'] = $u_email;
-        $_SESSION['u_name'] = $u_name;
-
-        echo '<script>window.location.href="login.php";</script>';
-
-    } else {
-        echo '<script>alert("Invalid Email and Password");</script>';
-        echo '<script>window.location.href="index.php";</script>';
     }
-}
-?>
-

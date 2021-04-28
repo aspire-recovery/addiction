@@ -1,7 +1,7 @@
 <?php
 //Import
 session_start();
-require 'config.php';
+require '../includes/config.inc.php';
 //Block User
 if (isset($_GET['block'])) {
     $u_id = $_GET['block'];

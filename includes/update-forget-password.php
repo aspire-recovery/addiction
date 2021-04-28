@@ -2,7 +2,7 @@
 $emailId = $_POST['email'];
 $token = $_POST['reset_link_token'];
 if ($_POST['password'] == $_POST['cpassword']) {
-    include "../config.php";
+    include "../includes/config.inc.php";
 
     $password = md5($_POST['password']);
     $query = mysqli_query($conn, "SELECT * FROM `pwd_reset` WHERE reset_link_token='" . $token . "' and reset_email='" . $emailId . "'");

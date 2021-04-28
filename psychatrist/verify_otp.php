@@ -1,6 +1,6 @@
 <?php
 //Imports
-require 'config.php';
+require '../includes/config.inc.php';
 session_start();
 ?>
 <!doctype html>
@@ -15,12 +15,12 @@ session_start();
     <link href="//fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Template CSS -->
-    <link rel="stylesheet" href="assets/css/style-starter.css">
+    <link rel="stylesheet" href="../assets/css/style-starter.css">
 </head>
 <body>
 <!--header-->
 <?php
-include "header.php";
+include "../header.php";
 ?>
 <!-- //header -->
 <div class="inner-banner">
@@ -157,10 +157,10 @@ include "header.php";
 </div>
 <!-- //footer 14 -->
 
-<script src="assets/js/jquery-3.3.1.min.js"></script> <!-- Common jquery plugin -->
+<script src="../assets/js/jquery-3.3.1.min.js"></script> <!-- Common jquery plugin -->
 
-<script src="assets/js/theme-change.js"></script><!-- theme switch js (light and dark)-->
-<script src="assets/js/owl.carousel.js"></script>
+<script src="../assets/js/theme-change.js"></script><!-- theme switch js (light and dark)-->
+<script src="../assets/js/owl.carousel.js"></script>
 
 <!-- script for banner slider-->
 <script>
@@ -261,7 +261,7 @@ include "header.php";
 <!-- //disable body scroll which navbar is in active -->
 
 <!--bootstrap-->
-<script src="assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
 <!-- //bootstrap-->
 </body>
 

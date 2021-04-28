@@ -18,7 +18,7 @@
     <!--/nav-->
     <nav class="navbar navbar-expand-lg navbar-light px-lg-0 py-0 px-3 stroke">
         <div class="container">
-            <a class="navbar-brand" href="index.php"><span>As</span>pire</a>
+            <a class="navbar-brand" href="../index.php"><span>As</span>pire</a>
             <!-- if logo is image enable this
                     <a class="navbar-brand" href="#index.php">
                         <img src="image-path" alt="Your logo" title="Your logo" style="height:35px;" />
@@ -33,7 +33,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mx-lg-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.php">Home</a>
+                        <a class="nav-link" href="../index.php">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">About</a>
@@ -50,7 +50,7 @@
                     </div>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
+                        <a class="nav-link" href="log.html">Contact</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="login.php">Login</a>

@@ -1,6 +1,7 @@
 <?php
 //Imports
-require 'config.php';
+require 'includes/config.inc.php';
+session_start();
 ?>
 <!doctype html>
 <html lang="en">
@@ -19,43 +20,60 @@ require 'config.php';
     <!-- Template CSS -->
     <link rel="stylesheet" href="assets/css/style-starter.css">
     <style>
-        /* Chrome, Safari, Edge, Opera */
-        input::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button {
-            -webkit-appearance: none;
-            margin: 0;
-        }
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
 
-        /* Firefox */
-        input[type=number] {
-            -moz-appearance: textfield;
-        }
-
+    /* Firefox */
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
     </style>
 </head>
 
 <body>
-<!--header-->
-<?php
-include "header.php";
-?>
-<!-- //header -->
-<div class="inner-banner" style="background-color: #269abc">
-    <section class="w3l-breadcrumb py-5">
-        <div class="container py-lg-5 py-md-3">
-            <center>
-                <h3 style="color:black; margin-bottom: 20px">ARE YOU?</h3>
-                <div class="">
-                    <a href="register.php">
-                        <img alt="user icon" class="profile_icons" src="../addiction/assets/images/userp.svg"
-                             width="100" height="100">
-                    </a>
-                    <a href="psychatrist/registration.php">
-                        <img style="margin-left: 20px" alt="psychaitrist icon" class="profile_icons"
-                             src="../addiction/assets/images/psychaitristp.svg" width="100" height="100">
-                    </a>
-                </div>
-            </center>
+    <!--header-->
+    <?php
+    include "header.php";
+    ?>
+    <!-- //header -->
+
+    <?php
+    if (!isset($_SESSION['ploggedin'])) {
+
+        if (isset($_SESSION['loggedin'])) {
+            echo '<script>window.location.href="index.php"</script>';
+        } else {
+    ?>
+
+    <div class="inner-banner" style="background-color: #269abc">
+        <section class="w3l-breadcrumb py-5">
+            <div class="container py-lg-5 py-md-3">
+                <center>
+                    <h3 style="color:black; margin-bottom: 20px">ARE YOU?</h3>
+                    <div class="">
+                        <a href="register.php">
+                            <img alt="user icon" class="profile_icons" src="../addiction/assets/images/userp.svg"
+                                width="100" height="100">
+                        </a>
+                        <a href="psychatrist/registration.php">
+                            <img style="margin-left: 20px" alt="psychaitrist icon" class="profile_icons"
+                                src="../addiction/assets/images/psychaitristp.svg" width="100" height="100">
+                        </a>
+                    </div>
+                </center>
+            </div>
+        </section>
+    </div>
+    <!-- banner bottom shape -->
+    <div class="position-relative">
+        <div class="shape overflow-hidden">
+            <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+            </svg>
         </div>
     </section>
 </div>
@@ -75,123 +93,143 @@ include "header.php";
             <div class="row map-content-9">
                 <?php
 
-                if (isset($_GET['exist']) && $_GET['exist'] == true) {
+                            if (isset($_GET['exist']) && $_GET['exist'] == true) {
 
-                    echo ' <div class="alert alert-primary" style="left: 20px;">
+                                echo ' <div class="alert alert-primary" style="left: 20px;">
                         Email Already Exist!
                        
                     </div>';
-                }
-                ?>
+                            }
+                            ?>
 
-                <div class="col-lg-8">
-                    <h3 class="title-big">Register</h3>
-                    <br>
-
-                    <form action="register_process.php" method="post" class="text-right" style="width: 70%">
+                        <form action="register_process.php" method="post" class="text-right" style="width: 70%">
 
 
-                        <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
-                            <input type="text" name="name" id="" placeholder="Name" required="">
-                        </div>
-                        <br>
-                        <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
-                            <input type="email" name="email" id="" placeholder="Email" required="">
-                        </div>
-                        <br>
-                        <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
-                            <input type="password" name="password" id="" placeholder="Password" required="">
-                        </div>
-                        <br>
-                        <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
-                            <input type="number" name="phone" id="" placeholder="Contact No." required="">
-                        </div>
-                        <br>
-                        <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
-                            <select name="gender" class="form-control" style="margin-top: 10px">
-                                <option style="width: 40%" value="">Select Gender...</option>
-                                <option style="width: 40%" value="male">Male</option>
-                                <option style="width: 40%" value="female">Female</option>
-                                <option style="width: 40%" value="others">Others</option>
-                            </select>
-                        </div>
-                        <br>
-                        <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
-                            <select name="addiction" class="form-control" style="margin-top: 10px">
+                            <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
+                                <input type="text" name="name" id="" placeholder="Name" required="">
+                            </div>
+                            <br>
+                            <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
+                                <input type="email" name="email" id="" placeholder="Email" required="">
+                            </div>
+                            <br>
+                            <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
+                                <input type="password" name="password" id="" placeholder="Password" required="">
+                            </div>
+                            <br>
+                            <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
+                                <input type="number" name="phone" id="" placeholder="Contact No." required="">
+                            </div>
+                            <br>
+                            <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
+                                <select name="gender" class="form-control" style="margin-top: 10px">
+                                    <option style="width: 40%" value="">Select Gender...</option>
+                                    <option style="width: 40%" value="male">Male</option>
+                                    <option style="width: 40%" value="female">Female</option>
+                                    <option style="width: 40%" value="others">Others</option>
+                                </select>
+                            </div>
+                            <br>
+                            <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
+                                <select name="addiction" class="form-control" style="margin-top: 10px">
 
-                                <?php
-                                $addiction_sql = "SELECT add_id,add_name FROM `addiction_types`";
-                                $result = $conn->query($addiction_sql);
-                                if ($result->num_rows > 0) {
-                                    while ($row = $result->fetch_assoc()) {
-                                        echo '<option value="' . $row['add_id'] . '">' . $row['add_name'] . '</option>';
-                                    }
-                                }
-                                ?>
-                            </select>
-                        </div>
-                        <br>
+                                    <?php
+                                            $addiction_sql = "SELECT add_id,add_name FROM `addiction_types`";
+                                            $result = $conn->query($addiction_sql);
+                                            if ($result->num_rows > 0) {
+                                                while ($row = $result->fetch_assoc()) {
+                                                    echo '<option value="' . $row['add_id'] . '">' . $row['add_name'] . '</option>';
+                                                }
+                                            }
+                                            ?>
+                                </select>
+                            </div>
+                            <br>
 
-                        <button type="submit" class="btn btn-primary" name="submit"
+                            <button type="submit" class="btn btn-primary" name="submit"
                                 style="float: left;width: 30%;padding:  10px;margin-top: 10px;margin-left: 20px;">Create
-                            Account
-                        </button>
+                                Account
+                            </button>
 
-                        <a href="login.php" class="btn btn-primary"
-                           style="float: left;width: 30%;padding: 10px;margin-top: 10px;margin-left: 20px;">Login</a>
-                        <br>
-                        <br>
-                        <br>
-                    </form>
+                            <a href="login.php" class="btn btn-primary"
+                                style="float: left;width: 30%;padding: 10px;margin-top: 10px;margin-left: 20px;">Login</a>
+                            <br>
+                            <br>
+                            <br>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<!-- //contacts -->
-<!-- footer 14 -->
-<div class="w3l-footer-main">
-    <div class="w3l-sub-footer-content">
-        <!-- Footers-14 -->
-        <footer class="footer-14">
-            <div id="footers14-block">
-                <div class="container">
-                    <div class="footers20-content">
-                        <div class="d-grid grid-col-4 grids-content">
-                            <div class="column">
-                                <h4>Our Address</h4>
-                                <p>MSU Polytechnic,Pandya Bridge,Sayaji Gunj,vadodara</p>
-                            </div>
-                            <div class="column">
-                                <h4>Call Us</h4>
-                                <p>Mon - Fri 10:30 -18:00</p>
-                                <p><a href="tel:+916351301322">6351301322</a></p>
-                            </div>
-                            <div class="column">
-                                <h4>Mail Us</h4>
-                                <p><a href="mailto:info@example.com">umang.kalavadiya@gmail.com</a></p>
-                                <p><a href="mailto:no.reply@example.com">Salatd0852@gmail.com</a></p>
-                                <p><a href="mailto:no.reply@example.com">ajay.rathod0801@gmail.com</a></p>
-                            </div>
-                            <div class="column">
-                                <h4>Follow Us On</h4>
-                                <ul>
-                                    <li><a href="#facebook"><span class="fa fa-facebook"
-                                                                  aria-hidden="true"></span></a>
-                                    </li>
-                                    <li><a href="#linkedin"><span class="fa fa-linkedin"
-                                                                  aria-hidden="true"></span></a>
-                                    </li>
-                                    <li><a href="#twitter"><span class="fa fa-twitter"
-                                                                 aria-hidden="true"></span></a>
-                                    </li>
-                                    <li><a href="#google"><span class="fa fa-google-plus"
-                                                                aria-hidden="true"></span></a>
-                                    </li>
-                                    <li><a href="https://github.com/valentinos2077"><span class="fa fa-github"
-                                                                                          aria-hidden="true"></span></a>
-                                    </li>
-                                </ul>
+    </section>
+
+    <?php
+        }
+    } else {
+        echo '<section class="w3l-contact-main">
+        <div class="contact-infhny py-5">
+            <div class="container py-lg-5">
+                <div class="card bg-dark">
+                    <div class="card-header text-light" style="color:white;">
+                        ISSUE
+                    </div>
+                    <div class="card-body text-light" style="color:white;">
+                        <h5 class="card-title" style="color:white;">You Are Logged In as Psychiatrist!!!</h5>
+                        <p class="card-text" style="color:white;">With supporting text below as a natural lead-in to
+                            additional content.</p>
+                        <a href="psychatrist/logout.php" class="btn btn-danger bg-danger text-light">Logout</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>';
+    }
+    ?>
+    <!-- //contacts -->
+    <!-- footer 14 -->
+    <div class="w3l-footer-main">
+        <div class="w3l-sub-footer-content">
+            <!-- Footers-14 -->
+            <footer class="footer-14">
+                <div id="footers14-block">
+                    <div class="container">
+                        <div class="footers20-content">
+                            <div class="d-grid grid-col-4 grids-content">
+                                <div class="column">
+                                    <h4>Our Address</h4>
+                                    <p>MSU Polytechnic,Pandya Bridge,Sayaji Gunj,vadodara</p>
+                                </div>
+                                <div class="column">
+                                    <h4>Call Us</h4>
+                                    <p>Mon - Fri 10:30 -18:00</p>
+                                    <p><a href="tel:+916351301322">6351301322</a></p>
+                                </div>
+                                <div class="column">
+                                    <h4>Mail Us</h4>
+                                    <p><a href="mailto:info@example.com">umang.kalavadiya@gmail.com</a></p>
+                                    <p><a href="mailto:no.reply@example.com">Salatd0852@gmail.com</a></p>
+                                    <p><a href="mailto:no.reply@example.com">ajay.rathod0801@gmail.com</a></p>
+                                </div>
+                                <div class="column">
+                                    <h4>Follow Us On</h4>
+                                    <ul>
+                                        <li><a href="#facebook"><span class="fa fa-facebook"
+                                                                      aria-hidden="true"></span></a>
+                                        </li>
+                                        <li><a href="#linkedin"><span class="fa fa-linkedin"
+                                                                      aria-hidden="true"></span></a>
+                                        </li>
+                                        <li><a href="#twitter"><span class="fa fa-twitter"
+                                                                     aria-hidden="true"></span></a>
+                                        </li>
+                                        <li><a href="#google"><span class="fa fa-google-plus"
+                                                                    aria-hidden="true"></span></a>
+                                        </li>
+                                        <li><a href="https://github.com/valentinos2077"><span class="fa fa-github" aria-hidden="true"></span></a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -336,7 +374,9 @@ include "header.php";
 <!--bootstrap-->
 <script src="assets/js/bootstrap.min.js"></script>
 
-<!-- //bootstrap-->
+    <!--bootstrap-->
+ 
+
 </body>
 
 </html>

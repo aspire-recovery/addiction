@@ -1,6 +1,6 @@
 <?php
 if (isset($_POST['password-reset-token']) && $_POST['email']) {
-    require "../config.php";
+    require "../includes/config.inc.php";
 
     $emailId = $_POST['email'];
     $sql = "SELECT * FROM user WHERE u_email='" . $emailId . "'";
@@ -22,7 +22,7 @@ if (isset($_POST['password-reset-token']) && $_POST['email']) {
 
         $link = "<a href='http://localhost/addiction/reset-password.php?key=" . $emailId . "&token=" . $token . "'>Click To Reset password</a>";
 
-        require '../emailconfig.php';
+        require '../includes/emailconfig.inc.php';
 
         $mail->addAddress($emailId, 'Person Name'); // Add a recipient
         // $mail->addReplyTo('info@example.com', 'Information');

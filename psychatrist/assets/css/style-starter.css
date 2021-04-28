@@ -2365,6 +2365,8 @@ textarea.form-control {
 }
 
 .form-group {
+  display: flex;
+  justify-content: center;
   margin-bottom: 1rem;
 }
 
@@ -17280,7 +17282,7 @@ screen and (max-height: 300px) {
   font-size: 16px;
   padding: 14px 45px;
   color: #fff;
-  width: 100%;
+
   background: #400082;
   border-color: #400082;
   display: inline-block;

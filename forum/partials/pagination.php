@@ -1,5 +1,5 @@
 <?php
-require '../../config.php';
+require '../../includes/config.inc.php';
 include '_functions.php';
 session_start();
 
@@ -80,13 +80,20 @@ if (mysqli_num_rows($resulta) > 0) {
         $num = mysqli_num_rows($resultl);
 
         $rowl = mysqli_fetch_assoc($resultl);
-//        $l_date = date_create(date('Y-m-d', strtotime($rowl['created_at'])));
-//        $now = date_create(date('y-m-d'));
-//        $diff = date_diff($l_date, $now);
 
-        $output .= '<div class="posts__item ' . $color[$i] . '">
+        if ($rowl['created_at']) {
+            $l_date = date_create(date('Y-m-d', strtotime($rowl['created_at'])));
+            $now = date_create(date('y-m-d'));
+            $diff = date_diff($l_date, $now);
+
+            $output .= '<div class="posts__item ' . $color[$i] . '">
 <div class="posts__section-left"><div class="posts__topic"><div class="posts__content"><a href="topic.php?id=' . $thread_id . '&title=' . $thread_title . '"><h3>' . $thread_title . '</h3></a><div class="posts__tags tags"><a href="#"class="bg-' . $color_array[$j] . '">' . $tag[$x] . '</a><a href="#"class="bg-' . $color_array[$f] . '">' . $tag[$y] . '</a></div></div></div><div class="posts__category"><a href="forum.php?catid=' . $rowc['cat_id'] . '"class="category"><i class="bg-' . $color_array[$j] . '"></i>' . ucwords($c_name) . '</a></div></div><div class="posts__section-right"><div class="posts__users js-dropdown"><div><a href="#"class="avatar"><img src="fonts/icons/avatars/' . $logo . '.svg"alt="avatar"data-dropdown-btn="user-b"></a><div class="posts__users-dropdown dropdown dropdown--user dropdown--reverse-y"data-dropdown-list="user-b"><div class="dropdown__user"><a href="#"class="dropdown__user-label bg-' . $color_array[$f] . '">' . substr($logo, 0, 1) . '</a><div class="dropdown__user-nav"><a href="#"><i class="icon-Add_User"></i></a><a href="#"><i class="icon-Message"></i></a></div><div class="dropdown__user-info"><a href="#">' . $input . '</a><p>Last post 4 hours ago. Joined ' . $r_date . '</p></div><div class="dropdown__user-icons"><a href="#"><img src="fonts/icons/badges/Intermediate.svg"alt="user-icon"></a><a href="#"><img src="fonts/icons/badges/Bot.svg"alt="user-icon"></a><a href="#"><img src="fonts/icons/badges/Animal_Lover.svg"alt="user-icon"></a></div><div class="dropdown__user-statistic"><div>Threads - <span>1184</span></div><div>Posts - <span>5,
-        863</span></div></div></div></div></div></div><div class="posts__replies">' . $rowcount . '</div><div class="posts__views">14.5k</div><div class="posts__activity"></div></div></div>';
+        863</span></div></div></div></div></div></div><div class="posts__replies">' . $rowcount . '</div><div class="posts__views">14.5k</div><div class="posts__activity">' . $diff->format("%d days ago") . '</div></div></div>';
+        } else {
+            $output .= '<div class="posts__item ' . $color[$i] . '">
+            <div class="posts__section-left"><div class="posts__topic"><div class="posts__content"><a href="topic.php?id=' . $thread_id . '&title=' . $thread_title . '"><h3>' . $thread_title . '</h3></a><div class="posts__tags tags"><a href="#"class="bg-' . $color_array[$j] . '">' . $tag[$x] . '</a><a href="#"class="bg-' . $color_array[$f] . '">' . $tag[$y] . '</a></div></div></div><div class="posts__category"><a href="forum.php?catid=' . $rowc['cat_id'] . '"class="category"><i class="bg-' . $color_array[$j] . '"></i>' . ucwords($c_name) . '</a></div></div><div class="posts__section-right"><div class="posts__users js-dropdown"><div><a href="#"class="avatar"><img src="fonts/icons/avatars/' . $logo . '.svg"alt="avatar"data-dropdown-btn="user-b"></a><div class="posts__users-dropdown dropdown dropdown--user dropdown--reverse-y"data-dropdown-list="user-b"><div class="dropdown__user"><a href="#"class="dropdown__user-label bg-' . $color_array[$f] . '">' . substr($logo, 0, 1) . '</a><div class="dropdown__user-nav"><a href="#"><i class="icon-Add_User"></i></a><a href="#"><i class="icon-Message"></i></a></div><div class="dropdown__user-info"><a href="#">' . $input . '</a><p>Last post 4 hours ago. Joined ' . $r_date . '</p></div><div class="dropdown__user-icons"><a href="#"><img src="fonts/icons/badges/Intermediate.svg"alt="user-icon"></a><a href="#"><img src="fonts/icons/badges/Bot.svg"alt="user-icon"></a><a href="#"><img src="fonts/icons/badges/Animal_Lover.svg"alt="user-icon"></a></div><div class="dropdown__user-statistic"><div>Threads - <span>1184</span></div><div>Posts - <span>5,
+                    863</span></div></div></div></div></div></div><div class="posts__replies">' . $rowcount . '</div><div class="posts__views">14.5k</div><div class="posts__activity"> No Reply</div></div></div>';
+        }
 
         if ($i == 0 && $k == false) {
             $i = 1;
