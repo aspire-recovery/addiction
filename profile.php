@@ -5,7 +5,8 @@ if (!isset($_SESSION["u_id"])) {
     echo '<script>window.location.href="login.php"</script>';
     exit(0);
 }
-$uid = $_SESSION["u_id"];
+$uid = $_SESSION['u_id'];
+
 $user = "SELECT * FROM `user` JOIN addiction_types on addiction_types.add_id = user.addiction_id WHERE user.u_id='$uid'";
 
 $result = $conn->query($user);
@@ -20,6 +21,7 @@ if ($result->num_rows > 0) {
         $add_desp = $row['add_desp'];
         $u_status = $row['u_status'];
         $u_img    = $row['u_img'];
+        $_SESSION['u_img'] = $u_img;
     }
 }
 
@@ -227,7 +229,7 @@ if ($result->num_rows > 0) {
 
                         <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                             <h6 class="mb-0">
-                               <img src="assets/images/app.svg" height="24" width="24">
+                                <img src="assets/images/app.svg" height="24" width="24">
                                 <a href="appointment.php" class="text-dark">My Appointment</a>
                             </h6>
                             <span class="text-secondary">Details</span>
