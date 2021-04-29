@@ -43,7 +43,7 @@ include 'leftmenu.php';
             <li><a href="#">
                     <em class="fa fa-home"></em>
                 </a></li>
-            <li class="active">Patient Details</li>
+            <li class="active">Psychaitrist Details</li>
         </ol>
     </div><!--/.row-->
     <div class="row">
@@ -53,7 +53,7 @@ include 'leftmenu.php';
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
-                <div class="panel-heading">Patient Details</div>
+                <div class="panel-heading">Psychaitrist Details</div>
                 <table class="table">
                     <thead class="thead-dark">
                     <tr>

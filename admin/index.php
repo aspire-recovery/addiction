@@ -171,15 +171,7 @@ include 'leftmenu.php';
         </div>
     </div>
 
-    <div class="row" style="margin: 25px;">
-        <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://dashboard.tawk.to/#/dashboard/60197c22c31c9117cb75144b"
-                    allowfullscreen scrolling="false"></iframe>
-        </div>
-        <div class="col-sm-12" style="margin-top: 10px;">
-            <p class="back-link"><a href="#">ASPIRE RECOVERY</a></p>
-        </div>
-    </div><!--/.row-->
+
 </div>    <!--/.main-->
 
 <script src="js/jquery-1.11.1.min.js"></script>

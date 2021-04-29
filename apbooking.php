@@ -51,7 +51,9 @@ header('location: e404.php');
     <title>Aspire-Recovery Appointment-Bookinng</title>
     <style>
     @import url(//fonts.googleapis.com/css?family=Montserrat:400,500,700);
-
+    body{
+        background-color: coral;
+    }
     .banner3 {
         font-family: "Montserrat", sans-serif;
         color: #8d97ad;
@@ -172,7 +174,7 @@ if (isset($_GET["id"])) {
 }
 ?>
 
-<body>
+<body style="background-color: coral">
     <div class="banner3">
         <div class="py-5 banner"
             style="background-image:url(https://media.istockphoto.com/photos/beautiful-young-psychotherapist-picture-id667192570?b=1&k=6&m=667192570&s=170667a&w=0&h=fOhglzlv5hOrvy4uxVkmLqgTqfo9Ix8Aivn5Surj_LM=);">

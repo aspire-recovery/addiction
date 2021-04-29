@@ -5,7 +5,7 @@ session_start();
 
 $color = array("", "bg-f2f4f6", "posts__item--bg-gradient");
 $color_array = array("ff5200", "3b3663", "333333", "0a0a0a", "b9b9b9", "fe346e", "0d001a", "ffc107", "83253f", "c49bbb", "3ebafa", "c6b38e");
-$tag = array("Photo", "Cool", "Healthy", "Good", "Horror", "Amazing!", "Fabulous!");
+$tag = array("sad", "Cool", "Healthy", "Good", "Horror", "Amazing!", "Fabulous!");
 $x = rand(0, 6);
 
 //Pagination

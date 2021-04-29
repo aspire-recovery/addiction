@@ -29,6 +29,9 @@ $object = new Appointment;
     <!-- Custom styles for this page -->
     <link href="psychatrist/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <style>
+        body{
+            background-color: coral;
+        }
     .border-top {
         border-top: 1px solid #e5e5e5;
     }
@@ -44,6 +47,7 @@ $object = new Appointment;
     <title>Aspire-Recovery Appointment-Bookinng</title>
     <style>
     @import url(//fonts.googleapis.com/css?family=Montserrat:400,500,700);
+
 
     .banner3 {
         font-family: "Montserrat", sans-serif;

@@ -99,7 +99,7 @@ if (isset($_POST["action"])) {
 
 
     if ($_POST['action'] == 'make_appointment') {
-        $object->query = "SELECT * FROM user WHERE u_id = '" . $_SESSION["u_id"] . "'";
+        $object->query = "SELECT * FROM user WHERE u_id = '" . $_SESSION['u_id'] . "'";
 
         $patient_data = $object->get_result();
 

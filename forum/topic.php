@@ -54,51 +54,50 @@ session_start();
 
 <body>
     <!-- HEADER -->
-    <?php require 'partials/_header.php'; ?>
+    <?php require 'partials/_header.php';?>
 
     <!-- MAIN -->
     <main>
         <div class="container">
             <?php
-            require '../includes/config.inc.php';
-            include 'partials/_menu.php';
-            include 'partials/_functions.php';
-            $thread_id = $_GET['id'];
-            $sql = "SELECT * FROM `threads` WHERE thread_id='" . $thread_id . "'";
-            $result = mysqli_query($conn, $sql);
-            $row = mysqli_fetch_assoc($result);
-            $thread_user = $row['user_id'];
-            $cid = $row['c_id'];
-            $sqlu = "SELECT u_name FROM `user` where u_id='" . $thread_user . "'";
-            $resultu = mysqli_query($conn, $sqlu);
-            $rowu = mysqli_fetch_assoc($resultu);
-            $sqlc = "SELECT cat_name FROM `forum_categories` where cat_id='" . $cid . "'";
+require '../includes/config.inc.php';
+include 'partials/_menu.php';
+include 'partials/_functions.php';
+$thread_id = $_GET['id'];
+$sql = "SELECT * FROM `threads` WHERE thread_id='" . $thread_id . "'";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+$thread_user = $row['user_id'];
+$cid = $row['c_id'];
+$sqlu = "SELECT u_name FROM `user` where u_id='" . $thread_user . "'";
+$resultu = mysqli_query($conn, $sqlu);
+$rowu = mysqli_fetch_assoc($resultu);
+$sqlc = "SELECT cat_name FROM `forum_categories` where cat_id='" . $cid . "'";
 
-            $resultc = mysqli_query($conn, $sqlc);
-            $rowc = mysqli_fetch_assoc($resultc);
-            $input = $rowu['u_name'];
-            $c_date = date('Y-m-d', strtotime($row['created_at']));
-            $logo = userlogo($input);
-            $sqlr = "SELECT * FROM `forum_reply` where fu_id='" . $thread_id . "'";
-            $resultr = mysqli_query($conn, $sqlr);
-            $rowr = mysqli_fetch_assoc($resultr);
+$resultc = mysqli_query($conn, $sqlc);
+$rowc = mysqli_fetch_assoc($resultc);
+$input = $rowu['u_name'];
+$c_date = date('Y-m-d', strtotime($row['created_at']));
+$logo = userlogo($input);
+$sqlr = "SELECT * FROM `forum_reply` where fu_id='" . $thread_id . "'";
+$resultr = mysqli_query($conn, $sqlr);
+$rowr = mysqli_fetch_assoc($resultr);
 
-            $sql_last = "SELECT created_at FROM `forum_reply` WHERE fu_id=$thread_id ORDER BY `forum_reply`.`created_at` DESC LIMIT 1";
-            $resultl = mysqli_query($conn, $sql_last);
-            $rowl = mysqli_fetch_assoc($resultl);
-            if ($rowl > 0) {
-                $l_date = date_create(date('Y-m-d', strtotime($rowl['created_at'])));
-                $now = date_create(date('y-m-d'));
-                $diff = date_diff($l_date, $now);
-                $d = true;
-            }
-            $rowcount = mysqli_num_rows($resultr);
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                $user_id = $_SESSION['u_id'];
-                $sqli = "INSERT INTO `forum_reply` (`fu_id`, `u_id`, `message`) VALUES ('" . $thread_id . "', '" . $user_id . "', '" . $_POST['description'] . "');";
-                $resulti = mysqli_query($conn, $sqli);
-            }
-            echo '<div class="topics" style="flex-basis:100%">
+$sql_last = "SELECT created_at FROM `forum_reply` WHERE fu_id=$thread_id ORDER BY `forum_reply`.`created_at` DESC LIMIT 1";
+$resultl = mysqli_query($conn, $sql_last);
+$rowl = mysqli_fetch_assoc($resultl);
+$l_date = date_create(date('Y-m-d', strtotime($rowl['created_at'])));
+$now = date_create(date('y-m-d'));
+$diff = date_diff($l_date, $now);
+
+$rowcount = mysqli_num_rows($resultr);
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $user_id = $_SESSION['u_id'];
+    $sqli = "INSERT INTO `forum_reply` (`fu_id`, `u_id`, `message`) VALUES ('" . $thread_id . "', '" . $user_id . "', '" . $_POST['description'] . "');";
+    $resulti = mysqli_query($conn, $sqli);
+
+}
+echo '<div class="topics" style="flex-basis:100%">
                          <div class="topics__heading">
                              <h2 class="topics__heading-title">' . $row['thread_title'] . '</h2>
                                     <div class="topics__heading-info">
@@ -150,7 +149,7 @@ session_start();
                             </div>
                         </div>';
 
-            ?>
+?>
 
             <!-- Main Forum Topic -->
 
@@ -164,9 +163,9 @@ session_start();
                                     <a href="#" class="avatar"><img src="fonts/icons/avatars/<?php echo $logo; ?>.svg"
                                             alt="avatar"></a>
                                     <span><?php $c_date2 = date_create(date('Y-m-d', strtotime($row['created_at'])));
-                                            $now2 = date_create(date('y-m-d'));
-                                            $diff2 = date_diff($c_date2, $now2);
-                                            echo $diff2->format("%d d"); ?></span>
+$now2 = date_create(date('y-m-d'));
+$diff2 = date_diff($c_date2, $now2);
+echo $diff2->format("%d d");?></span>
                                 </div>
                             </div>
                             <div>
@@ -174,10 +173,8 @@ session_start();
                                 <div class="topic__info-avatar">
                                     <a href="#" class="avatar"><img src="fonts/icons/avatars/A.svg" alt="avatar"></a>
                                     <span><?php
-                                            if ($d == true)
-                                                echo $diff->format("%d d");
-                                            else
-                                                echo 'no reply'; ?></span>
+
+echo $diff->format("%d d"); ?></span>
                                 </div>
                             </div>
                         </div>
@@ -206,8 +203,8 @@ session_start();
 
                     <div class="create__section create__textarea">
                         <?php
-                        if (isset($_SESSION['loggedin'])) {
-                            echo '<form action="topic.php?id=' . $thread_id . '" method="post">
+if (isset($_SESSION['loggedin'])) {
+    echo '<form action="topic.php?id=' . $thread_id . '" method="post">
                             <label class="create__label" for="description">
                                 <h4>Reply</h4>
                             </label>
@@ -220,8 +217,8 @@ session_start();
                                     Thread</button>
                             </div>
                         </form>';
-                        } else {
-                            echo '<div class="card bg-dark">
+} else {
+    echo '<div class="card bg-dark">
             <div class="card-header text-light">
                 ISSUE
             </div>
@@ -231,8 +228,9 @@ session_start();
                 <a href="../login.php" class="btn btn-danger bg-danger text-light">Login</a>
             </div>
         </div>';
-                        }
-                        ?>
+
+}
+?>
                     </div>
 
                 </div>
@@ -241,17 +239,17 @@ session_start();
             <!-- Replies -->
 
             <?php
-            $sqls = "SELECT * FROM `forum_reply` where fu_id='" . $thread_id . "'";
-            $results = mysqli_query($conn, $sqls);
-            while ($rows = mysqli_fetch_assoc($results)) {
-                $c_date = date('Y-m-d', strtotime($rows['created_at']));
-                $u_id = $rows['u_id'];
-                $sqlc = "SELECT * FROM `user` where u_id='$u_id'";
-                $resultc = mysqli_query($conn, $sqlc);
-                $rowc = mysqli_fetch_assoc($resultc);
-                $u_name = $rowc['u_name'];
-                $logo1 = userlogo($u_name);
-                echo '<div class="topic">
+$sqls = "SELECT * FROM `forum_reply` where fu_id='" . $thread_id . "'";
+$results = mysqli_query($conn, $sqls);
+while ($rows = mysqli_fetch_assoc($results)) {
+    $c_date = date('Y-m-d', strtotime($rows['created_at']));
+    $u_id = $rows['u_id'];
+    $sqlc = "SELECT * FROM `user` where u_id='$u_id'";
+    $resultc = mysqli_query($conn, $sqlc);
+    $rowc = mysqli_fetch_assoc($resultc);
+    $u_name = $rowc['u_name'];
+    $logo1 = userlogo($u_name);
+    echo '<div class="topic">
                 <div class="topic__head">
                     <div class="topic__avatar">
                         <a href="#" class="avatar"><img src="fonts/icons/avatars/' . $logo1 . '.svg" alt="avatar"></a>
@@ -288,9 +286,9 @@ session_start();
                     </div>
                 </div>
             </div>';
-            }
+}
 
-            ?>
+?>
 
 
 
