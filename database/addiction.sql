@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 29, 2021 at 07:20 AM
+-- Generation Time: Apr 29, 2021 at 08:12 AM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 7.3.27
 
@@ -261,14 +261,6 @@ CREATE TABLE `product` (
   `p_image` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `product`
---
-
-INSERT INTO `product` (`p_id`, `p_name`, `p_price`, `pdt_category`, `p_quantity`, `p_description`, `p_created`, `p_image`) VALUES
-(3, 'weed', 777, 1, 2, 'uytuytuyu', '2021-04-27 13:39:31', 'upload/product/6087c6bb27b753.14492298.jpg'),
-(4, 'weed', 888, 1, 1, 'nnn', '2021-04-27 13:43:15', 'upload/product/6087c79bdf6a18.00199030.jpg');
-
 -- --------------------------------------------------------
 
 --
@@ -360,7 +352,7 @@ CREATE TABLE `user` (
   `u_id` int(5) NOT NULL,
   `addiction_id` int(5) NOT NULL,
   `u_name` varchar(30) NOT NULL,
-  `u_img` text NOT NULL,
+  `u_img` varchar(200) NOT NULL,
   `u_contact` int(10) NOT NULL,
   `u_email` varchar(50) NOT NULL,
   `u_status` int(2) DEFAULT NULL,
@@ -375,7 +367,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`u_id`, `addiction_id`, `u_name`, `u_img`, `u_contact`, `u_email`, `u_status`, `u_gender`, `r_date`, `u_password`) VALUES
 (1, 0, 'Alok Rathava', '', 2147483647, 'alokrathava@gmail.com', 0, 'male', '2021-03-06 21:42:21', '21232f297a57a5a743894a0e4a801fc3'),
-(2, 1, 'Dhruvit', 'upload/profile/607c0f987aad63.66591430.jpg', 2147483647, 'allinoneguruji3@gmail.com', 0, 'male', '2021-03-07 22:26:42', '81dc9bdb52d04dc20036dbd8313ed055');
+(2, 1, 'Dhruvi', 'upload/profile/608a4c56028f76.32471793.jpg', 1234567, 'allinoneguruji3@gmail.com', 0, 'male', '2021-03-07 22:26:42', '81dc9bdb52d04dc20036dbd8313ed055');
 
 --
 -- Indexes for dumped tables

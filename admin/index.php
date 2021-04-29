@@ -58,7 +58,7 @@ include 'leftmenu.php';
                 <div class="panel panel-teal panel-widget border-right">
                     <div class="row no-padding"><em class="fa fa-xl fa-shopping-cart color-blue"></em>
                         <?php
-                        $order_sql = "SELECT * FROM `order`";
+                        $order_sql = "SELECT * FROM `orders`";
                         $r1 = $conn->query($order_sql);
                         $cnt1 = 0;
                         if ($r1->num_rows > 0) {
