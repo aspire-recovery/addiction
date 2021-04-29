@@ -1,3 +1,9 @@
+<?php 
+session_start();
+require 'includes/config.inc.php';
+
+?>
+
 <!doctype html>
 <html lang="zxx">
 
@@ -100,8 +106,7 @@
                 </div>
                 <?php
 
-                        if (isset($_GET['error']) && $_GET['error'] == true && isset($_SESSION['error'])) {
-
+                        if (isset($_GET['error']) && isset($_SESSION['error'])) {
                             echo ' <div class="alert alert-primary" style="left: 20px;">
               ' . $_SESSION['error'] . '
             </div>';

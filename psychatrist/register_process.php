@@ -32,7 +32,7 @@ if (!empty($fileName) && !empty($_FILES['profileImage']['tmp_name'])) {
 
         if ($fileError == 0) {
             if ($fileSize < 1048576) {
-                $fileNameNew = uniqid('$', true) . "." . $fileActualExt;
+                $fileNameNew = uniqid("", true) . "." . $fileActualExt;
                 $_SESSION['fileDestination'] = "Uploads/Profile/" . $fileNameNew;
             } else {
                 $error = true;

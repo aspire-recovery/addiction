@@ -36,6 +36,6 @@
             $error_detail = "Incorrect Credentials";
             echo $email;
             echo $password;
-            // echo '<script>window.location.href="login.php?error=true";</script>';
+            echo '<script>window.location.href="login.php?error=true";</script>';
         }
     }
