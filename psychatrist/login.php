@@ -40,17 +40,17 @@ include "../header.php"
                 <div class="col-lg-6 form-inner-cont">
                     <form action="login_process.php" method="post" class="signin-form">
                         <div class="form-input">
-                            <input type="email" name="w3lSender" id="w3lSender" name="email" placeholder="E-mail"
-                                   required=""/>
+                            <input type="email" name="mail" id="w3lSender"  placeholder="E-mail"
+                                   required="">
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
+                          
                             <input type="password" class="form-control" id="exampleInputPassword1"
-                                   name="password" placeholder="Password">
+                                   name="ppassword" placeholder="Password">
                         </div>
 
-                        <button type="submit" name="submit" class="btn btn-contact" style="width: 45%">Submit</button>
+                        <button type="submit" name="psubmit" class="btn btn-contact" style="width: 45%">Submit</button>
                         <a href="registration.php" class="btn btn-contact"
                            style="width: 45%; float:right; text-align: center">New Account</a>
                     </form>
