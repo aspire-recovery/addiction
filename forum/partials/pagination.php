@@ -81,7 +81,7 @@ if (mysqli_num_rows($resulta) > 0) {
 
         $rowl = mysqli_fetch_assoc($resultl);
 
-        if ($rowl['created_at']) {
+        if (isset($rowl['created_at'])) {
             $l_date = date_create(date('Y-m-d', strtotime($rowl['created_at'])));
             $now = date_create(date('y-m-d'));
             $diff = date_diff($l_date, $now);

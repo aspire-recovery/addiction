@@ -41,7 +41,7 @@ $payload = array(
     'amount' => $amount,
     'phone' => $phone,
     'buyer_name' => $name,
-    'redirect_url' => 'http://localhost/Aspire%20Recovery/addiction/thankyou.php',
+    'redirect_url' => 'http://localhost/addiction/thankyou.php',
 
     'send_email' => true,
     'send_sms' => true,
