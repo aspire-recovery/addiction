@@ -11,8 +11,9 @@ $phone = $_POST['phone'];
 $gender = $_POST['gender'];
 $error = false;
 $_SESSION['error'] = "Error";
-$sql = "SELECT * FROM `psycho` WHERE psy_email='$email'";
+$sql = "SELECT * FROM physcho WHERE psy_email='$email'";
 $result1 = mysqli_query($conn, $sql);
+
 $row = mysqli_fetch_assoc($result1);
 
 // IMAGE UPLOAD
@@ -33,7 +34,8 @@ if (!empty($fileName) && !empty($_FILES['profileImage']['tmp_name'])) {
         if ($fileError == 0) {
             if ($fileSize < 1048576) {
                 $fileNameNew = uniqid("", true) . "." . $fileActualExt;
-                $_SESSION['fileDestination'] = "Uploads/Profile/" . $fileNameNew;
+                $_SESSION['fileDestination'] = "/uploads/profile/" . $fileNameNew;
+                echo $_SESSION['fileDestination'];
             } else {
                 $error = true;
                 $_SESSION['error'] = "File Size is too big! Choose a lower Resolution Image.";

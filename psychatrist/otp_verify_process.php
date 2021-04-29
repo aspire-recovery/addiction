@@ -16,7 +16,8 @@ $status = 0;
 $filet = $_SESSION['fileTmpName'];
 $filed = $_SESSION['fileDestination'];
 
-move_uploaded_file($filet, $filed);
+$a = move_uploaded_file($filet, $filed);
+var_dump($a);
 $encrypted_pass = md5($password);
 
 //Query
@@ -25,12 +26,14 @@ $insert_sql = "INSERT INTO `physcho` (`psy_name`, `psy_contact`, `psy_email`, `p
 
 
 $result = $conn->query($insert_sql);
+if ($a) {
+   if ($result) {
 
-if ($result) {
-
-    echo '<script>window.location.href="login.php"</script>';
+      // echo '<script>window.location.href="login.php"</script>';
+   } else {
+      // echo '<script>window.location.href="register.php"</script>';
+   }
 } else {
-    echo '<script>window.location.href="register.php"</script>';
 }
 
 unset($_SESSION['pOTP']);

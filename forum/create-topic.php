@@ -50,39 +50,39 @@
     <!-- HEADER -->
 
     <?php
-$alert = false;
-$loggedin = false;
-session_start();
-if (isset($_SESSION['loggedin'])) {
-    $u_id = $_SESSION['u_id'];
-}
+    $alert = false;
+    $loggedin = false;
+    session_start();
+    if (isset($_SESSION['loggedin'])) {
+        $u_id = $_SESSION['u_id'];
+    }
 
-require '../includes/config.inc.php';
+    require '../includes/config.inc.php';
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    if (!empty($_POST['description']) && !empty($_POST['title'])) {
-        $title = $_POST['title'];
-        $category = $_POST['category'];
-        $desc = $_POST['description'];
-        $sql = "INSERT INTO `threads` (`thread_desc`, `thread_title`, `user_id`, `c_id`) VALUES ('$desc' , '$title' , '$u_id', '$category')";
-        $result = mysqli_query($conn, $sql);
-        if ($result = true) {
-            $alert = true;
-            $error = '<div class="alert alert-success alert-dismissible show" role="alert">
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if (!empty($_POST['description']) && !empty($_POST['title'])) {
+            $title = $_POST['title'];
+            $category = $_POST['category'];
+            $desc = mysqli_real_escape_string($conn, $_POST['description']);
+            $sql = "INSERT INTO `threads` (`thread_desc`, `thread_title`, `user_id`, `c_id`) VALUES ('$desc' , '$title' , '$u_id', '$category')";
+            $result = mysqli_query($conn, $sql);
+            if ($result = true) {
+                $alert = true;
+                $error = '<div class="alert alert-success alert-dismissible show" role="alert">
       <strong>Success!</strong> Thread Published Sucessfully.
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>';
-        }
-    } else {
-        $alert = true;
-        $error = '<div class="alert alert-danger alert-dismissible show" role="alert">
+            }
+        } else {
+            $alert = true;
+            $error = '<div class="alert alert-danger alert-dismissible show" role="alert">
         <strong>Error!!!</strong> Cannot Field Empty.
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
       </div>';
+        }
     }
-}
 
-?>
+    ?>
 
 
     <!-- MAIN -->
@@ -103,13 +103,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <span>Forum Guidelines</span>
                 </div>
                 <?php
-if ($alert) {
-    echo $error;
-}
-?>
+                if ($alert) {
+                    echo $error;
+                }
+                ?>
                 <?php
-if (isset($_SESSION['loggedin'])) {
-    echo ' <form action="create-topic.php" method="post">
+                if (isset($_SESSION['loggedin'])) {
+                    echo ' <form action="create-topic.php" method="post">
                     <div class="create__section">
                         <label class="create__label" for="title">Thread Title</label>
                         <input type="text" class="form-control" name="title" id="title" placeholder="Add here">
@@ -122,15 +122,15 @@ if (isset($_SESSION['loggedin'])) {
                                 <label class="custom-select">
                                     <select id="category" name="category">';
 
-    $sql = "SELECT * FROM `forum_categories`";
-    $result = mysqli_query($conn, $sql);
+                    $sql = "SELECT * FROM `forum_categories`";
+                    $result = mysqli_query($conn, $sql);
 
-    while ($row = mysqli_fetch_assoc($result)) {
-        $catid = $row['cat_id'];
-        $catname = ucwords($row['cat_name']);
-        echo ' <option value="' . $catid . '">' . $catname . '</option>';
-    }
-    echo '  </select>
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $catid = $row['cat_id'];
+                        $catname = ucwords($row['cat_name']);
+                        echo ' <option value="' . $catid . '">' . $catname . '</option>';
+                    }
+                    echo '  </select>
                 </label>
             </div>
         </div>
@@ -151,9 +151,8 @@ if (isset($_SESSION['loggedin'])) {
         </form>
 
         </div>';
-
-} else {
-    echo '<div class="card bg-dark">
+                } else {
+                    echo '<div class="card bg-dark">
             <div class="card-header text-light">
                 ISSUE
             </div>
@@ -163,9 +162,8 @@ if (isset($_SESSION['loggedin'])) {
                 <a href="../login.php" class="btn btn-danger bg-danger text-light">Login</a>
             </div>
         </div>';
-
-}
-?>
+                }
+                ?>
 
 
             </div>
