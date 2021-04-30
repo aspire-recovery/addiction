@@ -152,7 +152,7 @@ require 'includes/config.inc.php';
                                                             } ?>">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="" <?php if (strpos($_SERVER['SCRIPT_FILENAME'], 'psychatrist') !== false) {
+                            <a class="nav-link" href="<?php if (strpos($_SERVER['SCRIPT_FILENAME'], 'psychatrist') !== false) {
                                                                 echo "../product.php";
                                                             } else {
                                                                 echo "product.php";
