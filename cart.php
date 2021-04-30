@@ -76,7 +76,7 @@ if (!empty($_GET["action"])) {
 <head>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <title>Shopping Cart</title>
     <style class="cp-pen-styles">
     @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic|Montserrat:400,700);
 

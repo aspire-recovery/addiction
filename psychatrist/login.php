@@ -7,8 +7,7 @@ session_start();
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Dentile a Medical Category Bootstrap Responsive Website Template | Contact :: W3layouts
+     <title>Psychiatrist Login
     </title>
     <!-- Template CSS -->
     <link rel="stylesheet" href="../assets/css/style-starter.css">

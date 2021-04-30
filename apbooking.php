@@ -18,9 +18,9 @@ header('location: e404.php');
 
 <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Appointment Booking</title>
 
+ 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
@@ -47,9 +47,7 @@ header('location: e404.php');
     .box-shadow {
         box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
     }
-    </style>
-    <title>Aspire-Recovery Appointment-Bookinng</title>
-    <style>
+   
     @import url(//fonts.googleapis.com/css?family=Montserrat:400,500,700);
     body{
         background-color: coral;

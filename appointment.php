@@ -44,7 +44,7 @@ $object = new Appointment;
         box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
     }
     </style>
-    <title>Aspire-Recovery Appointment-Bookinng</title>
+    <title>Appointment</title>
     <style>
     @import url(//fonts.googleapis.com/css?family=Montserrat:400,500,700);
 

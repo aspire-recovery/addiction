@@ -3,7 +3,7 @@
 
 <head>
 
-    <title>Aspire Recovery</title>
+    <title>Search</title>
 
     <!-- STYLESHEET -->
     <!-- fonts -->
