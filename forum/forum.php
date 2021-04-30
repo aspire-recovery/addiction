@@ -3,6 +3,7 @@
 <?php
 require '../includes/config.inc.php';
 session_start();
+
 ?>
 
 <head>
@@ -228,7 +229,7 @@ div.btn-select:hover {
 
 .posts__item:hover {
     box-shadow: 0 11px 11px 0 rgba(0, 0, 0, .16);
-    transform: translateY(-5px);
+    transform: translateY(-2px);
 }
 </style>
 <script src="vendor/jquery/jquery.min.js"></script>

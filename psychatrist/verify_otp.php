@@ -3,6 +3,7 @@
 require '../includes/config.inc.php';
 session_start();
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>

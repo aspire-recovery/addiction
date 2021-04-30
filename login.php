@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
 
@@ -18,6 +21,13 @@
 <!--header-->
 <?php
 include "header.php";
+?>
+<?php
+if (!isset($_SESSION['ploggedin'])) {
+
+    if (isset($_SESSION['loggedin'])) {
+        echo '<script>window.location.href="index.php"</script>';
+    } else {
 ?>
 <!-- //header -->
 <div>
@@ -106,6 +116,29 @@ include "header.php";
         </div>
     </div>
 </section>
+<?php
+}
+} else {
+echo '<section class="w3l-contact-main">
+<div class="contact-infhny py-5">
+    <div class="container py-lg-5">
+        <div class="card bg-dark">
+            <div class="card-header text-light" style="color:white;">
+                ISSUE
+            </div>
+            <div class="card-body text-light" style="color:white;">
+                <h5 class="card-title" style="color:white;">You Are Logged In as Psychiatrist!!!</h5>
+                <p class="card-text" style="color:white;">With supporting text below as a natural lead-in to
+                    additional content.</p>
+                <a href="psychatrist/logout.php" class="btn btn-danger bg-danger text-light">Logout</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+</section>';
+}
+?>
 <!-- //contacts -->
 <!-- footer 14 -->
 <div class="w3l-footer-main">

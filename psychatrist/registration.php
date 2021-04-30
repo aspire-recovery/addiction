@@ -156,8 +156,7 @@ require 'includes/config.inc.php';
                             </div>
                             <div class="form-group"> <button type="submit" class="btn btn-contact"
                                     style="margin:5px;">Submit</button>
-                                    <button type="submit" class="btn btn-contact"
-                                    style="margin:5px;">Submit</button>
+                                   
                             </div>
 
 

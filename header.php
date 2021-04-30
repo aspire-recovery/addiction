@@ -24,7 +24,7 @@ require 'includes/config.inc.php';
         display: -webkit-flex;
         display: flex;
         border-radius: 50%;
-        overflow: hidden;
+        
         border: 3px solid white ;
        
     }
@@ -33,11 +33,6 @@ require 'includes/config.inc.php';
 
     }
 
-    .header__user-btn img {
-    height: 40px;
-    width: 40px;
-        object-fit: cover;
-    }
 
     .header__user-btn>i {
         margin-top: 2px;
@@ -145,8 +140,8 @@ require 'includes/config.inc.php';
                         </li>
                         <li class="align-self">
                         
-                                <div class="header__user-btn">
-                                    <img src="<?php $u_img =  $_SESSION['u_img']; if (strpos($u_img, 'fonts') !== false)
+                                <div class="header__user-btn" style="overflow: visible;">
+                                    <img style="height:40px; width: 40px; object-fit: cover;" src="<?php $u_img =  $_SESSION['u_img']; if (strpos($u_img, 'fonts') !== false)
                                      { echo "forum/" . $u_img;
                                 } else {
                                     echo $u_img;

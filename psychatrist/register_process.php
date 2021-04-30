@@ -2,6 +2,10 @@
 // Imports
 require '../includes/config.inc.php';
 session_start();
+if (!isset($_POST['email'])) {
+    header("location: ../e404.php");
+}
+
 //Data Fetch
 $profileArray = $_FILES['profileImage'];
 $name = $_POST['name'];
@@ -18,7 +22,7 @@ $row = mysqli_fetch_assoc($result1);
 
 // IMAGE UPLOAD
 $fileName = $_FILES['profileImage']['name'];
-$_SESSION['fileTmpName'] = $_FILES['profileImage']['tmp_name'];
+$fileTmp = $_FILES['profileImage']['tmp_name'];
 $fileSize = $_FILES['profileImage']['size'];
 $fileError = $_FILES['profileImage']['error'];
 $fileType = $_FILES['profileImage']['type'];
@@ -34,8 +38,8 @@ if (!empty($fileName) && !empty($_FILES['profileImage']['tmp_name'])) {
         if ($fileError == 0) {
             if ($fileSize < 1048576) {
                 $fileNameNew = uniqid("", true) . "." . $fileActualExt;
-                $_SESSION['fileDestination'] = "/uploads/profile/" . $fileNameNew;
-                echo $_SESSION['fileDestination'];
+                $_SESSION['fileDestination'] = "uploads/profile/" . $fileNameNew;
+                move_uploaded_file($fileTmp, $_SESSION['fileDestination']);
             } else {
                 $error = true;
                 $_SESSION['error'] = "File Size is too big! Choose a lower Resolution Image.";
@@ -58,7 +62,7 @@ if (!empty($fileName) && !empty($_FILES['profileImage']['tmp_name'])) {
 }
 
 
-if (!empty($_POST['name'])) {
+if (!empty($_POST['name']) && !empty($_POST['password'])) {
     if ($row > 0) {
         $error = true;
         $_SESSION['error'] = "Email Already Exist!";
@@ -102,7 +106,7 @@ if (!empty($_POST['name'])) {
 } else {
     if (empty($_POST['name'])) {
         $error = true;
-        $_SESSION['error'] = "Name Cannot be Empty";
+        $_SESSION['error'] = "Field Cannot be Empty";
         echo '<script>window.location.href="registration.php?error=true"</script>';
 
         exit();
