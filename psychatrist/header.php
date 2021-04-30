@@ -56,7 +56,7 @@
                         <a class="nav-link" href="login.php">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="registration.php">Sign-in</a>
+                        <a class="nav-link" href="register.php">Sign-in</a>
                     </li>
                 </ul>
                 <!--/search-right-->

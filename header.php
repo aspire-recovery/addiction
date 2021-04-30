@@ -24,11 +24,12 @@ require 'includes/config.inc.php';
         display: -webkit-flex;
         display: flex;
         border-radius: 50%;
-        
-        border: 3px solid white ;
-       
+
+        border: 3px solid white;
+
     }
-    .header__user-btn:hover{
+
+    .header__user-btn:hover {
         border: 3px solid rgb(212, 212, 212);
 
     }
@@ -39,7 +40,6 @@ require 'includes/config.inc.php';
         margin-left: 15px;
         font-size: 6px;
     }
-   
     </style>
 </head>
 
@@ -51,8 +51,12 @@ require 'includes/config.inc.php';
     <header id="site-header" class="fixed-top">
         <div class="container">
             <nav class="navbar navbar-expand-lg stroke">
-                <h1><a class="navbar-brand mr-lg-5" href="index.php">
-                        Aspire</a></h1>
+                <h1><a class="navbar-brand mr-lg-5" href="<?php if (strpos($_SERVER['SCRIPT_FILENAME'], 'psychatrist') !== false) {
+                                                                    echo "../index.php";
+                                                                } else {
+                                                                    echo "index.php";
+                                                                } ?>">
+                        <?php ?> Aspire</a></h1>
                 <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
                     data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -63,26 +67,38 @@ require 'includes/config.inc.php';
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav w-100">
                         <li class="nav-item @@home__active">
-                            <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="<?php if (strpos($_SERVER['SCRIPT_FILENAME'], 'psychatrist') !== false) {
+                                                                echo "../index.php";
+                                                            } else {
+                                                                echo "index.php";
+                                                            } ?>">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item @@about__active">
-                            <a class="nav-link" href="about.php">About</a>
+                            <a class="nav-link" href="<?php if (strpos($_SERVER['SCRIPT_FILENAME'], 'psychatrist') !== false) {
+                                                                echo "../about.php";
+                                                            } else {
+                                                                echo "about.php";
+                                                            } ?>">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="articles.php">Articles</a>
+                            <a class="nav-link" href="<?php if (strpos($_SERVER['SCRIPT_FILENAME'], 'psychatrist') !== false) {
+                                                                echo "../articles.php";
+                                                            } else {
+                                                                echo "articles.php";
+                                                            } ?>">Articles</a>
                         </li>
-                       
-                       
+
+
                         <li class="ml-lg-auto mr-lg-0 m-auto">
                         </li>
                         <li class="align-self">
-                            <li class="nav-item">
-                                <a class="nav-link" href="register.php">Register</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="login.php">Login</a>
-                            </li>
-                            
+                        <li class="nav-item">
+                            <a class="nav-link" href="register.php">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.php">Login</a>
+                        </li>
+
                         </li>
                     </ul>
                 </div>
@@ -112,7 +128,11 @@ require 'includes/config.inc.php';
     <header id="site-header" class="fixed-top">
         <div class="container">
             <nav class="navbar navbar-expand-lg stroke">
-                <h1><a class="navbar-brand mr-lg-5" href="index.php">
+                <h1><a class="navbar-brand mr-lg-5" href="<?php if (strpos($_SERVER['SCRIPT_FILENAME'], 'psychatrist') !== false) {
+                                                                    echo "../index.php";
+                                                                } else {
+                                                                    echo "index.php";
+                                                                } ?>">
                         Aspire </a></h1>
                 <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
                     data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
@@ -125,37 +145,55 @@ require 'includes/config.inc.php';
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav w-100">
                         <li class="nav-item @@home__active">
-                            <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="<?php if (strpos($_SERVER['SCRIPT_FILENAME'], 'psychatrist') !== false) {
+                                                                echo "../index.php";
+                                                            } else {
+                                                                echo "index.php";
+                                                            } ?>">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="product.php">Product</a>
+                            <a class="nav-link" href="" <?php if (strpos($_SERVER['SCRIPT_FILENAME'], 'psychatrist') !== false) {
+                                                                echo "../product.php";
+                                                            } else {
+                                                                echo "product.php";
+                                                            } ?>">Product</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="forum/forum.php">Forum</a>
+                            <a class="nav-link" href="" <?php if (strpos($_SERVER['SCRIPT_FILENAME'], 'psychatrist') !== false) {
+                                                                echo "../forum/forum.php";
+                                                            } else {
+                                                                echo "forum.php";
+                                                            } ?>">Forum</a>
                         </li>
                         <li class="nav-item @@about__active">
-                            <a class="nav-link" href="about.php">About</a>
+                            <a class="nav-link" href="" <?php if (strpos($_SERVER['SCRIPT_FILENAME'], 'psychatrist') !== false) {
+                                                                echo "../about.php";
+                                                            } else {
+                                                                echo "about.php";
+                                                            } ?>">About</a>
                         </li>
                         <li class="ml-lg-auto mr-lg-0 m-auto">
                         </li>
                         <li class="align-self">
-                        
-                                <div class="header__user-btn" style="overflow: visible;">
-                                    <img style="height:40px; width: 40px; object-fit: cover;" src="<?php $u_img =  $_SESSION['u_img']; if (strpos($u_img, 'fonts') !== false)
-                                     { echo "forum/" . $u_img;
-                                } else {
-                                    echo $u_img;
-                                } ?>" onclick="location.href='profile.php';" class="" alt="avatar">
 
-                                </div>
-                        
+                            <div class="header__user-btn" style="overflow: visible;">
+                                <img style="height:40px; width: 40px; object-fit: cover;" src="<?php $u_img =  $_SESSION['u_img'];
+                                                                                                    if (strpos($u_img, 'fonts') !== false) {
+                                                                                                        echo "forum/" . $u_img;
+                                                                                                    } else {
+                                                                                                        echo $u_img;
+                                                                                                    } ?>"
+                                    onclick="location.href='profile.php'" class="" alt=" avatar">
+
+                            </div>
+
                         </li>
                         <li class="align-self">
-                          
-                               
-                                <a href="cart.php" class="btn btn-style  " style="margin: 0 -25px 10px -25px;"><span
-                                            class="fa fa-shopping-cart"></span> CART</a>
-                           
+
+
+                            <a href="cart.php" class="btn btn-style  " style="margin: 0 -25px 10px -25px;"><span
+                                    class="fa fa-shopping-cart"></span> CART</a>
+
                         </li>
                     </ul>
                 </div>

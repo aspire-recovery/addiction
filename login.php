@@ -90,6 +90,16 @@ if (!isset($_SESSION['ploggedin'])) {
 
                     }
                     ?>
+                    <?php
+
+                    if (isset($_GET['error']) && isset($_SESSION['error'])) {
+                        echo ' <div class="alert alert-primary" style="">
+          ' . $_SESSION['error'] . '
+        </div>';
+                        unset($_SESSION['error']);
+                    }
+
+                    ?>
                     <form action="login_process.php" method="post" class="text-right" style="width: 70%">
                         <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
                             <input type="email" name="email" id="" placeholder="Email" required="">

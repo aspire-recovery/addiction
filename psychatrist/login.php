@@ -45,8 +45,31 @@ if (!isset($_SESSION['loggedin'])) {
                 </div>
                 <h3 class="hny-title" style="margin-top: 20px">Login</h3>
             </div>
+
             <div class="row align-form-map">
                 <div class="col-lg-6 form-inner-cont">
+                    <?php
+                    if (isset($_GET['login'])){
+                        echo ' <h3 class="title-big" style=" margin-bottom:25px;">
+                            Forbidden!!!
+                            </h3>
+                            <br>
+                            <br>
+
+                            <div class="alert alert-primary">
+                            You Must be Logged in to use this Feature. 
+                            </div>';
+
+                    }
+              
+                    if (isset($_GET['error']) && isset($_SESSION['error'])) {
+                        echo ' <div class="alert alert-primary" style="">
+          ' . $_SESSION['error'] . '
+        </div>';
+                        unset($_SESSION['error']);
+                    }
+
+                    ?>
                     <form action="login_process.php" method="post" class="signin-form">
                         <div class="form-input">
                             <input type="email" name="mail" id="w3lSender"  placeholder="E-mail"
@@ -60,7 +83,7 @@ if (!isset($_SESSION['loggedin'])) {
                         </div>
 
                         <button type="submit" name="psubmit" class="btn btn-contact" style="width: 45%">Submit</button>
-                        <a href="registration.php" class="btn btn-contact"
+                        <a href="register.php" class="btn btn-contact"
                            style="width: 45%; float:right; text-align: center">New Account</a>
                     </form>
                 </div>

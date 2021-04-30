@@ -33,6 +33,10 @@ if (isset($_POST['submit'])) {
         echo '<script>window.location.href="index.php"</script>';
     } else {
 
-        echo '<script>window.location.href="login.php";</script>';
+        $error = true;
+        $_SESSION['error'] = "Incorrect Credentials!";
+        echo '<script>window.location.href="login.php?error=true"</script>';
+
+        exit();
     }
 }

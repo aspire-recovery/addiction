@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 require 'includes/config.inc.php';
 
@@ -63,7 +63,6 @@ require 'includes/config.inc.php';
         cursor: pointer;
         display: none;
     }
-   
     </style>
 
 
@@ -95,7 +94,7 @@ require 'includes/config.inc.php';
                                 <img alt="user icon" class="profile_icons" src="../assets/images/userp.svg" width="100"
                                     height="100">
                             </a>
-                            <a href="registration.php">
+                            <a href="register.php">
                                 <img style="margin-left: 20px" alt="psychaitrist icon" class="profile_icons"
                                     src="assets/images/psychaitristp.svg" width="100" height="100">
                             </a>
@@ -110,7 +109,9 @@ require 'includes/config.inc.php';
                             echo ' <div class="alert alert-primary" style="left: 20px;">
               ' . $_SESSION['error'] . '
             </div>';
+                            unset($_SESSION['error']);
                         }
+
                         ?>
                 <div class="row align-form-map " style="justify-content: center;">
 
@@ -118,8 +119,7 @@ require 'includes/config.inc.php';
                         <form action="register_process.php" method="post" class="signin-form"
                             enctype="multipart/form-data">
                             <div class="profile-pic-div">
-                                <img src="assets/images/default.png" onClick="triggerClick()"
-                                    id="profileDisplay">
+                                <img src="assets/images/default.png" onClick="triggerClick()" id="profileDisplay">
                                 <input type="file" name="profileImage" onChange="displayImage(this)" id="profileImage"
                                     class="form-control" style="display: none;">
 
@@ -156,7 +156,7 @@ require 'includes/config.inc.php';
                             </div>
                             <div class="form-group"> <button type="submit" class="btn btn-contact"
                                     style="margin:5px;">Submit</button>
-                                   
+
                             </div>
 
 

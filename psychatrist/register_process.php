@@ -43,22 +43,22 @@ if (!empty($fileName) && !empty($_FILES['profileImage']['tmp_name'])) {
             } else {
                 $error = true;
                 $_SESSION['error'] = "File Size is too big! Choose a lower Resolution Image.";
-                echo '<script>window.location.href="registration.php?error=true"</script>';
+                echo '<script>window.location.href="register.php?error=true"</script>';
             }
         } else {
             $error = true;
             $_SESSION['error'] = "Error Uploading Image!! Try Again.";
-            echo '<script>window.location.href="registration.php?error=true"</script>';
+            echo '<script>window.location.href="register.php?error=true"</script>';
         }
     } else {
         $error = true;
         $_SESSION['error'] = "Image Type Not Allowed!! Try a Diffrent Format eg. JPG, PNG, JPEG";
-        echo '<script>window.location.href="registration.php?error=true"</script>';
+        echo '<script>window.location.href="register.php?error=true"</script>';
     }
 } else {
     $error = true;
     $_SESSION['error'] = "Image is Required to Register!!!";
-    echo '<script>window.location.href="registration.php?error=true"</script>';
+    echo '<script>window.location.href="register.php?error=true"</script>';
 }
 
 
@@ -66,7 +66,7 @@ if (!empty($_POST['name']) && !empty($_POST['password'])) {
     if ($row > 0) {
         $error = true;
         $_SESSION['error'] = "Email Already Exist!";
-        echo '<script>window.location.href="registration.php?error=true"</script>';
+        echo '<script>window.location.href="register.php?error=true"</script>';
 
         exit();
     } else {
@@ -104,11 +104,11 @@ if (!empty($_POST['name']) && !empty($_POST['password'])) {
         }
     }
 } else {
-    if (empty($_POST['name'])) {
+   
         $error = true;
         $_SESSION['error'] = "Field Cannot be Empty";
-        echo '<script>window.location.href="registration.php?error=true"</script>';
+        echo '<script>window.location.href="register.php?error=true"</script>';
 
         exit();
-    }
+    
 }

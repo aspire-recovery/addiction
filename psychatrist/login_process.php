@@ -33,9 +33,10 @@
 
             echo '<script>window.location.href="index.php";</script>';
         } else {
-            $error_detail = "Incorrect Credentials";
-            echo $email;
-            echo $password;
-            echo '<script>window.location.href="login.php?error=true";</script>';
+            $error = true;
+            $_SESSION['error'] = "Incorrect Credentials!";
+            echo '<script>window.location.href="login.php?error=true"</script>';
+    
+            exit();
         }
     }

@@ -59,7 +59,7 @@ session_start();
                             <img alt="user icon" class="profile_icons" src="../addiction/assets/images/userp.svg"
                                 width="100" height="100">
                         </a>
-                        <a href="psychatrist/registration.php">
+                        <a href="psychatrist/register.php">
                             <img style="margin-left: 20px" alt="psychaitrist icon" class="profile_icons"
                                 src="../addiction/assets/images/psychaitristp.svg" width="100" height="100">
                         </a>
@@ -99,6 +99,15 @@ session_start();
                         Email Already Exist!
                        
                     </div>';
+                            }
+                            ?>
+                            <?php
+
+                            if (isset($_GET['error']) && isset($_SESSION['error'])) {
+                                echo ' <div class="alert alert-primary" style="left: 20px;">
+                  ' . $_SESSION['error'] . '
+                </div>';
+                unset($_SESSION['error']);
                             }
                             ?>
 
