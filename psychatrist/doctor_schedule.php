@@ -13,12 +13,10 @@ if (!isset($_SESSION['ploggedin'])) {
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="apple-touch-icon" sizes="76x76" href="./assets/images/apple-icon.png">
-    <link rel="icon" type="image/png" href="./assets/images/favicon.png">
+
+
     <title>
-        Black Dashboard by Creative Tim
+        Doctor Schedule
     </title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
@@ -175,34 +173,7 @@ if (!isset($_SESSION['ploggedin'])) {
             <?php
             include 'partials/footer.php';
             ?>
-            <div class="fixed-plugin">
-                <div class="dropdown show-dropdown">
-                    <a href="#" data-toggle="dropdown">
-                        <i class="fa fa-cog fa-2x"> </i>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li class="header-title"> Sidebar Background</li>
-                        <li class="adjustments-line">
-                            <a href="javascript:void(0)" class="switch-trigger background-color">
-                                <div class="badge-colors text-center">
-                                    <span class="badge filter badge-primary active" data-color="primary"></span>
-                                    <span class="badge filter badge-info" data-color="blue"></span>
-                                    <span class="badge filter badge-success" data-color="green"></span>
-                                </div>
-                                <div class="clearfix"></div>
-                            </a>
-                        </li>
-                        <li class="adjustments-line text-center color-change">
-                            <span class="color-label">LIGHT MODE</span>
-                            <span class="badge light-badge mr-2"></span>
-                            <span class="badge dark-badge ml-2"></span>
-                            <span class="color-label">DARK MODE</span>
-                        </li>
-                       
-                        
-                    </ul>
-                </div>
-            </div>
+
         </div>
     </div>
 
