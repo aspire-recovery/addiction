@@ -18,6 +18,8 @@ class Appointment
 
 		session_start();
 
+
+
 		$this->now = date("Y-m-d H:i:s",  STRTOTIME(date('h:i:sa')));
 	}
 
@@ -105,14 +107,27 @@ class Appointment
 		$this->execute();
 		return $this->row_count();
 	}
-
-	function get_total_yesterday_appointment()
+	function get_total_today_appointment_()
 	{
+		$pid = $_SESSION['p_id'];
 		$this->query = "
 		SELECT * FROM appointment_table 
 		INNER JOIN doctor_schedule_table 
 		ON doctor_schedule_table.doctor_schedule_id = appointment_table.doctor_schedule_id 
-		WHERE doctor_schedule_date = CURDATE() - 1
+		WHERE doctor_schedule_date = CURDATE() AND doctor_schedule_table.doctor_id = $pid
+		";
+		$this->execute();
+		return $this->row_count();
+	}
+
+	function get_total_yesterday_appointment()
+	{
+		$pid = $_SESSION['p_id'];
+		$this->query = "
+		SELECT * FROM appointment_table 
+		INNER JOIN doctor_schedule_table 
+		ON doctor_schedule_table.doctor_schedule_id = appointment_table.doctor_schedule_id 
+		WHERE doctor_schedule_date = CURDATE() - 1 AND doctor_schedule_table.doctor_id = $pid
 		";
 		$this->execute();
 		return $this->row_count();
@@ -120,11 +135,12 @@ class Appointment
 
 	function get_total_seven_day_appointment()
 	{
+		$pid = $_SESSION['p_id'];
 		$this->query = "
 		SELECT * FROM appointment_table 
 		INNER JOIN doctor_schedule_table 
 		ON doctor_schedule_table.doctor_schedule_id = appointment_table.doctor_schedule_id 
-		WHERE doctor_schedule_date >= DATE(NOW()) - INTERVAL 7 DAY
+		WHERE doctor_schedule_date >= DATE(NOW()) - INTERVAL 7 DAY AND doctor_schedule_table.doctor_id ='$pid'
 		";
 		$this->execute();
 		return $this->row_count();
@@ -138,11 +154,19 @@ class Appointment
 		$this->execute();
 		return $this->row_count();
 	}
-
+	function get_total_appointment_()
+	{
+		$pid = $_SESSION['p_id'];
+		$this->query = "
+		SELECT * FROM appointment_table WHERE doctor_id = $pid
+		";
+		$this->execute();
+		return $this->row_count();
+	}
 	function get_total_patient()
 	{
 		$this->query = "
-		SELECT * FROM patient_table 
+		SELECT * FROM user 
 		";
 		$this->execute();
 		return $this->row_count();

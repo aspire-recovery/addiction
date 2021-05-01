@@ -39,7 +39,49 @@ $image = $row['psy_profile'];
     <!-- CSS Files -->
     <link href="./assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
+<style>
+    
+    .profile-pic-div {
+        height: 150px;
+        width: 150px;
+        position: relative;
 
+        border-radius: 50%;
+        overflow: hidden;
+        border: 1px solid grey;
+        margin: 0px auto;
+        margin-bottom: 20px;
+    }
+
+
+    #profileDisplay {
+        display: block;
+        height: 150px;
+        width: 150px;
+
+
+
+        border-radius: 50%;
+        object-fit: cover;
+        object-position: center center;
+    }
+
+    #uploadBtn {
+        height: 30px;
+        width: 100%;
+        position: absolute;
+        bottom: -10px;
+        text-align: center;
+        background: rgba(29, 25, 46, 0.719);
+        color: white;
+        line-height: 30px;
+
+        font-weight: bold;
+        font-size: 12px;
+        cursor: pointer;
+        display: none;
+    }
+</style>
 </head>
 
 <body class="">
@@ -64,7 +106,7 @@ $image = $row['psy_profile'];
                     <span data-notify="icon" class="tim-icons icon-bell-55"></span>
                     <span data-notify="message">Updated Succesfuly!!!</span>
                 </div>';
-                } elseif (isset($_GET['error'])) {
+                } elseif (isset($_GET['error']) && !isset($_SESSION['error'])) {
                     echo '<div class="alert alert-danger alert-with-icon" data-notify="container">
                     <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
                         <i class="tim-icons icon-simple-remove"></i>
@@ -75,7 +117,23 @@ $image = $row['psy_profile'];
                 } else {
                     echo "";
                 }
+            
                 ?>
+                <?php
+
+        if (isset($_GET['error']) && $_GET['error'] == true && isset($_SESSION['error'])) {
+
+            echo ' <div class="alert alert-success alert-with-icon" data-notify="container">
+                <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
+                    <i class="tim-icons icon-simple-remove"></i>
+                </button>
+                <span data-notify="icon" class="tim-icons icon-bell-55"></span>
+                <span data-notify="message">' . $_SESSION['error'] . '</span>
+            </div>
+';
+            unset($_SESSION['error']);
+        }
+        ?>
                 <div class="row">
                     <div class="col-md-8">
                         <div class="card">
@@ -217,26 +275,8 @@ $image = $row['psy_profile'];
                     <span class="badge dark-badge ml-2"></span>
                     <span class="color-label">DARK MODE</span>
                 </li>
-                <li class="button-container">
-                    <a href="https://www.creative-tim.com/product/black-dashboard" target="_blank"
-                        class="btn btn-primary btn-block btn-round">Download Now</a>
-                    <a href="https://demos.creative-tim.com/black-dashboard/docs/1.0/getting-started/introduction.html"
-                        target="_blank" class="btn btn-default btn-block btn-round">
-                        Documentation
-                    </a>
-                </li>
-                <li class="header-title">Thank you for 95 shares!</li>
-                <li class="button-container text-center">
-                    <button id="twitter" class="btn btn-round btn-info"><i class="fab fa-twitter"></i> &middot;
-                        45</button>
-                    <button id="facebook" class="btn btn-round btn-info"><i class="fab fa-facebook-f"></i> &middot;
-                        50</button>
-                    <br>
-                    <br>
-                    <a class="github-button" href="https://github.com/creativetimofficial/black-dashboard"
-                        data-icon="octicon-star" data-size="large" data-show-count="true"
-                        aria-label="Star ntkme/github-buttons on GitHub">Star</a>
-                </li>
+               
+                
             </ul>
         </div>
     </div>
@@ -249,7 +289,7 @@ $image = $row['psy_profile'];
     <!-- Place this tag in your head or just before your close body tag. -->
     <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
     <!-- Chart JS -->
-    <script src="../assets/js/plugins/chartjs.min.js"></script>
+ //   <script src="../assets/js/plugins/chartjs.min.js"></script>
     <!--  Notifications Plugin    -->
     <script src="./assets/js/plugins/bootstrap-notify.js"></script>
     <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
@@ -374,6 +414,41 @@ $image = $row['psy_profile'];
             token: "ee6fab19c5a04ac1a32a645abde4613a",
             application: "black-dashboard-free"
         });
+    </script>
+
+<script>
+    const imgDiv = document.querySelector('.profile-pic-div');
+    const uploadBtn = document.querySelector('#uploadBtn');
+
+    //if user hover on img div 
+
+    imgDiv.addEventListener('mouseenter', function() {
+        uploadBtn.style.display = "block";
+    });
+
+    //if we hover out from img div
+
+    imgDiv.addEventListener('mouseleave', function() {
+        uploadBtn.style.display = "none";
+    });
+
+    function triggerClick(e) {
+
+        document.querySelector("#profileImage").click();
+
+    }
+
+    function displayImage(e) {
+        if (e.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                document.querySelector("#profileDisplay").setAttribute('src', e.target.result);
+            }
+            reader.readAsDataURL(e.files[0]);
+
+
+        }
+    }
     </script>
 </body>
 

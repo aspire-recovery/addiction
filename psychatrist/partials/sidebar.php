@@ -12,36 +12,40 @@
             </a>
         </div>
         <ul class="nav">
-            <li class="active">
+            <li class="<?php if (strpos($_SERVER['SCRIPT_FILENAME'], 'index') !== false) {
+                echo "active";
+            }?>">
                 <a href="index.php">
                     <i class="tim-icons icon-chart-pie-36"></i>
                     <p>Dashboard</p>
                 </a>
             </li>
-            <li>
-                <a href="notification.php">
-                    <i class="tim-icons icon-bell-55"></i>
-                    <p>Notifications</p>
-                </a>
-            </li>
-            <li>
+           
+            <li class="<?php if (strpos($_SERVER['SCRIPT_FILENAME'], 'psyprofile') !== false) {
+                echo "active";
+            }?>">
                 <a href="psyprofile.php">
                     <i class="tim-icons icon-single-02"></i>
                     <p>Your Profile</p>
                 </a>
             </li>
-            <li>
+            <li class="<?php if (strpos($_SERVER['SCRIPT_FILENAME'], 'doctor_') !== false) {
+                echo "active";
+            }?>">
                 <a href="doctor_schedule.php">
                     <i class="tim-icons icon-single-02"></i>
                     <p>Doctor Schedule</p>
                 </a>
             </li>
-            <li>
+            <li class="<?php if (strpos($_SERVER['SCRIPT_FILENAME'], 'appointment') !== false) {
+                echo "active";
+            }?>">
                 <a href="appointment.php">
-                    <i class="tim-icons icon-single-02"></i>
+                    <i class="tim-icons icon-bell-55"></i>
                     <p>Appointment</p>
                 </a>
             </li>
+            
         </ul>
     </div>
 </div>

@@ -22,10 +22,26 @@ echo '<div class="col-md-4">
                     <div class="block block-two"></div>
                     <div class="block block-three"></div>
                     <div class="block block-four"></div>
+
                     <a href="javascript:void(0)">
-                        <img class="avatar" style="object-fit:cover; object-position:center center; " src="' . $image . '" alt="...">
-                        <h5 class="title">' . $name . '</h5>
-                    </a>
+                       
+                        <form action="partials/profile.php" method="post" enctype="multipart/form-data">
+                    <div class="profile-pic-div">
+
+                        <img class="avatar" style="object-fit:cover; object-position:center center;" src="' . $image . '" onClick=" triggerClick()" id="profileDisplay"
+                            alt="Profile">
+                        <input type="file" name="profileImage" onChange="displayImage(this)"
+                            id="profileImage" class="form-control" style="display: none;">
+                        <label for="file" id="uploadBtn">Change</label>
+
+
+                    </div>
+                    <button type="submit" name="submit" id="submit" class="btn btn-secondary">
+                                            Change </button>
+                                            </form>
+                                          <br>  <h5 class="title">' . $name . '</h5>
+                                            </a>
+                                           
             <p class="description">
                ' . $quali . '
             </p>
