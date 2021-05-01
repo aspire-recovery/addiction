@@ -8,7 +8,7 @@ session_start();
 
 <head>
 
-    <title>Aspire Recovery</title>
+    <title>Forum</title>
 
     <!-- STYLESHEET -->
     <!-- fonts -->
