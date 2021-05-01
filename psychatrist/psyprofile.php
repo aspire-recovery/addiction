@@ -155,7 +155,7 @@ $image = $row['psy_profile'];
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Email address</label>
                                                 <input type="email" name="email" class="form-control"
-                                                    placeholder="e.g. mike@gmail.com" value="<?php echo $email; ?>">
+                                                    placeholder="<?php echo $email; ?>" readonly  value="<?php echo $email; ?>">
                                             </div>
                                         </div>
                                     </div>

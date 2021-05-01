@@ -127,6 +127,10 @@ session_start();
                             </div>
                             <br>
                             <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
+                                <input type="password" name="cpassword" id="" placeholder="Confirm Password" required="">
+                            </div>
+                            <br>
+                            <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
                                 <input type="number" name="phone" id="" placeholder="Contact No." required="">
                             </div>
                             <br>

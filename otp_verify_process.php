@@ -20,13 +20,14 @@ $profile = "fonts/icons/avatars/" . $logo . ".svg";
 $status = 0;
 $otpv = $_POST['otp'];
 
+
 $encrypted_pass = md5($password);
 
 if ($otp == $otpv) {
     //Query
     $insert_sql = "INSERT INTO `user`(`addiction_id`, `u_name`,`u_img`, `u_contact`, `u_email`, `u_status`, `u_gender`,`u_password`) VALUES
                 ('$addiction','$name','$profile','$phone','$email','$status','$gender','$encrypted_pass')";
-
+             
     $result = $conn->query($insert_sql);
 
     if ($result) {
@@ -43,6 +44,7 @@ if ($otp == $otpv) {
     unset($_SESSION['addiction']);
     session_destroy();
 } else {
+   unlink($_SESSION['fileDestination']);
     echo '<script>alert("WRONG OTP")</script>';
     echo '<script>window.location.href="register.php"</script>';
 }

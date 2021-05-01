@@ -142,6 +142,10 @@ require 'includes/config.inc.php';
                                 <input type="password" name="password" class="form-control" id="exampleInputPassword1"
                                     placeholder="Password">
                             </div>
+                            <div class="form-group">
+                                <input type="password" name="cpassword" class="form-control" id="exampleInputPassword1"
+                                    placeholder="Confirm Password">
+                            </div>
 
 
                             <div class="form-group">
