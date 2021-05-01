@@ -159,14 +159,14 @@ require 'includes/config.inc.php';
                                                             } ?>">Product</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="" <?php if (strpos($_SERVER['SCRIPT_FILENAME'], 'psychatrist') !== false) {
+                            <a class="nav-link" href=" <?php if (strpos($_SERVER['SCRIPT_FILENAME'], 'psychatrist') !== false) {
                                                                 echo "../forum/forum.php";
                                                             } else {
-                                                                echo "forum.php";
+                                                                echo "forum/forum.php";
                                                             } ?>">Forum</a>
                         </li>
                         <li class="nav-item @@about__active">
-                            <a class="nav-link" href="" <?php if (strpos($_SERVER['SCRIPT_FILENAME'], 'psychatrist') !== false) {
+                            <a class="nav-link" href=" <?php if (strpos($_SERVER['SCRIPT_FILENAME'], 'psychatrist') !== false) {
                                                                 echo "../about.php";
                                                             } else {
                                                                 echo "about.php";
