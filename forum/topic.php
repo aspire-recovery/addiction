@@ -4,7 +4,6 @@
 
 session_start();
 require '../includes/config.inc.php';
-include 'partials/_menu.php';
 include 'partials/_functions.php';
 $thread_id = $_GET['id'];
 $sql = "SELECT * FROM `threads` WHERE thread_id='" . $thread_id . "'";
@@ -90,12 +89,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
     <!-- HEADER -->
-    <?php require 'partials/_header.php'; ?>
+    
+    <?php
+   
+
+    require 'partials/_header.php'; ?>
 
     <!-- MAIN -->
     <main>
         <div class="container">
             <?php
+            include 'partials/_menu.php';
             echo '<div class="topics" style="flex-basis:100%">
                          <div class="topics__heading">
                              <h2 class="topics__heading-title">' . $row['thread_title'] . '</h2>
