@@ -9,36 +9,6 @@ $thread_id = $_GET['id'];
 $sql = "SELECT * FROM `threads` WHERE thread_id='" . $thread_id . "'";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
-$thread_user = $row['user_id'];
-$cid = $row['c_id'];
-$sqlu = "SELECT u_name FROM `user` where u_id='" . $thread_user . "'";
-$resultu = mysqli_query($conn, $sqlu);
-$rowu = mysqli_fetch_assoc($resultu);
-$sqlc = "SELECT cat_name FROM `forum_categories` where cat_id='" . $cid . "'";
-
-$resultc = mysqli_query($conn, $sqlc);
-$rowc = mysqli_fetch_assoc($resultc);
-$input = $rowu['u_name'];
-$c_date = date('Y-m-d', strtotime($row['created_at']));
-$logo = userlogo($input);
-$sqlr = "SELECT * FROM `forum_reply` where fu_id='" . $thread_id . "'";
-$resultr = mysqli_query($conn, $sqlr);
-$rowr = mysqli_fetch_assoc($resultr);
-
-$sql_last = "SELECT created_at FROM `forum_reply` WHERE fu_id=$thread_id ORDER BY `forum_reply`.`created_at` DESC LIMIT 1";
-$resultl = mysqli_query($conn, $sql_last);
-$rowl = mysqli_fetch_assoc($resultl);
-$l_date = date_create(date('Y-m-d', strtotime($rowl['created_at'])));
-$now = date_create(date('y-m-d'));
-$diff = date_diff($l_date, $now);
-
-$rowcount = mysqli_num_rows($resultr);
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $user_id = $_SESSION['u_id'];
-    $sqli = "INSERT INTO `forum_reply` (`fu_id`, `u_id`, `message`) VALUES ('" . $thread_id . "', '" . $user_id . "', '" . $_POST['description'] . "');";
-    $resulti = mysqli_query($conn, $sqli);
-}
-
 ?>
 
 <head>
@@ -89,18 +59,58 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 <body>
     <!-- HEADER -->
-    
+
     <?php
-   
+
 
     require 'partials/_header.php'; ?>
 
     <!-- MAIN -->
     <main>
+
         <div class="container">
             <?php
+
             include 'partials/_menu.php';
-            echo '<div class="topics" style="flex-basis:100%">
+            $thread_id = $_GET['id'];
+            $sql = "SELECT * FROM `threads` WHERE thread_id='" . $thread_id . "'";
+            $result = mysqli_query($conn, $sql);
+            $row = mysqli_fetch_assoc($result);
+            $thread_user = $row['user_id'];
+            $cid = $row['c_id'];
+            $sqlu = "SELECT u_name FROM `user` where u_id='" . $thread_user . "'";
+            $resultu = mysqli_query($conn, $sqlu);
+            $rowu = mysqli_fetch_assoc($resultu);
+            $sqlc = "SELECT cat_name FROM `forum_categories` where cat_id='" . $cid . "'";
+
+            $resultc = mysqli_query($conn, $sqlc);
+            $rowc = mysqli_fetch_assoc($resultc);
+            $input = $rowu['u_name'];
+            $c_date = date('Y-m-d', strtotime($row['created_at']));
+            $logo = userlogo($input);
+            $sqlr = "SELECT * FROM `forum_reply` where fu_id='" . $thread_id . "'";
+            $resultr = mysqli_query($conn, $sqlr);
+            $rowr = mysqli_fetch_assoc($resultr);
+
+            $sql_last = "SELECT created_at FROM `forum_reply` WHERE fu_id=$thread_id ORDER BY `forum_reply`.`created_at` DESC LIMIT 1";
+            $resultl = mysqli_query($conn, $sql_last);
+            $rowl = mysqli_fetch_assoc($resultl);
+            $l_date = date_create(date('Y-m-d', strtotime($rowl['created_at'])));
+            $now = date_create(date('y-m-d'));
+            $diff = date_diff($l_date, $now);
+
+            $rowcount = mysqli_num_rows($resultr);
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $user_id = $_SESSION['u_id'];
+                $sqli = "INSERT INTO `forum_reply` (`fu_id`, `u_id`, `message`) VALUES ('" . $thread_id . "', '" . $user_id . "', '" . $_POST['description'] . "');";
+                $resulti = mysqli_query($conn, $sqli);
+            }
+
+            ?>
+
+            <?php
+
+            echo '</div><div class="topics" style="flex-basis:100%">
                          <div class="topics__heading">
                              <h2 class="topics__heading-title">' . $row['thread_title'] . '</h2>
                                     <div class="topics__heading-info">
@@ -112,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                         </div>
                     </div>
                 </div>
-                <div class="topics__body" style="">
+                <div class="topics__body">
                     <div class="topics__content">
                         <div class="topic">
                             <div class="topic__head">
