@@ -91,6 +91,22 @@ if (isset($_POST['update'])) {
     $cnum = mysqli_real_escape_string($conn, $_POST['phone']);
 
     if (!empty($cname) && !empty($cnum)) {
+        if (preg_match("#[0-9]+#", $name) || preg_match('@[^\w]@', $cname)) {
+            $_SESSION['error'] = "Your Name Cannot Contain Numbers or Illegal Characters!";
+            echo '<script>window.location.href="register.php?error=true"</script>';
+            exit();
+        }
+
+        if (!preg_match("/^[+]?[1-9][0-9]{9,14}$/",$cnum)) {
+            $error = true;
+            $_SESSION['error'] = "Enter a Legit Phone Number";
+            echo '<script>
+window.location.href = "register.php?error=true"
+</script>';
+
+            exit();
+        }
+
         $sqlu = "UPDATE `user` SET u_name='$cname' ,u_contact='$cnum'  WHERE u_id='$id'";
         $resultu = mysqli_query($conn, $sqlu);
         if ($resultu) {
