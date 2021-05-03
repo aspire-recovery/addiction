@@ -188,11 +188,10 @@ session_start();
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="team-item">
                     <figure>
-                        <img  src="../addiction/assets/images/socialmedia.jpg" alt="">
+                        <img  src="../addiction/assets/images/ajay.jpg" alt="">
                         <figcaption>
                             <div class="info">
                                 <h3>Ajay Rathod</h3>
-                                <p></p>
                             </div>
                             <div class="social">
                                 <a href="#" class="twitter" data-abc="true"><i class="fa fa-twitter"></i></a>
@@ -206,11 +205,11 @@ session_start();
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="team-item">
                     <figure>
-                        <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1558758980/portrait-1287413_640.jpg" alt="">
+                        <img src="../addiction/assets/images/dhruvit.jpg" alt="">
                         <figcaption>
                             <div class="info">
                                 <h3>Dhruvit  Salat</h3>
-                                <p>Backend Developer</p>
+
                             </div>
                             <div class="social">
                                 <a href="#" class="twitter" data-abc="true"><i class="fa fa-twitter"></i></a>
@@ -224,11 +223,11 @@ session_start();
             <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="team-item">
                     <figure>
-                        <img src="https://res.cloudinary.com/dxfq3iotg/image/upload/v1558758980/people-875617_1280.jpg" alt="">
+                        <img src="../addiction/assets/images/umang.jpg" alt="">
                         <figcaption>
                             <div class="info">
                                 <h3>Umang Kalavadiya</h3>
-                                <p>Front-End Developer</p>
+
                             </div>
                             <div class="social">
                                 <a href="#" class="twitter" data-abc="true"><i class="fa fa-twitter"></i></a>
