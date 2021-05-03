@@ -123,7 +123,7 @@ $image = $row['psy_profile'];
 
         if (isset($_GET['error']) && $_GET['error'] == true && isset($_SESSION['error'])) {
 
-            echo ' <div class="alert alert-success alert-with-icon" data-notify="container">
+            echo ' <div class="alert alert-danger alert-with-icon" data-notify="container">
                 <button type="button" aria-hidden="true" class="close" data-dismiss="alert" aria-label="Close">
                     <i class="tim-icons icon-simple-remove"></i>
                 </button>

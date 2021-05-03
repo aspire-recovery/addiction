@@ -1,6 +1,7 @@
 <?php
 session_start();
-if (!isset($_SESSION["p_id"])) {
+
+if (!isset($_SESSION["p_id"]) || !isset($_POST['submit'])) {
     echo '<script>window.location.href="../e404.php"</script>';
     exit(0);
 }

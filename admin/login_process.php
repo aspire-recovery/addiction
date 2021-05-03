@@ -9,8 +9,14 @@ $Password = $_POST['password'];
 $pwd = md5($Password);
 
 /*Query*/
+if (empty($_POST['email']) || empty($_POST['password'])) {
+    $error = true;
+    $_SESSION['error'] = "Field Cannot be Empty!!!";
+    echo '<script>window.location.href="login.php?error=true"</script>';
+    exit();
+}
 
-$sql = "SELECT * FROM `admin` WHERE a_email='$Email' AND a_password='$pwd' ";
+$sql = "SELECT * FROM `admin` WHERE a_email='$Email' AND a_password='$pwd'";
 
 $result = $conn->query($sql);
 
@@ -25,5 +31,8 @@ if ($result->num_rows > 0) {
     $_SESSION['a_name'] = $a_name;
     echo '<script>window.location.href="index.php"</script>';
 } else {
-    echo '<script>window.location.href="login.php"</script>';
+    $error = true;
+    $_SESSION['error'] = "Incorrect Credentials!!!";
+    echo '<script>window.location.href="login.php?error=true"</script>';
+    exit();
 }

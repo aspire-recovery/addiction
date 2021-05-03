@@ -15,7 +15,7 @@ session_start();
 
     <link href="//fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
     <!-- Template CSS -->
     <link rel="stylesheet" href="assets/css/style-starter.css">
@@ -75,104 +75,106 @@ session_start();
                 <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
             </svg>
         </div>
-    </section>
-</div>
-<!-- banner bottom shape -->
-<div class="position-relative">
-    <div class="shape overflow-hidden">
-        <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
-        </svg>
+        </section>
     </div>
-</div>
-<!-- banner bottom shape -->
-<!-- contacts -->
-<section class="w3l-contact-7 py-5" id="contact">
-    <div class="container">
-        <div class="top-map">
-            <div class="row map-content-9">
-                <?php
+    <!-- banner bottom shape -->
+    <div class="position-relative">
+        <div class="shape overflow-hidden">
+            <svg viewBox="0 0 2880 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0 48H1437.5H2880V0H2160C1442.5 52 720 0 720 0H0V48Z" fill="currentColor"></path>
+            </svg>
+        </div>
+    </div>
+    <!-- banner bottom shape -->
+    <!-- contacts -->
+    <section class="w3l-contact-7 py-5" id="contact">
+        <div class="container">
+            <div class="top-map">
+                <div class="row map-content-9">
 
-                            if (isset($_GET['exist']) && $_GET['exist'] == true) {
 
-                                echo ' <div class="alert alert-primary" style="left: 20px;">
-                        Email Already Exist!
-                       
-                    </div>';
-                            }
-                            ?>
+
+
+                    <form action="register_process.php" method="post" class="" style="width: 70%">
+
+                        <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
                             <?php
 
-                            if (isset($_GET['error']) && isset($_SESSION['error'])) {
-                                echo ' <div class="alert alert-primary" style="left: 20px;">
-                  ' . $_SESSION['error'] . '
-                </div>';
-                unset($_SESSION['error']);
-                            }
-                            ?>
+                                    if (isset($_GET['exist']) && $_GET['exist'] == true) {
 
-                        <form action="register_process.php" method="post" class="text-right" style="width: 70%">
+                                        echo ' <div class="alert alert-primary">  Email Already Exist! </div>';
+                                    }
+                                    ?>
+                            <?php
+
+                                    if (isset($_GET['error']) && isset($_SESSION['error'])) {
+                                        echo ' <div class="alert alert-primary" >  ' . $_SESSION['error'] . ' </div>';
+                                        unset($_SESSION['error']);
+                                    }
+                                    ?>
+                        </div>
 
 
-                            <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
-                                <input type="text" name="name" id="" placeholder="Name" required="">
-                            </div>
-                            <br>
-                            <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
-                                <input type="email" name="email" id="" placeholder="Email" required="">
-                            </div>
-                            <br>
-                            <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
-                                <input type="password" name="password" id="" placeholder="Password" required="">
-                            </div>
-                            <br>
-                            <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
-                                <input type="password" name="cpassword" id="" placeholder="Confirm Password" required="">
-                            </div>
-                            <br>
-                            <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
-                                <input type="number" name="phone" id="" placeholder="Contact No." required="">
-                            </div>
-                            <br>
-                            <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
-                                <select name="gender" class="form-control" style="margin-top: 10px">
-                                    <option style="width: 40%" value="">Select Gender...</option>
-                                    <option style="width: 40%" value="male">Male</option>
-                                    <option style="width: 40%" value="female">Female</option>
-                                    <option style="width: 40%" value="others">Others</option>
-                                </select>
-                            </div>
-                            <br>
-                            <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
-                                <select name="addiction" class="form-control" style="margin-top: 10px">
+                        <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
 
-                                    <?php
-                                            $addiction_sql = "SELECT add_id,add_name FROM `addiction_types`";
-                                            $result = $conn->query($addiction_sql);
-                                            if ($result->num_rows > 0) {
-                                                while ($row = $result->fetch_assoc()) {
-                                                    echo '<option value="' . $row['add_id'] . '">' . $row['add_name'] . '</option>';
-                                                }
+                            <input type="text" name="name" id="" placeholder="Name" required="">
+                        </div>
+                        <br>
+                        <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
+                            <input type="email" name="email" id="" placeholder="Email" required="">
+                        </div>
+                        <br>
+                        <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
+                            <input type="password" name="password" id="" placeholder="Password" required="">
+                        </div>
+                        <br>
+                        <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
+                            <input type="password" name="cpassword" id="" placeholder="Confirm Password" required="">
+                        </div>
+                        <br>
+                        <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
+                            <input type="number" name="phone" id="" placeholder="Contact No." required="">
+                        </div>
+                        <br>
+                        <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
+                            <select name="gender" class="form-control" style="margin-top: 10px">
+                                <option style="width: 40%" value="">Select Gender...</option>
+                                <option style="width: 40%" value="male">Male</option>
+                                <option style="width: 40%" value="female">Female</option>
+                                <option style="width: 40%" value="others">Others</option>
+                            </select>
+                        </div>
+                        <br>
+                        <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
+                            <select name="addiction" class="form-control" style="margin-top: 10px">
+
+                                <?php
+                                        $addiction_sql = "SELECT add_id,add_name FROM `addiction_types`";
+                                        $result = $conn->query($addiction_sql);
+                                        if ($result->num_rows > 0) {
+                                            while ($row = $result->fetch_assoc()) {
+                                                echo '<option value="' . $row['add_id'] . '">' . $row['add_name'] . '</option>';
                                             }
-                                            ?>
-                                </select>
-                            </div>
-                            <br>
+                                        }
+                                        ?>
+                            </select>
+                        </div>
+                        <br>
 
-                            <button type="submit" class="btn btn-primary" name="submit"
-                                style="float: left;width: 30%;padding:  10px;margin-top: 10px;margin-left: 20px;">Create
-                                Account
-                            </button>
+                        <button type="submit" class="btn btn-primary" name="submit"
+                            style="float: left;width: 30%;padding:  10px;margin-top: 10px;margin-left: 20px;">Create
+                            Account
+                        </button>
 
-                            <a href="login.php" class="btn btn-primary"
-                                style="float: left;width: 30%;padding: 10px;margin-top: 10px;margin-left: 20px;">Login</a>
-                            <br>
-                            <br>
-                            <br>
-                        </form>
-                    </div>
+                        <a href="login.php" class="btn btn-primary"
+                            style="float: left;width: 30%;padding: 10px;margin-top: 10px;margin-left: 20px;">Login</a>
+                        <br>
+                        <br>
+                        <br>
+                    </form>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
@@ -228,18 +230,19 @@ session_start();
                                     <h4>Follow Us On</h4>
                                     <ul>
                                         <li><a href="#facebook"><span class="fa fa-facebook"
-                                                                      aria-hidden="true"></span></a>
+                                                    aria-hidden="true"></span></a>
                                         </li>
                                         <li><a href="#linkedin"><span class="fa fa-linkedin"
-                                                                      aria-hidden="true"></span></a>
+                                                    aria-hidden="true"></span></a>
                                         </li>
                                         <li><a href="#twitter"><span class="fa fa-twitter"
-                                                                     aria-hidden="true"></span></a>
+                                                    aria-hidden="true"></span></a>
                                         </li>
                                         <li><a href="#google"><span class="fa fa-google-plus"
-                                                                    aria-hidden="true"></span></a>
+                                                    aria-hidden="true"></span></a>
                                         </li>
-                                        <li><a href="https://github.com/valentinos2077"><span class="fa fa-github" aria-hidden="true"></span></a>
+                                        <li><a href="https://github.com/valentinos2077"><span class="fa fa-github"
+                                                    aria-hidden="true"></span></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -248,47 +251,47 @@ session_start();
                     </div>
 
                 </div>
-            </div>
-            <!-- move top -->
-            <button onclick="topFunction()" id="movetop" title="Go to top">
-                &uarr;
-            </button>
-            <script>
-                // When the user scrolls down 20px from the top of the document, show the button
-                window.onscroll = function () {
-                    scrollFunction()
-                };
+        </div>
+        <!-- move top -->
+        <button onclick="topFunction()" id="movetop" title="Go to top">
+            &uarr;
+        </button>
+        <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {
+            scrollFunction()
+        };
 
-                function scrollFunction() {
-                    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                        document.getElementById("movetop").style.display = "block";
-                    } else {
-                        document.getElementById("movetop").style.display = "none";
-                    }
-                }
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("movetop").style.display = "block";
+            } else {
+                document.getElementById("movetop").style.display = "none";
+            }
+        }
 
-                // When the user clicks on the button, scroll to the top of the document
-                function topFunction() {
-                    document.body.scrollTop = 0;
-                    document.documentElement.scrollTop = 0;
-                }
-            </script>
-            <!-- /move top -->
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+        </script>
+        <!-- /move top -->
 
         </footer>
         <!-- Footers-14 -->
     </div>
-</div>
-<!-- //footer 14 -->
+    </div>
+    <!-- //footer 14 -->
 
-<script src="assets/js/jquery-3.3.1.min.js"></script> <!-- Common jquery plugin -->
+    <script src="assets/js/jquery-3.3.1.min.js"></script> <!-- Common jquery plugin -->
 
-<script src="assets/js/theme-change.js"></script><!-- theme switch js (light and dark)-->
-<script src="assets/js/owl.carousel.js"></script>
+    <script src="assets/js/theme-change.js"></script><!-- theme switch js (light and dark)-->
+    <script src="assets/js/owl.carousel.js"></script>
 
-<!-- script for banner slider-->
-<script>
-    $(document).ready(function () {
+    <!-- script for banner slider-->
+    <script>
+    $(document).ready(function() {
         $('.owl-one').owlCarousel({
             loop: true,
             dots: false,
@@ -315,12 +318,12 @@ session_start();
             }
         })
     })
-</script>
-<!-- //script -->
+    </script>
+    <!-- //script -->
 
-<!-- script for tesimonials carousel slider -->
-<script>
-    $(document).ready(function () {
+    <!-- script for tesimonials carousel slider -->
+    <script>
+    $(document).ready(function() {
         $("#owl-demo1").owlCarousel({
             loop: true,
             margin: 20,
@@ -340,14 +343,14 @@ session_start();
             }
         })
     })
-</script>
-<!-- //script for tesimonials carousel slider -->
+    </script>
+    <!-- //script for tesimonials carousel slider -->
 
-<script src="assets/js/counter.js"></script>
+    <script src="assets/js/counter.js"></script>
 
-<!--/MENU-JS-->
-<script>
-    $(window).on("scroll", function () {
+    <!--/MENU-JS-->
+    <script>
+    $(window).on("scroll", function() {
         var scroll = $(window).scrollTop();
 
         if (scroll >= 80) {
@@ -358,37 +361,37 @@ session_start();
     });
 
     //Main navigation Active Class Add Remove
-    $(".navbar-toggler").on("click", function () {
+    $(".navbar-toggler").on("click", function() {
         $("header").toggleClass("active");
     });
-    $(document).on("ready", function () {
+    $(document).on("ready", function() {
         if ($(window).width() > 991) {
             $("header").removeClass("active");
         }
-        $(window).on("resize", function () {
+        $(window).on("resize", function() {
             if ($(window).width() > 991) {
                 $("header").removeClass("active");
             }
         });
     });
-</script>
-<!--//MENU-JS-->
+    </script>
+    <!--//MENU-JS-->
 
-<!-- disable body scroll which navbar is in active -->
-<script>
-    $(function () {
-        $('.navbar-toggler').click(function () {
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
             $('body').toggleClass('noscroll');
         })
     });
-</script>
-<!-- //disable body scroll which navbar is in active -->
-
-<!--bootstrap-->
-<script src="assets/js/bootstrap.min.js"></script>
+    </script>
+    <!-- //disable body scroll which navbar is in active -->
 
     <!--bootstrap-->
- 
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!--bootstrap-->
+
 
 </body>
 

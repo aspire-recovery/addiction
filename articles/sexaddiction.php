@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="assets/css/articles.css">
+    <link rel="stylesheet" href="../assets/css/articles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
     <title>SEX Addiction-Article</title>
@@ -24,7 +24,7 @@
 
 <center>
     <div class="header-image">
-        <img src="assets/images/fap.jpg" height="550" width="1280" >
+        <img src="../assets/images/fap.jpg" height="550" width="1280" >
     </div>
 </center>
 

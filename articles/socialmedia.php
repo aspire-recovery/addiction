@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
     <title>Social-media article</title>
-    <link rel="stylesheet" href="assets/css/articles.css">
+    <link rel="stylesheet" href="../assets/css/articles.css">
 </head>
 <body>
 <button onclick="goBack() " class="btn btn-outline-info"> < Back </button>
@@ -23,7 +23,7 @@
 
 <center>
     <div class="header-image">
-        <img src="assets/images/socialmedia1.jpg" height="550" width="1280" >
+        <img src="../assets/images/socialmedia1.jpg" height="550" width="1280" >
     </div>
 </center>
 

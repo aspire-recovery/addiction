@@ -33,6 +33,9 @@ $row = mysqli_fetch_assoc($result);
     <link rel="stylesheet" href="vendor/bootstrap/v4/bootstrap-grid.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 
     <!-- Custom -->
 
@@ -72,6 +75,8 @@ $row = mysqli_fetch_assoc($result);
             <?php
 
             include 'partials/_menu.php';
+
+            echo '</div>';
             $thread_id = $_GET['id'];
             $sql = "SELECT * FROM `threads` WHERE thread_id='" . $thread_id . "'";
             $result = mysqli_query($conn, $sql);
@@ -101,16 +106,33 @@ $row = mysqli_fetch_assoc($result);
 
             $rowcount = mysqli_num_rows($resultr);
             if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                $user_id = $_SESSION['u_id'];
-                $sqli = "INSERT INTO `forum_reply` (`fu_id`, `u_id`, `message`) VALUES ('" . $thread_id . "', '" . $user_id . "', '" . $_POST['description'] . "');";
-                $resulti = mysqli_query($conn, $sqli);
+                if (!empty($_POST['description'])) {
+                    $user_id = $_SESSION['u_id'];
+                    $desc = mysqli_real_escape_string($conn, $_POST['description']);
+                    $sqli = "INSERT INTO `forum_reply` (`fu_id`, `u_id`, `message`) VALUES ('" . $thread_id . "', '" . $user_id . "', '" .  $desc . "');";
+                    $resulti = mysqli_query($conn, $sqli);
+                    if ($resulti) {
+                        $error = true;
+                        $_SESSION['error'] = "Success";
+                        echo '<script>window.location.href="topic.php?error=true&id=' . $thread_id . '"</script>';
+                    }
+                } else {
+                    $error = true;
+                    $_SESSION['error'] = "Fields Cannot be Empty!";
+                    echo '<script>window.location.href="topic.php?error=true&id=' . $thread_id . '"</script>';
+                }
+            }
+
+            if (isset($_GET['error']) && isset($_SESSION['error'])) {
+                echo ' <div class="alert alert-primary" >  ' . $_SESSION['error'] . ' </div>';
+                unset($_SESSION['error']);
             }
 
             ?>
 
             <?php
 
-            echo '</div><div class="topics" style="flex-basis:100%">
+            echo '<div class="topics" style="flex-basis:100%">
                          <div class="topics__heading">
                              <h2 class="topics__heading-title">' . $row['thread_title'] . '</h2>
                                     <div class="topics__heading-info">

@@ -4,7 +4,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="assets/css/articles.css">
+    <link rel="stylesheet" href="../assets/css/articles.css">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
@@ -27,7 +27,7 @@
 <br>
 <!--<center>-->
 <div class="header-image">
-    <img src="assets/images/alchoholism.jpg" width="1500" height="500">
+    <img src="../assets/images/alchoholism.jpg" width="1500" height="500">
 </div>
 <!--</center>-->
     

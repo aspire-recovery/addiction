@@ -104,7 +104,7 @@ require 'includes/config.inc.php';
                 <?php
 
                         if (isset($_GET['error']) && isset($_SESSION['error'])) {
-                            echo ' <div class="alert alert-primary" style="left: 20px;">
+                            echo ' <div class="alert alert-primary text-center" style="left: 20px;">
               ' . $_SESSION['error'] . '
             </div>';
                             unset($_SESSION['error']);
