@@ -6,6 +6,52 @@ if (!isset($_SESSION["u_id"])) {
 }
 include "../includes/config.inc.php";
 $id = $_SESSION["u_id"];
+if (isset($_POST['update'])) {
+    $cname = mysqli_real_escape_string($conn, $_POST['name']);
+    $cnum =  mysqli_real_escape_string($conn, $_POST['phone']);
+
+    echo "<br>";
+
+    if (!empty($cname) && !empty($cnum)) {
+        if (!preg_match('/[^\w -.]/', $cname)) {
+        } else {
+            if (preg_match("#[0-9]+#", $cname)  || preg_match('@[^\w]@', $cname)) {
+                $_SESSION['error'] = "Your Name Cannot Contain Numbers or Illegal Characters!";
+                echo '<script>window.location.href="../profile.php?error=true"</script>';
+                exit();
+            }
+        }
+
+
+        if (!preg_match("/^[+]?[1-9][0-9]{9,14}$/", $cnum)) {
+            $error = true;
+            $_SESSION['error'] = "Enter a Legit Phone Number";
+            echo '<script>
+window.location.href = "../profile.php?error=true"
+</script>';
+
+            exit();
+        }
+
+        $sqlu = "UPDATE user SET u_name='$cname',u_contact=$cnum WHERE u_id='$id'";
+        $resultu = mysqli_query($conn, $sqlu);
+        if ($resultu) {
+            $error = true;
+            $_SESSION['error'] = "Success!!!";
+
+            echo '<script>window.location.href="../profile.php?error=true"</script>';
+        } else {
+
+            $error = true;
+            $_SESSION['error'] = "Error Updating(" . mysqli_error($conn)  . ")";
+            echo '<script>window.location.href="../profile.php?error=true"</script>';
+        }
+    } else {
+        $error = true;
+        $_SESSION['error'] = "All Fields Cannot be Empty!! ";
+        echo '<script>window.location.href="../profile.php?error=true"</script>';
+    }
+}
 
 if (isset($_POST['submit'])) {
 
@@ -82,46 +128,6 @@ if (isset($_POST['submit'])) {
     } else {
         $error = true;
         $_SESSION['error'] = "Image is Required to Register!!!";
-        echo '<script>window.location.href="../profile.php?error=true"</script>';
-    }
-}
-
-if (isset($_POST['update'])) {
-    $cname = mysqli_real_escape_string($conn, $_POST['name']);
-    $cnum = mysqli_real_escape_string($conn, $_POST['phone']);
-
-    if (!empty($cname) && !empty($cnum)) {
-        if (preg_match("#[0-9]+#", $name) || preg_match('@[^\w]@', $cname)) {
-            $_SESSION['error'] = "Your Name Cannot Contain Numbers or Illegal Characters!";
-            echo '<script>window.location.href="../profile.php?error=true"</script>';
-            exit();
-        }
-
-        if (!preg_match("/^[+]?[1-9][0-9]{9,14}$/",$cnum)) {
-            $error = true;
-            $_SESSION['error'] = "Enter a Legit Phone Number";
-            echo '<script>
-window.location.href = "../profile.php?error=true"
-</script>';
-
-            exit();
-        }
-
-        $sqlu = "UPDATE `user` SET u_name='$cname' ,u_contact='$cnum'  WHERE u_id='$id'";
-        $resultu = mysqli_query($conn, $sqlu);
-        if ($resultu) {
-            $error = true;
-            $_SESSION['error'] = "Success!!!";
-            echo '<script>window.location.href="../profile.php?error=true"</script>';
-        } else {
-
-            $error = true;
-            $_SESSION['error'] = "Error Updating(" . mysqli_error($conn)  . ")";
-            echo '<script>window.location.href="../profile.php?error=true"</script>';
-        }
-    } else {
-        $error = true;
-        $_SESSION['error'] = "All Fields Cannot be Empty!! ";
         echo '<script>window.location.href="../profile.php?error=true"</script>';
     }
 }

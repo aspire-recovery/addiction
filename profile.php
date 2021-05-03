@@ -5,9 +5,10 @@ if (!isset($_SESSION["u_id"])) {
     echo '<script>window.location.href="login.php"</script>';
     exit(0);
 }
+
 $uid = $_SESSION['u_id'];
 
-$user = "SELECT * FROM `user` JOIN addiction_types on addiction_types.add_id = user.addiction_id WHERE user.u_id='$uid'";
+$user = "SELECT * FROM user JOIN addiction_types on addiction_types.add_id = user.addiction_id WHERE user.u_id='$uid'";
 
 $result = $conn->query($user);
 if ($result->num_rows > 0) {
@@ -276,7 +277,7 @@ if ($result->num_rows > 0) {
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="phone">Phone</label>
-                                    <input type="text" class="form-control" name="phone" id="phone"
+                                    <input type="number" class="form-control" name="phone" id="phone"
                                         value="<?php echo $u_contact; ?>" placeholder="Enter phone number">
                                 </div>
                             </div>

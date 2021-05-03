@@ -21,7 +21,6 @@ require 'includes/config.inc.php';
         display: -webkit-flex;
         display: flex;
         border-radius: 50%;
-
         border: 3px solid white;
 
     }
@@ -173,7 +172,7 @@ require 'includes/config.inc.php';
                         </li>
                         <li class="align-self">
 
-                            <div class="header__user-btn" style="overflow: visible;">
+                            <div class="header__user-btn" style="overflow: hidden;">
                                 <img style="height:40px; width: 40px; object-fit: cover;" src="<?php $u_img =  $_SESSION['u_img'];
                                                                                                     if (strpos($u_img, 'fonts') !== false) {
                                                                                                         echo "forum/" . $u_img;
@@ -188,7 +187,7 @@ require 'includes/config.inc.php';
                         <li class="align-self">
 
 
-                            <a href="cart.php" class="btn btn-style  " style="margin: 0 -25px 10px -25px;"><span
+                            <a href="cart.php" class="btn btn-style  " style="margin: 0 -25px 10px -15px;"><span
                                     class="fa fa-shopping-cart"></span> CART</a>
 
                         </li>
