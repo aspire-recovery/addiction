@@ -48,9 +48,11 @@ session_start();
 <body>
     <!-- HEADER -->
 
+
     <?php
 
     include 'partials/header.php';
+    echo "<br><br><br>";
     include 'partials/_header.php';
     include 'partials/_functions.php';
     ?>
