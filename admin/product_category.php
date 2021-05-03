@@ -7,11 +7,14 @@ require '../includes/config.inc.php';
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lumino UI Elements</title>
+    <title>Category</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/datepicker3.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 
     <!--Custom Font-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i"
@@ -56,6 +59,12 @@ include 'leftmenu.php';
                 <div class="panel-heading">Add Products Categories</div>
                 <div class="panel-body">
                     <div class="col-md-12">
+                        <?php
+                        if (isset($_GET['error']) && isset($_SESSION['error'])) {
+                            echo ' <div class="alert alert-danger" >  ' . $_SESSION['error'] . ' </div>';
+                            unset($_SESSION['error']);
+                        }
+                        ?>
                         <form class="form-group" action="product_category_process.php" method="post">
                             <div class="form-group">
                                 <label for="exampleFormControlTextarea1">Product Name</label>

@@ -5,9 +5,8 @@ require 'includes/config.inc.php';
 include('psychatrist/class/Appointment.php');
 
 $object = new Appointment;
-if(!isset($_SESSION['u_id']))
-{
-header('location: e404.php');
+if (!isset($_SESSION['u_id'])) {
+    header('location: e404.php');
 }
 
 ?>
@@ -18,9 +17,9 @@ header('location: e404.php');
 
 <head>
     <!-- Required meta tags -->
-<title>Appointment Booking</title>
+    <title>Appointment Booking</title>
 
- 
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
@@ -47,11 +46,13 @@ header('location: e404.php');
     .box-shadow {
         box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
     }
-   
+
     @import url(//fonts.googleapis.com/css?family=Montserrat:400,500,700);
-    body{
+
+    body {
         background-color: coral;
     }
+
     .banner3 {
         font-family: "Montserrat", sans-serif;
         color: #8d97ad;
@@ -202,7 +203,7 @@ if (isset($_GET["id"])) {
                 </div>
             </div>
 
-            <div id="appointmentModal" class="modal fade">
+            <div id="appointmentModal" class="modal ">
                 <div class="modal-dialog">
                     <form method="post" id="appointment_form">
                         <div class="modal-content">
@@ -269,7 +270,9 @@ if (isset($_GET["id"])) {
     <script src="psychatrist/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <script>
+
     $(document).ready(function() {
+       
 
         var a = <?php echo $id; ?>;
 

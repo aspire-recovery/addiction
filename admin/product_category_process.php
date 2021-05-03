@@ -7,21 +7,29 @@ session_start();
 $name = $_POST['product_name'];
 $description = $_POST['description'];
 
-//echo $name, $description;
+if (!empty($_POST['product_name']) &&  !empty($_POST['description'])) {
+
+    //echo $name, $description;
 
 
-//Query
+    //Query
 
-$pdt_category = "INSERT INTO `product_categories` (`pdt_name`, `pdt_description`) VALUES ('$name','$description')";
-//echo $pdt_category;
-$result = $conn->query($pdt_category);
+    $pdt_category = "INSERT INTO `product_categories` (`pdt_name`, `pdt_description`) VALUES ('$name','$description')";
+    //echo $pdt_category;
+    $result = $conn->query($pdt_category);
 
-if ($result) {
-    echo '<script>window.location.href="product_category.php"</script>';
-
+    if ($result) {
+        echo '<script>window.location.href="product_category.php"</script>';
+    } else {
+        echo '<script>alert("Data Not Inserted")</script>';
+        echo '<script>window.location.href="product_category.php"</script>';
+    }
 } else {
-    echo '<script>alert("Data Not Inserted")</script>';
-    echo '<script>window.location.href="product_category.php"</script>';
-}
+    $error = true;
+    $_SESSION['error'] = "All Field Cannot be Empty";
+    echo '<script>
+    window.location.href = "product_category.php?error=true"
+    </script>';
 
-?>
+    exit();
+}

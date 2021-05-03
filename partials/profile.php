@@ -90,16 +90,22 @@ if (isset($_POST['update'])) {
     $cname = mysqli_real_escape_string($conn, $_POST['name']);
     $cnum = mysqli_real_escape_string($conn, $_POST['phone']);
 
-    $sqlu = "UPDATE `user` SET u_name='$cname' ,u_contact='$cnum'  WHERE u_id='$id'";
-    $resultu = mysqli_query($conn, $sqlu);
-    if ($resultu) {
-        $error = true;
-        $_SESSION['error'] = "Success!!!";
-        echo '<script>window.location.href="../profile.php?error=true"</script>';
-    } else {
+    if (!empty($cname) && !empty($cnum)) {
+        $sqlu = "UPDATE `user` SET u_name='$cname' ,u_contact='$cnum'  WHERE u_id='$id'";
+        $resultu = mysqli_query($conn, $sqlu);
+        if ($resultu) {
+            $error = true;
+            $_SESSION['error'] = "Success!!!";
+            echo '<script>window.location.href="../profile.php?error=true"</script>';
+        } else {
 
+            $error = true;
+            $_SESSION['error'] = "Error Updating(" . mysqli_error($conn)  . ")";
+            echo '<script>window.location.href="../profile.php?error=true"</script>';
+        }
+    } else {
         $error = true;
-        $_SESSION['error'] = "Error Updating(" . mysqli_error($conn)  . ")";
+        $_SESSION['error'] = "All Fields Cannot be Empty!! ";
         echo '<script>window.location.href="../profile.php?error=true"</script>';
     }
 }

@@ -15,6 +15,9 @@ require 'includes/config.inc.php';
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Payment</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
     <style>
     body {
         font-family: Arial;
@@ -144,14 +147,21 @@ require 'includes/config.inc.php';
             <div class="container">
                 <form action="payment.php" method="post">
 
+                    <?php
+                    if (isset($_GET['error']) && isset($_SESSION['error'])) {
+                        echo ' <div class="alert alert-primary" >  ' . $_SESSION['error'] . ' </div>';
+                        unset($_SESSION['error']);
+                    }
+                    ?>
+
                     <div class="row">
                         <div class="col-50">
                             <h3>Billing Address</h3>
                             <input type="hidden" name="price" value="<?php echo $price; ?>" />
                             <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-                            <input type="text" id="fname" name="name" value="<?php echo $row['u_name']  ?>" >
+                            <input type="text" id="fname" name="name" value="<?php echo $row['u_name'];  ?>" readonly>
                             <label for="email"><i class="fa fa-envelope"></i> Email</label>
-                            <input type="text" id="email" name="email" value="<?php echo $row['u_email']  ?>" >
+                            <input type="text" id="email" name="email" value="<?php echo $row['u_email'];  ?>" readonly>
                             <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
                             <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
                             <label for="city"><i class="fa fa-institution"></i> City</label>

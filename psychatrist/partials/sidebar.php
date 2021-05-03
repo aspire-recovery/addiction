@@ -33,7 +33,9 @@
                 echo "active";
             }?>">
                 <a href="doctor_schedule.php">
-                    <i class="tim-icons icon-single-02"></i>
+                    <i class="tim-icons icon-calendar-60
+
+                    "></i>
                     <p>Doctor Schedule</p>
                 </a>
             </li>
@@ -41,7 +43,21 @@
                 echo "active";
             }?>">
                 <a href="appointment.php">
-                    <i class="tim-icons icon-bell-55"></i>
+                    <i class="tim-icons icon-laptop
+
+
+
+                    "></i>
+                    <p>Appointment</p>
+                </a>
+            </li>
+            <li class="<?php if (strpos($_SERVER['SCRIPT_FILENAME'], 'logout') !== false) {
+                echo "active";
+            }?>">
+                <a href="logout.php">
+                    <i class="tim-icons icon-simple-remove
+
+                    "></i>
                     <p>Appointment</p>
                 </a>
             </li>

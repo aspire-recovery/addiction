@@ -7,11 +7,14 @@ require '../includes/config.inc.php';
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lumino UI Elements</title>
+    <title>Products</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
     <link href="css/datepicker3.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
 
     <!--Custom Font-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i"
@@ -73,7 +76,7 @@ include 'leftmenu.php';
 
                         if (isset($_GET['error']) && $_GET['error'] == true && isset($_SESSION['error'])) {
                 
-                            echo ' <div class="alert alert-primary">
+                            echo ' <div class="alert alert-danger">
                 ' . $_SESSION['error'] . '
                 </div>';
                             unset($_SESSION['error']);
