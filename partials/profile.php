@@ -93,7 +93,7 @@ if (isset($_POST['update'])) {
     if (!empty($cname) && !empty($cnum)) {
         if (preg_match("#[0-9]+#", $name) || preg_match('@[^\w]@', $cname)) {
             $_SESSION['error'] = "Your Name Cannot Contain Numbers or Illegal Characters!";
-            echo '<script>window.location.href="register.php?error=true"</script>';
+            echo '<script>window.location.href="../profile.php?error=true"</script>';
             exit();
         }
 
@@ -101,7 +101,7 @@ if (isset($_POST['update'])) {
             $error = true;
             $_SESSION['error'] = "Enter a Legit Phone Number";
             echo '<script>
-window.location.href = "register.php?error=true"
+window.location.href = "../profile.php?error=true"
 </script>';
 
             exit();
