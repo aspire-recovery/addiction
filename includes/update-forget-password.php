@@ -9,7 +9,7 @@ if ($_POST['password'] == $_POST['cpassword']) {
     var_dump($query);
     $row = mysqli_num_rows($query);
     if ($row) {
-        mysqli_query($conn, "UPDATE `user` set  u_password='" . $password . "' WHERE  ='" . $emailId . "'");
+        mysqli_query($conn, "UPDATE `user` set  u_password='" . $password . "' WHERE  u_email='" . $emailId . "'");
         mysqli_query($conn, "DELETE FROM `pwd_reset` WHERE `pwd_reset`.`reset_link_token` = '" . $token . "'");
         echo '<script>window.location.href="../login.php?success=true"</script>';
     } else {
