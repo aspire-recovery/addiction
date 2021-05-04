@@ -23,6 +23,17 @@
                 $psy_email = $row['psy_email'];
                 $psy_name = $row['psy_name'];
                 $psy_profile = $row['psy_profile'];
+                $status = $row['psy_status'];
+            
+                if($status == 1)
+            {
+                $error = true;
+        $_SESSION['error'] = " You Are Blocked!";
+        echo '<script>window.location.href="login.php?error=true"</script>';
+
+        exit();
+
+            }
                 $_SESSION['p_id'] = $psy_id;
                 $_SESSION['p_email'] = $psy_email;
                 $_SESSION['p_name'] = $psy_name;

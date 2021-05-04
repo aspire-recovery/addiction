@@ -58,7 +58,7 @@
                     <i class="tim-icons icon-simple-remove
 
                     "></i>
-                    <p>Appointment</p>
+                    <p>Logout</p>
                 </a>
             </li>
             

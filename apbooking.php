@@ -3,10 +3,11 @@ require 'includes/config.inc.php';
 
 
 include('psychatrist/class/Appointment.php');
-
 $object = new Appointment;
+
 if (!isset($_SESSION['u_id'])) {
     header('location: e404.php');
+    exit();
 }
 
 ?>

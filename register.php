@@ -104,8 +104,7 @@ session_start();
 
                                         echo ' <div class="alert alert-primary">  Email Already Exist! </div>';
                                     }
-                                    ?>
-                            <?php
+
 
                                     if (isset($_GET['error']) && isset($_SESSION['error'])) {
                                         echo ' <div class="alert alert-primary" >  ' . $_SESSION['error'] . ' </div>';

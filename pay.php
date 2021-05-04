@@ -1,5 +1,6 @@
 <?php if (!isset($_POST['pay'])) {
     header('location: e404.php');
+    exit(0);
 } elseif (isset($_POST['price'])) {
     $price = $_POST['price'];
 }

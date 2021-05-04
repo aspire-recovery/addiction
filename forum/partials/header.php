@@ -37,6 +37,7 @@ require '../includes/config.inc.php';
         height: 40px;
         width: 40px;
         object-fit: cover;
+        margin-right: 0px !important;
     }
 
     .header__user-btn>i {
@@ -159,7 +160,7 @@ require '../includes/config.inc.php';
                         <li class="align-self">
 
 
-                            <a href="../cart.php" class="btn btn-style  " style="margin: 0 5px 10px 5px;"><span
+                            <a href="../cart.php" class="btn btn-style  " style="margin: 0 -10px 0px 10px;"><span
                                     class="fa fa-shopping-cart"></span> CART</a>
 
                         </li>

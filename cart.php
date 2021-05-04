@@ -5,6 +5,7 @@ session_start();
 if (!isset($_SESSION['loggedin'])) {
     header('location: login.php?login?true');
 }
+
 if (!empty($_GET["action"])) {
 
     switch ($_GET["action"]) {
@@ -354,6 +355,7 @@ if (!empty($_GET["action"])) {
 
                     <?php
                     if (isset($_SESSION["cart_item"])) {
+                       
                         $total_quantity = 0;
                         $total_price = 0;
                     ?>

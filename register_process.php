@@ -28,14 +28,15 @@ if (!empty($_POST['name']) && !empty($_POST['password']) && !empty($_POST['email
         echo '<script>window.location.href="register.php?error=true"</script>';
         exit();
     }
-    if (!preg_match('/[^\w -.]/', $cname)) {
+
+    if (!preg_match('/[^\w .]/', $cname)) {
     } else {
-    if (preg_match("#[0-9]+#", $name) || preg_match('@[^\w]@', $name)) {
-        $_SESSION['error'] = "Your Name Cannot Contain Numbers or Illegal Characters!";
-        echo '<script>window.location.href="register.php?error=true"</script>';
-        exit();
+        if (preg_match("#[0-9]+#", $name) || preg_match('@[^\w]@', $name)) {
+            $_SESSION['error'] = "Your Name Cannot Contain Numbers or Illegal Characters!";
+            echo '<script>window.location.href="register.php?error=true"</script>';
+            exit();
+        }
     }
-}
 
 
     if ($_POST['password'] == $_POST['cpassword']) {

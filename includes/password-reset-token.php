@@ -12,7 +12,12 @@ if (isset($_POST['password-reset-token']) && $_POST['email']) {
         $token = md5($emailId) . rand(10, 9999);
 
         $expFormat = mktime(
-            date("H"), date("i"), date("s"), date("m"), date("d") + 1, date("Y")
+            date("H"),
+            date("i"),
+            date("s"),
+            date("m"),
+            date("d") + 1,
+            date("Y")
         );
 
         $expDate = date("Y-m-d H:i:s", $expFormat);
@@ -20,7 +25,7 @@ if (isset($_POST['password-reset-token']) && $_POST['email']) {
         $sqli = "INSERT INTO `pwd_reset` (`reset_link_token`, `exp_date`, `reset_email`) VALUES ('$token', '$expDate', '$emailId');";
         $update = mysqli_query($conn, $sqli);
 
-        $link = "<a href='http://localhost/addiction/reset-password.php?key=" . $emailId . "&token=" . $token . "'>Click To Reset password</a>";
+        $link = "<a href='http://localhost/Aspire Recovery/addiction/reset-password.php?key=" . $emailId . "&token=" . $token . "'>Click To Reset password</a>";
 
         require '../includes/emailconfig.inc.php';
 
@@ -34,18 +39,16 @@ if (isset($_POST['password-reset-token']) && $_POST['email']) {
         if ($mail->send()) {
             $error = 0;
             echo '<script>window.location.href="../reset-password.php?error=' . $error . '"</script>';
-
         } else {
 
             $error = 1;
-            echo 'Mailer Error: ' . $mail->ErrorInfo;
+
             echo '<script>window.location.href="../reset-password.php?error=' . $error . '"</script>';
         }
-
     } else {
-        echo "Heo";
+
         $error = 2;
         echo '<script>window.location.href="../reset-password.php?error=' . $error . '"</script>';
-
     }
+} else {
 }

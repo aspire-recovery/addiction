@@ -56,16 +56,7 @@ class Appointment
 		return false;
 	}
 
-	function is_master_user()
-	{
-		if (isset($_SESSION['user_type'])) {
-			if ($_SESSION["user_type"] == 'Master') {
-				return true;
-			}
-			return false;
-		}
-		return false;
-	}
+	
 
 	function clean_input($string)
 	{

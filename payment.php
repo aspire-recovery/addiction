@@ -56,15 +56,15 @@ if (!empty($_POST["address"]) && !empty($_POST["city"]) && !empty($_POST["addres
 
 
     $response = json_decode($response);
-    echo "<pre";
+    echo "<pre>";
     print_r($response);
-    header('location:' . $response->payment_request->longurl);
+     header('location:' . $response->payment_request->longurl);
 } else {
 
     $error = true;
     $_SESSION['error'] = "All Field Cannot be Empty";
     echo '<script>
-    window.location.href = "product_category.php?error=true"
+    window.location.href = "pay.php?error=true"
     </script>';
 
     exit();

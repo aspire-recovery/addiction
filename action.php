@@ -7,13 +7,7 @@ include('psychatrist/class/Appointment.php');
 $object = new Appointment;
 
 if (isset($_POST["action"])) {
-    if ($_POST["action"] == 'check_login') {
-        if (isset($_SESSION['loggedin'])) {
-            echo 'dashboard.php';
-        } else {
-            echo 'login.php';
-        }
-    }
+   
     if (isset($_POST['id']))
         $id = $_POST['id'];
 

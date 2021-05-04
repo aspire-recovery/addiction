@@ -1,7 +1,9 @@
 <?php
-
-require 'phpmail/PHPMailerAutoload.php';
-
+if (strpos($_SERVER['SCRIPT_FILENAME'], 'password') !== false) {
+    require '../phpmail/PHPMailerAutoload.php';
+} else {
+    require 'phpmail/PHPMailerAutoload.php';
+}
 $mail = new PHPMailer;
 
 $headers = 'MIME-Version: 1.0' . "\r\n";
@@ -18,6 +20,3 @@ $mail->SMTPSecure = 'STARTTLS';       //Sets connection prefix. Options are "", 
 
 $mail->From = 'aspirerecovery173@gmail.com';   //Sets the From email address for the message
 $mail->FromName = 'Aspire Recovery';   //Sets the From name of the message
-
-
-?>
