@@ -14,7 +14,7 @@ session_start();
     <link href="//fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Template CSS -->
-    <link rel="stylesheet" href="psychatrist/assets/css/style-starter.css">
+    <!-- <link rel="stylesheet" href="psychatrist/assets/css/style-starter.css"> -->
     <link rel="stylesheet" href="assets/css/style-starter.css">
 </head>
 <body>

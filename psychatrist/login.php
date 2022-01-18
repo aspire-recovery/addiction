@@ -118,6 +118,7 @@ echo '<section class="w3l-contact-main">
 </html>
 
 <script src="assets/js/jquery-3.3.1.min.js"></script>
+<script src="../assets/js/theme-change.js"></script>
 <!-- disable body scroll which navbar is in active -->
 
 <!--//-->

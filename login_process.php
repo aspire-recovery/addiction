@@ -31,14 +31,11 @@ if (isset($_POST['submit'])) {
             $_SESSION['u_name'] = $u_name;
             $_SESSION['u_img'] = $u_img;
         }
-
-        echo '<script>window.location.href="index.php"</script>';
+        echo '<script>window.location.href="../index.php"</script>';
     } else {
-
         $error = true;
         $_SESSION['error'] = "Incorrect Credentials!";
-        echo '<script>window.location.href="login.php?error=true"</script>';
-
+        echo '<script>window.location.href="../login.php?error=true"</script>';
         exit();
     }
 }
