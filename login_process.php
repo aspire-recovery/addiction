@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
 
     $result = $conn->query($login_sql);
 
-    if ($result->num_rows > 0) {
+        if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
             $u_id = $row['u_id'];
             $u_email = $row['u_email'];
