@@ -53,14 +53,14 @@ session_start();
         <section class="w3l-breadcrumb py-5">
             <div class="container py-lg-5 py-md-3">
                 <center>
-                    <h3 style="color:black; margin-bottom: 20px">ARE YOU?</h3>
+                    <h3 style="color:black; margin-bottom: 20px">ARE YOU USER OR PSYCHIATRIST?</h3>
                     <div class="">
                         <a href="register.php">
                             <img alt="user icon" class="profile_icons" src="../addiction/assets/images/userp.svg"
                                 width="100" height="100">
                         </a>
                         <a href="psychatrist/register.php">
-                            <img style="margin-left: 20px" alt="psychaitrist icon" class="profile_icons"
+                            <img style="margin-left: 20px;" alt="psychaitrist icon" class="profile_icons"
                                 src="../addiction/assets/images/psychaitristp.svg" width="100" height="100">
                         </a>
                     </div>

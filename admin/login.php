@@ -45,10 +45,10 @@ if (isset($_SESSION['a_id'])) {
                     <form role="form" action="login_process.php" method="post">
                         <fieldset>
                             <div class="form-group">
-                                <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus="">
+                                <input class="form-control" placeholder="E-mail"  value="test@gmail.com" name="email" type="email" autofocus="">
                             </div>
                             <div class="form-group">
-                                <input class="form-control" placeholder="Password" name="password" type="password"
+                                <input class="form-control" placeholder="Password" value="12345678" name="password" type="password"
                                     value="">
                             </div>
                             <button type="submit" class="btn btn-primary ">Login</button>

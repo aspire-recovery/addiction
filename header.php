@@ -36,22 +36,46 @@ require 'includes/config.inc.php';
         margin-left: 15px;
         font-size: 6px;
     }
+    .cart-btn{
+        display: inline-block;
+    color: #394047;
+    height: 38px;
+    padding: 8px 15px;
+    margin:0 10px;
+    font-size: 16px;
+    border-radius: 0;
+    background-color: #e9ecee;
+    justify-content: center;
+    align-items: center;
+    display: -moz-inline-box;
+    display: -ms-inline-flexbox;
+    display: -webkit-inline-flex;
+    display: inline-flex;
+    }
+    nav ul li a:hover{
+        color: #394047 !important;
+    }
+    .cart-btn span{
+        margin-left: 4px;
+        margin-right: 4px;
+
+    }
     </style>
 </head>
 
 <body>
     <!--header-->
     <?php
-    if (!isset($_SESSION['u_id'])) {
+if (!isset($_SESSION['u_id'])) {
     ?>
     <header id="site-header" class="fixed-top">
         <div class="container">
             <nav class="navbar navbar-expand-lg stroke">
                 <h1><a class="navbar-brand mr-lg-5" href="<?php if (strpos($_SERVER['SCRIPT_FILENAME'], 'psychatrist') !== false) {
-                                                                    echo "../index.php";
-                                                                } else {
-                                                                    echo "index.php";
-                                                                } ?>">
+        echo "../index.php";
+    } else {
+        echo "index.php";
+    }?>">
                         <?php ?> Aspire</a></h1>
                 <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
                     data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
@@ -64,24 +88,24 @@ require 'includes/config.inc.php';
                     <ul class="navbar-nav w-100">
                         <li class="nav-item @@home__active">
                             <a class="nav-link" href="<?php if (strpos($_SERVER['SCRIPT_FILENAME'], 'psychatrist') !== false) {
-                                                                echo "../index.php";
-                                                            } else {
-                                                                echo "index.php";
-                                                            } ?>">Home <span class="sr-only">(current)</span></a>
+        echo "../index.php";
+    } else {
+        echo "index.php";
+    }?>">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item @@about__active">
                             <a class="nav-link" href="<?php if (strpos($_SERVER['SCRIPT_FILENAME'], 'psychatrist') !== false) {
-                                                                echo "../about.php";
-                                                            } else {
-                                                                echo "about.php";
-                                                            } ?>">About</a>
+        echo "../about.php";
+    } else {
+        echo "about.php";
+    }?>">About</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php if (strpos($_SERVER['SCRIPT_FILENAME'], 'psychatrist') !== false) {
-                                                                echo "../articles.php";
-                                                            } else {
-                                                                echo "articles.php";
-                                                            } ?>">Articles</a>
+        echo "../articles.php";
+    } else {
+        echo "articles.php";
+    }?>">Articles</a>
                         </li>
 
 
@@ -117,18 +141,17 @@ require 'includes/config.inc.php';
         </div>
     </header>
     <?php
-    } else {
-
+} else {
 
     ?>
     <header id="site-header" class="fixed-top">
         <div class="container">
             <nav class="navbar navbar-expand-lg stroke">
                 <h1><a class="navbar-brand mr-lg-5" href="<?php if (strpos($_SERVER['SCRIPT_FILENAME'], 'psychatrist') !== false) {
-                                                                    echo "../index.php";
-                                                                } else {
-                                                                    echo "index.php";
-                                                                } ?>">
+        echo "../index.php";
+    } else {
+        echo "index.php";
+    }?>">
                         Aspire </a></h1>
                 <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
                     data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
@@ -142,43 +165,43 @@ require 'includes/config.inc.php';
                     <ul class="navbar-nav w-100">
                         <li class="nav-item @@home__active">
                             <a class="nav-link" href="<?php if (strpos($_SERVER['SCRIPT_FILENAME'], 'psychatrist') !== false) {
-                                                                echo "../index.php";
-                                                            } else {
-                                                                echo "index.php";
-                                                            } ?>">Home <span class="sr-only">(current)</span></a>
+        echo "../index.php";
+    } else {
+        echo "index.php";
+    }?>">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="<?php if (strpos($_SERVER['SCRIPT_FILENAME'], 'psychatrist') !== false) {
-                                                                echo "../product.php";
-                                                            } else {
-                                                                echo "product.php";
-                                                            } ?>">Product</a>
+        echo "../product.php";
+    } else {
+        echo "product.php";
+    }?>">Product</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href=" <?php if (strpos($_SERVER['SCRIPT_FILENAME'], 'psychatrist') !== false) {
-                                                                echo "../forum/forum.php";
-                                                            } else {
-                                                                echo "forum/forum.php";
-                                                            } ?>">Forum</a>
+        echo "../forum/forum.php";
+    } else {
+        echo "forum/forum.php";
+    }?>">Forum</a>
                         </li>
                         <li class="nav-item @@about__active">
                             <a class="nav-link" href=" <?php if (strpos($_SERVER['SCRIPT_FILENAME'], 'psychatrist') !== false) {
-                                                                echo "../about.php";
-                                                            } else {
-                                                                echo "about.php";
-                                                            } ?>">About</a>
+        echo "../about.php";
+    } else {
+        echo "about.php";
+    }?>">About</a>
                         </li>
                         <li class="ml-lg-auto mr-lg-0 m-auto">
                         </li>
                         <li class="align-self">
 
                             <div class="header__user-btn" style="overflow: hidden;">
-                                <img style="height:40px; width: 40px; object-fit: cover;" src="<?php $u_img =  $_SESSION['u_img'];
-                                                                                                    if (strpos($u_img, 'fonts') !== false) {
-                                                                                                        echo "forum/" . $u_img;
-                                                                                                    } else {
-                                                                                                        echo $u_img;
-                                                                                                    } ?>"
+                                <img style="height:40px; width: 40px; object-fit: cover;" src="<?php $u_img = $_SESSION['u_img'];
+    if (strpos($u_img, 'fonts') !== false) {
+        echo "forum/" . $u_img;
+    } else {
+        echo $u_img;
+    }?>"
                                     onclick="location.href='profile.php'" class="" alt=" avatar">
 
                             </div>
@@ -187,10 +210,10 @@ require 'includes/config.inc.php';
                         <li class="align-self">
 
 
-                            <a href="cart.php" class="btn btn-style  " style="margin: 0 -25px 10px -15px;"><span
-                                    class="fa fa-shopping-cart"></span> CART</a>
+<a href="./cart.php" class="cart-btn"><span
+        class="fa fa-shopping-cart"></span> CART</a>
 
-                        </li>
+</li>
                     </ul>
                 </div>
                 <!-- toggle switch for light and dark theme -->
@@ -212,8 +235,8 @@ require 'includes/config.inc.php';
         </div>
     </header>
     <?php
-    }
-    ?>
+}
+?>
     <!-- //header -->
     <script src="assets/js/jquery-3.3.1.min.js"></script> <!-- Common jquery plugin -->
 
