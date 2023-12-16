@@ -9555,7 +9555,7 @@ a.text-dark:hover, a.text-dark:focus {
   --primary-color: #ff5200;
   --font-color: #696687;
   --bg-color: #fff;
-  --heading-color: #3B3663;
+  --heading-color: var(--font-color);
   --border-radius: 6px;
   --border-radius-full: 15px;
   --border-color: transparent;
@@ -9589,7 +9589,7 @@ html {
   margin: 0;
   padding: 0;
   background: var(--bg-lightgrey);
-  color: var(--font-color);
+  color: var(--font-color)  !important;
   font-family: 'DM Sans', sans-serif; }
 
 body a,
@@ -9637,7 +9637,7 @@ ul {
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
-  color: var(--heading-color);
+  color: var(var--font-color);
   font-family: 'DM Sans', sans-serif;
   letter-spacing: -.5px; }
 

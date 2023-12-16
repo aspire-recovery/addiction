@@ -28,13 +28,13 @@ if (!isset($_SESSION['ploggedin'])) {
     if (isset($_SESSION['loggedin'])) {
         echo '<script>window.location.href="index.php"</script>';
     } else {
-?>
+        ?>
 <!-- //header -->
 <div>
     <section class="w3l-breadcrumb py-5">
         <div class="container py-lg-5 py-md-3">
             <div style="text-align: center;">
-                <h3 style="margin-top: 50px" class="text-primary">ARE YOU?</h3>
+                <h3 style="margin-top: 50px" class="text-primary">CLICK TO LOGIN AS PSYCHIATRIST?</h3>
                 <div class="align-center">
                     <a href="psychatrist/login.php">
                         <img style="margin-right: 23.3px; align-content: center" alt="psychtrist icon"
@@ -64,9 +64,9 @@ if (!isset($_SESSION['ploggedin'])) {
 
                 <div class="col-lg-8">
                     <?php
-                    if (isset($_GET['success'])) {
+if (isset($_GET['success'])) {
 
-                        echo ' <h3 class="title-big" style=" margin-bottom:25px;">
+            echo ' <h3 class="title-big" style=" margin-bottom:25px;">
                                    Success!!!
                                    </h3>
                                    <br>
@@ -76,37 +76,37 @@ if (!isset($_SESSION['ploggedin'])) {
                                     Password Reset Sucessfully!
                                    </div>
                                  ';
-                    } 
-                    if (isset($_GET['login'])){
-                        echo ' <h3 class="title-big" style=" margin-bottom:25px;">
+        }
+        if (isset($_GET['login'])) {
+            echo ' <h3 class="title-big" style=" margin-bottom:25px;">
                             Forbidden!!!
                             </h3>
                             <br>
                             <br>
 
                             <div class="alert alert-primary">
-                            You Must be Logged in to use this Feature. 
+                            You Must be Logged in to use this Feature.
                             </div>';
 
-                    }
-                    ?>
+        }
+        ?>
                     <?php
 
-                    if (isset($_GET['error']) && isset($_SESSION['error'])) {
-                        echo ' <div class="alert alert-primary" style="">
+        if (isset($_GET['error']) && isset($_SESSION['error'])) {
+            echo ' <div class="alert alert-primary" style="">
           ' . $_SESSION['error'] . '
         </div>';
-                        unset($_SESSION['error']);
-                    }
+            unset($_SESSION['error']);
+        }
 
-                    ?>
-                    <form action="login_process.php" method="post" class="text-right" style="width: 70%">
+        ?>
+                    <form action="./src/auth/login_process.php" method="post" class="text-right" style="width: 70%">
                         <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
-                            <input type="email" name="email" id="" placeholder="Email" required="">
+                            <input type="email" name="email" id="" placeholder="Email" value="test@gmail.com" required="">
                         </div>
                         <br>
                         <div class="col-sm-9 col-md-6 col-lg-8 col-xl-10">
-                            <input type="password" name="password" id="" placeholder="Password" required="">
+                            <input type="password" name="password" id="" placeholder="Password" value="12345678" required="">
                         </div>
                         <button type="submit" class="btn btn-primary" name="submit"
                                 style="float: left;width: 30%;padding:  10px;margin-top: 10px;margin-left: 20px;">Login
@@ -129,7 +129,7 @@ if (!isset($_SESSION['ploggedin'])) {
 <?php
 }
 } else {
-echo '<section class="w3l-contact-main">
+    echo '<section class="w3l-contact-main">
 <div class="contact-infhny py-5">
     <div class="container py-lg-5">
         <div class="card bg-dark">

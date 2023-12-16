@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 29, 2021 at 08:12 AM
--- Server version: 10.4.18-MariaDB
--- PHP Version: 7.3.27
+-- Generation Time: Sep 16, 2022 at 02:24 PM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -59,8 +59,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`a_id`, `a_name`, `a_email`, `a_password`) VALUES
-(1, 'Alok Rathava', 'alokrathava@gmail.com', '21232f297a57a5a743894a0e4a801fc3'),
-(2, 'Dhruvit Salat', 'allinoneguruji3@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055');
+(1, 'Test Admin', 'test@gmail.com', '25d55ad283aa400af464c76d713c07ad');
 
 -- --------------------------------------------------------
 
@@ -119,13 +118,11 @@ INSERT INTO `doctor_schedule_table` (`doctor_schedule_id`, `doctor_id`, `doctor_
 (2, 1, '2021-02-19', 'Friday', '09:00', '14:00', 15, 'Active'),
 (3, 2, '2021-02-19', 'Friday', '09:00', '12:00', 15, 'Active'),
 (4, 5, '2021-02-19', 'Friday', '10:00', '14:00', 10, 'Active'),
-(5, 3, '2021-02-19', 'Friday', '13:00', '17:00', 20, 'Active'),
 (6, 4, '2021-02-19', 'Friday', '15:00', '18:00', 5, 'Active'),
 (7, 5, '2021-02-22', 'Monday', '18:00', '20:00', 10, 'Active'),
 (8, 2, '2021-02-24', 'Wednesday', '09:30', '12:30', 10, 'Active'),
 (9, 5, '2021-02-24', 'Wednesday', '11:00', '15:00', 10, 'Active'),
 (10, 1, '2021-02-24', 'Wednesday', '12:00', '15:00', 10, 'Active'),
-(11, 3, '2021-02-24', 'Wednesday', '14:00', '17:00', 15, 'Active'),
 (12, 4, '2021-02-24', 'Wednesday', '16:00', '20:00', 10, 'Active'),
 (13, 6, '2021-02-24', 'Wednesday', '15:30', '18:30', 10, 'Active'),
 (14, 6, '2021-02-25', 'Thursday', '10:00', '13:30', 10, 'Active'),
@@ -166,14 +163,6 @@ CREATE TABLE `forum_reply` (
   `message` varchar(100) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `forum_reply`
---
-
-INSERT INTO `forum_reply` (`reply_id`, `fu_id`, `u_id`, `message`, `created_at`) VALUES
-(1, 1, 2, '<p>;xbkdxm;k</p>', '2021-04-06 20:10:50'),
-(2, 17, 2, '<p>hdfh</p>\r\n<p>&nbsp;</p>\r\n<p>&nbsp;</p>', '2021-04-06 20:16:46');
 
 -- --------------------------------------------------------
 
@@ -229,7 +218,7 @@ CREATE TABLE `physcho` (
   `psy_qualification` varchar(255) NOT NULL,
   `psy_bio` text NOT NULL,
   `psy_gender` tinyint(1) NOT NULL,
-  `psy_password` varchar(100) NOT NULL,
+  `psy_password` varchar(100) CHARACTER SET utf8 NOT NULL,
   `psy_profile` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -238,9 +227,8 @@ CREATE TABLE `physcho` (
 --
 
 INSERT INTO `physcho` (`psy_id`, `psy_name`, `psy_contact`, `psy_email`, `psy_qualification`, `psy_bio`, `psy_gender`, `psy_password`, `psy_profile`) VALUES
-(1, 'Dhruvit', '999999', 'salat', 'Mental psychiatry', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,', 0, '\r\nk', ''),
 (2, 'Umang Kalavadia', '999999', 'salat', 'Drug psychiatry', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,', 1, '\r\nk', ''),
-(3, 'Ajay Rathod', 'salatd0852', 'salatd0852@gmail.com', 'Alchohol psychiatry', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,', 0, '81dc9bdb52d04dc20036dbd8313ed055', ''),
+(3, 'Test Account', '1234567890', 'test@gmail.com', 'Test Psychiatry', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,                                                                                                ', 0, '25d55ad283aa400af464c76d713c07ad', 'uploads/profile/63247885e107e8.80076098.png'),
 (4, 'Unknown Insaan', '6869', 'admin@tecdiary.com', 'sex psychiatry', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,', 0, '25d55ad283aa400af464c76d713c07ad', 'Uploads/Profile/606f23b46a2801.98521320.jpg'),
 (5, 'Mr. India', '', '', 'bachelor degree', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,', 0, 'd41d8cd98f00b204e9800998ecf8427e', '');
 
@@ -315,20 +303,6 @@ CREATE TABLE `threads` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `threads`
---
-
-INSERT INTO `threads` (`thread_id`, `thread_desc`, `thread_title`, `user_id`, `c_id`, `created_at`) VALUES
-(1, 'Welcome to Prey. A lot of this game is going to feel familiar ? you?ll see bits and pieces from a dozen well-loved games in its DNA. But that doesn?t mean you?re going to immediately understand how everything works. That?s what we?re here for. Let?s talk about some of the habits you?re going to have to pick up, concepts you?ll have to learn and choices you?re going to be making as you play.\r\n\r\n', 'Which movie have you watched most recently?\r\n', 2, 1, '2021-03-10 23:53:07'),
-(17, '<p>I,M her fan</p>', 'Taneshow fanart!', 2, 2, '2021-03-10 23:53:07'),
-(18, '<p>Enter Your Thread Here.</p>', 'jjjj', 2, 1, '2021-03-10 23:53:07'),
-(19, '<p>saueor</p>', 'Your world, your enemies (and ways to kill them) and yourself.', 2, 1, '2021-03-10 23:53:07'),
-(20, '<p>Enter Your Thread Here.</p>', 'Taneshow fanart!', 2, 1, '2021-03-10 23:53:07'),
-(21, '<p>Enter Your Thread Here.</p>', 'Taneshow fanart!', 2, 1, '2021-03-10 23:53:07'),
-(22, '<p>Enter Your Thread Here.#</p>', 'jjjj', 2, 1, '2021-03-10 23:53:07'),
-(23, '<p>Enter Your Thread Here.</p>', 'ghcjgh', 2, 2, '2021-04-03 18:47:31');
-
 -- --------------------------------------------------------
 
 --
@@ -366,8 +340,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`u_id`, `addiction_id`, `u_name`, `u_img`, `u_contact`, `u_email`, `u_status`, `u_gender`, `r_date`, `u_password`) VALUES
-(1, 0, 'Alok Rathava', '', 2147483647, 'alokrathava@gmail.com', 0, 'male', '2021-03-06 21:42:21', '21232f297a57a5a743894a0e4a801fc3'),
-(2, 1, 'Dhruvi', 'upload/profile/608a4c56028f76.32471793.jpg', 1234567, 'allinoneguruji3@gmail.com', 0, 'male', '2021-03-07 22:26:42', '81dc9bdb52d04dc20036dbd8313ed055');
+(2, 1, 'Test Account', 'upload/profile/6324713b4b2381.47320440.png', 1234567890, 'test@gmail.com', 0, 'male', '2021-03-07 22:26:42', '25d55ad283aa400af464c76d713c07ad');
 
 --
 -- Indexes for dumped tables

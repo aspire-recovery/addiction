@@ -34,7 +34,7 @@ if (!isset($_SESSION['loggedin'])) {
         <div class="container py-lg-5">
             <div class="title-content text-left mb-lg-5 mt-4">
                 <div style="text-align: center;">
-                    <h3 style="color:black; margin-bottom: 20px">ARE YOU?</h3>
+                    <h3 style="color:black; margin-bottom: 20px">CLICK TO LOGIN AS USER?</h3>
                     <div class="">
                         <a href="../login.php">
                             <img alt="user icon" class="profile_icons" src="assets/images/user.png" width="125px"
@@ -71,13 +71,13 @@ if (!isset($_SESSION['loggedin'])) {
                     ?>
                     <form action="login_process.php" method="post" class="signin-form">
                         <div class="form-input">
-                            <input type="email" name="mail" id="w3lSender"  placeholder="E-mail"
+                            <input type="email" name="mail" value="test@gmail.com" id="w3lSender"  placeholder="E-mail"
                                    required="">
                         </div>
 
                         <div class="form-group">
                           
-                            <input type="password" class="form-control" id="exampleInputPassword1"
+                            <input type="password" value="12345678" class="form-control" id="exampleInputPassword1"
                                    name="ppassword" placeholder="Password">
                         </div>
 
@@ -118,6 +118,7 @@ echo '<section class="w3l-contact-main">
 </html>
 
 <script src="assets/js/jquery-3.3.1.min.js"></script>
+<script src="../assets/js/theme-change.js"></script>
 <!-- disable body scroll which navbar is in active -->
 
 <!--//-->

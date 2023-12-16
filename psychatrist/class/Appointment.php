@@ -18,8 +18,6 @@ class Appointment
 
 		session_start();
 
-
-
 		$this->now = date("Y-m-d H:i:s",  STRTOTIME(date('h:i:sa')));
 	}
 

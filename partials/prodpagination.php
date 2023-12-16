@@ -88,7 +88,7 @@ if (isset($_SESSION['loggedin'])) {
         ';
 
 
-        if ($k == 9) {
+             if ($k == 9) {
         } else {
             $k++;
         }

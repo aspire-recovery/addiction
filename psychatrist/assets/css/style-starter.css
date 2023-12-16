@@ -73,7 +73,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
+  color: var(--font-color);
   text-align: left;
   background-color: #fff;
 }
@@ -14021,7 +14021,7 @@ a.text-dark:focus {
 
 :root {
   --para-color: #888;
-  --heading-color: #1c1c1d;
+  --heading-color: var(--font-color);
   --theme-light: #f6eedf;
   --theme-light: #efefef;
 }
@@ -14039,6 +14039,8 @@ body,
 html {
   margin: 0;
   padding: 0;
+  background: var(--bg-lightgrey);
+  color: var(--font-color)  !important;
   font-family: 'Poppins', sans-serif;
 }
 

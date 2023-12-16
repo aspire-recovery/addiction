@@ -1,6 +1,6 @@
 <?php
 // Imports
-require 'includes/config.inc.php';
+require '../../includes/config.inc.php';
 session_start();
 if ($_SERVER['REQUEST_METHOD'] != 'POST') {
     header("location: e404.php");
@@ -24,21 +24,18 @@ if (isset($_POST['submit'])) {
             $u_email = $row['u_email'];
             $u_name = $row['u_name'];
             $u_img = $row['u_img'];
-           
+
             $_SESSION['loggedin'] = true;
             $_SESSION['u_id'] = $u_id;
             $_SESSION['u_email'] = $u_email;
             $_SESSION['u_name'] = $u_name;
             $_SESSION['u_img'] = $u_img;
         }
-
-        echo '<script>window.location.href="index.php"</script>';
+        echo '<script>window.location.href="../../"</script>';
     } else {
-
         $error = true;
         $_SESSION['error'] = "Incorrect Credentials!";
-        echo '<script>window.location.href="login.php?error=true"</script>';
-
+        echo '<script>window.location.href="../../login.php?error=true"</script>';
         exit();
     }
 }
